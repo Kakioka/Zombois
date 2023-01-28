@@ -473,12 +473,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 723992883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce4b5d8ae7dfe240b86610a50006a54, type: 3}
+  m_Script: {fileID: 11500000, guid: 374a3b93fd3c7394ab44fec12952c423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1400022125}
   bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
-  bulletForce: 10
+  ammo: 6
+  maxAmmo: 6
+  isReload: 0
+  bulletForce: 20
+  reloadSpeed: 1
 --- !u!1 &1400022124
 GameObject:
   m_ObjectHideFlags: 0
