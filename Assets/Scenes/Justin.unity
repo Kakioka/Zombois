@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 723992887}
   - component: {fileID: 723992886}
   - component: {fileID: 723992888}
+  - component: {fileID: 723992889}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -483,6 +484,24 @@ MonoBehaviour:
   isReload: 0
   bulletForce: 20
   reloadSpeed: 1
+  fireRate: 1
+  fireDelay: 0
+--- !u!70 &723992889
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723992883}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.002249062, y: -0.017392606}
+  m_Size: {x: 0.32243508, y: 0.5617333}
+  m_Direction: 0
 --- !u!1 &1400022124
 GameObject:
   m_ObjectHideFlags: 0
