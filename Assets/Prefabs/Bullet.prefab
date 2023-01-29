@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2201232264264790162}
   - component: {fileID: 2201232264264790163}
   - component: {fileID: -5553266264118934938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0013639405, y: 0}
@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 278193819304500194, guid: 411131198cdda864ea6127482ddf0efc, type: 3}
+  damage: 0

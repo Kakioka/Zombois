@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Basic : MonoBehaviour
+public class Zoomer : MonoBehaviour
 {
-
     public GameObject player;
 
-    public float moveSpeed = 1f;
+    public float moveSpeed = 2f;
 
     public int damage = 1;
 
-    public int health = 10;
+    public int health = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +30,7 @@ public class Basic : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player") 
+        if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
         }
