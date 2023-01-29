@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public int health = 3;
+    
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
@@ -12,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
 
     public Camera cam;
+
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
        movement.y = Input.GetAxisRaw("Vertical");
 
        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (health <= 0) 
+        {
+            Debug.Log("dead");
+            isDead = true;
+        }
     }
 
     void FixedUpdate()

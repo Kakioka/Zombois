@@ -14,6 +14,7 @@ public class Revolver : MonoBehaviour
     public float reloadSpeed = 1f;
     public float fireRate = 0.5f;
     public bool fireDelay = false;
+    public int damage = 5;
 
     // Update is called once per frame
     private void Start()
@@ -64,6 +65,7 @@ public class Revolver : MonoBehaviour
     {
         fireDelay = true;
         GameObject bullet =  Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<Bullet>().damage = damage;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         ammo--;
