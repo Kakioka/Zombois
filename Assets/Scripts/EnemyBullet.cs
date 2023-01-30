@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject hitEffect;
     public int damage;
     public int pierce = 0;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy") 
+        if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
+            collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
         }
         if (pierce <= 0)
         {
@@ -21,7 +20,7 @@ public class Bullet : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(gameObject);
         }
-        else 
+        else
         {
             pierce--;
         }

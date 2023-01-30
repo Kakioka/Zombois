@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Revolver : MonoBehaviour
+public class Sniper : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPre;
-    public int ammo = 6;
-    public int maxAmmo = 6;
+    public int ammo = 5;
+    public int maxAmmo = 5;
     public bool isReload = false;
-    public float bulletForce = 20f;
-    public float reloadSpeed = 1f;
-    public float fireRate = 0.5f;
+    public float bulletForce = 25f;
+    public float reloadSpeed = 2f;
+    public float fireRate = 1f;
     public bool fireDelay = false;
-    public int damage = 5;
-    public int piecre = 0;
+    public int damage = 10;
+    public int piecre = 2;
 
     // Update is called once per frame
     private void Start()
@@ -22,7 +22,7 @@ public class Revolver : MonoBehaviour
         Debug.Log(ammo);
     }
 
-    IEnumerator Reloading() 
+    IEnumerator Reloading()
     {
         Debug.Log("reloading");
         yield return new WaitForSeconds(reloadSpeed);
@@ -32,7 +32,7 @@ public class Revolver : MonoBehaviour
         isReload = false;
     }
 
-    IEnumerator Shooting() 
+    IEnumerator Shooting()
     {
         yield return new WaitForSeconds(fireRate);
         fireDelay = false;
@@ -40,31 +40,32 @@ public class Revolver : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1"))
         {
             if (ammo != 0 && isReload == false && fireDelay == false)
             {
                 Shoot();
             }
-            else if(ammo == 0 && isReload == false) {
+            else if (ammo == 0 && isReload == false)
+            {
                 Reload();
             }
-            
+
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            if (isReload == false && ammo != maxAmmo) 
+            if (isReload == false && ammo != maxAmmo)
             {
                 Reload();
             }
         }
     }
 
-    void Shoot() 
+    void Shoot()
     {
         fireDelay = true;
-        GameObject bullet =  Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Bullet>().damage = damage;
         bullet.GetComponent<Bullet>().pierce = piecre;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -74,7 +75,7 @@ public class Revolver : MonoBehaviour
         StartCoroutine("Shooting");
     }
 
-    void Reload() 
+    void Reload()
     {
         isReload = true;
         StartCoroutine("Reloading");
