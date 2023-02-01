@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487707391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.17, y: 2.7, z: 0}
+  m_LocalPosition: {x: 2.17, y: 2.7, z: 1}
   m_LocalScale: {x: 12.63, y: 12.63, z: 12.63}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -484,7 +484,7 @@ MonoBehaviour:
   ammo: 6
   maxAmmo: 6
   isReload: 0
-  bulletForce: 20
+  bulletForce: 10
   reloadSpeed: 1
   fireRate: 1
   fireDelay: 0
@@ -663,7 +663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568119113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.35, y: -2.37, z: 0}
+  m_LocalPosition: {x: -2.35, y: -2.37, z: 1}
   m_LocalScale: {x: 12.63, y: 12.63, z: 12.63}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -803,6 +803,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 723992883}
+    - target: {fileID: 8039879459582361414, guid: ff61abbf47ed417479d8e8b4c5ffcfed, type: 3}
+      propertyPath: fireRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039879459582361414, guid: ff61abbf47ed417479d8e8b4c5ffcfed, type: 3}
+      propertyPath: bulletForce
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8039879459582361415, guid: ff61abbf47ed417479d8e8b4c5ffcfed, type: 3}
       propertyPath: m_Name
       value: Spitter

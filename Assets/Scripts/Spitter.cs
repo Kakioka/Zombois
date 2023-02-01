@@ -84,7 +84,7 @@ public class Spitter : MonoBehaviour
     {
         fireDelay = true;
         GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Bullet>().damage = damage;
+        bullet.GetComponent<EnemyBullet>().damage = damage;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         StartCoroutine("Shooting");

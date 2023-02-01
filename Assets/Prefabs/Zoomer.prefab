@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 758037289149234796}
   - component: {fileID: 758037289149234799}
   - component: {fileID: 758037289149234798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zoomer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &758037289149234799
 MonoBehaviour:
   m_ObjectHideFlags: 0
