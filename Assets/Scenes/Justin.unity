@@ -484,12 +484,13 @@ MonoBehaviour:
   ammo: 6
   maxAmmo: 6
   isReload: 0
-  bulletForce: 10
+  bulletForce: 5
   reloadSpeed: 1
   fireRate: 1
   fireDelay: 0
   damage: 5
   piecre: 0
+  knockBack: 1
 --- !u!70 &723992889
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
