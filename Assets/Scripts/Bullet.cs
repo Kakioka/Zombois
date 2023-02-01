@@ -8,22 +8,25 @@ public class Bullet : MonoBehaviour
     public GameObject hitEffect;
     public int damage;
     public int pierce = 0;
+    public float knockBack;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy") 
+        if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
-        }
-        if (pierce <= 0)
-        {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 1f);
-            Destroy(gameObject);
-        }
-        else 
-        {
-            pierce--;
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            rb.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
+            if (pierce <= 0)
+            {
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 1f);
+                Destroy(gameObject);
+            }
+            else
+            {
+                pierce--;
+            }
         }
     }
 }

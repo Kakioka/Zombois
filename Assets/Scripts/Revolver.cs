@@ -15,6 +15,7 @@ public class Revolver : MonoBehaviour
     public bool fireDelay = false;
     public int damage = 5;
     public int piecre = 0;
+    public float knockBack = 1;
 
     // Update is called once per frame
     private void Start()
@@ -67,6 +68,7 @@ public class Revolver : MonoBehaviour
         GameObject bullet =  Instantiate(bulletPre, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Bullet>().damage = damage;
         bullet.GetComponent<Bullet>().pierce = piecre;
+        bullet.GetComponent<Bullet>().knockBack = knockBack;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         ammo--;
