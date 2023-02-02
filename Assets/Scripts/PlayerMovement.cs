@@ -5,17 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public int health = 3;
-    
     public float moveSpeed = 5f;
-
     public Rigidbody2D rb;
-
     Vector2 movement;
     Vector2 mousePos;
-
     public Camera cam;
-
     public bool isDead = false;
+    public Animator ani;
 
     // Start is called before the first frame update
     void Start()
