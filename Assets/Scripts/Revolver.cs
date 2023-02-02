@@ -15,7 +15,7 @@ public class Revolver : MonoBehaviour
     public bool fireDelay = false;
     public int damage = 5;
     public int piecre = 0;
-    public float knockBack = 1;
+    public float knockBack = 5;
 
     // Update is called once per frame
     private void Start()
