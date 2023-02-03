@@ -9,13 +9,13 @@ public class Boomer : MonoBehaviour
     public int damage = 1;
     public int health = 10;
     public bool inRange = false;
-    public float timer;
+    public float timer = 0.5f;
     public GameObject explosion;
 
     private IEnumerator explode()
     {
         yield return new WaitForSeconds(timer);
-
+        gameObject.GetComponent<Enemy>().health = 0;
     }
 
     // Start is called before the first frame update
@@ -30,6 +30,14 @@ public class Boomer : MonoBehaviour
         if (transform.position != player.transform.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        }
+        if (inRange == true)
+        {
+            StartCoroutine(explode());
+        }
+        if (gameObject.GetComponent<Enemy>().health == 0)
+        {
+            GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
         }
 
     }
@@ -47,14 +55,6 @@ public class Boomer : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             inRange = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            inRange = false;
         }
     }
 }
