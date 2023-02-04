@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isDead = false;
     public Animator ani;
     public float invTimer = 1f;
+    public GameObject ring;
+    public bool isInv = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,41 +26,51 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator invincible()
     {
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        isInv = true;
         prevHealth = health;
         Debug.Log("inv");
         yield return new WaitForSeconds(invTimer);
         Debug.Log("not inv");
+        isInv = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-       movement.x = Input.GetAxisRaw("Horizontal");
-       movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
-       mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-       if (health <= 0) 
-       {
-           Debug.Log("dead");
-           isDead = true;
-       }
+        if (health <= 0)
+        {
+            Debug.Log("dead");
+            isDead = true;
+        }
 
-       if (health != prevHealth)
-       {
-           StartCoroutine(invincible());
-       }
+        if (health != prevHealth)
+        {
+            StartCoroutine(invincible());
+        }
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
         Vector2 lookDir = mousePos - rb.position;
-
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isInv == true)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+            }
+        }
     }
 }

@@ -6,21 +6,16 @@ using UnityEngine;
 public class Spitter : MonoBehaviour
 {
     public GameObject player;
-
     public float moveSpeed = 0.75f;
-
     public int damage = 1;
-
     public int health = 10;
-
     public Rigidbody2D rb;
-
-    public bool inRange;
     public Transform firePoint;
     public GameObject bulletPre;
     public float bulletForce = 20f;
     public float fireRate = 1f;
     public bool fireDelay = false;
+    public float maxDist;
 
     // Start is called before the first frame update
     void Start()
@@ -37,15 +32,16 @@ public class Spitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position != player.transform.position && inRange == false)
+        float dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        Debug.Log(dist);
+        if (transform.position != player.transform.position && dist > maxDist)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         }
-        else if (inRange == true && fireDelay == false) 
+        else if (dist <= maxDist && fireDelay == false) 
         {
             Shoot();
         }
-
     }
 
     void FixedUpdate()
@@ -61,22 +57,6 @@ public class Spitter : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            inRange = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            inRange = false;
         }
     }
 

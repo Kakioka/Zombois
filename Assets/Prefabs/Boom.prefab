@@ -116,4 +116,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   knockBack: 1
-  enemyDamage: 0
+  enemyDamage: 5
