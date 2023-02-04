@@ -15,6 +15,12 @@ public class Sniper : MonoBehaviour
     public bool fireDelay = false;
     public int damage = 10;
     public int piecre = 2;
+    public float knockBack = 7;
+    public Rigidbody2D rb;
+    Vector2 movement;
+    Vector2 mousePos;
+    public Camera cam;
+    public GameObject player;
 
     // Update is called once per frame
     private void Start()
@@ -40,6 +46,8 @@ public class Sniper : MonoBehaviour
 
     void Update()
     {
+        transform.position = player.transform.position;
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetButtonDown("Fire1"))
         {
             if (ammo != 0 && isReload == false && fireDelay == false)
@@ -62,12 +70,21 @@ public class Sniper : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
+    }
+
+
     void Shoot()
     {
         fireDelay = true;
         GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Bullet>().damage = damage;
         bullet.GetComponent<Bullet>().pierce = piecre;
+        bullet.GetComponent<Bullet>().knockBack = knockBack;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         ammo--;

@@ -16,6 +16,11 @@ public class Revolver : MonoBehaviour
     public int damage = 5;
     public int piecre = 0;
     public float knockBack = 5;
+    public Rigidbody2D rb;
+    Vector2 movement;
+    Vector2 mousePos;
+    public Camera cam;
+    public GameObject player;
 
     // Update is called once per frame
     private void Start()
@@ -41,6 +46,8 @@ public class Revolver : MonoBehaviour
 
     void Update()
     {
+        transform.position = player.transform.position;
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetButtonDown("Fire1")) 
         {
             if (ammo != 0 && isReload == false && fireDelay == false)
@@ -60,6 +67,13 @@ public class Revolver : MonoBehaviour
                 Reload();
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
     }
 
     void Shoot() 
