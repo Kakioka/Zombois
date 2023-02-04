@@ -15,15 +15,16 @@ public class Ring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Debug.Log("Touch");
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            //rb.AddForce(collision.transform.TransformDirection(Vector2.) * knockBack, ForceMode2D.Impulse);
+            rb.AddForce(collision.transform.position * knockBack, ForceMode2D.Impulse);
         }    
     }
 }

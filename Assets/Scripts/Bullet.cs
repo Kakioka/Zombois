@@ -28,5 +28,11 @@ public class Bullet : MonoBehaviour
                 pierce--;
             }
         }
+        else
+        {
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
+            Destroy(gameObject);
+        }
     }
 }
