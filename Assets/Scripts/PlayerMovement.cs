@@ -21,6 +21,12 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject health3;
+
+    public GameObject health2;
+    
+    public GameObject health1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +45,14 @@ public class PlayerMovement : MonoBehaviour
         if (health == 2)
         {
             ani.SetBool("IsHitOnce", true);
+            health3.SetActive(false);
+
         }
         if (health == 1)
         {
             ani.SetBool("IsHitOnce", false);
             ani.SetBool("IsHitTwice", true);
+            health2.SetActive(false);
         }
         else
         {
@@ -55,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("dead");
             isDead = true;
             player.SetActive(false);
+            health1.SetActive(false);
         }
     }
 
