@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sniper : MonoBehaviour
+public class Shotgun : MonoBehaviour
 {
     public Transform firePoint;
+    public Transform firePoint2;
     public GameObject bulletPre;
-    public int ammo = 5;
-    public int maxAmmo = 5;
+    public int ammo = 6;
+    public int maxAmmo = 6;
     public bool isReload = false;
-    public float bulletForce = 25f;
-    public float reloadSpeed = 2f;
-    public float fireRate = 1f;
+    public float bulletForce = 20f;
+    public float reloadSpeed = 1f;
+    public float fireRate = 0.5f;
     public bool fireDelay = false;
-    public int damage = 10;
-    public int piecre = 2;
-    public float knockBack = 7;
+    public int damage = 5;
+    public int piecre = 0;
+    public float knockBack = 5;
     public Rigidbody2D rb;
     Vector2 movement;
     Vector2 mousePos;
     public Camera cam;
     public GameObject player;
-    public bool shooting = false;
+    public bool shooting;
 
     // Update is called once per frame
     private void Start()
@@ -87,16 +88,21 @@ public class Sniper : MonoBehaviour
         rb.rotation = angle;
     }
 
-
     void Shoot()
     {
         fireDelay = true;
         GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+        GameObject bullet2 = Instantiate(bulletPre, firePoint2.position, firePoint2.rotation);
         bullet.GetComponent<Bullet>().damage = damage;
         bullet.GetComponent<Bullet>().pierce = piecre;
         bullet.GetComponent<Bullet>().knockBack = knockBack;
+        bullet2.GetComponent<Bullet>().damage = damage;
+        bullet2.GetComponent<Bullet>().pierce = piecre;
+        bullet2.GetComponent<Bullet>().knockBack = knockBack;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        rb2.AddForce(firePoint2.up * bulletForce, ForceMode2D.Impulse);
         ammo--;
         Debug.Log(ammo);
         StartCoroutine("Shooting");

@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sniper : MonoBehaviour
+public class MachineGun : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPre;
-    public int ammo = 5;
-    public int maxAmmo = 5;
+    public int ammo = 20;
+    public int maxAmmo = 20;
     public bool isReload = false;
-    public float bulletForce = 25f;
-    public float reloadSpeed = 2f;
-    public float fireRate = 1f;
+    public float bulletForce = 8f;
+    public float reloadSpeed = 1.5f;
+    public float fireRate = 0.1f;
     public bool fireDelay = false;
-    public int damage = 10;
-    public int piecre = 2;
-    public float knockBack = 7;
+    public int damage = 1;
+    public int piecre = 0;
+    public float knockBack = 2;
     public Rigidbody2D rb;
     Vector2 movement;
     Vector2 mousePos;
@@ -86,7 +86,6 @@ public class Sniper : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
-
 
     void Shoot()
     {

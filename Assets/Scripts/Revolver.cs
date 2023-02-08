@@ -21,6 +21,7 @@ public class Revolver : MonoBehaviour
     Vector2 mousePos;
     public Camera cam;
     public GameObject player;
+    public bool shooting = false;
 
     // Update is called once per frame
     private void Start()
@@ -48,21 +49,31 @@ public class Revolver : MonoBehaviour
     {
         transform.position = player.transform.position;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1"))
         {
-            if (ammo != 0 && isReload == false && fireDelay == false)
-            {
-                Shoot();
-            }
-            else if(ammo == 0 && isReload == false) {
-                Reload();
-            }
-            
+            shooting = true;
+        }   
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            shooting = false;
         }
 
         if (Input.GetKeyDown(KeyCode.R)) 
         {
             if (isReload == false && ammo != maxAmmo) 
+            {
+                Reload();
+            }
+        }
+
+        if (shooting)
+        {
+            if (ammo != 0 && isReload == false && fireDelay == false)
+            {
+                Shoot();
+            }
+            else if (ammo == 0 && isReload == false)
             {
                 Reload();
             }
