@@ -19,24 +19,42 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator ani;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
-     ani.SetBool("Dead", true);   
+        ani = GetComponent<Animator>();
+        ani.SetBool("Dead", true);   
     }
 
     // Update is called once per frame
     void Update()
     {
-       movement.x = Input.GetAxisRaw("Horizontal");
-       movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
-       mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (health <= 0) 
+        if (health == 2)
+        {
+            ani.SetBool("IsHitOnce", true);
+        }
+        if (health == 1)
+        {
+            ani.SetBool("IsHitOnce", false);
+            ani.SetBool("IsHitTwice", true);
+        }
+        else
+        {
+            ani.SetBool("IsHitTwice", false);
+        }
+
+        if (health <= 0)
         {
             Debug.Log("dead");
             isDead = true;
+            player.SetActive(false);
         }
     }
 
