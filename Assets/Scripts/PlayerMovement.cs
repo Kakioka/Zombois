@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         prevHealth = health;
+        ring.SetActive(false);
     }
 
     private IEnumerator invincible()
@@ -29,7 +30,9 @@ public class PlayerMovement : MonoBehaviour
         isInv = true;
         prevHealth = health;
         Debug.Log("inv");
+        ring.SetActive(true);
         yield return new WaitForSeconds(invTimer);
+        ring.SetActive(false);
         Debug.Log("not inv");
         isInv = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;

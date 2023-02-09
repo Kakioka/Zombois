@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 487707394}
   - component: {fileID: 487707393}
   - component: {fileID: 487707392}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,6 +573,11 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 8514121530946603365, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
   m_PrefabInstance: {fileID: 203873433177711182}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1412546571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8514121530946603363, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+  m_PrefabInstance: {fileID: 203873433177711182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1568119113
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +590,7 @@ GameObject:
   - component: {fileID: 1568119116}
   - component: {fileID: 1568119115}
   - component: {fileID: 1568119114}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Box (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,13 +770,17 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 121928721}
+    - target: {fileID: 8514121530740298775, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+      propertyPath: ring
+      value: 
+      objectReference: {fileID: 1412546571}
     - target: {fileID: 8514121530946603363, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8514121530946603363, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8514121530946603365, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: m_Radius

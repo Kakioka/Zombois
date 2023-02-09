@@ -7,6 +7,8 @@ public class Shoot1 : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPre;
     public Rigidbody2D rb;
+
+
     void Start()
     {
         
@@ -15,6 +17,6 @@ public class Shoot1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

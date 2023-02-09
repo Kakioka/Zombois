@@ -10,7 +10,7 @@ public class Shotgun : MonoBehaviour
     public int ammo = 6;
     public int maxAmmo = 6;
     public bool isReload = false;
-    public float bulletForce = 20f;
+    public float bulletForce = 7f;
     public float reloadSpeed = 1f;
     public float fireRate = 0.5f;
     public bool fireDelay = false;
@@ -106,6 +106,11 @@ public class Shotgun : MonoBehaviour
         ammo--;
         Debug.Log(ammo);
         StartCoroutine("Shooting");
+    }
+
+    void bullet()
+    {
+
     }
 
     void Reload()
