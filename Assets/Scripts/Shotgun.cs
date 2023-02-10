@@ -23,6 +23,7 @@ public class Shotgun : MonoBehaviour
     public Camera cam;
     public GameObject player;
     public bool shooting;
+    public int projectile;
 
     // Update is called once per frame
     private void Start()
@@ -106,11 +107,6 @@ public class Shotgun : MonoBehaviour
         ammo--;
         Debug.Log(ammo);
         StartCoroutine("Shooting");
-    }
-
-    void bullet()
-    {
-
     }
 
     void Reload()
