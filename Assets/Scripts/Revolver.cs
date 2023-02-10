@@ -73,6 +73,10 @@ public class Revolver : MonoBehaviour
         {
             bullet1.SetActive(false);
         }
+        else if (isReload == false)
+        {
+            bullet1.SetActive(true);
+        }
 
         if (Input.GetButtonDown("Fire1")) 
         {
@@ -82,12 +86,6 @@ public class Revolver : MonoBehaviour
             }
             else if(ammo == 0 && isReload == false) {
                 Reload();
-                bullet6.SetActive(true);
-                bullet5.SetActive(true);
-                bullet4.SetActive(true);
-                bullet3.SetActive(true);
-                bullet2.SetActive(true);
-                bullet1.SetActive(true);
             }
             
         }
@@ -97,12 +95,6 @@ public class Revolver : MonoBehaviour
             if (isReload == false && ammo != maxAmmo) 
             {
                 Reload();
-                bullet6.SetActive(true);
-                bullet5.SetActive(true);
-                bullet4.SetActive(true);
-                bullet3.SetActive(true);
-                bullet2.SetActive(true);
-                bullet1.SetActive(true);
             }
         }
     }
@@ -124,6 +116,12 @@ public class Revolver : MonoBehaviour
     void Reload() 
     {
         isReload = true;
+        bullet6.SetActive(true);
+        bullet5.SetActive(true);
+        bullet4.SetActive(true);
+        bullet3.SetActive(true);
+        bullet2.SetActive(true);
+        bullet1.SetActive(true);
         StartCoroutine("Reloading");
     }
 }
