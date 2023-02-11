@@ -17,12 +17,15 @@ public class PlayerMovement : MonoBehaviour
     public GameObject ring;
     public bool isInv = false;
     public int bank = 0;
+    public float pickUpRadius;
+    public CircleCollider2D pickUp;
 
     // Start is called before the first frame update
     void Start()
     {
         prevHealth = health;
         ring.SetActive(false);
+        pickUp.radius = pickUpRadius;
     }
 
     private IEnumerator invincible()

@@ -23,6 +23,7 @@ public class Shotgun : MonoBehaviour
     public GameObject player;
     public bool shooting = false;
     public int projectiles = 4;
+    public float bulletSize;
 
     // Update is called once per frame
     private void Start()
@@ -222,6 +223,7 @@ public class Shotgun : MonoBehaviour
         obj.GetComponent<Bullet>().damage = damage;
         obj.GetComponent<Bullet>().pierce = piecre;
         obj.GetComponent<Bullet>().knockBack = knockBack;
+        obj.GetComponent<Bullet>().scale = bulletSize;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
     }

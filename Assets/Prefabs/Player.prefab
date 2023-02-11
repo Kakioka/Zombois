@@ -160,6 +160,8 @@ MonoBehaviour:
   ring: {fileID: 8514121530946603363}
   isInv: 0
   bank: 0
+  pickUpRadius: 1.1
+  pickUp: {fileID: 615078914}
 --- !u!50 &8514121530740298774
 Rigidbody2D:
   serializedVersion: 4
