@@ -23,12 +23,11 @@ public class Revolver : MonoBehaviour
     public GameObject player;
     public bool shooting = false;
     public int projectiles;
-    //public Shoot p;
-
+    
     // Update is called once per frame
     private void Start()
     {
-        Debug.Log(ammo);
+
     }
 
     IEnumerator Reloading() 
@@ -110,27 +109,56 @@ public class Revolver : MonoBehaviour
         {
             case 1:
                 GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
-                bullet.GetComponent<Bullet>().damage = damage;
-                bullet.GetComponent<Bullet>().pierce = piecre;
-                bullet.GetComponent<Bullet>().knockBack = knockBack;
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+                helperSpawn(bullet);
                 break;
 
             case 2:
-                Transform spawn1 = firePoint;
-                Transform spawn2 = firePoint;
-                spawn1.Rotate(40f, 0f, 0f, Space.Self);
-                spawn2.Rotate(-40f, 0f, 0f, Space.Self);
-                bullet = Instantiate(bulletPre, firePoint.position, spawn1.rotation);
-                bullet = Instantiate(bulletPre, firePoint.position, spawn2.rotation);
-                bullet.GetComponent<Bullet>().damage = damage;
-                bullet.GetComponent<Bullet>().pierce = piecre;
-                bullet.GetComponent<Bullet>().knockBack = knockBack;
-                rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+                firePoint.Rotate(0f, 0f, 5f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -10f);
+                GameObject bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                firePoint.Rotate(0f, 0f, 5f);
+                break;
+
+            case 3:
+                firePoint.Rotate(0f, 0f, 5f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -10f);
+                bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 5f);
+                GameObject bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                helperSpawn(bullet3);
+                break;
+
+            case 4:
+                firePoint.Rotate(0f, 0f, -2f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -4f);
+                bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 8f);
+                bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 4f);
+                GameObject bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -6f);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                helperSpawn(bullet3);
+                helperSpawn(bullet4);
                 break;
         }
 
+    }
+
+    void helperSpawn(GameObject obj) 
+    {
+        obj.GetComponent<Bullet>().damage = damage;
+        obj.GetComponent<Bullet>().pierce = piecre;
+        obj.GetComponent<Bullet>().knockBack = knockBack;
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
     }
 }

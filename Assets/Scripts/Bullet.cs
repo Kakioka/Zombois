@@ -10,6 +10,11 @@ public class Bullet : MonoBehaviour
     public int pierce = 0;
     public float knockBack;
 
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
