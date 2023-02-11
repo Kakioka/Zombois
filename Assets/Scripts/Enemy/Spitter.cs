@@ -33,7 +33,6 @@ public class Spitter : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        Debug.Log(dist);
         if (transform.position != player.transform.position && dist > maxDist)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);

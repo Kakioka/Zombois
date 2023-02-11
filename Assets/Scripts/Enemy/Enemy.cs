@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0) 
         {
-            GameObject coin = Instantiate(coinPref, gameObject.transform);
+            GameObject coin = Instantiate(coinPref, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

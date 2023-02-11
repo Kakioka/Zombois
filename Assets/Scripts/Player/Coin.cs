@@ -20,27 +20,21 @@ public class Coin : MonoBehaviour
     {
         if (pickedUp) 
         {
-            move();
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PickUp") 
-        {
-            pickedUp = true;
-        }
-
         if (collision.gameObject.tag == "Player") 
         {
             player.GetComponent<PlayerMovement>().bank += value;
             Debug.Log(player.GetComponent<PlayerMovement>().bank);
             Destroy(gameObject);
         }
-    }
-
-    void move()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        if (collision.gameObject.tag == "PickUp")
+        {
+            pickedUp = true;
+            player = collision.gameObject;
+        }
     }
 }
