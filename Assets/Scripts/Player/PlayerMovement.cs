@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float invTimer = 1f;
     public GameObject ring;
     public bool isInv = false;
+    public int bank = 0;
 
     // Start is called before the first frame update
     void Start()

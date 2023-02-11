@@ -8,6 +8,11 @@ public class EnemyBullet : MonoBehaviour
     public int damage;
     public int pierce = 0;
 
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
