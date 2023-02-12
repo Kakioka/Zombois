@@ -30,5 +30,9 @@ public class Bomb : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
         }
+        if (collision.gameObject.tag == "Sister")
+        {
+            collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
+        }
     }
 }

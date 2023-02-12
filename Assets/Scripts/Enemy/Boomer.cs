@@ -48,6 +48,10 @@ public class Boomer : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
         }
+        if (collision.gameObject.tag == "Sister")
+        {
+            collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
