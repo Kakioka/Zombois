@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zoomer : MonoBehaviour
+public class Basic : MonoBehaviour
 {
+
     public GameObject player;
 
-    public float moveSpeed = 2f;
+    public float moveSpeed = 1f;
 
     public int damage = 1;
 
-    public int health = 1;
+    public int health = 10;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = this.gameObject.GetComponent<Enemy>().player;
         gameObject.GetComponent<Enemy>().health = health;
     }
 
@@ -30,9 +32,13 @@ public class Zoomer : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player") 
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
+        }
+        if (collision.gameObject.tag == "Sister")
+        {
+            collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
         }
     }
 }

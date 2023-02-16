@@ -2,25 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boomer : MonoBehaviour
+public class Zoomer : MonoBehaviour
 {
     public GameObject player;
-    public float moveSpeed = 1f;
+
+    public float moveSpeed = 2f;
+
     public int damage = 1;
-    public int health = 10;
-    public bool inRange = false;
-    public float timer;
-    public GameObject explosion;
 
-    private IEnumerator explode()
-    {
-        yield return new WaitForSeconds(timer);
-
-    }
+    public int health = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = this.gameObject.GetComponent<Enemy>().player;
         gameObject.GetComponent<Enemy>().health = health;
     }
 
@@ -40,21 +35,9 @@ public class Boomer : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Sister")
         {
-            inRange = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            inRange = false;
+            collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
         }
     }
 }

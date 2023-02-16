@@ -9,6 +9,13 @@ public class Bullet : MonoBehaviour
     public int damage;
     public int pierce = 0;
     public float knockBack;
+    public float scale;
+
+    private void Start()
+    {
+        gameObject.transform.localScale += new Vector3(scale,scale,scale);
+        Destroy(gameObject, 5f);
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,6 +34,12 @@ public class Bullet : MonoBehaviour
             {
                 pierce--;
             }
+        }
+        else
+        {
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
+            Destroy(gameObject);
         }
     }
 }
