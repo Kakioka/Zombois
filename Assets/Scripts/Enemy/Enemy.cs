@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
+    public GameObject coinPref;
+    public GameObject player; 
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,8 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0) 
         {
+            GameObject coin = Instantiate(coinPref, transform.position, Quaternion.identity);
+            coin.GetComponent<Coin>().player = player;
             Destroy(gameObject);
         }
     }

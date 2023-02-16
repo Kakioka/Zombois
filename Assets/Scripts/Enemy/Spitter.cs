@@ -6,25 +6,21 @@ using UnityEngine;
 public class Spitter : MonoBehaviour
 {
     public GameObject player;
-
     public float moveSpeed = 0.75f;
-
     public int damage = 1;
-
     public int health = 10;
-
     public Rigidbody2D rb;
-
-    public bool inRange;
     public Transform firePoint;
     public GameObject bulletPre;
     public float bulletForce = 20f;
     public float fireRate = 1f;
     public bool fireDelay = false;
+    public float maxDist;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = this.gameObject.GetComponent<Enemy>().player;
         gameObject.GetComponent<Enemy>().health = health;
     }
 
@@ -37,15 +33,15 @@ public class Spitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position != player.transform.position && inRange == false)
+        float dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        if (transform.position != player.transform.position && dist > maxDist)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         }
-        else if (inRange == true && fireDelay == false) 
+        else if (dist <= maxDist && fireDelay == false) 
         {
             Shoot();
         }
-
     }
 
     void FixedUpdate()
@@ -62,21 +58,9 @@ public class Spitter : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Sister")
         {
-            inRange = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            inRange = false;
+            collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
         }
     }
 
@@ -84,7 +68,7 @@ public class Spitter : MonoBehaviour
     {
         fireDelay = true;
         GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Bullet>().damage = damage;
+        bullet.GetComponent<EnemyBullet>().damage = damage;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         StartCoroutine("Shooting");
