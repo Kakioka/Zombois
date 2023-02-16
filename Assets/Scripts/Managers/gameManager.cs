@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -29,12 +29,12 @@ public class gameManager : MonoBehaviour
     //player upgrades
     public int moveUp;
     public int rangeUp;
-    public int playerH;
+    public int playerH = 3;
 
     //sister
     public GameObject sisPre;
     public GameObject sis;
-    public int sisH;
+    public int sisH = 3;
 
     //weapon upgrades
     public int projectileUp;
@@ -51,7 +51,7 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Object.DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -59,19 +59,23 @@ public class gameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            spawnLevel(levelNum);
         }
     }
 
     void levelStart()
-    {
+    {   
         player = Instantiate(playerPref, playerPref.transform.position, Quaternion.identity);
         player.GetComponent<PlayerMovement>().bank = bank;
         player.GetComponent<PlayerMovement>().health = playerH;
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
         sis.GetComponent<Sister>().health = sisH;
         spawnWep(wepNum);
-        spawnLevel(levelNum);
     }
 
     void levelEnd()
@@ -88,40 +92,61 @@ public class gameManager : MonoBehaviour
         {
             case 1:
                 gun = Instantiate(rev, player.transform.position, player.transform.rotation);
+                gun.GetComponent<Revolver>().player = player;
+                gun.GetComponent<Revolver>().cam = player.GetComponent<PlayerMovement>().cam;
                 break;
 
             case 2:
                 gun = Instantiate(shotG, player.transform.position, player.transform.rotation);
+                gun.GetComponent<Shotgun>().player = player;
                 break;
 
             case 3:
                 gun = Instantiate(machineG, player.transform.position, player.transform.rotation);
+                gun.GetComponent<MachineGun>().player = player;
                 break;
 
             case 4:
                 gun = Instantiate(snipe, player.transform.position, player.transform.rotation);
+                gun.GetComponent<Sniper>().player = player;
                 break;
         }
     }
 
-    void spawnLevel(int num)
+    void spawnLevel(int level)
     {
-        switch (num)
+        switch (level)
         {
             case 1:
+                SceneManager.LoadScene("Stage1");
                 break;
+
             case 2:
                 break;
+
             case 3:
                 break;
+
             case 4:
                 break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += levelLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= levelLoaded;
+    }
+
+    void levelLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Stage1")
+        {
+            levelStart();
         }
     }
 }

@@ -55,10 +55,10 @@ MonoBehaviour:
   gun: {fileID: 0}
   moveUp: 0
   rangeUp: 0
-  playerH: 0
-  sisPre: {fileID: 0}
+  playerH: 3
+  sisPre: {fileID: 8741561835794063889, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}
   sis: {fileID: 0}
-  sisH: 0
+  sisH: 3
   projectileUp: 0
   damageUp: 0
   pierceUp: 0
