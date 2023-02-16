@@ -15,6 +15,7 @@ public class Zoomer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = this.gameObject.GetComponent<Enemy>().player;
         gameObject.GetComponent<Enemy>().health = health;
     }
 

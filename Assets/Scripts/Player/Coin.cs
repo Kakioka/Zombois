@@ -34,7 +34,6 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "PickUp")
         {
             pickedUp = true;
-            player = collision.gameObject;
         }
     }
 }

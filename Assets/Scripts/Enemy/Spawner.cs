@@ -66,19 +66,19 @@ public class Spawner : MonoBehaviour
         {
             case 1:
                 GameObject b =  Instantiate(basic, transform.position, Quaternion.identity);
-                b.GetComponent<Basic>().player = player;
+                b.GetComponent<Enemy>().player = player;
                 break;
             case 2:
                 GameObject s = Instantiate(spitter, transform.position, Quaternion.identity);
-                s.GetComponent<Spitter>().player = player;
+                s.GetComponent<Enemy>().player = player;
                 break;
             case 3:
                 GameObject z = Instantiate(zoomer, transform.position, Quaternion.identity);
-                z.GetComponent<Zoomer>().player = player;
+                z.GetComponent<Enemy>().player = player;
                 break;
             case 4:
                 GameObject bo = Instantiate(boomer, transform.position, Quaternion.identity);
-                bo.GetComponent<Boomer>().player = player;
+                bo.GetComponent<Enemy>().player = player;
                 break;
         }
     }

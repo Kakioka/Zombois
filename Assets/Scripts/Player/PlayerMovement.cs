@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("dead");
             isDead = true;
         }
 
