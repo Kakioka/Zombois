@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
@@ -12,10 +11,8 @@ public class Spawner : MonoBehaviour
     public GameObject zoomer;
     public float random;
     public float time;
-    public bool randomize = false;
     public bool coolDown = false;
     public int num = 1;
-    public bool spawnNums = true;
     public float radius = 1;
 
     // Start is called before the first frame update

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class stage1Manager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class stage1Manager : MonoBehaviour
     public GameObject player;
     public GameObject spawner;
     public GameObject levelDone;
+    public int enemyLeft;
+    public TextMeshProUGUI enemyLeftText;
+
+    private int tempCurr;
 
 
     private IEnumerator end()
@@ -21,14 +26,21 @@ public class stage1Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currSpawns = maxSpawns;
+        enemyLeft = maxSpawns;
         spawner.GetComponent<Spawner>().player = player;
+        enemyLeftText.text = enemyLeft.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (currSpawns < tempCurr)
+        {
+            tempCurr--;
+            enemyLeft--;
+            enemyLeftText.text = enemyLeft.ToString();
+        }
         if (currSpawns == 0 && maxSpawns == 0)
         {
             StartCoroutine(end());
@@ -40,7 +52,8 @@ public class stage1Manager : MonoBehaviour
         else if (spawner.GetComponent<Spawner>().coolDown == false)
         {
             maxSpawns--;
-            StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom(1, 4));
+            tempCurr++;
+            StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom(1, 5));
         }
     }
 
