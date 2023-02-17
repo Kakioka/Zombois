@@ -9,6 +9,14 @@ public class stage1Manager : MonoBehaviour
     public GameObject gameM;
     public GameObject player;
     public GameObject spawner;
+    public GameObject levelDone;
+
+
+    private IEnumerator end()
+    {
+        yield return new WaitForSeconds(3f);
+        levelDone.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +28,24 @@ public class stage1Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currSpawns == 0)
+        currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (currSpawns == 0 && maxSpawns == 0)
+        {
+            StartCoroutine(end());
+        }
+        else if (maxSpawns == 0)
         {
             spawner.SetActive(false);
-
         }
-        else if(spawner.GetComponent<Spawner>().coolDown == false)
+        else if (spawner.GetComponent<Spawner>().coolDown == false)
         {
-            currSpawns--;
+            maxSpawns--;
             StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom(1, 4));
         }
+    }
+
+    public void next()
+    {
+        gameM.GetComponent<gameManager>().levelEnd();
     }
 }

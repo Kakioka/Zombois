@@ -83,12 +83,13 @@ public class gameManager : MonoBehaviour
         spawnWep(wepNum);
     }
 
-    void levelEnd()
+    public void levelEnd()
     {
         bank = player.GetComponent<PlayerMovement>().bank;
         playerH = player.GetComponent<PlayerMovement>().health;
         sisH = sis.GetComponent<Sister>().health;
         levelNum++;
+        spawnLevel(8);
     }
 
     void spawnWep(int num)
@@ -133,6 +134,19 @@ public class gameManager : MonoBehaviour
                 break;
 
             case 4:
+                break;
+
+            case 5:
+                break;
+
+            case 6:
+                break;
+
+            case 7:
+                break;
+
+            case 8:
+                SceneManager.LoadScene("UpgradeShop");
                 break;
         }
     }
