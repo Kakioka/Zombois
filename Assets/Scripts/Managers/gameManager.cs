@@ -48,6 +48,11 @@ public class gameManager : MonoBehaviour
     //level count
     public int levelNum = 1;
 
+    //stageManagerPrefabs
+
+    public GameObject s1MP;
+    public GameObject s1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -147,6 +152,9 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage1")
         {
             levelStart();
+            s1 = Instantiate(s1MP);
+            s1.GetComponent<stage1Manager>().gameM = this.gameObject;
+            s1.GetComponent<stage1Manager>().player = player;
         }
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &764512717288120629
+--- !u!1 &1468025485690917258
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 764512717288120628}
-  - component: {fileID: 764512717288120619}
+  - component: {fileID: 1468025485690917260}
+  - component: {fileID: 1468025485690917259}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: stage1Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &764512717288120628
+--- !u!4 &1468025485690917260
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764512717288120629}
+  m_GameObject: {fileID: 1468025485690917258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.79, y: -0.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &764512717288120619
+--- !u!114 &1468025485690917259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764512717288120629}
+  m_GameObject: {fileID: 1468025485690917258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e991994445cb9e34d82aafe841a2f113, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e03b0deed6f841c5bee228534adaa7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpawns: 0
+  currSpawns: 0
+  gameM: {fileID: 0}
   player: {fileID: 0}
-  basic: {fileID: 6767434612970430742, guid: b76b8dd613b3b234ca745072a8def304, type: 3}
-  spitter: {fileID: 8039879459582361415, guid: ff61abbf47ed417479d8e8b4c5ffcfed, type: 3}
-  boomer: {fileID: 6211457537093139744, guid: c66364beb08ff8d4cb0c56cc2f2e11d9, type: 3}
-  zoomer: {fileID: 758037289149234769, guid: 93f998cfc0d02454fb5f42112ea14a71, type: 3}
-  random: 0
-  time: 3
-  randomize: 0
-  coolDown: 0
-  num: 1
-  spawnNums: 1
-  radius: 10
-  spawerM: {fileID: 0}
+  spawnerP: {fileID: 764512717288120629, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}

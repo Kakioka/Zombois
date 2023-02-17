@@ -12,10 +12,12 @@ public class Spawner : MonoBehaviour
     public GameObject zoomer;
     public float random;
     public float time;
-    public bool randomize;
-    public bool coolDown;
-    public int num;
-    public bool spawnNums;
+    public bool randomize = false;
+    public bool coolDown = false;
+    public int num = 1;
+    public bool spawnNums = true;
+    public float radius = 1;
+    public GameObject spawerM;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +67,7 @@ public class Spawner : MonoBehaviour
         switch (num) 
         {
             case 1:
-                GameObject b =  Instantiate(basic, transform.position, Quaternion.identity);
+                GameObject b =  Instantiate(basic, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
                 b.GetComponent<Enemy>().player = player;
                 break;
             case 2:
@@ -81,5 +83,10 @@ public class Spawner : MonoBehaviour
                 bo.GetComponent<Enemy>().player = player;
                 break;
         }
+    }
+
+    public void randomLocation()
+    {
+        GameObject b = Instantiate(basic, Random.insideUnitCircle.normalized * radius, Quaternion.identity); 
     }
 }
