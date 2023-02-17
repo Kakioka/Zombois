@@ -8,15 +8,13 @@ public class stage1Manager : MonoBehaviour
     public int currSpawns;
     public GameObject gameM;
     public GameObject player;
-    public GameObject spawnerP;
     public GameObject spawner;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawner = Instantiate(spawnerP);
+        currSpawns = maxSpawns;
         spawner.GetComponent<Spawner>().player = player;
-        spawner.GetComponent<Spawner>().spawerM = this.gameObject;
     }
 
     // Update is called once per frame
@@ -25,6 +23,12 @@ public class stage1Manager : MonoBehaviour
         if (currSpawns == 0)
         {
             spawner.SetActive(false);
+
+        }
+        else if(spawner.GetComponent<Spawner>().coolDown == false)
+        {
+            currSpawns--;
+            StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom(1, 4));
         }
     }
 }

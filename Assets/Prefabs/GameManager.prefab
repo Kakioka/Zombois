@@ -67,3 +67,5 @@ MonoBehaviour:
   fireUp: 0
   reloadUp: 0
   levelNum: 1
+  stage1ManagerPre: {fileID: 1468025485690917258, guid: 73163090803d345c9855adeb6b6dc2c5, type: 3}
+  currManager: {fileID: 0}
