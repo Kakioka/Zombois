@@ -49,9 +49,14 @@ public class gameManager : MonoBehaviour
     public int levelNum = 1;
 
     //stageManagerPrefabs
-
     public GameObject stage1ManagerPre;
+    public GameObject upgradeShopManagerPre;
     public GameObject currManager;
+
+    public bool revO = true;
+    public bool shotgunO = false;
+    public bool sniperO = false;
+    public bool machinegunO = false;
 
     // Start is called before the first frame update
     void Start()
@@ -105,21 +110,24 @@ public class gameManager : MonoBehaviour
             case 2:
                 gun = Instantiate(shotG, player.transform.position, player.transform.rotation);
                 gun.GetComponent<Shotgun>().player = player;
+                gun.GetComponent<Shotgun>().cam = player.GetComponent<PlayerMovement>().cam;
                 break;
 
             case 3:
                 gun = Instantiate(machineG, player.transform.position, player.transform.rotation);
                 gun.GetComponent<MachineGun>().player = player;
+                gun.GetComponent<MachineGun>().cam = player.GetComponent<PlayerMovement>().cam;
                 break;
 
             case 4:
                 gun = Instantiate(snipe, player.transform.position, player.transform.rotation);
                 gun.GetComponent<Sniper>().player = player;
+                gun.GetComponent<Sniper>().cam = player.GetComponent<PlayerMovement>().cam;
                 break;
         }
     }
 
-    void spawnLevel(int level)
+    public void spawnLevel(int level)
     {
         switch (level)
         {
@@ -169,6 +177,12 @@ public class gameManager : MonoBehaviour
             currManager = Instantiate(stage1ManagerPre);
             currManager.GetComponent<stage1Manager>().gameM = this.gameObject;
             currManager.GetComponent<stage1Manager>().player = player;
+        }
+
+        if (scene.name == "UpgradeShop")
+        {
+            currManager = Instantiate(upgradeShopManagerPre);
+            currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
         }
     }
 }

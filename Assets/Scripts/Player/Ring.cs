@@ -23,7 +23,6 @@ public class Ring : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Touch");
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             rb.AddForce(collision.transform.position - player.transform.position * knockBack, ForceMode2D.Impulse);
         }    

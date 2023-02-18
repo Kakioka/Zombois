@@ -11,10 +11,12 @@ public class Boomer : MonoBehaviour
     public bool inRange = false;
     public float timer = 0.5f;
     public GameObject explosion;
+    public float maxDist;
 
     private IEnumerator explode()
     {
         yield return new WaitForSeconds(timer);
+        GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
         gameObject.GetComponent<Enemy>().health = 0;
     }
 
@@ -28,6 +30,11 @@ public class Boomer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.GetComponent<Enemy>().health == 0)
+        {
+            GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
+        }
+        float dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
         if (transform.position != player.transform.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
@@ -36,9 +43,9 @@ public class Boomer : MonoBehaviour
         {
             StartCoroutine(explode());
         }
-        if (gameObject.GetComponent<Enemy>().health == 0)
+        if (dist <= maxDist)
         {
-            GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
+            inRange = true;
         }
 
     }
@@ -52,14 +59,6 @@ public class Boomer : MonoBehaviour
         if (collision.gameObject.tag == "Sister")
         {
             collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            inRange = true;
         }
     }
 }

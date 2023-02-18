@@ -31,6 +31,7 @@ public class Spawner : MonoBehaviour
     {
         coolDown = true;
         random = Random.Range(lower, upper);
+        Debug.Log(random);
         helperSpawn(random);
         yield return new WaitForSeconds(time);
         coolDown = false;

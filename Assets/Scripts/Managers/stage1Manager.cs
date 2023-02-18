@@ -53,7 +53,7 @@ public class stage1Manager : MonoBehaviour
         {
             maxSpawns--;
             tempCurr++;
-            StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom(1, 5));
+            StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom(1,5));
         }
     }
 

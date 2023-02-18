@@ -721,5 +721,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7be8758985c346988f3a6defc7d1203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBack: 2
+  knockBack: 1.5
   player: {fileID: 8514121530740298771}

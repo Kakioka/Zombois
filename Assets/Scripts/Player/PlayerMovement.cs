@@ -35,11 +35,9 @@ public class PlayerMovement : MonoBehaviour
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         isInv = true;
         prevHealth = health;
-        Debug.Log("inv");
         ring.SetActive(true);
         yield return new WaitForSeconds(invTimer);
         ring.SetActive(false);
-        Debug.Log("not inv");
         isInv = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }

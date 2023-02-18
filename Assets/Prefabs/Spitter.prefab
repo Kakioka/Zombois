@@ -142,7 +142,7 @@ MonoBehaviour:
   bulletForce: 3
   fireRate: 2
   fireDelay: 0
-  maxDist: 5
+  maxDist: 4.5
 --- !u!114 &8039879459582361417
 MonoBehaviour:
   m_ObjectHideFlags: 0

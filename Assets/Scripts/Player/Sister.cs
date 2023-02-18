@@ -36,9 +36,7 @@ public class Sister : MonoBehaviour
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         isInv = true;
         prevHealth = health;
-        Debug.Log("inv");
         yield return new WaitForSeconds(invTimer);
-        Debug.Log("not inv");
         isInv = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }

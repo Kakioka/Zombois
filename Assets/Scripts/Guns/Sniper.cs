@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Sniper : MonoBehaviour
@@ -24,6 +25,7 @@ public class Sniper : MonoBehaviour
     public bool shooting = false;
     public int projectiles;
     public float bulletSize;
+    public TextMeshProUGUI text;
 
     // Update is called once per frame
     private void Start()
@@ -49,6 +51,7 @@ public class Sniper : MonoBehaviour
 
     void Update()
     {
+        text.text = ammo.ToString();
         transform.position = player.transform.position;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetButtonDown("Fire1"))
