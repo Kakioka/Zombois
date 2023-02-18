@@ -6,6 +6,7 @@ using TMPro;
 public class upgradeShopManager : MonoBehaviour
 {
     public GameObject gameManager;
+
     public TextMeshProUGUI shotgun;
     public TextMeshProUGUI revolver;
     public TextMeshProUGUI machineGun;
@@ -16,11 +17,18 @@ public class upgradeShopManager : MonoBehaviour
     public int sniperPrice;
     public int machineGunPrice;
 
+    public TextMeshProUGUI shotgunP;
+    public TextMeshProUGUI machineGunP;
+    public TextMeshProUGUI sniperP;
+
     public int bank;
 
     // Start is called before the first frame update
     void Start()
     {
+        shotgunP.text = shotgunPrice.ToString();
+        machineGunP.text = machineGunPrice.ToString();
+        sniperP.text = sniperPrice.ToString();
         bank = gameManager.GetComponent<gameManager>().bank;
     }
 
