@@ -315,5 +315,11 @@ public class gameManager : MonoBehaviour
         }
     }
 
-
+    void playerDeath() 
+    {
+        if (player.GetComponent<PlayerMovement>().health <= 0 || sis.GetComponent<Sister>().health <= 0) 
+        {
+            Time.timeScale = 0;
+        }
+    }
 }
