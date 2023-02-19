@@ -41,6 +41,7 @@ public class gameManager : MonoBehaviour
     public int damageUp;
     public int pierceUp;
     public int sizeUp;
+    public int knockUp;
     public int speedUp;
     public int fireUp;
     public int reloadUp;
@@ -57,6 +58,10 @@ public class gameManager : MonoBehaviour
     public bool shotgunO = false;
     public bool sniperO = false;
     public bool machinegunO = false;
+
+    public float damageMultiI;
+    public float damageMultiII;
+    public float damageMultiIII;
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +91,7 @@ public class gameManager : MonoBehaviour
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
         sis.GetComponent<Sister>().health = sisH;
         spawnWep(wepNum);
+        wepUpgrade();
     }
 
     public void levelEnd()
@@ -103,26 +109,149 @@ public class gameManager : MonoBehaviour
         {
             case 1:
                 gun = Instantiate(rev, player.transform.position, player.transform.rotation);
-                gun.GetComponent<Revolver>().player = player;
-                gun.GetComponent<Revolver>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().player = player;
+                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
                 break;
 
             case 2:
                 gun = Instantiate(shotG, player.transform.position, player.transform.rotation);
-                gun.GetComponent<Shotgun>().player = player;
-                gun.GetComponent<Shotgun>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().player = player;
+                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
                 break;
 
             case 3:
                 gun = Instantiate(machineG, player.transform.position, player.transform.rotation);
-                gun.GetComponent<MachineGun>().player = player;
-                gun.GetComponent<MachineGun>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().player = player;
+                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
                 break;
 
             case 4:
                 gun = Instantiate(snipe, player.transform.position, player.transform.rotation);
-                gun.GetComponent<Sniper>().player = player;
-                gun.GetComponent<Sniper>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().player = player;
+                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
+                break;
+        }
+    }
+
+    void wepUpgrade() 
+    {
+        switch (damageUp) 
+        {
+            case 1:
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.1f);
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.2f);
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.3f);
+                break;
+        }
+
+        switch (speedUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * 1.1f;
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * 1.2f;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * 1.3f;
+                break;
+        }
+
+        switch (reloadUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * 0.8f;
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * 0.7f;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * 0.6f;
+                break;
+        }
+
+        switch (fireUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * 0.9f;
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * 0.8f;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * 0.7f;
+                break;
+        }
+
+        switch (projectileUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().projectiles += 1;
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().projectiles += 2;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().projectiles += 3;
+                break;
+        }
+
+        switch (pierceUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().piecre += 1;
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().piecre += 2;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().piecre += 3;
+                break;
+        }
+
+        switch (sizeUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().bulletSize += 0.25f;
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().bulletSize += 0.5f;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().bulletSize += 0.75f;
+                break;
+        }
+
+        switch (knockUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().knockBack += 1;
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().knockBack += 2;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().knockBack += 3;
                 break;
         }
     }
@@ -185,4 +314,6 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
         }
     }
+
+
 }

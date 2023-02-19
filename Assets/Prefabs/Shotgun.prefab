@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 4229727540086970749}
   - component: {fileID: 4229727540086970747}
   - component: {fileID: 4229727540086970746}
-  - component: {fileID: 4229727540086970741}
+  - component: {fileID: 8008769246755760856}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -242,7 +242,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4229727540086970741
+--- !u!114 &8008769246755760856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4229727540086970750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3918ce976c4234d8fb394885c1b85e43, type: 3}
+  m_Script: {fileID: 11500000, guid: 25cb787c98815504a85d1241aa8c9854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4229727540021111658}
@@ -272,7 +272,7 @@ MonoBehaviour:
   shooting: 0
   projectiles: 4
   bulletSize: 0
-  text: {fileID: 0}
+  text: {fileID: 7590742956109831622}
 --- !u!1 &4641631761683578731
 GameObject:
   m_ObjectHideFlags: 0

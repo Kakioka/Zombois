@@ -384,8 +384,8 @@ GameObject:
   m_Component:
   - component: {fileID: 816795137638649303}
   - component: {fileID: 816795137638649297}
-  - component: {fileID: 816795137638649302}
   - component: {fileID: 816795137638649296}
+  - component: {fileID: 1800193195471310934}
   m_Layer: 0
   m_Name: Revolver
   m_TagString: Untagged
@@ -462,37 +462,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &816795137638649302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816795137638649300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 374a3b93fd3c7394ab44fec12952c423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 114602871010719490}
-  bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
-  ammo: 6
-  maxAmmo: 6
-  isReload: 0
-  bulletForce: 7
-  reloadSpeed: 1
-  fireRate: 0.75
-  fireDelay: 0
-  damage: 5
-  piecre: 0
-  knockBack: 5
-  rb: {fileID: 816795137638649296}
-  cam: {fileID: 0}
-  player: {fileID: 0}
-  shooting: 0
-  projectiles: 1
-  bulletSize: 0
-  text: {fileID: 1524673656}
 --- !u!50 &816795137638649296
 Rigidbody2D:
   serializedVersion: 4
@@ -514,6 +483,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1800193195471310934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816795137638649300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cb787c98815504a85d1241aa8c9854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 114602871010719490}
+  bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
+  ammo: 6
+  maxAmmo: 6
+  isReload: 0
+  bulletForce: 7
+  reloadSpeed: 1
+  fireRate: 0.75
+  fireDelay: 0
+  damage: 5
+  piecre: 0
+  knockBack: 5
+  rb: {fileID: 816795137638649296}
+  cam: {fileID: 0}
+  player: {fileID: 0}
+  shooting: 0
+  projectiles: 1
+  bulletSize: 0
+  text: {fileID: 1524673656}
 --- !u!1 &6481643930231755870
 GameObject:
   m_ObjectHideFlags: 0

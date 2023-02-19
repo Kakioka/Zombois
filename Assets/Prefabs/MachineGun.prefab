@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 8252517987037821160}
   - component: {fileID: 8252517987037821161}
   - component: {fileID: 8252517987037821162}
-  - component: {fileID: 8252517987037821163}
+  - component: {fileID: 518697862318952363}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -483,7 +483,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8252517987037821163
+--- !u!114 &518697862318952363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8252517987037821156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68884d82bde75433aacfcabf5397f03e, type: 3}
+  m_Script: {fileID: 11500000, guid: 25cb787c98815504a85d1241aa8c9854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8252517988091119175}
