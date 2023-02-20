@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Xml.Serialization;
 
 public class upgradeShopManager : MonoBehaviour
 {
@@ -79,6 +78,20 @@ public class upgradeShopManager : MonoBehaviour
 
     public int bank;
 
+    public int pickUpI;
+    public int pickUpII;
+    public int pickUpIII;
+
+    public int moveSpeedI;
+    public int moveSpeedII;
+    public int moveSpeedIII;
+
+    public TextMeshProUGUI pickUpText;
+    public TextMeshProUGUI moveSpeedText;
+
+    public GameObject pickUpButton;
+    public GameObject moveSpeedButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +106,106 @@ public class upgradeShopManager : MonoBehaviour
         wepButtons();
         wepUpgrades();
         hpVal();
+        playerText();
+    }
+
+    public void rangeButton() 
+    {
+        switch (gameManager.GetComponent<gameManager>().rangeUp)
+        {
+            case 0:
+                if (bank >= pickUpI)
+                {
+                    gameManager.GetComponent<gameManager>().rangeUp = 1;
+                    bank -= pickUpI;
+                }
+                break;
+            case 1:
+                if (bank >= pickUpII)
+                {
+                    gameManager.GetComponent<gameManager>().rangeUp = 2;
+                    bank -= pickUpII;
+                }
+                break;
+            case 2:
+                if (bank >= pickUpIII)
+                {
+                    gameManager.GetComponent<gameManager>().rangeUp = 3;
+                    bank -= pickUpIII;
+                }
+                break;
+        }
+    }
+
+    public void playerSpeedButton() 
+    {
+        switch (gameManager.GetComponent<gameManager>().moveUp)
+        {
+            case 0:
+                if (bank >= moveSpeedI)
+                {
+                    gameManager.GetComponent<gameManager>().moveUp = 1;
+                    bank -= moveSpeedI;
+                }
+                break;
+            case 1:
+                if (bank >= moveSpeedII)
+                {
+                    gameManager.GetComponent<gameManager>().moveUp = 2;
+                    bank -= moveSpeedII;
+                }
+                break;
+            case 2:
+                if (bank >= moveSpeedIII)
+                {
+                    gameManager.GetComponent<gameManager>().moveUp = 3;
+                    bank -= moveSpeedIII;
+                }
+                break;
+        }
+    }
+
+    void playerText() 
+    {
+        switch (gameManager.GetComponent<gameManager>().moveUp) 
+        {
+            case 0:
+                moveSpeedText.text = "Move Speed Level I";
+                moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedI;
+                break;
+            case 1:
+                moveSpeedText.text = "Move Speed Level II";
+                moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedII;
+                break;
+            case 2:
+                moveSpeedText.text = "Move Speed Level III";
+                moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedIII;
+                break;
+            case 3:
+                moveSpeedText.text = "Move Speed Level Maxed";
+                moveSpeedButton.SetActive(false);
+                break;
+        }
+
+        switch (gameManager.GetComponent<gameManager>().rangeUp)
+        {
+            case 0:
+                pickUpText.text = "Pick Up Range Level I";
+                pickUpButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + pickUpI;
+                break;
+            case 1:
+                pickUpText.text = "Pick Up Range Level II";
+                pickUpButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + pickUpII;
+                break;
+            case 2:
+                pickUpText.text = "Pick Up Range Level III";
+                pickUpButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + pickUpIII;
+                break;
+            case 3:
+                pickUpText.text = "Pick Up Range Maxed";
+                pickUpButton.SetActive(false);
+                break;
+        }
     }
 
     public void sisButton() 
@@ -565,17 +678,17 @@ public class upgradeShopManager : MonoBehaviour
                 }
                 break;
             case 1:
-                if (bank >= speedI)
+                if (bank >= speedII)
                 {
                     gameManager.GetComponent<gameManager>().speedUp = 2;
-                    bank -= speedI;
+                    bank -= speedII;
                 }
                 break;
             case 2:
-                if (bank >= speedI)
+                if (bank >= speedIII)
                 {
                     gameManager.GetComponent<gameManager>().speedUp = 3;
-                    bank -= speedI;
+                    bank -= speedIII;
                 }
                 break;
         }

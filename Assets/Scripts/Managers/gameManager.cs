@@ -84,14 +84,48 @@ public class gameManager : MonoBehaviour
     }
 
     void levelStart()
-    {   
-        player = Instantiate(playerPref, playerPref.transform.position, Quaternion.identity);
-        player.GetComponent<PlayerMovement>().bank = bank;
-        player.GetComponent<PlayerMovement>().health = playerH;
+    {
+        spawnPlayer();
+        playerUpgrade();
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
         sis.GetComponent<Sister>().health = sisH;
         spawnWep(wepNum);
         wepUpgrade();
+    }
+
+    void spawnPlayer() 
+    {
+        player = Instantiate(playerPref, playerPref.transform.position, Quaternion.identity);
+        player.GetComponent<PlayerMovement>().bank = bank;
+        player.GetComponent<PlayerMovement>().health = playerH;
+    }
+
+    void playerUpgrade() 
+    {
+        switch (moveUp) 
+        {
+            case 1:
+                player.GetComponent<PlayerMovement>().moveSpeed += 0.5f;
+                break;
+            case 2:
+                player.GetComponent<PlayerMovement>().moveSpeed += 1f;
+                break;
+            case 3:
+                player.GetComponent<PlayerMovement>().moveSpeed += 1.5f;
+                break;
+        }
+
+        switch (rangeUp) 
+        {
+            case 1:
+                break;
+            case 2:
+                GameObject.FindGameObjectWithTag("PickUp").GetComponent<CircleCollider2D>().radius += 0.4f;
+                break;
+            case 3:
+                GameObject.FindGameObjectWithTag("PickUp").GetComponent<CircleCollider2D>().radius += 0.6f;
+                break;
+        }
     }
 
     public void levelEnd()
