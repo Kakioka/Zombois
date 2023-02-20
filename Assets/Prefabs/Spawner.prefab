@@ -50,8 +50,10 @@ MonoBehaviour:
   boomer: {fileID: 6211457537093139744, guid: c66364beb08ff8d4cb0c56cc2f2e11d9, type: 3}
   zoomer: {fileID: 758037289149234769, guid: 93f998cfc0d02454fb5f42112ea14a71, type: 3}
   random: 0
-  time: 1
-  randomize: 1
+  time: 3
+  randomize: 0
   coolDown: 0
-  num: 0
-  spawnNums: 0
+  num: 1
+  spawnNums: 1
+  radius: 10
+  spawerM: {fileID: 0}

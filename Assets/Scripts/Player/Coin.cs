@@ -28,7 +28,6 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "Player") 
         {
             player.GetComponent<PlayerMovement>().bank += value;
-            Debug.Log(player.GetComponent<PlayerMovement>().bank);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "PickUp")

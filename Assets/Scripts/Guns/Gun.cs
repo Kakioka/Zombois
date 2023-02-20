@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Shotgun : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPre;
-    public int ammo = 2;
-    public int maxAmmo = 2;
+    public int ammo;
+    public int maxAmmo;
     public bool isReload = false;
-    public float bulletForce = 5f;
-    public float reloadSpeed = 1f;
-    public float fireRate = 0.5f;
+    public float bulletForce;
+    public float reloadSpeed;
+    public float fireRate;
     public bool fireDelay = false;
-    public int damage = 2;
-    public int piecre = 0;
-    public float knockBack = 6;
+    public int damage;
+    public int piecre;
+    public float knockBack;
     public Rigidbody2D rb;
     Vector2 movement;
     Vector2 mousePos;
     public Camera cam;
     public GameObject player;
     public bool shooting = false;
-    public int projectiles = 4;
+    public int projectiles;
     public float bulletSize;
     public TextMeshProUGUI text;
 
     // Update is called once per frame
     private void Start()
     {
-        Debug.Log(ammo);
+
     }
 
     IEnumerator Reloading()
@@ -155,7 +155,7 @@ public class Shotgun : MonoBehaviour
                 break;
 
             case 5:
-                GameObject  bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                GameObject bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 firePoint.Rotate(0f, 0f, -3f);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 firePoint.Rotate(0f, 0f, -4f);
@@ -193,7 +193,7 @@ public class Shotgun : MonoBehaviour
                 helperSpawn(bullet5);
                 helperSpawn(bullet6);
                 break;
-            
+
             case 7:
                 bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 firePoint.Rotate(0f, 0f, -3f);

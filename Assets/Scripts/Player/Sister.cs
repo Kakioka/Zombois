@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Net.NetworkInformation;
 using UnityEngine;
+using TMPro;
 
 public class Sister : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class Sister : MonoBehaviour
     public bool isInv = false;
     public float invTimer = 1f;
     public int prevHealth;
+    public TextMeshProUGUI sisHealthText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class Sister : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sisHealthText.text = health.ToString();
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -35,9 +36,7 @@ public class Sister : MonoBehaviour
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         isInv = true;
         prevHealth = health;
-        Debug.Log("inv");
         yield return new WaitForSeconds(invTimer);
-        Debug.Log("not inv");
         isInv = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }

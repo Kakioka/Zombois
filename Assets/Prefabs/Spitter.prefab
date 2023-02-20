@@ -139,10 +139,10 @@ MonoBehaviour:
   rb: {fileID: 8039879459582361416}
   firePoint: {fileID: 8039879459331072205}
   bulletPre: {fileID: 2201232264264790160, guid: fc6cf3ccc08c1f341b9c1c6d50e36d43, type: 3}
-  bulletForce: 5
+  bulletForce: 3
   fireRate: 2
   fireDelay: 0
-  maxDist: 5
+  maxDist: 4.5
 --- !u!114 &8039879459582361417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   coinPref: {fileID: 9205036790924861423, guid: 67daf60d5194b7547aebdece35cbedd6, type: 3}
+  player: {fileID: 0}
 --- !u!70 &8039879459582361419
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
