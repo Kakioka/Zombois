@@ -17,14 +17,6 @@ public class Revolver : MonoBehaviour
     public int piecre = 0;
     public float knockBack = 5;
 
-    public GameObject bullet6;
-    public GameObject bullet5;
-    public GameObject bullet4;
-    public GameObject bullet3;
-    public GameObject bullet2;
-    public GameObject bullet1;
-
-
     // Update is called once per frame
     private void Start()
     {
@@ -49,34 +41,6 @@ public class Revolver : MonoBehaviour
 
     void Update()
     {
-        if (ammo == 5)
-        {
-            bullet6.SetActive(false);
-        }
-        if (ammo == 4)
-        {
-            bullet5.SetActive(false);
-        }
-        if (ammo == 3)
-        {
-            bullet4.SetActive(false);
-        }
-        if (ammo == 2)
-        {
-            bullet3.SetActive(false);
-        }
-        if (ammo == 1)
-        {
-            bullet2.SetActive(false);
-        }
-        if (ammo == 0)
-        {
-            bullet1.SetActive(false);
-        }
-        else if (isReload == false)
-        {
-            bullet1.SetActive(true);
-        }
 
         if (Input.GetButtonDown("Fire1")) 
         {
@@ -116,12 +80,6 @@ public class Revolver : MonoBehaviour
     void Reload() 
     {
         isReload = true;
-        bullet6.SetActive(true);
-        bullet5.SetActive(true);
-        bullet4.SetActive(true);
-        bullet3.SetActive(true);
-        bullet2.SetActive(true);
-        bullet1.SetActive(true);
         StartCoroutine("Reloading");
     }
 }
