@@ -23,7 +23,7 @@ public class Sister : MonoBehaviour
         sisHealthText.text = health.ToString();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         if (health != prevHealth)
         {

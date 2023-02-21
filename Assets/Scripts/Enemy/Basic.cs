@@ -19,6 +19,7 @@ public class Basic : MonoBehaviour
     void Start()
     {
         player = this.gameObject.GetComponent<Enemy>().player;
+        sister = this.gameObject.GetComponent<Enemy>().sister;
         gameObject.GetComponent<Enemy>().health = health;
     }
 
@@ -26,16 +27,18 @@ public class Basic : MonoBehaviour
     void Update()
     {
         float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        float distS = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        if (distP < distS)
+        float distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
+        if (transform.position != player.transform.position || transform.position != sister.transform.position) 
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            if (distP < distS)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            }
+            else if (distP >= distS)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, moveSpeed * Time.deltaTime);
+            }
         }
-        else 
-        {
-            transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, moveSpeed * Time.deltaTime);
-        }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)

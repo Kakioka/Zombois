@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class Spitter : MonoBehaviour
 {
     public GameObject player;
+    public GameObject sister;
     public float moveSpeed = 0.75f;
     public int damage = 1;
     public int health = 10;
@@ -16,11 +18,15 @@ public class Spitter : MonoBehaviour
     public float fireRate = 1f;
     public bool fireDelay = false;
     public float maxDist;
+    private Vector2 targetPos;
+    private float distP;
+    private float distS;
 
     // Start is called before the first frame update
     void Start()
     {
         player = this.gameObject.GetComponent<Enemy>().player;
+        sister = this.gameObject.GetComponent<Enemy>().sister;
         gameObject.GetComponent<Enemy>().health = health;
     }
 
@@ -33,21 +39,40 @@ public class Spitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        if (transform.position != player.transform.position && dist > maxDist)
+        distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
+        if (transform.position != player.transform.position || transform.position != sister.transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            if (distP < distS && distP > maxDist)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            }
+            else if (distP >= distS && distS > maxDist)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, moveSpeed * Time.deltaTime);
+            }        
+            else if (distP <= maxDist || distS <= maxDist) 
+            {
+                if (fireDelay == false) 
+                {
+                    Shoot();
+                }
+            }
         }
-        else if (dist <= maxDist && fireDelay == false) 
-        {
-            Shoot();
-        }
+
     }
 
     void FixedUpdate()
     {
-        Vector2 playerPos = player.transform.position;
-        Vector2 lookDir =playerPos - rb.position;
+        if (distP < distS)
+        {
+            targetPos = player.transform.position;
+        }
+        else if (distP >= distS)
+        {
+            targetPos = sister.transform.position;
+        }
+        Vector2 lookDir = targetPos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }

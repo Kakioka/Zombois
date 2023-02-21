@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject player;
+    public GameObject sister;
     public GameObject basic;
     public GameObject spitter;
     public GameObject boomer;
@@ -52,18 +53,22 @@ public class Spawner : MonoBehaviour
             case 1:
                 GameObject b =  Instantiate(basic, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
                 b.GetComponent<Enemy>().player = player;
+                b.GetComponent<Enemy>().sister = sister;
                 break;
             case 2:
                 GameObject s = Instantiate(spitter, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
                 s.GetComponent<Enemy>().player = player;
+                s.GetComponent<Enemy>().sister = sister;
                 break;
             case 3:
                 GameObject z = Instantiate(zoomer, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
                 z.GetComponent<Enemy>().player = player;
+                z.GetComponent<Enemy>().sister = sister;
                 break;
             case 4:
                 GameObject bo = Instantiate(boomer, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
                 bo.GetComponent<Enemy>().player = player;
+                bo.GetComponent<Enemy>().sister = sister;
                 break;
         }
     }

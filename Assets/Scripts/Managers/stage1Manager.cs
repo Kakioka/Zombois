@@ -9,6 +9,7 @@ public class stage1Manager : MonoBehaviour
     public int currSpawns;
     public GameObject gameM;
     public GameObject player;
+    public GameObject sister;
     public GameObject spawner;
     public GameObject levelDone;
     public int enemyLeft;
@@ -28,6 +29,7 @@ public class stage1Manager : MonoBehaviour
     {
         enemyLeft = maxSpawns;
         spawner.GetComponent<Spawner>().player = player;
+        spawner.GetComponent<Spawner>().sister = sister;
         enemyLeftText.text = enemyLeft.ToString();
     }
 
