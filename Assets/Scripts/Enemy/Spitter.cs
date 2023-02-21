@@ -8,7 +8,6 @@ public class Spitter : MonoBehaviour
 {
     public GameObject player;
     public GameObject sister;
-    public float moveSpeed = 0.75f;
     public int damage = 1;
     public int health = 10;
     public Rigidbody2D rb;
@@ -45,11 +44,11 @@ public class Spitter : MonoBehaviour
         {
             if (distP < distS && distP > maxDist)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
             else if (distP >= distS && distS > maxDist)
             {
-                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }        
             else if (distP <= maxDist || distS <= maxDist) 
             {

@@ -10,11 +10,17 @@ public class Spawner : MonoBehaviour
     public GameObject spitter;
     public GameObject boomer;
     public GameObject zoomer;
+    public GameObject screamer;
+    public GameObject knock;
+    public GameObject beef;
     public float random;
     public float time;
     public bool coolDown = false;
     public int num = 1;
     public float radius = 1;
+
+    public bool testN;
+    public bool testR;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +32,14 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.position = player.transform.position;
+        if (testR == true && coolDown == false) 
+        {
+            StartCoroutine(spawnRandom(1, 6));
+        }
+        if (testN == true && coolDown == false)
+        {
+            StartCoroutine(spawnNum(num));
+        }
     }
 
     public IEnumerator spawnRandom(int lower, int upper)
@@ -69,6 +83,22 @@ public class Spawner : MonoBehaviour
                 GameObject bo = Instantiate(boomer, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
                 bo.GetComponent<Enemy>().player = player;
                 bo.GetComponent<Enemy>().sister = sister;
+                break;
+            case 5:
+                GameObject scre = Instantiate(screamer, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                scre.GetComponent<Enemy>().player = player;
+                scre.GetComponent<Enemy>().sister = sister;
+                scre.GetComponent<Enemy>().spawner = gameObject;
+                break;
+            case 6:
+                GameObject be = Instantiate(beef, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                be.GetComponent<Enemy>().player = player;
+                be.GetComponent<Enemy>().sister = sister;
+                break;
+            case 7:
+                GameObject k = Instantiate(beef, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                k.GetComponent<Enemy>().player = player;
+                k.GetComponent<Enemy>().sister = sister;
                 break;
         }
     }

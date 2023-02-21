@@ -9,8 +9,6 @@ public class Basic : MonoBehaviour
 
     public GameObject sister;
 
-    public float moveSpeed = 1f;
-
     public int damage = 1;
 
     public int health = 10;
@@ -32,11 +30,11 @@ public class Basic : MonoBehaviour
         {
             if (distP < distS)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
             else if (distP >= distS)
             {
-                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
         }
     }

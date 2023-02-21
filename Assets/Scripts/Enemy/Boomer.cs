@@ -6,7 +6,6 @@ public class Boomer : MonoBehaviour
 {
     public GameObject player;
     public GameObject sister;
-    public float moveSpeed = 1f;
     public int damage = 1;
     public int health = 10;
     public bool inRange = false;
@@ -32,7 +31,7 @@ public class Boomer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<Enemy>().health == 0)
+        if (gameObject.GetComponent<Enemy>().health <= 0)
         {
             GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
         }
@@ -42,11 +41,11 @@ public class Boomer : MonoBehaviour
         {
             if (distP < distS)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
             else if (distP >= distS)
             {
-                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
         }
         if (inRange == true)
