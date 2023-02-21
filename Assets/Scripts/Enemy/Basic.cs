@@ -7,6 +7,8 @@ public class Basic : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject sister;
+
     public float moveSpeed = 1f;
 
     public int damage = 1;
@@ -23,9 +25,15 @@ public class Basic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position != player.transform.position)
+        float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        float distS = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        if (distP < distS)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        }
+        else 
+        {
+            transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, moveSpeed * Time.deltaTime);
         }
 
     }

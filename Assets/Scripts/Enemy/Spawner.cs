@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        this.gameObject.transform.position = player.transform.position;
     }
 
     public IEnumerator spawnRandom(int lower, int upper)
