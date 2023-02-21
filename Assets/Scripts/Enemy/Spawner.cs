@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
         this.gameObject.transform.position = player.transform.position;
         if (testR == true && coolDown == false) 
         {
-            StartCoroutine(spawnRandom(1, 6));
+            StartCoroutine(spawnRandom(1, 8));
         }
         if (testN == true && coolDown == false)
         {

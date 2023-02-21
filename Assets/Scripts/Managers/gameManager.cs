@@ -89,6 +89,7 @@ public class gameManager : MonoBehaviour
         playerUpgrade();
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
         sis.GetComponent<Sister>().health = sisH;
+        sis.GetComponent<Sister>().player = player;
         spawnWep(wepNum);
         wepUpgrade();
     }

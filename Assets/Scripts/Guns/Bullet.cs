@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject hitEffect;
+    public GameObject damageNum;
+    public float radius;
     public int damage;
     public int pierce = 0;
     public float knockBack;
@@ -23,6 +26,10 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            GameObject num = Instantiate(damageNum, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+            num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
+            num.transform.parent = this.gameObject.transform;
+            Destroy(num, 1f);
             rb.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
             if (pierce <= 0)
             {
