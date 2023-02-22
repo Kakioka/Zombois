@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - PickUp
+  - Coin
+  - Sister
   layers:
   - Default
   - TransparentFX
@@ -17,10 +20,10 @@ TagManager:
   - EnemyBullet
   - Enemy
   - Player
-  - 
-  - 
-  - 
-  - 
+  - PickUp
+  - kbRing
+  - Coin
+  - Boom
   - 
   - 
   - 

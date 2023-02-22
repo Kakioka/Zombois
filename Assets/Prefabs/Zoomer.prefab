@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &758037289149234795
 Transform:
   m_ObjectHideFlags: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  coinPref: {fileID: 9205036790924861423, guid: 67daf60d5194b7547aebdece35cbedd6, type: 3}
 --- !u!114 &758037289149234798
 MonoBehaviour:
   m_ObjectHideFlags: 0
