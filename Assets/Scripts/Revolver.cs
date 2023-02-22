@@ -17,6 +17,8 @@ public class Revolver : MonoBehaviour
     public int piecre = 0;
     public float knockBack = 5;
 
+    public Animator animator;
+
     // Update is called once per frame
     private void Start()
     {
@@ -81,5 +83,6 @@ public class Revolver : MonoBehaviour
     {
         isReload = true;
         StartCoroutine("Reloading");
+        animator.SetTrigger("ReloadTrigger");
     }
 }
