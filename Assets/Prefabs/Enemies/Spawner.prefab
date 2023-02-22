@@ -45,15 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  sister: {fileID: 0}
   basic: {fileID: 6767434612970430742, guid: b76b8dd613b3b234ca745072a8def304, type: 3}
   spitter: {fileID: 8039879459582361415, guid: ff61abbf47ed417479d8e8b4c5ffcfed, type: 3}
   boomer: {fileID: 6211457537093139744, guid: c66364beb08ff8d4cb0c56cc2f2e11d9, type: 3}
   zoomer: {fileID: 758037289149234769, guid: 93f998cfc0d02454fb5f42112ea14a71, type: 3}
+  screamer: {fileID: 2125738780208844011, guid: 9ed768c6020d5e44985e0590985a8ae5, type: 3}
+  knock: {fileID: 3820435218109899729, guid: 8131f0fd881c5894f88a9f2a9faf1d1c, type: 3}
+  beef: {fileID: 4299144491326108923, guid: ce4ea8eacea01444596209021a996953, type: 3}
   random: 0
   time: 3
-  randomize: 0
   coolDown: 0
   num: 1
-  spawnNums: 1
   radius: 10
-  spawerM: {fileID: 0}
+  testN: 0
+  testR: 0
