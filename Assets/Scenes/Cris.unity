@@ -903,6 +903,7 @@ MonoBehaviour:
   damage: 5
   piecre: 0
   knockBack: 3
+  animator: {fileID: 1765555483}
 --- !u!70 &723992889
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -951,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b5682fb6437304b9f087f8a90f747d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 723992890}
+  animator: {fileID: 1765555483}
   animationSpeed: 1
 --- !u!1 &891539195
 GameObject:
@@ -1587,8 +1588,9 @@ GameObject:
   - component: {fileID: 1765555480}
   - component: {fileID: 1765555482}
   - component: {fileID: 1765555481}
+  - component: {fileID: 1765555483}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Reload UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1639,9 +1641,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1765555482
@@ -1652,6 +1654,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765555479}
   m_CullTransparentMesh: 1
+--- !u!95 &1765555483
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765555479}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20db6125e1d8d954ea173fc1a3035001, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &758037287974478094
 PrefabInstance:
   m_ObjectHideFlags: 0
