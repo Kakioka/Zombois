@@ -5,7 +5,7 @@ using TMPro;
 
 public class AmmoDisplay : MonoBehaviour
 {
-    public Revolver revolver;
+    public Guns guns;
     public TextMeshProUGUI ammoText;
 
     // Start is called before the first frame update
@@ -18,17 +18,17 @@ public class AmmoDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ammoText.text = "Ammo: " + revolver.ammo.ToString() + "/" + revolver.maxAmmo.ToString();
+        ammoText.text = "Ammo: " + guns.ammo.ToString() + "/" + guns.maxAmmo.ToString();
 
         if (int.TryParse(ammoText.text, out int result))
         {
-            ammoText.text = "Ammo: " + revolver.ammo.ToString() + "/" + revolver.maxAmmo.ToString();
+            ammoText.text = "Ammo: " + guns.ammo.ToString() + "/" + guns.maxAmmo.ToString();
         }
     }
 
     void UpdateAmmoText()
     {
         // Update the ammo text with the current ammo value
-        ammoText.SetText("Ammo: " + revolver.ammo.ToString() + "/" + revolver.maxAmmo.ToString());
+        ammoText.SetText("Ammo: " + guns.ammo.ToString() + "/" + guns.maxAmmo.ToString());
     }
 }

@@ -2,29 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementCris : MonoBehaviour
 {
     public int health = 3;
-
     public float moveSpeed = 5f;
-
     public Rigidbody2D rb;
-
     Vector2 movement;
     Vector2 mousePos;
-
     public Camera cam;
-
     public bool isDead = false;
-
     public Animator ani;
-
     public GameObject player;
-
     public GameObject health3;
     public GameObject health2;
     public GameObject health1;
-
     private SpriteRenderer health3Renderer;
     private SpriteRenderer health2Renderer;
     private SpriteRenderer health1Renderer;

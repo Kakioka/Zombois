@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementJustin : MonoBehaviour
 {
     public int health = 3;
     public int prevHealth;
@@ -21,12 +21,6 @@ public class PlayerMovement : MonoBehaviour
     public float pickUpRadius;
     public CircleCollider2D pickUp;
     public TextMeshProUGUI healthText;
-    public GameObject health3;
-    public GameObject health2;
-    public GameObject health1;
-    private SpriteRenderer health3Renderer;
-    private SpriteRenderer health2Renderer;
-    private SpriteRenderer health1Renderer;
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +28,6 @@ public class PlayerMovement : MonoBehaviour
         prevHealth = health;
         ring.SetActive(false);
         pickUp.radius = pickUpRadius;
-
-        ani = GetComponent<Animator>();
-        ani.SetBool("Dead", true);
-
-        health3Renderer = health3.GetComponent<SpriteRenderer>();
-        health2Renderer = health2.GetComponent<SpriteRenderer>();
-        health1Renderer = health1.GetComponent<SpriteRenderer>();
     }
 
     private IEnumerator invincible()
@@ -63,8 +50,6 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
         if (health <= 0)
         {
             isDead = true;
@@ -74,39 +59,11 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(invincible());
         }
-
-        if (health == 2)
-        {
-            ani.SetBool("IsHitOnce", true);
-            health3Renderer.color = Color.black;
-        }
-        if (health == 1)
-        {
-            ani.SetBool("IsHitOnce", false);
-            ani.SetBool("IsHitTwice", true);
-            health2Renderer.color = Color.black;
-        }
-        else
-        {
-            ani.SetBool("IsHitTwice", false);
-        }
-
-        if (health <= 0)
-        {
-            Debug.Log("dead");
-            isDead = true;
-            health1Renderer.color = Color.black;
-        }
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-        Vector2 lookDir = mousePos - rb.position;
-
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
