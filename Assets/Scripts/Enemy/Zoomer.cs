@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class Zoomer : MonoBehaviour
 {
     public GameObject player;
-
+    public GameObject sister;
     public float moveSpeed = 2f;
 
     public int damage = 1;
@@ -16,17 +17,26 @@ public class Zoomer : MonoBehaviour
     void Start()
     {
         player = this.gameObject.GetComponent<Enemy>().player;
+        sister = this.gameObject.GetComponent<Enemy>().sister;
         gameObject.GetComponent<Enemy>().health = health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position != player.transform.position)
+        float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        float distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
+        if (transform.position != player.transform.position || transform.position != sister.transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            if (distP < distS)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+            }
+            else if (distP >= distS)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+            }
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)

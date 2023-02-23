@@ -89,6 +89,7 @@ public class gameManager : MonoBehaviour
         playerUpgrade();
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
         sis.GetComponent<Sister>().health = sisH;
+        sis.GetComponent<Sister>().player = player;
         spawnWep(wepNum);
         wepUpgrade();
     }
@@ -340,6 +341,7 @@ public class gameManager : MonoBehaviour
             currManager = Instantiate(stage1ManagerPre);
             currManager.GetComponent<stage1Manager>().gameM = this.gameObject;
             currManager.GetComponent<stage1Manager>().player = player;
+            currManager.GetComponent<stage1Manager>().sister = sis;
         }
 
         if (scene.name == "UpgradeShop")

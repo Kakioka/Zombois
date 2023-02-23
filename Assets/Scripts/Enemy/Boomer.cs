@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boomer : MonoBehaviour
 {
     public GameObject player;
-    public float moveSpeed = 1f;
+    public GameObject sister;
     public int damage = 1;
     public int health = 10;
     public bool inRange = false;
@@ -24,26 +24,35 @@ public class Boomer : MonoBehaviour
     void Start()
     {
         player = this.gameObject.GetComponent<Enemy>().player;
+        sister = this.gameObject.GetComponent<Enemy>().sister;
         gameObject.GetComponent<Enemy>().health = health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<Enemy>().health == 0)
+        if (gameObject.GetComponent<Enemy>().health <= 0)
         {
             GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
         }
-        float dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        if (transform.position != player.transform.position)
+        float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        float distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
+        if (transform.position != player.transform.position || transform.position != sister.transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            if (distP < distS)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+            }
+            else if (distP >= distS)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+            }
         }
         if (inRange == true)
         {
             StartCoroutine(explode());
         }
-        if (dist <= maxDist)
+        if (distP <= maxDist || distS <= maxDist)
         {
             inRange = true;
         }

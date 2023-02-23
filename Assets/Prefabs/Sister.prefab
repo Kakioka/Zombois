@@ -473,11 +473,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f617127163fa684bacecaee25772e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  maxDist: 0.8
   health: 3
   isInv: 0
   invTimer: 1
   prevHealth: 0
   sisHealthText: {fileID: 1273597240}
+  moveSpeed: 0.7
 --- !u!70 &8741561835794063886
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
