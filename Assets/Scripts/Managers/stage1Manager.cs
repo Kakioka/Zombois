@@ -30,6 +30,7 @@ public class stage1Manager : MonoBehaviour
         enemyLeft = maxSpawns;
         spawner.GetComponent<Spawner>().player = player;
         spawner.GetComponent<Spawner>().sister = sister;
+        spawner.GetComponent<Spawner>().target = player;
         enemyLeftText.text = enemyLeft.ToString();
     }
 

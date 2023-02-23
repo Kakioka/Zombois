@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMod: 1.5
-  spawnMod: 0
+  spawnMod: 0.9
   spawner: {fileID: 0}
 --- !u!1 &3207123072733086442
 GameObject:

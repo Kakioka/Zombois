@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject player;
     public GameObject sister;
+    public GameObject target;
     public GameObject basic;
     public GameObject spitter;
     public GameObject boomer;
@@ -31,7 +32,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position = player.transform.position;
+       // this.gameObject.transform.position = target.transform.position;
         if (testR == true && coolDown == false) 
         {
             StartCoroutine(spawnRandom(1, 8));
@@ -62,41 +63,42 @@ public class Spawner : MonoBehaviour
 
     void helperSpawn(float num) 
     {
+        Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(target.transform.position.x, target.transform.position.y);
         switch (num) 
         {
             case 1:
-                GameObject b =  Instantiate(basic, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                GameObject b =  Instantiate(basic, temp, Quaternion.identity);
                 b.GetComponent<Enemy>().player = player;
                 b.GetComponent<Enemy>().sister = sister;
                 break;
             case 2:
-                GameObject s = Instantiate(spitter, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                GameObject s = Instantiate(spitter, temp, Quaternion.identity);
                 s.GetComponent<Enemy>().player = player;
                 s.GetComponent<Enemy>().sister = sister;
                 break;
             case 3:
-                GameObject z = Instantiate(zoomer, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                GameObject z = Instantiate(zoomer, temp, Quaternion.identity);
                 z.GetComponent<Enemy>().player = player;
                 z.GetComponent<Enemy>().sister = sister;
                 break;
             case 4:
-                GameObject bo = Instantiate(boomer, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                GameObject bo = Instantiate(boomer, temp, Quaternion.identity);
                 bo.GetComponent<Enemy>().player = player;
                 bo.GetComponent<Enemy>().sister = sister;
                 break;
             case 5:
-                GameObject scre = Instantiate(screamer, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                GameObject scre = Instantiate(screamer, temp, Quaternion.identity);
                 scre.GetComponent<Enemy>().player = player;
                 scre.GetComponent<Enemy>().sister = sister;
                 scre.GetComponent<Enemy>().spawner = gameObject;
                 break;
             case 6:
-                GameObject be = Instantiate(beef, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                GameObject be = Instantiate(beef, temp, Quaternion.identity);
                 be.GetComponent<Enemy>().player = player;
                 be.GetComponent<Enemy>().sister = sister;
                 break;
             case 7:
-                GameObject k = Instantiate(beef, Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+                GameObject k = Instantiate(beef, temp, Quaternion.identity);
                 k.GetComponent<Enemy>().player = player;
                 k.GetComponent<Enemy>().sister = sister;
                 break;
