@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   coinPref: {fileID: 9205036790924861423, guid: 67daf60d5194b7547aebdece35cbedd6, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
+  spawner: {fileID: 0}
   moveSpeed: 0.8
 --- !u!114 &853790935078622270
 MonoBehaviour:

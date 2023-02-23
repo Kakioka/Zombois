@@ -211,7 +211,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d4a1388a0d4ee9c44bcaa86e463a7b39, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5188679, g: 0.27866104, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -273,6 +273,7 @@ MonoBehaviour:
   projectiles: 4
   bulletSize: 0
   text: {fileID: 7590742956109831622}
+  canvas: {fileID: 2529339293747465421}
 --- !u!1 &4641631761683578731
 GameObject:
   m_ObjectHideFlags: 0
