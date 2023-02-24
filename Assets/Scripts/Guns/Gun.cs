@@ -229,7 +229,6 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().pierce = piecre;
         obj.GetComponent<Bullet>().knockBack = knockBack;
         obj.GetComponent<Bullet>().scale = bulletSize;
-        obj.GetComponent<Bullet>().canvas = canvas;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
     }

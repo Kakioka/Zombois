@@ -119,12 +119,13 @@ public class gameManager : MonoBehaviour
         switch (rangeUp) 
         {
             case 1:
+                player.GetComponent<PlayerMovement>().pickUpRadius += 0.3f;
                 break;
             case 2:
-                GameObject.FindGameObjectWithTag("PickUp").GetComponent<CircleCollider2D>().radius += 0.4f;
+                player.GetComponent<PlayerMovement>().pickUpRadius += 0.6f;
                 break;
             case 3:
-                GameObject.FindGameObjectWithTag("PickUp").GetComponent<CircleCollider2D>().radius += 0.6f;
+                player.GetComponent<PlayerMovement>().pickUpRadius += 1f;
                 break;
         }
     }
