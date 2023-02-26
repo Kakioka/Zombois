@@ -26,7 +26,8 @@ public class Gun : MonoBehaviour
     public int projectiles;
     public float bulletSize;
     public TextMeshProUGUI text;
-
+    public Vector3 offset;
+    public bool lookingRight = true;
     public GameObject canvas;
 
     // Update is called once per frame
@@ -54,7 +55,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         text.text = ammo.ToString();
-        transform.position = player.transform.position;
+        transform.position = player.transform.position + offset;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetButtonDown("Fire1"))
         {
@@ -84,6 +85,15 @@ public class Gun : MonoBehaviour
             {
                 Reload();
             }
+        }
+
+        if (transform.rotation.eulerAngles.z > 180 && !lookingRight)
+        {
+            Flip();
+        }
+        else if (transform.rotation.eulerAngles.z < 180 && lookingRight) 
+        {
+            Flip();
         }
     }
 
@@ -232,5 +242,13 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().canvas = canvas;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+    private void Flip()
+    {
+        lookingRight = !lookingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

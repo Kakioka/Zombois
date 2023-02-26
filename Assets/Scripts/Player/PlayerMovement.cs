@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float pickUpRadius;
     public CircleCollider2D pickUp;
     public TextMeshProUGUI healthText;
+    public bool lookingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(invincible());
         }
+
+        if (movement.x < 0 && !lookingRight)
+        {
+            Flip();
+        }
+        else if (movement.x > 0 && lookingRight) 
+        {
+            Flip();
+        }
     }
 
     void FixedUpdate()
@@ -75,5 +85,13 @@ public class PlayerMovement : MonoBehaviour
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
             }
         }
+    }
+
+    private void Flip() 
+    {
+        lookingRight = !lookingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
