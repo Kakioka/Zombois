@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &411859996 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8514121530946603363, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
-  m_PrefabInstance: {fileID: 1866567951261748006}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &507789770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,11 +253,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
---- !u!58 &1850850260 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 615078914, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
-  m_PrefabInstance: {fileID: 1866567951261748006}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1947471614 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1947471614, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
@@ -348,6 +338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1947471614}
     - target: {fileID: 8514121530740298771, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: m_Name
       value: Player
@@ -396,8 +390,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8514121530740298775, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
 --- !u!1001 &1963426834695031433
 PrefabInstance:
@@ -811,37 +804,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8514121530740298771, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
   m_PrefabInstance: {fileID: 1866567951261748006}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &8514121531525670654 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8514121530740298774, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
-  m_PrefabInstance: {fileID: 1866567951261748006}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8514121531525670658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8514121531525670652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3371fa303916611408f963a91192f876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  prevHealth: 0
-  moveSpeed: 5
-  rb: {fileID: 8514121531525670654}
-  cam: {fileID: 1947471614}
-  isDead: 0
-  ani: {fileID: 0}
-  invTimer: 1
-  ring: {fileID: 411859996}
-  isInv: 0
-  bank: 0
-  pickUpRadius: 1.1
-  pickUp: {fileID: 1850850260}
-  lookingRight: 1
 --- !u!1 &8741561835888212652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8741561835794063889, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}

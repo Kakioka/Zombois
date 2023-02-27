@@ -72,7 +72,7 @@ public class Gun : MonoBehaviour
         {
             if (ammo != 0 && isReload == false && fireDelay == false)
             {
-                Shooting();
+                Shoot();
             }
             else if (ammo == 0 && isReload == false)
             {
@@ -84,7 +84,7 @@ public class Gun : MonoBehaviour
         {
             Flip();
         }
-        else if (transform.rotation.eulerAngles.z < 180 && lookingRight) 
+        else if (transform.rotation.eulerAngles.z < 180 && lookingRight)
         {
             Flip();
         }
@@ -243,3 +243,4 @@ public class Gun : MonoBehaviour
         transform.localScale = theScale;
     }
 }
+

@@ -224,9 +224,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8514121530740298773}
   - component: {fileID: 8514121530740298772}
-  - component: {fileID: 8514121530740298775}
   - component: {fileID: 8514121530740298774}
   - component: {fileID: 8514121530740298777}
+  - component: {fileID: 3547142255276493378}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -304,32 +304,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8514121530740298775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8514121530740298771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f7534e8748ab445a74520b83f5d731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  prevHealth: 0
-  moveSpeed: 5
-  rb: {fileID: 8514121530740298774}
-  cam: {fileID: 0}
-  isDead: 0
-  ani: {fileID: 0}
-  invTimer: 2
-  ring: {fileID: 8514121530946603363}
-  isInv: 0
-  bank: 0
-  pickUpRadius: 1.1
-  pickUp: {fileID: 615078914}
-  lookingRight: 0
 --- !u!50 &8514121530740298774
 Rigidbody2D:
   serializedVersion: 4
@@ -367,6 +341,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0.002249062, y: -0.017392606}
   m_Size: {x: 0.32243508, y: 0.5617333}
   m_Direction: 0
+--- !u!114 &3547142255276493378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8514121530740298771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3371fa303916611408f963a91192f876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  prevHealth: 0
+  moveSpeed: 5
+  rb: {fileID: 8514121530740298774}
+  cam: {fileID: 0}
+  isDead: 0
+  ani: {fileID: 0}
+  invTimer: 1
+  ring: {fileID: 8514121530946603363}
+  isInv: 0
+  bank: 0
+  pickUpRadius: 1.1
+  pickUp: {fileID: 615078914}
+  lookingRight: 1
 --- !u!1 &8514121530946603363
 GameObject:
   m_ObjectHideFlags: 0
