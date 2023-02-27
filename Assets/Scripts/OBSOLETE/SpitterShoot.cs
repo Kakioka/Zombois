@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class SpitterShoot : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPre;
-    public float bulletForce = 20f;
-    public float fireRate = 1f;
-    public bool fireDelay = false;
-    public Rigidbody2D rb;
-    public Spitter spit;
+    public GameObject spit;
+    public Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
@@ -18,33 +13,14 @@ public class SpitterShoot : MonoBehaviour
         
     }
 
-    IEnumerator Shooting()
-    {
-        yield return new WaitForSeconds(fireRate);
-        fireDelay = false;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        gameObject.transform.position = spit.transform.position + offset;
     }
 
     void FixedUpdate()
     {
-        Vector2 playerPos = spit.player.transform.position;
-        Vector2 lookDir = playerPos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
-    }
 
-    public void Shoot()
-    {
-        fireDelay = true;
-        GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<EnemyBullet>().damage = spit.damage;
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        StartCoroutine("Shooting");
     }
 }

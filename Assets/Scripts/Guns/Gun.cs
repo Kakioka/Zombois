@@ -36,11 +36,8 @@ public class Gun : MonoBehaviour
 
     IEnumerator Reloading()
     {
-        Debug.Log("reloading");
         yield return new WaitForSeconds(reloadSpeed);
-        Debug.Log("reloading Done");
         ammo = maxAmmo;
-        Debug.Log(ammo);
         isReload = false;
     }
 
@@ -106,7 +103,6 @@ public class Gun : MonoBehaviour
         fireDelay = true;
         Spawn(projectiles);
         ammo--;
-        Debug.Log(ammo);
         StartCoroutine("Shooting");
     }
 
