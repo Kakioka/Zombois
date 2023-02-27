@@ -357,7 +357,6 @@ MonoBehaviour:
   prevHealth: 0
   moveSpeed: 5
   rb: {fileID: 8514121530740298774}
-  cam: {fileID: 0}
   isDead: 0
   ani: {fileID: 0}
   invTimer: 1
