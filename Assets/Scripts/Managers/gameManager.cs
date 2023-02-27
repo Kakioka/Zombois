@@ -63,6 +63,9 @@ public class gameManager : MonoBehaviour
     public float damageMultiII;
     public float damageMultiIII;
 
+    public GameObject UI;
+    public Camera cam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -146,25 +149,24 @@ public class gameManager : MonoBehaviour
             case 1:
                 gun = Instantiate(rev, player.transform.position, player.transform.rotation);
                 gun.GetComponent<Gun>().player = player;
-                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().cam = cam;
                 break;
-
             case 2:
                 gun = Instantiate(shotG, player.transform.position, player.transform.rotation);
                 gun.GetComponent<Gun>().player = player;
-                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().cam = cam;
                 break;
 
             case 3:
                 gun = Instantiate(machineG, player.transform.position, player.transform.rotation);
                 gun.GetComponent<Gun>().player = player;
-                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().cam = cam;
                 break;
 
             case 4:
                 gun = Instantiate(snipe, player.transform.position, player.transform.rotation);
                 gun.GetComponent<Gun>().player = player;
-                gun.GetComponent<Gun>().cam = player.GetComponent<PlayerMovement>().cam;
+                gun.GetComponent<Gun>().cam = cam;
                 break;
         }
     }
@@ -343,6 +345,10 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stage1Manager>().gameM = this.gameObject;
             currManager.GetComponent<stage1Manager>().player = player;
             currManager.GetComponent<stage1Manager>().sister = sis;
+            GameObject currUI = Instantiate(UI);
+            currUI.GetComponent<UIManager>().player = player;
+            currUI.GetComponent<UIManager>().sister = sis;
+            currUI.GetComponent<UIManager>().gun = gun;
         }
 
         if (scene.name == "UpgradeShop")

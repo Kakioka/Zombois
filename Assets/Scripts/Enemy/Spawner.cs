@@ -15,7 +15,6 @@ public class Spawner : MonoBehaviour
     public GameObject screamer;
     public GameObject knock;
     public GameObject beef;
-    public float random;
     public float time;
     public bool coolDown = false;
     public int num = 1;
@@ -46,9 +45,7 @@ public class Spawner : MonoBehaviour
     public IEnumerator spawnRandom(int lower, int upper)
     {
         coolDown = true;
-        random = Random.Range(lower, upper);
-        Debug.Log(random);
-        helperSpawn(random);
+        helperSpawn(Random.Range(lower, upper));
         yield return new WaitForSeconds(time);
         coolDown = false;
     }

@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public int bank = 0;
     public float pickUpRadius;
     public CircleCollider2D pickUp;
-    public TextMeshProUGUI healthText;
+    public bool lookingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +45,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -58,6 +56,15 @@ public class PlayerMovement : MonoBehaviour
         if (health != prevHealth)
         {
             StartCoroutine(invincible());
+        }
+
+        if (movement.x < 0 && !lookingRight)
+        {
+            Flip();
+        }
+        else if (movement.x > 0 && lookingRight) 
+        {
+            Flip();
         }
     }
 
@@ -75,5 +82,13 @@ public class PlayerMovement : MonoBehaviour
                 Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
             }
         }
+    }
+
+    private void Flip() 
+    {
+        lookingRight = !lookingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
