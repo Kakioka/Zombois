@@ -64,6 +64,7 @@ public class Spawner : MonoBehaviour
         {
             case 1:
                 GameObject b =  Instantiate(basic, temp, Quaternion.identity);
+                b.transform.localScale = Vector3.one;
                 b.GetComponent<Enemy>().player = player;
                 b.GetComponent<Enemy>().sister = sister;
                 break;
@@ -90,7 +91,7 @@ public class Spawner : MonoBehaviour
                 break;
             case 6:
                 GameObject be = Instantiate(beef, temp, Quaternion.identity);
-                be.GetComponent<Enemy>().player = player;
+                be.GetComponent<Enemy>().player = player;   
                 be.GetComponent<Enemy>().sister = sister;
                 break;
             case 7:
