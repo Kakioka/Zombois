@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Guns : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPre;
@@ -25,8 +25,7 @@ public class Gun : MonoBehaviour
     public bool shooting = false;
     public int projectiles;
     public float bulletSize;
-    public Vector3 offset;
-    public bool lookingRight = true;
+    public TextMeshProUGUI text;
 
     // Update is called once per frame
     private void Start()
@@ -36,8 +35,11 @@ public class Gun : MonoBehaviour
 
     IEnumerator Reloading()
     {
+        Debug.Log("reloading");
         yield return new WaitForSeconds(reloadSpeed);
+        Debug.Log("reloading Done");
         ammo = maxAmmo;
+        Debug.Log(ammo);
         isReload = false;
     }
 
@@ -49,7 +51,8 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        transform.position = player.transform.position + offset;
+        text.text = ammo.ToString();
+        transform.position = player.transform.position;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetButtonDown("Fire1"))
         {
@@ -80,15 +83,6 @@ public class Gun : MonoBehaviour
                 Reload();
             }
         }
-
-        if (transform.rotation.eulerAngles.z > 180 && !lookingRight)
-        {
-            Flip();
-        }
-        else if (transform.rotation.eulerAngles.z < 180 && lookingRight) 
-        {
-            Flip();
-        }
     }
 
     void FixedUpdate()
@@ -98,13 +92,7 @@ public class Gun : MonoBehaviour
         rb.rotation = angle;
     }
 
-    void Shoot()
-    {
-        fireDelay = true;
-        Spawn(projectiles);
-        ammo--;
-        StartCoroutine("Shooting");
-    }
+
 
     void Reload()
     {
@@ -234,13 +222,5 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().scale = bulletSize;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
-    }
-
-    private void Flip()
-    {
-        lookingRight = !lookingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
     }
 }
