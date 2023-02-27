@@ -10,8 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     Vector2 movement;
-    Vector2 mousePos;
-    public Camera cam;
     public bool isDead = false;
     public Animator ani;
     public float invTimer = 1f;
@@ -58,11 +56,11 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(invincible());
         }
 
-        if (movement.x < 0 && !lookingRight)
+        if (movement.x > 0 && !lookingRight)
         {
             Flip();
         }
-        else if (movement.x > 0 && lookingRight) 
+        else if (movement.x < 0 && lookingRight) 
         {
             Flip();
         }
