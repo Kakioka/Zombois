@@ -76,7 +76,7 @@ public class Gun : MonoBehaviour
         {
             if (ammo != 0 && isReload == false && fireDelay == false)
             {
-                Shoot();
+                Shooting();
             }
             else if (ammo == 0 && isReload == false)
             {

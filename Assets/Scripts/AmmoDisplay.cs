@@ -5,7 +5,7 @@ using TMPro;
 
 public class AmmoDisplay : MonoBehaviour
 {
-    public Guns guns;
+    public Gun guns;
     public TextMeshProUGUI ammoText;
 
     // Start is called before the first frame update

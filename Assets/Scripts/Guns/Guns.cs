@@ -76,11 +76,7 @@ public class Guns : MonoBehaviour
         {
             if (ammo != 0 && isReload == false && fireDelay == false)
             {
-                fireDelay = true;
-                Spawn(projectiles);
-                ammo--;
-                Debug.Log(ammo);
-                StartCoroutine("Shooting");
+                Shooting();
             }
             else if (ammo == 0 && isReload == false)
             {
@@ -96,6 +92,8 @@ public class Guns : MonoBehaviour
         rb.rotation = angle;
     }
 
+
+
     void Reload()
     {
         isReload = true;
@@ -104,21 +102,125 @@ public class Guns : MonoBehaviour
 
     void Spawn(int projectiles)
     {
-        float degree = 360 / projectiles;
-        for (int i = 0; i < projectiles; i++)
+        switch (projectiles)
         {
-            float rotation = i * degree;
-            firePoint.rotation = Quaternion.Euler(0, 0, rotation);
-            GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
-            helperSpawn(bullet);
+            case 1:
+                GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                helperSpawn(bullet);
+                break;
+
+            case 2:
+                firePoint.Rotate(0f, 0f, 5f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -10f);
+                GameObject bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                firePoint.Rotate(0f, 0f, 5f);
+                break;
+
+            case 3:
+                firePoint.Rotate(0f, 0f, 5f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -10f);
+                bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 5f);
+                GameObject bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                helperSpawn(bullet3);
+                break;
+
+            case 4:
+                firePoint.Rotate(0f, 0f, -2f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -4f);
+                bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 8f);
+                bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 4f);
+                GameObject bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -6f);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                helperSpawn(bullet3);
+                helperSpawn(bullet4);
+                break;
+
+            case 5:
+                GameObject bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -3f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -4f);
+                bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 10f);
+                bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 4f);
+                bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -7f);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                helperSpawn(bullet3);
+                helperSpawn(bullet4);
+                helperSpawn(bullet5);
+                break;
+
+            case 6:
+                firePoint.Rotate(0f, 0f, -2f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -3f);
+                bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -3f);
+                bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 10f);
+                bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 3f);
+                bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 3f);
+                GameObject bullet6 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -8f);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                helperSpawn(bullet3);
+                helperSpawn(bullet4);
+                helperSpawn(bullet5);
+                helperSpawn(bullet6);
+                break;
+
+            case 7:
+                bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -3f);
+                bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -3f);
+                bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -3f);
+                bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 12f);
+                bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 3f);
+                bullet6 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, 3f);
+                GameObject bullet7 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -9f);
+                helperSpawn(bullet);
+                helperSpawn(bullet2);
+                helperSpawn(bullet3);
+                helperSpawn(bullet4);
+                helperSpawn(bullet5);
+                helperSpawn(bullet6);
+                helperSpawn(bullet7);
+                break;
         }
+
     }
 
-    void helperSpawn(GameObject bullet)
+    void helperSpawn(GameObject obj)
     {
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        bullet.GetComponent<Bullet>().damage = damage;
-        bullet.GetComponent<Bullet>().knockBack = knockBack;
-        bullet.transform.localScale *= bulletSize;
+        obj.GetComponent<Bullet>().damage = damage;
+        obj.GetComponent<Bullet>().pierce = piecre;
+        obj.GetComponent<Bullet>().knockBack = knockBack;
+        obj.GetComponent<Bullet>().scale = bulletSize;
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
     }
 }
