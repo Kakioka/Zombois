@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     public int bank = 0;
     public float pickUpRadius;
     public CircleCollider2D pickUp;
-    public TextMeshProUGUI healthText;
     public bool lookingRight = true;
 
     // Start is called before the first frame update
@@ -46,8 +45,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
