@@ -265,6 +265,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1978632152, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
+      propertyPath: spit
+      value: 
+      objectReference: {fileID: 8514121531525670652}
     - target: {fileID: 5474136242747793140, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
       propertyPath: gun
       value: 

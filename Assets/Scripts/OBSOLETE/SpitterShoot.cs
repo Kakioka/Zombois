@@ -21,6 +21,6 @@ public class SpitterShoot : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        gameObject.transform.position = spit.transform.position + offset;
     }
 }

@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 7978822152366045290}
   - component: {fileID: 7978822152366045289}
   - component: {fileID: 7978822152366045291}
+  - component: {fileID: 1978632152}
   m_Layer: 5
   m_Name: Reload UI
   m_TagString: Untagged
@@ -1188,6 +1189,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1978632152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978822152366045287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3640582f84c4846aa5438d6f896501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spit: {fileID: 0}
+  offset: {x: 0, y: 0.4, z: 0}
 --- !u!1001 &2963015002692896788
 PrefabInstance:
   m_ObjectHideFlags: 0
