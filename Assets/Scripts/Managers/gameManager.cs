@@ -349,6 +349,7 @@ public class gameManager : MonoBehaviour
             currUI.GetComponent<UIManager>().player = player;
             currUI.GetComponent<UIManager>().sister = sis;
             currUI.GetComponent<UIManager>().gun = gun;
+            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
         }
 
         if (scene.name == "UpgradeShop")
