@@ -147,9 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 278193819304500194, guid: 411131198cdda864ea6127482ddf0efc, type: 3}
-  damageNum: {fileID: 2114641974747419351, guid: 797d6d417d65a1d42b322a9fa72c9e3a, type: 3}
-  canvas: {fileID: 0}
-  radius: 1
+  damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
+  radius: 0.5
   damage: 0
   pierce: 0
   knockBack: 0

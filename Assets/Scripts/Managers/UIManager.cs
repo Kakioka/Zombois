@@ -7,7 +7,6 @@ using UnityEngine.Rendering.VirtualTexturing;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI pHealth;
     public TextMeshProUGUI sHealth;
     public TextMeshProUGUI ammo;
 
@@ -31,7 +30,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pHealth.text = player.GetComponent<PlayerMovement>().health.ToString();
         sHealth.text = sister.GetComponent<Sister>().health.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
         
