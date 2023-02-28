@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class stage1Manager : MonoBehaviour
+public class stageManager : MonoBehaviour
 {
     public int maxSpawns;
     public int currSpawns;
@@ -14,6 +14,9 @@ public class stage1Manager : MonoBehaviour
     public GameObject levelDone;
     public int enemyLeft;
     public TextMeshProUGUI enemyLeftText;
+    public float hpMod;
+    public int stageCount;
+    public TextMeshProUGUI stageCountText;
 
     private int tempCurr;
 
@@ -31,7 +34,9 @@ public class stage1Manager : MonoBehaviour
         spawner.GetComponent<Spawner>().player = player;
         spawner.GetComponent<Spawner>().sister = sister;
         spawner.GetComponent<Spawner>().target = player;
+        spawner.GetComponent<Spawner>().hpMod = hpMod;
         enemyLeftText.text = enemyLeft.ToString();
+        stageCountText.text = "Day " + stageCount;
     }
 
     // Update is called once per frame
@@ -56,7 +61,7 @@ public class stage1Manager : MonoBehaviour
         {
             maxSpawns--;
             tempCurr++;
-            StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom(1,5));
+            StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom());
         }
     }
 

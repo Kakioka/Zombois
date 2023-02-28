@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
+    public float health;
     public GameObject coinPref;
     public GameObject player;
     public GameObject sister;

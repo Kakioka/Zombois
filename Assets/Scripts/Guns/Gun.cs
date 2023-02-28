@@ -17,7 +17,6 @@ public class Gun : MonoBehaviour
     public int piecre;
     public float knockBack;
     public Rigidbody2D rb;
-    Vector2 movement;
     Vector2 mousePos;
     public Camera cam;
     public GameObject player;

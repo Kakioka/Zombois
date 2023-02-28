@@ -11,7 +11,7 @@ public class Basic : MonoBehaviour
 
     public int damage = 1;
 
-    public int health = 10;
+    public float health = 10;
 
     // Start is called before the first frame update
     void Start()

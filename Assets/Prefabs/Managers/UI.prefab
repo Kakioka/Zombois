@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 7978822152366045290}
   - component: {fileID: 7978822152366045289}
   - component: {fileID: 7978822152366045291}
-  - component: {fileID: 1978632152}
+  - component: {fileID: 6833536165978135665}
   m_Layer: 5
   m_Name: Reload UI
   m_TagString: Untagged
@@ -1128,8 +1128,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: 42}
-  m_SizeDelta: {x: 52.97, y: 37.44}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7978822152366045290
 CanvasRenderer:
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1189,7 +1189,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1978632152
+--- !u!114 &6833536165978135665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1198,11 +1198,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7978822152366045287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3640582f84c4846aa5438d6f896501, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dbf71dbfe7d276469e8e342fa587d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spit: {fileID: 0}
-  offset: {x: 0, y: 0.4, z: 0}
+  ui: {fileID: 5474136242747793140}
+  offset: {x: 0, y: -0.12, z: 0}
 --- !u!1001 &2963015002692896788
 PrefabInstance:
   m_ObjectHideFlags: 0

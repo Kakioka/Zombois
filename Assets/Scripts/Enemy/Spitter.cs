@@ -9,7 +9,7 @@ public class Spitter : MonoBehaviour
     public GameObject player;
     public GameObject sister;
     public int damage;
-    public int health;
+    public float health;
     public Rigidbody2D rb;
     public Transform firePoint;
     public GameObject bulletPre;

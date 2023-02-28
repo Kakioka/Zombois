@@ -342,9 +342,9 @@ public class gameManager : MonoBehaviour
         {
             levelStart();
             currManager = Instantiate(stage1ManagerPre);
-            currManager.GetComponent<stage1Manager>().gameM = this.gameObject;
-            currManager.GetComponent<stage1Manager>().player = player;
-            currManager.GetComponent<stage1Manager>().sister = sis;
+            currManager.GetComponent<stageManager>().gameM = this.gameObject;
+            currManager.GetComponent<stageManager>().player = player;
+            currManager.GetComponent<stageManager>().sister = sis;
             GameObject currUI = Instantiate(UI);
             currUI.GetComponent<UIManager>().player = player;
             currUI.GetComponent<UIManager>().sister = sis;

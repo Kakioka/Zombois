@@ -7,7 +7,7 @@ public class Boomer : MonoBehaviour
     public GameObject player;
     public GameObject sister;
     public int damage = 1;
-    public int health = 10;
+    public float health = 10;
     public bool inRange = false;
     public float timer = 0.5f;
     public GameObject explosion;
