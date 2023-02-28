@@ -23,6 +23,7 @@ public class Sister : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = player.GetComponent<PlayerMovement>().isInv;
         if (health <= 0)
         {
             //Destroy(gameObject);

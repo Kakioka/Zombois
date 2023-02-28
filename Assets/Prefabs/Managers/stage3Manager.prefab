@@ -671,8 +671,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: stage1Manager, Assembly-CSharp
+      - m_Target: {fileID: 6012591791773139508}
+        m_TargetAssemblyTypeName: stageManager, Assembly-CSharp
         m_MethodName: next
         m_Mode: 1
         m_Arguments:
@@ -876,6 +876,8 @@ MonoBehaviour:
   hpMod: 1.4
   stageCount: 3
   stageCountText: {fileID: 8520209761647573568}
+  spawnSpeed: 3
+  spawnSpeedMod: 0.8
 --- !u!1 &6409158490362931203
 GameObject:
   m_ObjectHideFlags: 0

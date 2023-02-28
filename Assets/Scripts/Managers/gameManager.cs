@@ -450,6 +450,7 @@ public class gameManager : MonoBehaviour
         {
             currManager = Instantiate(upgradeShopManagerPre);
             currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
         }
     }
 

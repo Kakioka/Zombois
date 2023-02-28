@@ -17,6 +17,8 @@ public class stageManager : MonoBehaviour
     public float hpMod;
     public int stageCount;
     public TextMeshProUGUI stageCountText;
+    public float spawnSpeed = 3;
+    public float spawnSpeedMod = 1;
 
     private int tempCurr;
 
@@ -24,6 +26,7 @@ public class stageManager : MonoBehaviour
     private IEnumerator end()
     {
         yield return new WaitForSeconds(3f);
+        Time.timeScale = 0;
         levelDone.SetActive(true);
     }
 
@@ -35,6 +38,7 @@ public class stageManager : MonoBehaviour
         spawner.GetComponent<Spawner>().sister = sister;
         spawner.GetComponent<Spawner>().target = player;
         spawner.GetComponent<Spawner>().hpMod = hpMod;
+        spawner.GetComponent<Spawner>().time = spawnSpeed * spawnSpeedMod;
         enemyLeftText.text = enemyLeft.ToString();
         stageCountText.text = "Day " + stageCount;
     }
