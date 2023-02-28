@@ -35,7 +35,7 @@ public class Sister : MonoBehaviour
         float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
         if (transform.position != player.transform.position && distP > maxDist)
         {
-           transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime); 
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         }
     }
 
