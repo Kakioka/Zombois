@@ -257,7 +257,13 @@ MonoBehaviour:
   fireUp: 0
   reloadUp: 0
   levelNum: 1
-  stage1ManagerPre: {fileID: 1468025485690917258, guid: 73163090803d345c9855adeb6b6dc2c5, type: 3}
+  stage1ManagerPre: {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
+  stage2ManagerPre: {fileID: 1468025485690917258, guid: b75152a4889c17b41a9ca4dfd7e816c9, type: 3}
+  stage3ManagerPre: {fileID: 1468025485690917258, guid: 73163090803d345c9855adeb6b6dc2c5, type: 3}
+  stage4ManagerPre: {fileID: 1468025485690917258, guid: 6a025b9d8cfae364997179b43f358125, type: 3}
+  stage5ManagerPre: {fileID: 1468025485690917258, guid: 41897537fa761e84b99854dfce7d7721, type: 3}
+  stage6ManagerPre: {fileID: 1468025485690917258, guid: bb7c5b557ec6051478bf50da63eea070, type: 3}
+  stage7ManagerPre: {fileID: 1468025485690917258, guid: bc667ea0a87af09419a293249fe4d7dc, type: 3}
   upgradeShopManagerPre: {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
   currManager: {fileID: 0}
   revO: 1

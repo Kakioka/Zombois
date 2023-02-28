@@ -781,6 +781,6 @@ public class upgradeShopManager : MonoBehaviour
     public void nextButton()
     {
         gameManager.GetComponent<gameManager>().bank = bank;
-        gameManager.GetComponent<gameManager>().spawnLevel(1);
+        gameManager.GetComponent<gameManager>().spawnLevel(gameManager.GetComponent<gameManager>().levelNum);
     }
 }
