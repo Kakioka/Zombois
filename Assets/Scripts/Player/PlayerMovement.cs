@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         prevHealth = health;
         ring.SetActive(false);
         pickUp.radius = pickUpRadius;
+        ani = gameObject.GetComponent<Animator>();
     }
 
     private IEnumerator invincible()
@@ -45,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
+        ani.SetFloat("move", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        //ani.SetFloat("move", Mathf.Abs(Input.GetAxisRaw("Vertical")));
         if (health <= 0)
         {
             isDead = true;
