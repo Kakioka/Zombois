@@ -47,7 +47,7 @@ public class gameManager : MonoBehaviour
     public int reloadUp;
 
     //level count
-    public int levelNum = 1;
+    public int levelNum = 0;
 
     //stageManagerPrefabs
     public GameObject stage1ManagerPre;
@@ -88,6 +88,7 @@ public class gameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
+            levelNum++;
             spawnLevel(levelNum);
         }
     }

@@ -13,6 +13,8 @@ public class Basic : MonoBehaviour
 
     public float health = 10;
 
+    public bool lookingRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +28,34 @@ public class Basic : MonoBehaviour
     {
         float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
         float distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
-        if (transform.position != player.transform.position || transform.position != sister.transform.position) 
+        if (transform.position != player.transform.position || transform.position != sister.transform.position)
         {
             if (distP < distS)
             {
+
+                Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                if ((temp.x - transform.position.x > 0) && !lookingRight)
+                {
+                    Flip();
+                }
+                else if ((temp.x - transform.position.x < 0) && lookingRight)
+                {
+                    Flip();
+                }
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
             else if (distP >= distS)
             {
+
+                Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                if ((temp.x - transform.position.x > 0) && !lookingRight)
+                {
+                    Flip();
+                }
+                else if ((temp.x - transform.position.x < 0) && lookingRight)
+                {
+                    Flip();
+                }
                 transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
         }
@@ -49,5 +71,13 @@ public class Basic : MonoBehaviour
         {
             collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
         }
+    }
+
+    private void Flip()
+    {
+        lookingRight = !lookingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

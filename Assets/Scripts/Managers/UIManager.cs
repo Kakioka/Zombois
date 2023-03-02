@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject sister;
     public GameObject gun;
 
-    public Animator aniHealth;
+    //public Animator aniHealth;
     public SpriteRenderer h3;
     public SpriteRenderer h2;
     public SpriteRenderer h1;
@@ -39,15 +39,15 @@ public class UIManager : MonoBehaviour
                 h1.color = Color.black; 
                 break;
             case 1:
-                aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
+                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 h2.color = Color.black;
                 break;
             case 2:
-                aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
+                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 h3.color = Color.black;
                 break;
             case 3:
-                aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
+                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);

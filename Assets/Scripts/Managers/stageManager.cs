@@ -71,6 +71,7 @@ public class stageManager : MonoBehaviour
 
     public void next()
     {
+        Time.timeScale = 1;
         gameM.GetComponent<gameManager>().levelEnd();
     }
 }

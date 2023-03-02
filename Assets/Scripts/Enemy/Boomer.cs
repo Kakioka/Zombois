@@ -12,6 +12,7 @@ public class Boomer : MonoBehaviour
     public float timer = 0.5f;
     public GameObject explosion;
     public float maxDist;
+    public bool lookingRight = true;
 
     private IEnumerator explode()
     {
@@ -41,10 +42,30 @@ public class Boomer : MonoBehaviour
         {
             if (distP < distS)
             {
+
+                Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                if ((temp.x - transform.position.x > 0) && !lookingRight)
+                {
+                    Flip();
+                }
+                else if ((temp.x - transform.position.x < 0) && lookingRight)
+                {
+                    Flip();
+                }
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
             else if (distP >= distS)
             {
+
+                Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                if ((temp.x - transform.position.x > 0) && !lookingRight)
+                {
+                    Flip();
+                }
+                else if ((temp.x - transform.position.x < 0) && lookingRight)
+                {
+                    Flip();
+                }
                 transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
         }
@@ -69,5 +90,12 @@ public class Boomer : MonoBehaviour
         {
             collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
         }
+    }
+    private void Flip()
+    {
+        lookingRight = !lookingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

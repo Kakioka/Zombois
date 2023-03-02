@@ -10,11 +10,16 @@ public class Enemy : MonoBehaviour
     public GameObject sister;
     public GameObject spawner;
     public float moveSpeed;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    private void Update()
+    {
+
     }
 
     // Update is called once per frame

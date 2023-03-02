@@ -399,7 +399,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   gun: {fileID: 0}
-  aniHealth: {fileID: 5325097723993502192}
+  aniHealth: {fileID: 0}
   h3: {fileID: 5325097725237886826}
   h2: {fileID: 5325097723872241001}
   h1: {fileID: 5325097724450048016}
@@ -465,7 +465,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &5474136242797880920
 MonoBehaviour:
@@ -960,15 +960,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6987390178146286053, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
+    - {fileID: 6987390178146286052, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
 --- !u!212 &5325097723872241001 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6987390178256792957, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
-  m_PrefabInstance: {fileID: 2963015002692896788}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5325097723993502192 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6987390178146286052, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
   m_PrefabInstance: {fileID: 2963015002692896788}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5325097723993502199 stripped

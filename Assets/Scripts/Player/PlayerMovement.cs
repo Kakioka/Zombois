@@ -46,8 +46,14 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        ani.SetFloat("move", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-        //ani.SetFloat("move", Mathf.Abs(Input.GetAxisRaw("Vertical")));
+        if (movement.x == 0 && movement.y == 0)
+        {
+           ani.SetBool("move", false);
+        }
+        else 
+        {
+           ani.SetBool("move", true);
+        }
         if (health <= 0)
         {
             isDead = true;

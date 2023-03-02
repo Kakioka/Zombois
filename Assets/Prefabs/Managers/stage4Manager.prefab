@@ -1022,11 +1022,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: nums.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: nums.Array.data[0]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
+      propertyPath: nums.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
+      propertyPath: nums.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
+      propertyPath: nums.Array.data[3]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
+      propertyPath: nums.Array.data[4]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 764512717288120628, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: m_RootOrder
