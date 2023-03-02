@@ -19,10 +19,12 @@ public class Spitter : MonoBehaviour
     private float distP;
     private float distS;
     public bool lookingRight = true;
+    private Animator ani;
 
     // Start is called before the first frame update
     void Start()
     {
+        ani = gameObject.GetComponent<Animator>();
         player = this.gameObject.GetComponent<Enemy>().player;
         sister = this.gameObject.GetComponent<Enemy>().sister;
         gameObject.GetComponent<Enemy>().health = health;
@@ -53,6 +55,7 @@ public class Spitter : MonoBehaviour
                     Flip();
                 }
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                ani.SetBool("move", true);
             }
             else if (distP >= distS && distS > maxDist)
             {
@@ -66,11 +69,13 @@ public class Spitter : MonoBehaviour
                     Flip();
                 }
                 transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                ani.SetBool("move", true);
             }        
             else if (distP <= maxDist || distS <= maxDist) 
             {
                 if (fireDelay == false) 
                 {
+                    ani.SetBool("move", false);
                     Shoot();
                 }
             }

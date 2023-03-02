@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2125738780208844010}
   - component: {fileID: 2125738780208844001}
   - component: {fileID: 2125738780208843795}
+  - component: {fileID: 6177637036398676233}
   m_Layer: 9
   m_Name: Screamer
   m_TagString: Enemy
@@ -161,6 +162,7 @@ MonoBehaviour:
   sister: {fileID: 0}
   damage: 1
   health: 10
+  lookingRight: 1
 --- !u!114 &2125738780208843795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +178,26 @@ MonoBehaviour:
   speedMod: 1.5
   spawnMod: 0.9
   spawner: {fileID: 0}
+--- !u!95 &6177637036398676233
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125738780208844011}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90c982fb26f223d44a8c21320a4774f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &3207123072733086442
 GameObject:
   m_ObjectHideFlags: 0
