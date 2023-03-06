@@ -76,8 +76,6 @@ public class upgradeShopManager : MonoBehaviour
     public int vaccineCost;
     public TextMeshProUGUI vaccineCostText;
 
-    public int bank;
-
     public int pickUpI;
     public int pickUpII;
     public int pickUpIII;
@@ -92,17 +90,20 @@ public class upgradeShopManager : MonoBehaviour
     public GameObject pickUpButton;
     public GameObject moveSpeedButton;
 
+    public GameObject revObj;
+    public GameObject shotgunObj;
+    public GameObject machinegunObj;
+    public GameObject sniperObj;
+
     // Start is called before the first frame update
     void Start()
     {
         vaccineCostText.text = vaccineCost.ToString();
-        bank = gameManager.GetComponent<gameManager>().bank;
     }
 
     // Update is called once per frame
     void Update()
     {
-        bankText.text = bank.ToString();
         wepButtons();
         wepUpgrades();
         hpVal();
@@ -114,24 +115,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().rangeUp)
         {
             case 0:
-                if (bank >= pickUpI)
+                if (gameManager.GetComponent<gameManager>().bank >= pickUpI)
                 {
                     gameManager.GetComponent<gameManager>().rangeUp = 1;
-                    bank -= pickUpI;
+                    gameManager.GetComponent<gameManager>().bank -= pickUpI;
                 }
                 break;
             case 1:
-                if (bank >= pickUpII)
+                if (gameManager.GetComponent<gameManager>().bank >= pickUpII)
                 {
                     gameManager.GetComponent<gameManager>().rangeUp = 2;
-                    bank -= pickUpII;
+                    gameManager.GetComponent<gameManager>().bank -= pickUpII;
                 }
                 break;
             case 2:
-                if (bank >= pickUpIII)
+                if (gameManager.GetComponent<gameManager>().bank >= pickUpIII)
                 {
                     gameManager.GetComponent<gameManager>().rangeUp = 3;
-                    bank -= pickUpIII;
+                    gameManager.GetComponent<gameManager>().bank -= pickUpIII;
                 }
                 break;
         }
@@ -142,24 +143,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().moveUp)
         {
             case 0:
-                if (bank >= moveSpeedI)
+                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedI)
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 1;
-                    bank -= moveSpeedI;
+                    gameManager.GetComponent<gameManager>().bank -= moveSpeedI;
                 }
                 break;
             case 1:
-                if (bank >= moveSpeedII)
+                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedII)
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 2;
-                    bank -= moveSpeedII;
+                    gameManager.GetComponent<gameManager>().bank -= moveSpeedII;
                 }
                 break;
             case 2:
-                if (bank >= moveSpeedIII)
+                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedIII)
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 3;
-                    bank -= moveSpeedIII;
+                    gameManager.GetComponent<gameManager>().bank -= moveSpeedIII;
                 }
                 break;
         }
@@ -212,9 +213,9 @@ public class upgradeShopManager : MonoBehaviour
     {
         if (gameManager.GetComponent<gameManager>().sisH != 3) 
         {
-            if (bank >= vaccineCost) 
+            if (gameManager.GetComponent<gameManager>().bank >= vaccineCost) 
             {
-                bank -= vaccineCost;
+                gameManager.GetComponent<gameManager>().bank -= vaccineCost;
                 gameManager.GetComponent<gameManager>().sisH++;
             }
         }
@@ -224,9 +225,9 @@ public class upgradeShopManager : MonoBehaviour
     {
         if (gameManager.GetComponent<gameManager>().playerH != 3)
         {
-            if (bank >= vaccineCost)
+            if (gameManager.GetComponent<gameManager>().bank >= vaccineCost)
             {
-                bank -= vaccineCost;
+                gameManager.GetComponent<gameManager>().bank -= vaccineCost;
                 gameManager.GetComponent<gameManager>().playerH++;
             }
         }
@@ -486,97 +487,29 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void shotgunButton()
-    {
-        if (gameManager.GetComponent<gameManager>().shotgunO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum != 2)
-            {
-                gameManager.GetComponent<gameManager>().wepNum = 2;
-            }
-        }
-        else
-        {
-            if (bank >= shotgunPrice)
-            {
-                bank -= shotgunPrice;
-                gameManager.GetComponent<gameManager>().shotgunO = true;
-            }
-        }
-    }
-
-    public void machineGunButton()
-    {
-        if (gameManager.GetComponent<gameManager>().machinegunO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum != 3)
-            {
-                gameManager.GetComponent<gameManager>().wepNum = 3;
-            }
-        }
-        else
-        {
-            if (bank >= machineGunPrice)
-            {
-                bank -= machineGunPrice;
-                gameManager.GetComponent<gameManager>().machinegunO = true;
-            }
-        }
-    }
-
-    public void sniperButton()
-    {
-        if (gameManager.GetComponent<gameManager>().sniperO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum != 4)
-            {
-                gameManager.GetComponent<gameManager>().wepNum = 4;
-            }
-        }
-        else
-        {
-            if (bank >= sniperPrice)
-            {
-                bank -= sniperPrice;
-                gameManager.GetComponent<gameManager>().sniperO = true;
-            }
-        }
-    }
-
-    public void revolverButton()
-    {
-        if (gameManager.GetComponent<gameManager>().revO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum != 1)
-            {
-                gameManager.GetComponent<gameManager>().wepNum = 1;
-            }
-        }
-    }
-
     public void damageButton() 
     {
         switch (gameManager.GetComponent<gameManager>().damageUp)
         {
             case 0:
-                if(bank >= damageI) 
+                if(gameManager.GetComponent<gameManager>().bank >= damageI) 
                 {
                     gameManager.GetComponent<gameManager>().damageUp = 1;
-                    bank -= damageI;
+                    gameManager.GetComponent<gameManager>().bank -= damageI;
                 }
                 break;
             case 1:
-                if (bank >= damageII)
+                if (gameManager.GetComponent<gameManager>().bank >= damageII)
                 {
                     gameManager.GetComponent<gameManager>().damageUp = 2;
-                    bank -= damageII;
+                    gameManager.GetComponent<gameManager>().bank -= damageII;
                 }
                 break;
             case 2:
-                if (bank >= damageIII)
+                if (gameManager.GetComponent<gameManager>().bank >= damageIII)
                 {
                     gameManager.GetComponent<gameManager>().damageUp = 3;
-                    bank -= damageIII;
+                    gameManager.GetComponent<gameManager>().bank -= damageIII;
                 }
                 break;
         }
@@ -587,24 +520,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().fireUp)
         {
             case 0:
-                if(bank >= fireRateI) 
+                if(gameManager.GetComponent<gameManager>().bank >= fireRateI) 
                 {
                     gameManager.GetComponent<gameManager>().fireUp = 1;
-                    bank -= fireRateI;
+                    gameManager.GetComponent<gameManager>().bank -= fireRateI;
                 }
                 break;
             case 1:
-                if (bank >= fireRateII)
+                if (gameManager.GetComponent<gameManager>().bank >= fireRateII)
                 {
                     gameManager.GetComponent<gameManager>().fireUp = 2;
-                    bank -= fireRateII;
+                    gameManager.GetComponent<gameManager>().bank -= fireRateII;
                 }
                 break;
             case 2:
-                if (bank >= fireRateIII)
+                if (gameManager.GetComponent<gameManager>().bank >= fireRateIII)
                 {
                     gameManager.GetComponent<gameManager>().fireUp = 3;
-                    bank -= fireRateIII;
+                    gameManager.GetComponent<gameManager>().bank -= fireRateIII;
                 }
                 break;
         }
@@ -615,24 +548,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().reloadUp)
         {
             case 0:
-                if (bank >= reloadI)
+                if (gameManager.GetComponent<gameManager>().bank >= reloadI)
                 {
                     gameManager.GetComponent<gameManager>().reloadUp = 1;
-                    bank -= reloadI;
+                    gameManager.GetComponent<gameManager>().bank -= reloadI;
                 }
                 break;
             case 1:
-                if (bank >= reloadII)
+                if (gameManager.GetComponent<gameManager>().bank >= reloadII)
                 {
                     gameManager.GetComponent<gameManager>().reloadUp = 2;
-                    bank -= reloadII;
+                    gameManager.GetComponent<gameManager>().bank -= reloadII;
                 }
                 break;
             case 2:
-                if (bank >= reloadIII)
+                if (gameManager.GetComponent<gameManager>().bank >= reloadIII)
                 {
                     gameManager.GetComponent<gameManager>().reloadUp = 3;
-                    bank -= reloadIII;
+                    gameManager.GetComponent<gameManager>().bank -= reloadIII;
                 }
                 break;
         }
@@ -643,24 +576,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().knockUp)
         {
             case 0:
-                if (bank >= knockBackI)
+                if (gameManager.GetComponent<gameManager>().bank >= knockBackI)
                 {
                     gameManager.GetComponent<gameManager>().knockUp = 1;
-                    bank -= knockBackI;
+                    gameManager.GetComponent<gameManager>().bank -= knockBackI;
                 }
                 break;
             case 1:
-                if (bank >= knockBackII)
+                if (gameManager.GetComponent<gameManager>().bank >= knockBackII)
                 {
                     gameManager.GetComponent<gameManager>().knockUp = 2;
-                    bank -= knockBackII;
+                    gameManager.GetComponent<gameManager>().bank -= knockBackII;
                 }
                 break;
             case 2:
-                if (bank >= knockBackIII)
+                if (gameManager.GetComponent<gameManager>().bank >= knockBackIII)
                 {
                     gameManager.GetComponent<gameManager>().knockUp = 3;
-                    bank -= knockBackIII;
+                    gameManager.GetComponent<gameManager>().bank -= knockBackIII;
                 }
                 break;
         }
@@ -671,24 +604,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().speedUp)
         {
             case 0:
-                if (bank >= speedI)
+                if (gameManager.GetComponent<gameManager>().bank >= speedI)
                 {
                     gameManager.GetComponent<gameManager>().speedUp = 1;
-                    bank -= speedI;
+                    gameManager.GetComponent<gameManager>().bank -= speedI;
                 }
                 break;
             case 1:
-                if (bank >= speedII)
+                if (gameManager.GetComponent<gameManager>().bank >= speedII)
                 {
                     gameManager.GetComponent<gameManager>().speedUp = 2;
-                    bank -= speedII;
+                    gameManager.GetComponent<gameManager>().bank -= speedII;
                 }
                 break;
             case 2:
-                if (bank >= speedIII)
+                if (gameManager.GetComponent<gameManager>().bank >= speedIII)
                 {
                     gameManager.GetComponent<gameManager>().speedUp = 3;
-                    bank -= speedIII;
+                    gameManager.GetComponent<gameManager>().bank -= speedIII;
                 }
                 break;
         }
@@ -699,24 +632,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().projectileUp)
         {
             case 0:
-                if (bank >= bulletI)
+                if (gameManager.GetComponent<gameManager>().bank >= bulletI)
                 {
                     gameManager.GetComponent<gameManager>().projectileUp = 1;
-                    bank -= bulletI;
+                    gameManager.GetComponent<gameManager>().bank -= bulletI;
                 }
                 break;
             case 1:
-                if (bank >= bulletII)
+                if (gameManager.GetComponent<gameManager>().bank >= bulletII)
                 {
                     gameManager.GetComponent<gameManager>().projectileUp = 2;
-                    bank -= bulletII;
+                    gameManager.GetComponent<gameManager>().bank -= bulletII;
                 }
                 break;
             case 2:
-                if (bank >= bulletIII)
+                if (gameManager.GetComponent<gameManager>().bank >= bulletIII)
                 {
                     gameManager.GetComponent<gameManager>().projectileUp = 3;
-                    bank -= bulletIII;
+                    gameManager.GetComponent<gameManager>().bank -= bulletIII;
                 }
                 break;
         }
@@ -727,24 +660,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().pierceUp)
         {
             case 0:
-                if (bank >= pierceI)
+                if (gameManager.GetComponent<gameManager>().bank >= pierceI)
                 {
                     gameManager.GetComponent<gameManager>().pierceUp = 1;
-                    bank -= pierceI;
+                    gameManager.GetComponent<gameManager>().bank -= pierceI;
                 }
                 break;
             case 1:
-                if (bank >= pierceII)
+                if (gameManager.GetComponent<gameManager>().bank >= pierceII)
                 {
                     gameManager.GetComponent<gameManager>().pierceUp = 2;
-                    bank -= pierceII;
+                    gameManager.GetComponent<gameManager>().bank -= pierceII;
                 }
                 break;
             case 2:
-                if (bank >= pierceIII)
+                if (gameManager.GetComponent<gameManager>().bank >= pierceIII)
                 {
                     gameManager.GetComponent<gameManager>().pierceUp = 3;
-                    bank -= pierceIII;
+                    gameManager.GetComponent<gameManager>().bank -= pierceIII;
                 }
                 break;
         }
@@ -755,24 +688,24 @@ public class upgradeShopManager : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().sizeUp)
         {
             case 0:
-                if (bank >= sizeI)
+                if (gameManager.GetComponent<gameManager>().bank >= sizeI)
                 {
                     gameManager.GetComponent<gameManager>().sizeUp = 1;
-                    bank -= sizeI;
+                    gameManager.GetComponent<gameManager>().bank -= sizeI;
                 }
                 break;
             case 1:
-                if (bank >= sizeII)
+                if (gameManager.GetComponent<gameManager>().bank >= sizeII)
                 {
                     gameManager.GetComponent<gameManager>().sizeUp = 2;
-                    bank -= sizeII;
+                    gameManager.GetComponent<gameManager>().bank -= sizeII;
                 }
                 break;
             case 2:
-                if (bank >= sizeIII)
+                if (gameManager.GetComponent<gameManager>().bank >= sizeIII)
                 {
                     gameManager.GetComponent<gameManager>().sizeUp= 3;
-                    bank -= sizeIII;
+                    gameManager.GetComponent<gameManager>().bank -= sizeIII;
                 }
                 break;
         }
@@ -780,7 +713,6 @@ public class upgradeShopManager : MonoBehaviour
 
     public void nextButton()
     {
-        gameManager.GetComponent<gameManager>().bank = bank;
         gameManager.GetComponent<gameManager>().spawnLevel(gameManager.GetComponent<gameManager>().levelNum);
     }
 }

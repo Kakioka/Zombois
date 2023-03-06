@@ -65,7 +65,6 @@ public class Spawner : MonoBehaviour
         {
             case 1:
                 GameObject b =  Instantiate(basic, temp, Quaternion.identity);
-                b.transform.localScale = Vector3.one;
                 b.GetComponent<Enemy>().player = player;
                 b.GetComponent<Enemy>().sister = sister;
                 b.GetComponent<Enemy>().health = Mathf.Ceil(b.GetComponent<Enemy>().health *= hpMod);

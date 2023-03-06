@@ -91,6 +91,11 @@ public class gameManager : MonoBehaviour
             levelNum++;
             spawnLevel(levelNum);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            spawnLevel(8);
+        }
     }
 
     void levelStart()
@@ -449,6 +454,7 @@ public class gameManager : MonoBehaviour
 
         if (scene.name == "UpgradeShop")
         {
+            levelStart();
             currManager = Instantiate(upgradeShopManagerPre);
             currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
