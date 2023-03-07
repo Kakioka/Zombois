@@ -1,21 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Drawing;
 using TMPro;
+using UnityEngine;
 
-public class upgradeShopManager : MonoBehaviour
+public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
 {
     public GameObject gameManager;
-
-    public TextMeshProUGUI shotgun;
-    public TextMeshProUGUI revolver;
-    public TextMeshProUGUI machineGun;
-    public TextMeshProUGUI sniper;
-    public TextMeshProUGUI bankText;
-
-    public int shotgunPrice;
-    public int sniperPrice;
-    public int machineGunPrice;
 
     public TextMeshProUGUI damage;
     public TextMeshProUGUI fireRate;
@@ -67,266 +58,21 @@ public class upgradeShopManager : MonoBehaviour
     public int speedII;
     public int speedIII;
 
-    public GameObject sisHPButton;
-    public TextMeshProUGUI sisHPVal;
-
-    public TextMeshProUGUI playerHPVal;
-    public GameObject playerHPButton;
-
-    public int vaccineCost;
-    public TextMeshProUGUI vaccineCostText;
-
-    public int pickUpI;
-    public int pickUpII;
-    public int pickUpIII;
-
-    public int moveSpeedI;
-    public int moveSpeedII;
-    public int moveSpeedIII;
-
-    public TextMeshProUGUI pickUpText;
-    public TextMeshProUGUI moveSpeedText;
-
-    public GameObject pickUpButton;
-    public GameObject moveSpeedButton;
-
-    public GameObject revObj;
-    public GameObject shotgunObj;
-    public GameObject machinegunObj;
-    public GameObject sniperObj;
-
     // Start is called before the first frame update
     void Start()
     {
-        vaccineCostText.text = vaccineCost.ToString();
+        gameManager = gameObject.GetComponent<upgradeShopManager>().gameManager;
     }
 
     // Update is called once per frame
     void Update()
     {
-        wepButtons();
         wepUpgrades();
-        hpVal();
-        playerText();
     }
 
-    public void rangeButton() 
+    void wepUpgrades()
     {
-        switch (gameManager.GetComponent<gameManager>().rangeUp)
-        {
-            case 0:
-                if (gameManager.GetComponent<gameManager>().bank >= pickUpI)
-                {
-                    gameManager.GetComponent<gameManager>().rangeUp = 1;
-                    gameManager.GetComponent<gameManager>().bank -= pickUpI;
-                }
-                break;
-            case 1:
-                if (gameManager.GetComponent<gameManager>().bank >= pickUpII)
-                {
-                    gameManager.GetComponent<gameManager>().rangeUp = 2;
-                    gameManager.GetComponent<gameManager>().bank -= pickUpII;
-                }
-                break;
-            case 2:
-                if (gameManager.GetComponent<gameManager>().bank >= pickUpIII)
-                {
-                    gameManager.GetComponent<gameManager>().rangeUp = 3;
-                    gameManager.GetComponent<gameManager>().bank -= pickUpIII;
-                }
-                break;
-        }
-    }
-
-    public void playerSpeedButton() 
-    {
-        switch (gameManager.GetComponent<gameManager>().moveUp)
-        {
-            case 0:
-                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedI)
-                {
-                    gameManager.GetComponent<gameManager>().moveUp = 1;
-                    gameManager.GetComponent<gameManager>().bank -= moveSpeedI;
-                }
-                break;
-            case 1:
-                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedII)
-                {
-                    gameManager.GetComponent<gameManager>().moveUp = 2;
-                    gameManager.GetComponent<gameManager>().bank -= moveSpeedII;
-                }
-                break;
-            case 2:
-                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedIII)
-                {
-                    gameManager.GetComponent<gameManager>().moveUp = 3;
-                    gameManager.GetComponent<gameManager>().bank -= moveSpeedIII;
-                }
-                break;
-        }
-    }
-
-    void playerText() 
-    {
-        switch (gameManager.GetComponent<gameManager>().moveUp) 
-        {
-            case 0:
-                moveSpeedText.text = "Move Speed Level I";
-                moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedI;
-                break;
-            case 1:
-                moveSpeedText.text = "Move Speed Level II";
-                moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedII;
-                break;
-            case 2:
-                moveSpeedText.text = "Move Speed Level III";
-                moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedIII;
-                break;
-            case 3:
-                moveSpeedText.text = "Move Speed Level Maxed";
-                moveSpeedButton.SetActive(false);
-                break;
-        }
-
-        switch (gameManager.GetComponent<gameManager>().rangeUp)
-        {
-            case 0:
-                pickUpText.text = "Pick Up Range Level I";
-                pickUpButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + pickUpI;
-                break;
-            case 1:
-                pickUpText.text = "Pick Up Range Level II";
-                pickUpButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + pickUpII;
-                break;
-            case 2:
-                pickUpText.text = "Pick Up Range Level III";
-                pickUpButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + pickUpIII;
-                break;
-            case 3:
-                pickUpText.text = "Pick Up Range Maxed";
-                pickUpButton.SetActive(false);
-                break;
-        }
-    }
-
-    public void sisButton() 
-    {
-        if (gameManager.GetComponent<gameManager>().sisH != 3) 
-        {
-            if (gameManager.GetComponent<gameManager>().bank >= vaccineCost) 
-            {
-                gameManager.GetComponent<gameManager>().bank -= vaccineCost;
-                gameManager.GetComponent<gameManager>().sisH++;
-            }
-        }
-    }
-
-    public void playerButton()
-    {
-        if (gameManager.GetComponent<gameManager>().playerH != 3)
-        {
-            if (gameManager.GetComponent<gameManager>().bank >= vaccineCost)
-            {
-                gameManager.GetComponent<gameManager>().bank -= vaccineCost;
-                gameManager.GetComponent<gameManager>().playerH++;
-            }
-        }
-    }
-
-    void hpVal() 
-    {
-        playerHPVal.text = gameManager.GetComponent<gameManager>().playerH.ToString();
-        sisHPVal.text = gameManager.GetComponent<gameManager>().sisH.ToString();
-
-        if (gameManager.GetComponent<gameManager>().playerH == 3)
-        {
-            playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "HP Max";
-        }
-        else 
-        {
-            playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
-        }
-
-        if (gameManager.GetComponent<gameManager>().sisH == 3)
-        {
-            sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "HP Max";
-        }
-        else 
-        {
-            sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
-        }
-    }
-
-    void wepButtons()
-    {
-        if (gameManager.GetComponent<gameManager>().revO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum == 1)
-            {
-                revolver.text = "Equipped";
-            }
-            else
-            {
-                revolver.text = "Equip";
-            }
-        }
-        else
-        {
-            revolver.text = "Cost: " + shotgunPrice;
-        }
-
-        if (gameManager.GetComponent<gameManager>().shotgunO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum == 2)
-            {
-                shotgun.text = "Equipped";
-            }
-            else
-            {
-                shotgun.text = "Equip";
-            }
-        }
-        else
-        {
-            shotgun.text = "Cost: " + shotgunPrice;
-        }
-
-        if (gameManager.GetComponent<gameManager>().machinegunO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum == 3)
-            {
-                machineGun.text = "Equipped";
-            }
-            else
-            {
-                machineGun.text = "Equip";
-            }
-        }
-        else
-        {
-            machineGun.text = "Cost: " + machineGunPrice;
-        }
-
-        if (gameManager.GetComponent<gameManager>().sniperO)
-        {
-            if (gameManager.GetComponent<gameManager>().wepNum == 4)
-            {
-                sniper.text = "Equipped";
-            }
-            else
-            {
-                sniper.text = "Equip";
-            }
-        }
-        else
-        {
-            sniper.text = "Cost: " + sniperPrice;
-        }
-    }
-
-    void wepUpgrades() 
-    {
-        switch (gameManager.GetComponent<gameManager>().damageUp) 
+        switch (gameManager.GetComponent<gameManager>().damageUp)
         {
             case 0:
                 damage.text = "Damage Up Level I";
@@ -487,12 +233,12 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void damageButton() 
+    public void damageButton()
     {
         switch (gameManager.GetComponent<gameManager>().damageUp)
         {
             case 0:
-                if(gameManager.GetComponent<gameManager>().bank >= damageI) 
+                if (gameManager.GetComponent<gameManager>().bank >= damageI)
                 {
                     gameManager.GetComponent<gameManager>().damageUp = 1;
                     gameManager.GetComponent<gameManager>().bank -= damageI;
@@ -515,12 +261,12 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void fireRateButton() 
+    public void fireRateButton()
     {
         switch (gameManager.GetComponent<gameManager>().fireUp)
         {
             case 0:
-                if(gameManager.GetComponent<gameManager>().bank >= fireRateI) 
+                if (gameManager.GetComponent<gameManager>().bank >= fireRateI)
                 {
                     gameManager.GetComponent<gameManager>().fireUp = 1;
                     gameManager.GetComponent<gameManager>().bank -= fireRateI;
@@ -543,7 +289,7 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void reloadButton() 
+    public void reloadButton()
     {
         switch (gameManager.GetComponent<gameManager>().reloadUp)
         {
@@ -571,7 +317,7 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void knockBackButton() 
+    public void knockBackButton()
     {
         switch (gameManager.GetComponent<gameManager>().knockUp)
         {
@@ -599,7 +345,7 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void speedButton() 
+    public void speedButton()
     {
         switch (gameManager.GetComponent<gameManager>().speedUp)
         {
@@ -627,7 +373,7 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void bulletButton() 
+    public void bulletButton()
     {
         switch (gameManager.GetComponent<gameManager>().projectileUp)
         {
@@ -655,7 +401,7 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void pierceButton() 
+    public void pierceButton()
     {
         switch (gameManager.GetComponent<gameManager>().pierceUp)
         {
@@ -683,7 +429,7 @@ public class upgradeShopManager : MonoBehaviour
         }
     }
 
-    public void sizeButton() 
+    public void sizeButton()
     {
         switch (gameManager.GetComponent<gameManager>().sizeUp)
         {
@@ -704,15 +450,10 @@ public class upgradeShopManager : MonoBehaviour
             case 2:
                 if (gameManager.GetComponent<gameManager>().bank >= sizeIII)
                 {
-                    gameManager.GetComponent<gameManager>().sizeUp= 3;
+                    gameManager.GetComponent<gameManager>().sizeUp = 3;
                     gameManager.GetComponent<gameManager>().bank -= sizeIII;
                 }
                 break;
         }
-    }
-
-    public void nextButton()
-    {
-        gameManager.GetComponent<gameManager>().spawnLevel(gameManager.GetComponent<gameManager>().levelNum);
     }
 }

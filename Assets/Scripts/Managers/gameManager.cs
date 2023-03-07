@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class gameManager : MonoBehaviour
 {
@@ -107,6 +108,15 @@ public class gameManager : MonoBehaviour
         sis.GetComponent<Sister>().player = player;
         spawnWep(wepNum);
         wepUpgrade();
+    }
+
+    void upgradeStart()
+    {
+        spawnPlayer();
+        playerUpgrade();
+        sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
+        sis.GetComponent<Sister>().health = sisH;
+        sis.GetComponent<Sister>().player = player;
     }
 
     void spawnPlayer() 
@@ -455,9 +465,74 @@ public class gameManager : MonoBehaviour
         if (scene.name == "UpgradeShop")
         {
             levelStart();
+            GameObject currUI = Instantiate(UI);
+            player.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
+            currUI.GetComponent<UIManager>().player = player;
+            currUI.GetComponent<UIManager>().sister = sis;
+            currUI.GetComponent<UIManager>().gun = gun;
+            currUI.GetComponent<UIManager>().gameManager = gameObject;
+            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
             currManager = Instantiate(upgradeShopManagerPre);
             currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<upgradeShopManager>().UI = currUI;
+            currManager.GetComponent<upgradeShopManager>().player = player;
+            currManager.GetComponent<upgradeShopManager>().sister = sis;
+            switch (wepNum)
+            {
+                case 1:
+                    spawnWep(2);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(1);
+                    wepUpgrade();
+                    break;
+                case 2:
+                    spawnWep(1);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(2);
+                    wepUpgrade();
+                    break;
+                case 3:
+                    spawnWep(1);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(2);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    wepUpgrade();
+                    break;
+                case 4:
+                    spawnWep(1);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(2);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    wepUpgrade();
+                    break;
+            }
         }
     }
 
