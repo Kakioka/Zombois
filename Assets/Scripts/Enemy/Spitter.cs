@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
 
 public class Spitter : MonoBehaviour
 {
     public GameObject player;
     public GameObject sister;
     public int damage;
-    public int health;
+    public float health;
     public Rigidbody2D rb;
     public Transform firePoint;
     public GameObject bulletPre;
@@ -20,10 +18,13 @@ public class Spitter : MonoBehaviour
     private Vector2 targetPos;
     private float distP;
     private float distS;
+    public bool lookingRight = true;
+    private Animator ani;
 
     // Start is called before the first frame update
     void Start()
     {
+        ani = gameObject.GetComponent<Animator>();
         player = this.gameObject.GetComponent<Enemy>().player;
         sister = this.gameObject.GetComponent<Enemy>().sister;
         gameObject.GetComponent<Enemy>().health = health;
@@ -44,16 +45,37 @@ public class Spitter : MonoBehaviour
         {
             if (distP < distS && distP > maxDist)
             {
+                Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                if ((temp.x - transform.position.x > 0) && !lookingRight)
+                {
+                    Flip();
+                }
+                else if ((temp.x - transform.position.x < 0) && lookingRight)
+                {
+                    Flip();
+                }
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                ani.SetBool("move", true);
             }
             else if (distP >= distS && distS > maxDist)
             {
+                Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                if ((temp.x - transform.position.x > 0) && !lookingRight)
+                {
+                    Flip();
+                }
+                else if ((temp.x - transform.position.x < 0) && lookingRight)
+                {
+                    Flip();
+                }
                 transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                ani.SetBool("move", true);
             }        
             else if (distP <= maxDist || distS <= maxDist) 
             {
                 if (fireDelay == false) 
                 {
+                    ani.SetBool("move", false);
                     Shoot();
                 }
             }
@@ -72,6 +94,14 @@ public class Spitter : MonoBehaviour
             targetPos = sister.transform.position;
         }
         Vector2 lookDir = targetPos - rb.position;
+        if (lookDir.x > 0 && !lookingRight)
+        {
+            Flip();
+        }
+        else if (lookDir.x < 0 && lookingRight) 
+        {
+            Flip();
+        }
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
@@ -96,5 +126,13 @@ public class Spitter : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         StartCoroutine("Shooting");
+    }
+
+    private void Flip()
+    {
+        lookingRight = !lookingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

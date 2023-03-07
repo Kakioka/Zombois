@@ -36,8 +36,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu(){
 
         Debug.Log("Loading menu...");
-        SceneManager.LoadScene("Kaiwi");
-
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame(){
