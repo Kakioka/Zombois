@@ -8,13 +8,13 @@ public class Spitter : MonoBehaviour
 {
     public GameObject player;
     public GameObject sister;
-    public int damage = 1;
-    public int health = 10;
+    public int damage;
+    public int health;
     public Rigidbody2D rb;
     public Transform firePoint;
     public GameObject bulletPre;
-    public float bulletForce = 20f;
-    public float fireRate = 1f;
+    public float bulletForce;
+    public float fireRate;
     public bool fireDelay = false;
     public float maxDist;
     private Vector2 targetPos;

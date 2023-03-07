@@ -12,7 +12,6 @@ public class Sister : MonoBehaviour
     public bool isInv = false;
     public float invTimer = 1f;
     public int prevHealth;
-    public TextMeshProUGUI sisHealthText;
     public float moveSpeed;
 
     // Start is called before the first frame update
@@ -24,7 +23,6 @@ public class Sister : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sisHealthText.text = health.ToString();
         if (health <= 0)
         {
             //Destroy(gameObject);

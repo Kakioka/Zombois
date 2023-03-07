@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Spawner : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class Spawner : MonoBehaviour
     public GameObject screamer;
     public GameObject knock;
     public GameObject beef;
-    public float random;
     public float time;
     public bool coolDown = false;
     public int num = 1;
@@ -32,7 +32,6 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // this.gameObject.transform.position = target.transform.position;
         if (testR == true && coolDown == false) 
         {
             StartCoroutine(spawnRandom(1, 8));
@@ -46,9 +45,7 @@ public class Spawner : MonoBehaviour
     public IEnumerator spawnRandom(int lower, int upper)
     {
         coolDown = true;
-        random = Random.Range(lower, upper);
-        Debug.Log(random);
-        helperSpawn(random);
+        helperSpawn(Random.Range(lower, upper));
         yield return new WaitForSeconds(time);
         coolDown = false;
     }
@@ -60,14 +57,14 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(time);
         coolDown = false;
     }
-
-    void helperSpawn(float num) 
+    void helperSpawn(float num)
     {
         Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(target.transform.position.x, target.transform.position.y);
         switch (num) 
         {
             case 1:
                 GameObject b =  Instantiate(basic, temp, Quaternion.identity);
+                b.transform.localScale = Vector3.one;
                 b.GetComponent<Enemy>().player = player;
                 b.GetComponent<Enemy>().sister = sister;
                 break;
@@ -94,7 +91,7 @@ public class Spawner : MonoBehaviour
                 break;
             case 6:
                 GameObject be = Instantiate(beef, temp, Quaternion.identity);
-                be.GetComponent<Enemy>().player = player;
+                be.GetComponent<Enemy>().player = player;   
                 be.GetComponent<Enemy>().sister = sister;
                 break;
             case 7:
