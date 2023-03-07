@@ -315,17 +315,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
---- !u!114 &1086091060 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
-  m_PrefabInstance: {fileID: 1086091059}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f4efccbfed446ca8df7f5214c0f341, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &1086091061 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1947471614, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
@@ -1111,10 +1100,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1086091060}
-        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
-        m_MethodName: spawnLevel
-        m_Mode: 3
+      - m_Target: {fileID: 6920080007416195181}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

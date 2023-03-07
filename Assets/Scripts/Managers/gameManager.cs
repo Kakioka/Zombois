@@ -113,10 +113,12 @@ public class gameManager : MonoBehaviour
     void upgradeStart()
     {
         spawnPlayer();
+        player.transform.position = new Vector3(0, -2, 10);
         playerUpgrade();
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
         sis.GetComponent<Sister>().health = sisH;
         sis.GetComponent<Sister>().player = player;
+        sis.transform.position = new Vector3(0.8f, -2, 10);
     }
 
     void spawnPlayer() 
@@ -364,18 +366,22 @@ public class gameManager : MonoBehaviour
 
     void levelLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "Tutorial") 
+        {
+            cam.gameObject.SetActive(false);
+        }
+
         if (scene.name == "Stage1")
         {
+            cam.gameObject.SetActive(true);
             levelStart();
             currManager = Instantiate(stage1ManagerPre);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             GameObject currUI = Instantiate(UI);
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+            uiStart(currUI);
         }
 
         if (scene.name == "Stage2")
@@ -385,11 +391,9 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             GameObject currUI = Instantiate(UI);
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+            uiStart(currUI);
         }
 
         if (scene.name == "Stage3")
@@ -399,11 +403,9 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             GameObject currUI = Instantiate(UI);
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+            uiStart(currUI);
         }
 
         if (scene.name == "Stage4")
@@ -413,11 +415,9 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             GameObject currUI = Instantiate(UI);
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+            uiStart(currUI);
         }
 
         if (scene.name == "Stage5")
@@ -427,11 +427,9 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             GameObject currUI = Instantiate(UI);
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+            uiStart(currUI);
         }
 
         if (scene.name == "Stage6")
@@ -441,11 +439,9 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             GameObject currUI = Instantiate(UI);
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+            uiStart(currUI);
         }
 
         if (scene.name == "Stage7")
@@ -455,92 +451,104 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             GameObject currUI = Instantiate(UI);
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+            uiStart(currUI);
         }
 
         if (scene.name == "UpgradeShop")
         {
-            levelStart();
-            GameObject currUI = Instantiate(UI);
-            player.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
-            currUI.GetComponent<UIManager>().player = player;
-            currUI.GetComponent<UIManager>().sister = sis;
-            currUI.GetComponent<UIManager>().gun = gun;
-            currUI.GetComponent<UIManager>().gameManager = gameObject;
-            currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
             currManager = Instantiate(upgradeShopManagerPre);
+            GameObject currUI = Instantiate(UI);
+            upgradeStart();
+            cam.gameObject.transform.position = Vector2.zero;
+            player.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
+            switch (wepNum)
+            {
+                case 1:
+                    spawnWep(2);
+                    currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(1);
+                    currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
+                    wepUpgrade();
+                    break;
+                case 2:
+                    spawnWep(1);
+                    currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(2);
+                    currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
+                    wepUpgrade();
+                    break;
+                case 3:
+                    spawnWep(1);
+                    currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(2);
+                    currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
+                    wepUpgrade();
+                    break;
+                case 4:
+                    spawnWep(1);
+                    currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(2);
+                    currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(3);
+                    currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
+                    wepUpgrade();
+                    gun.SetActive(false);
+                    spawnWep(4);
+                    currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
+                    wepUpgrade();
+                    break;
+            }
+            uiStart(currUI);
             currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
             currManager.GetComponentInChildren<upgradeShopManager>().UI = currUI;
             currManager.GetComponent<upgradeShopManager>().player = player;
             currManager.GetComponent<upgradeShopManager>().sister = sis;
-            switch (wepNum)
-            {
-                case 1:
-                    spawnWep(2);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(1);
-                    wepUpgrade();
-                    break;
-                case 2:
-                    spawnWep(1);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(2);
-                    wepUpgrade();
-                    break;
-                case 3:
-                    spawnWep(1);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(2);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    wepUpgrade();
-                    break;
-                case 4:
-                    spawnWep(1);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(2);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    wepUpgrade();
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    wepUpgrade();
-                    break;
-            }
         }
     }
 
-    void playerDeath() 
+    void uiStart(GameObject currUI) 
     {
-        if (player.GetComponent<PlayerMovement>().health <= 0 || sis.GetComponent<Sister>().health <= 0) 
-        {
-            Time.timeScale = 0;
-        }
+        currUI.GetComponent<UIManager>().player = player;
+        currUI.GetComponent<UIManager>().sister = sis;
+        currUI.GetComponent<UIManager>().gun = gun;
+        currUI.GetComponent<UIManager>().gameManager = gameObject;
+        currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
     }
 }

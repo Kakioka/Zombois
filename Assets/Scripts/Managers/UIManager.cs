@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cash.text = "Cash: " + gameManager.GetComponent<gameManager>().bank.ToString();
+        cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         sHealth.text = sister.GetComponent<Sister>().health.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
         
