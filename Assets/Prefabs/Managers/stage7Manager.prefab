@@ -49,6 +49,7 @@ MonoBehaviour:
   maxSpawns: 40
   currSpawns: 0
   gameM: {fileID: 0}
+  gameMPre: {fileID: 3359532807097216073, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 1548769295969412283}
@@ -60,6 +61,10 @@ MonoBehaviour:
   stageCountText: {fileID: 4078887669659225859}
   spawnSpeed: 3
   spawnSpeedMod: 0.5
+  sisDied: {fileID: 0}
+  playerDied: {fileID: 0}
+  death: {fileID: 0}
+  survived: {fileID: 0}
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Collections;
+using UnityEngine.SceneManagement;
 
 public class stageManager : MonoBehaviour
 {
     public int maxSpawns;
     public int currSpawns;
     public GameObject gameM;
+    public GameObject gameMPre;
     public GameObject player;
     public GameObject sister;
     public GameObject spawner;
@@ -20,8 +23,12 @@ public class stageManager : MonoBehaviour
     public float spawnSpeed = 3;
     public float spawnSpeedMod = 1;
 
-    private int tempCurr;
+    public GameObject sisDied;
+    public GameObject playerDied;
+    public GameObject death;
+    public TextMeshProUGUI survived;
 
+    private int tempCurr;
 
     private IEnumerator end()
     {
@@ -67,11 +74,36 @@ public class stageManager : MonoBehaviour
             tempCurr++;
             StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom());
         }
+
+        if (player.GetComponent<PlayerMovement>().health <= 0 || sister.GetComponent<Sister>().health <= 0)
+        {
+            Time.timeScale = 0;
+            death.SetActive(true);
+            survived.text = "You surivived " + stageCount + " days";
+            if (player.GetComponent<PlayerMovement>().health <= 0)
+            {
+                playerDied.SetActive(true);
+            }
+            else 
+            {
+                sisDied.SetActive(true);
+            }
+        }
     }
 
     public void next()
     {
         Time.timeScale = 1;
         gameM.GetComponent<gameManager>().levelEnd();
+    }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void menu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

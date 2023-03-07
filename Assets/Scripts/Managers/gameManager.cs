@@ -101,6 +101,7 @@ public class gameManager : MonoBehaviour
 
     void levelStart()
     {
+        Time.timeScale = 1;
         spawnPlayer();
         playerUpgrade();
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
@@ -366,9 +367,14 @@ public class gameManager : MonoBehaviour
 
     void levelLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "MainMenu")
+        {
+            Destroy(gameObject);
+        }
+
         if (scene.name == "Tutorial") 
         {
-            cam.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
         if (scene.name == "Stage1")
