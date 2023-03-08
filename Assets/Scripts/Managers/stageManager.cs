@@ -9,18 +9,24 @@ public class stageManager : MonoBehaviour
 {
     public int maxSpawns;
     public int currSpawns;
+
     public GameObject gameM;
     public GameObject player;
     public GameObject sister;
     public GameObject spawner;
     public GameObject levelDone;
+
     public int enemyLeft;
     public TextMeshProUGUI enemyLeftText;
+
     public float hpMod;
+
     public int stageCount;
     public TextMeshProUGUI stageCountText;
+
     public float spawnSpeed = 3;
     public float spawnSpeedMod = 1;
+    public int spawnMulti;
 
     public GameObject sisDied;
     public GameObject playerDied;

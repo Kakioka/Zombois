@@ -43,7 +43,30 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public IEnumerator spawnNumAtOnce(int num) 
+    public IEnumerator spawnNumAtOnceType(int num, int type) 
+    {
+        coolDown = true;
+        for (int i = 0; i < num; i++)
+        {
+            helperSpawn(type);
+        }
+        yield return new WaitForSeconds(time);
+        coolDown = false;
+    }
+
+    public IEnumerator spawnNumAtOnceSame(int num)
+    {
+        coolDown = true;
+        int temp = nums[Random.Range(0, nums.Count)];
+        for (int i = 0; i < num; i++)
+        {
+            helperSpawn(temp);
+        }
+        yield return new WaitForSeconds(time);
+        coolDown = false;
+    }
+
+    public IEnumerator spawnNumAtOnceRandom(int num) 
     {
         coolDown = true;
         for (int i = 0; i < num; i++)
