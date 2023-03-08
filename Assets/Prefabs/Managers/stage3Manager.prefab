@@ -55,15 +55,20 @@ MonoBehaviour:
   levelDone: {fileID: 4615255181255061442}
   enemyLeft: 0
   enemyLeftText: {fileID: 4615255181196250478}
+  enemyLeftObj: {fileID: 0}
   hpMod: 1.4
   stageCount: 3
   stageCountText: {fileID: 3905029347876709069}
   spawnSpeed: 3
   spawnSpeedMod: 0.6
+  spawnMulti: 0
   sisDied: {fileID: 2883667926985646301}
   playerDied: {fileID: 2945427635764084437}
   death: {fileID: 5145698716551946615}
   survived: {fileID: 7706736010545092595}
+  bossPre: {fileID: 0}
+  bossBar: {fileID: 0}
+  boss: {fileID: 0}
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +163,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1468025485690917260}
     m_Modifications:
+    - target: {fileID: 1359454226625554636, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6012591791773139508}
+    - target: {fileID: 1359454226625554636, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911619913488741795, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6012591791773139508}
+    - target: {fileID: 4911619913488741795, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: restart
+      objectReference: {fileID: 0}
     - target: {fileID: 8226003565009155963, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -68,6 +68,7 @@ MonoBehaviour:
   survived: {fileID: 7231020308825160253}
   bossPre: {fileID: 5504292816335067635, guid: 7d8c6f1238ea48c4483717267d961d5b, type: 3}
   bossBar: {fileID: 2795069762492584755}
+  boss: {fileID: 0}
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +175,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1468025485690917260}
     m_Modifications:
+    - target: {fileID: 1359454226625554636, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6012591791773139508}
+    - target: {fileID: 1359454226625554636, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: menu
+      objectReference: {fileID: 0}
     - target: {fileID: 1892765905891094980, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -181,6 +190,14 @@ PrefabInstance:
     - target: {fileID: 1892765906203394880, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911619913488741795, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6012591791773139508}
+    - target: {fileID: 4911619913488741795, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: restart
       objectReference: {fileID: 0}
     - target: {fileID: 8226003564044311534, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_text
