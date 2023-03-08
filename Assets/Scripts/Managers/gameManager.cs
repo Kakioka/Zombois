@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using Unity.VisualScripting;
 
 public class gameManager : MonoBehaviour
 {
@@ -379,7 +380,6 @@ public class gameManager : MonoBehaviour
 
         if (scene.name == "Stage1")
         {
-            cam.gameObject.SetActive(true);
             levelStart();
             currManager = Instantiate(stage1ManagerPre);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;

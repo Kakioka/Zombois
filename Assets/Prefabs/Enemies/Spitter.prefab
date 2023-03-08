@@ -199,7 +199,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 0.7
+  moveSpeed: 1
 --- !u!70 &8039879459582361419
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

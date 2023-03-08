@@ -10,7 +10,6 @@ public class stageManager : MonoBehaviour
     public int maxSpawns;
     public int currSpawns;
     public GameObject gameM;
-    public GameObject gameMPre;
     public GameObject player;
     public GameObject sister;
     public GameObject spawner;

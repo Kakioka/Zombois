@@ -143,7 +143,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 3
 --- !u!114 &758037289149234798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,6 @@ MonoBehaviour:
   damage: 1
   health: 5
   lookingRight: 1
-  rb: {fileID: 758037289149234796}
 --- !u!95 &2160345483454237238
 Animator:
   serializedVersion: 5

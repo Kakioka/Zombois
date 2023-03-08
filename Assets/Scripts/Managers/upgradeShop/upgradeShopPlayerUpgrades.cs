@@ -7,6 +7,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
 {
 
     public GameObject gameManager;
+    public GameObject player;
 
     public int pickUpI;
     public int pickUpII;
@@ -27,6 +28,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
     void Start()
     {
         gameManager = gameObject.GetComponent<upgradeShopManager>().gameManager;
+        player = gameObject.GetComponent<upgradeShopManager>().player;
     }
 
     // Update is called once per frame
@@ -83,24 +85,24 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().rangeUp)
         {
             case 0:
-                if (gameManager.GetComponent<gameManager>().bank >= pickUpI)
+                if (player.GetComponent<PlayerMovement>().bank >= pickUpI)
                 {
                     gameManager.GetComponent<gameManager>().rangeUp = 1;
-                    gameManager.GetComponent<gameManager>().bank -= pickUpI;
+                    player.GetComponent<PlayerMovement>().bank -= pickUpI;
                 }
                 break;
             case 1:
-                if (gameManager.GetComponent<gameManager>().bank >= pickUpII)
+                if (player.GetComponent<PlayerMovement>().bank >= pickUpII)
                 {
                     gameManager.GetComponent<gameManager>().rangeUp = 2;
-                    gameManager.GetComponent<gameManager>().bank -= pickUpII;
+                    player.GetComponent<PlayerMovement>().bank -= pickUpII;
                 }
                 break;
             case 2:
-                if (gameManager.GetComponent<gameManager>().bank >= pickUpIII)
+                if (player.GetComponent<PlayerMovement>().bank >= pickUpIII)
                 {
                     gameManager.GetComponent<gameManager>().rangeUp = 3;
-                    gameManager.GetComponent<gameManager>().bank -= pickUpIII;
+                    player.GetComponent<PlayerMovement>().bank -= pickUpIII;
                 }
                 break;
         }
@@ -111,24 +113,24 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().moveUp)
         {
             case 0:
-                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedI)
+                if (player.GetComponent<PlayerMovement>().bank >= moveSpeedI)
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 1;
-                    gameManager.GetComponent<gameManager>().bank -= moveSpeedI;
+                    player.GetComponent<PlayerMovement>().bank -= moveSpeedI;
                 }
                 break;
             case 1:
-                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedII)
+                if (player.GetComponent<PlayerMovement>().bank >= moveSpeedII)
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 2;
-                    gameManager.GetComponent<gameManager>().bank -= moveSpeedII;
+                    player.GetComponent<PlayerMovement>().bank -= moveSpeedII;
                 }
                 break;
             case 2:
-                if (gameManager.GetComponent<gameManager>().bank >= moveSpeedIII)
+                if (player.GetComponent<PlayerMovement>().bank >= moveSpeedIII)
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 3;
-                    gameManager.GetComponent<gameManager>().bank -= moveSpeedIII;
+                    player.GetComponent<PlayerMovement>().bank -= moveSpeedIII;
                 }
                 break;
         }

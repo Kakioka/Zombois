@@ -61,9 +61,9 @@ public class upgradeShopManager : MonoBehaviour
     {
         if (gameManager.GetComponent<gameManager>().sisH != 3)
         {
-            if (gameManager.GetComponent<gameManager>().bank >= vaccineCost)
+            if (player.GetComponent<PlayerMovement>().bank >= vaccineCost)
             {
-                gameManager.GetComponent<gameManager>().bank -= vaccineCost;
+                player.GetComponent<PlayerMovement>().bank -= vaccineCost;
                 gameManager.GetComponent<gameManager>().sisH++;
                 sister.GetComponent<Sister>().health++;
             }
@@ -74,9 +74,9 @@ public class upgradeShopManager : MonoBehaviour
     {
         if (gameManager.GetComponent<gameManager>().playerH != 3)
         {
-            if (gameManager.GetComponent<gameManager>().bank >= vaccineCost)
+            if (player.GetComponent<PlayerMovement>().bank >= vaccineCost)
             {
-                gameManager.GetComponent<gameManager>().bank -= vaccineCost;
+                player.GetComponent<PlayerMovement>().bank -= vaccineCost;
                 gameManager.GetComponent<gameManager>().playerH++;
                 player.GetComponent<PlayerMovement>().health++;
             }
@@ -85,6 +85,7 @@ public class upgradeShopManager : MonoBehaviour
 
     public void nextButton()
     {
+        gameManager.GetComponent<gameManager>().bank = player.GetComponent<PlayerMovement>().bank;
         gameManager.GetComponent<gameManager>().spawnLevel(gameManager.GetComponent<gameManager>().levelNum);
     }
 }

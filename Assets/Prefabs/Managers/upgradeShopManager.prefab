@@ -526,8 +526,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: damageButton
         m_Mode: 1
         m_Arguments:
@@ -5694,8 +5694,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: sizeButton
         m_Mode: 1
         m_Arguments:
@@ -6232,8 +6232,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605294}
+        m_TargetAssemblyTypeName: upgradeShopPlayerUpgrades, Assembly-CSharp
         m_MethodName: rangeButton
         m_Mode: 1
         m_Arguments:
@@ -6501,8 +6501,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: reloadButton
         m_Mode: 1
         m_Arguments:
@@ -6770,8 +6770,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: knockBackButton
         m_Mode: 1
         m_Arguments:
@@ -7714,8 +7714,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: bulletButton
         m_Mode: 1
         m_Arguments:
@@ -7848,8 +7848,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: pierceButton
         m_Mode: 1
         m_Arguments:
@@ -8253,8 +8253,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605294}
+        m_TargetAssemblyTypeName: upgradeShopPlayerUpgrades, Assembly-CSharp
         m_MethodName: playerSpeedButton
         m_Mode: 1
         m_Arguments:
@@ -8387,8 +8387,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: fireRateButton
         m_Mode: 1
         m_Arguments:
@@ -8793,8 +8793,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043577983158571276}
-        m_TargetAssemblyTypeName: upgradeShopManager, Assembly-CSharp
+      - m_Target: {fileID: 5332791133942605329}
+        m_TargetAssemblyTypeName: upgradeShopWeaponUpgradeButtons, Assembly-CSharp
         m_MethodName: speedButton
         m_Mode: 1
         m_Arguments:

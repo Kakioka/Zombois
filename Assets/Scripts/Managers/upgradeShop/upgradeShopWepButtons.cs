@@ -8,6 +8,7 @@ using UnityEngine.Rendering.VirtualTexturing;
 public class upgradeShopWepButtons : MonoBehaviour
 {
     public GameObject gameManager;
+    public GameObject player;
     public GameObject UI;
     public GameObject revObj;
     public GameObject shotgunObj;
@@ -25,6 +26,7 @@ public class upgradeShopWepButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = gameObject.GetComponent<upgradeShopManager>().player;
         gameManager = gameObject.GetComponent<upgradeShopManager>().gameManager;
         UI = gameObject.GetComponent<upgradeShopManager>().UI;
     }
@@ -122,9 +124,9 @@ public class upgradeShopWepButtons : MonoBehaviour
         }
         else
         {
-            if (gameManager.GetComponent<gameManager>().bank >= shotgunPrice)
+            if (player.GetComponent<PlayerMovement>().bank >= shotgunPrice)
             {
-                gameManager.GetComponent<gameManager>().bank -= shotgunPrice;
+                player.GetComponent<PlayerMovement>().bank -= shotgunPrice;
                 gameManager.GetComponent<gameManager>().shotgunO = true;
             }
         }
@@ -150,9 +152,9 @@ public class upgradeShopWepButtons : MonoBehaviour
         }
         else
         {
-            if (gameManager.GetComponent<gameManager>().bank >= machineGunPrice)
+            if (player.GetComponent<PlayerMovement>().bank >= machineGunPrice)
             {
-                gameManager.GetComponent<gameManager>().bank -= machineGunPrice;
+                player.GetComponent<PlayerMovement>().bank -= machineGunPrice;
                 gameManager.GetComponent<gameManager>().machinegunO = true;
             }
         }
@@ -178,9 +180,9 @@ public class upgradeShopWepButtons : MonoBehaviour
         }
         else
         {
-            if (gameManager.GetComponent<gameManager>().bank >= sniperPrice)
+            if (player.GetComponent<PlayerMovement>().bank >= sniperPrice)
             {
-                gameManager.GetComponent<gameManager>().bank -= sniperPrice;
+                player.GetComponent<PlayerMovement>().bank -= sniperPrice;
                 gameManager.GetComponent<gameManager>().sniperO = true;
             }
         }
