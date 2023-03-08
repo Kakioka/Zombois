@@ -72,6 +72,8 @@ public class Gun : MonoBehaviour
             if (ammo != 0 && isReload == false && fireDelay == false)
             {
                 Shoot();
+                gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
+                gameObject.GetComponent<AudioSource>().Play();
             }
             else if (ammo == 0 && isReload == false)
             {
