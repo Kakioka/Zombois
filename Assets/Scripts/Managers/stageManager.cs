@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Unity.Collections;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class stageManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class stageManager : MonoBehaviour
 
     public int enemyLeft;
     public TextMeshProUGUI enemyLeftText;
+    public GameObject enemyLeftObj;
 
     public float hpMod;
 
@@ -33,7 +35,14 @@ public class stageManager : MonoBehaviour
     public GameObject death;
     public TextMeshProUGUI survived;
 
+    public GameObject bossPre;
+    public GameObject bossBar;
+
     private int tempCurr;
+
+    private bool bossSpawned = false;
+
+    public GameObject boss;
 
     private IEnumerator end()
     {
@@ -58,6 +67,8 @@ public class stageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (currSpawns < tempCurr)
         {
@@ -67,7 +78,25 @@ public class stageManager : MonoBehaviour
         }
         if (currSpawns == 0 && maxSpawns == 0)
         {
-            StartCoroutine(end());
+            if (stageCount == 7 && bossSpawned == false)
+            {
+                bossSpawned = true;
+                spawner.SetActive(false);
+                boss = Instantiate(bossPre, sister.transform.position, Quaternion.identity);
+                sister.SetActive(false);
+                boss.GetComponent<sisBoss>().player = player;
+                boss.GetComponent<Enemy>().player = player;
+                boss.GetComponent<Enemy>().sister = player;
+                enemyLeftObj.SetActive(false);
+                enemyLeftText.gameObject.SetActive(false);
+                bossBar.SetActive(true);
+                bossBar.GetComponent<BossHpBar>().boss = boss;
+                bossBar.GetComponent<BossHpBar>().enabled = true;
+            }
+            else 
+            {
+                StartCoroutine(end());
+            }
         }
         else if (maxSpawns == 0)
         {
@@ -92,6 +121,14 @@ public class stageManager : MonoBehaviour
             else 
             {
                 sisDied.SetActive(true);
+            }
+        }
+        
+        if (bossSpawned == true) 
+        {
+            if (boss.GetComponent<Enemy>().health <= 0) 
+            {
+                bossBar.SetActive(false);
             }
         }
     }

@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1184cbf858e98c48a4385953eb40047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   sHealth: {fileID: 2963015002019364925}
   ammo: {fileID: 5679295568122855508}
   cash: {fileID: 2477927234207856272}

@@ -55,15 +55,19 @@ MonoBehaviour:
   levelDone: {fileID: 5667431703754686988}
   enemyLeft: 0
   enemyLeftText: {fileID: 5667431703964229792}
+  enemyLeftObj: {fileID: 5667431703547675580}
   hpMod: 2.2
   stageCount: 7
   stageCountText: {fileID: 4078887669659225859}
   spawnSpeed: 3
   spawnSpeedMod: 0.3
+  spawnMulti: 0
   sisDied: {fileID: 2787364826102517011}
   playerDied: {fileID: 2759070417950790427}
   death: {fileID: 5315193695156030649}
   survived: {fileID: 7231020308825160253}
+  bossPre: {fileID: 5504292816335067635, guid: 7d8c6f1238ea48c4483717267d961d5b, type: 3}
+  bossBar: {fileID: 2795069762492584755}
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,6 +174,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1468025485690917260}
     m_Modifications:
+    - target: {fileID: 1892765905891094980, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892765906203394880, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8226003564044311534, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_text
       value: You survived all 7 days
@@ -298,6 +310,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1882737987376471397, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
   m_PrefabInstance: {fileID: 4363532514186694774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2795069762492584755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1892765906203394885, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+  m_PrefabInstance: {fileID: 4363532514186694774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4078887669659225859 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 294281033287032693, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
@@ -317,6 +334,11 @@ GameObject:
 --- !u!224 &5667431703375816461 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8226003565009155963, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+  m_PrefabInstance: {fileID: 4363532514186694774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5667431703547675580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8226003564100064202, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
   m_PrefabInstance: {fileID: 4363532514186694774}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5667431703754686988 stripped

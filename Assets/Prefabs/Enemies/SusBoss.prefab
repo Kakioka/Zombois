@@ -59,7 +59,7 @@ MonoBehaviour:
   num: 1
   radius: 1
   hpMod: 0
-  nums: 01000000020000000300000004000000
+  nums: 01000000020000000300000004000000050000000600000007000000
   testN: 0
   testR: 0
 --- !u!1 &5504292816335067635
@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 5504292816335067599}
   - component: {fileID: 5504292816335067598}
   - component: {fileID: 5504292816335067597}
+  - component: {fileID: -3017505946881025708}
   m_Layer: 9
   m_Name: SusBoss
   m_TagString: Enemy
@@ -92,9 +93,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5504292816335067635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.84, y: 0.18, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5504292816161458211}
   m_Father: {fileID: 0}
@@ -142,7 +143,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -242962571, guid: b89aaee89951d424da8e8d05c4436b97, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.745283, g: 0.10060444, b: 0.0035154943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -225,7 +226,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 1000
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -245,9 +246,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e283203ed438f4d9b1583b471f4417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 50
   coinPref: {fileID: 9205036790924861423, guid: 67daf60d5194b7547aebdece35cbedd6, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 0
+  moveSpeed: 0.25
+--- !u!114 &-3017505946881025708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504292816335067635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5f37bd6afaac64abecd5cac63b38e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  sister: {fileID: 0}
+  damage: 1
+  health: 50
+  lookingRight: 1

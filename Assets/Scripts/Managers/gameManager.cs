@@ -453,7 +453,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage7")
         {
             levelStart();
-            currManager = Instantiate(stage1ManagerPre);
+            currManager = Instantiate(stage7ManagerPre);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
