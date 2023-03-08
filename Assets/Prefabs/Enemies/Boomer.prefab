@@ -163,7 +163,7 @@ MonoBehaviour:
   inRange: 0
   timer: 0.5
   explosion: {fileID: 8607471019839173687, guid: 166b72d6ae5af400794b23ffad3321c0, type: 3}
-  maxDist: 1
+  maxDist: 1.3
   lookingRight: 1
 --- !u!95 &4171349311842325811
 Animator:
