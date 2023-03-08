@@ -56,7 +56,7 @@ MonoBehaviour:
   enemyLeft: 0
   enemyLeftText: {fileID: 5667431703964229792}
   enemyLeftObj: {fileID: 5667431703547675580}
-  hpMod: 2.2
+  hpMod: 3
   stageCount: 7
   stageCountText: {fileID: 4078887669659225859}
   spawnSpeed: 3

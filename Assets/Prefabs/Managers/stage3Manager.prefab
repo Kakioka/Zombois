@@ -56,7 +56,7 @@ MonoBehaviour:
   enemyLeft: 0
   enemyLeftText: {fileID: 4615255181196250478}
   enemyLeftObj: {fileID: 0}
-  hpMod: 1.4
+  hpMod: 1.5
   stageCount: 3
   stageCountText: {fileID: 3905029347876709069}
   spawnSpeed: 3
@@ -78,7 +78,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: nums.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: nums.Array.data[0]
@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: nums.Array.data[1]
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 764512717288120619, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: nums.Array.data[2]

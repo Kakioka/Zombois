@@ -83,7 +83,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
+        /*if (Input.GetKeyDown(KeyCode.Y))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -97,7 +97,7 @@ public class gameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             spawnLevel(8);
-        }
+        }*/
     }
 
     void levelStart()
@@ -202,15 +202,15 @@ public class gameManager : MonoBehaviour
         switch (damageUp) 
         {
             case 1:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.1f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.3f);
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.2f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage *1.6f);
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.3f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 2f);
                 break;
         }
 

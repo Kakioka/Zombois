@@ -169,7 +169,7 @@ MonoBehaviour:
   isInv: 0
   invTimer: 1
   prevHealth: 0
-  moveSpeed: 0.7
+  moveSpeed: 0.8
   ring: {fileID: 4945562483153095412}
   lookingRight: 1
 --- !u!70 &8741561835794063886
