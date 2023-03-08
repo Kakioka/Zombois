@@ -82,7 +82,7 @@ public class Spawner : MonoBehaviour
         coolDown = true;
         helperSpawn(nums[Random.Range(0,nums.Count)]);
         yield return new WaitForSeconds(time);
-        
+        coolDown = false;
     }
 
     public IEnumerator spawnNum(int num)

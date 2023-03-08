@@ -2175,6 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  player: {fileID: 0}
   UI: {fileID: 0}
   revObj: {fileID: 0}
   shotgunObj: {fileID: 0}
@@ -2216,6 +2217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  player: {fileID: 0}
   pickUpI: 5
   pickUpII: 10
   pickUpIII: 15
@@ -2239,6 +2241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  player: {fileID: 0}
   damage: {fileID: 972502854112534060}
   fireRate: {fileID: 972502853282290711}
   reload: {fileID: 972502853299512809}
@@ -3842,7 +3845,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8192bf358ede9924abd9e425957af76e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
