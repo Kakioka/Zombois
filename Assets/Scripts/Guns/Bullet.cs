@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
+            temp.z = 10;
             GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
             num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
             Destroy(num, 1f);
