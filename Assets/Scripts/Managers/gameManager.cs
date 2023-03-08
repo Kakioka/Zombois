@@ -202,7 +202,7 @@ public class gameManager : MonoBehaviour
         switch (damageUp) 
         {
             case 1:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.3f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.2f);
                 break;
 
             case 2:
@@ -263,14 +263,17 @@ public class gameManager : MonoBehaviour
         {
             case 1:
                 gun.GetComponent<Gun>().projectiles += 1;
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.9f);
                 break;
 
             case 2:
                 gun.GetComponent<Gun>().projectiles += 2;
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.8f);
                 break;
 
             case 3:
                 gun.GetComponent<Gun>().projectiles += 3;
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.7f);
                 break;
         }
 
