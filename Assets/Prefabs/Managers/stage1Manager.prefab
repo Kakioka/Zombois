@@ -49,7 +49,6 @@ MonoBehaviour:
   maxSpawns: 10
   currSpawns: 0
   gameM: {fileID: 0}
-  gameMPre: {fileID: 3359532807097216073, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 1548769295969412283}
@@ -61,6 +60,7 @@ MonoBehaviour:
   stageCountText: {fileID: 8520209761647573568}
   spawnSpeed: 3
   spawnSpeedMod: 1
+  spawnMulti: 0
   sisDied: {fileID: 7496371948479428688}
   playerDied: {fileID: 7560678416126387800}
   death: {fileID: 533007616469121530}
@@ -127,6 +127,10 @@ PrefabInstance:
     - target: {fileID: 764512717288120629, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 764512717288120629, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb93ad5b0ad9ba840b4cbc466b8e0ab3, type: 3}

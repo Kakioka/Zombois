@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &764512717288120628
 Transform:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   knock: {fileID: 3820435218109899729, guid: 8131f0fd881c5894f88a9f2a9faf1d1c, type: 3}
   beef: {fileID: 4299144491326108923, guid: ce4ea8eacea01444596209021a996953, type: 3}
   time: 3
-  coolDown: 1
+  coolDown: 0
   num: 1
   radius: 10
   hpMod: 0
