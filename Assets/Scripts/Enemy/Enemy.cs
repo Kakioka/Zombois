@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject coin = Instantiate(coinPref, transform.position, Quaternion.identity);
             coin.GetComponent<Coin>().player = player;
+            coin.GetComponent<Coin>().sister = sister;
             Destroy(gameObject);
         }
     }

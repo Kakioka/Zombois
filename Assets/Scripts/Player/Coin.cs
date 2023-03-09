@@ -6,8 +6,10 @@ public class Coin : MonoBehaviour
 {
     public int value;
     public GameObject player;
+    public GameObject sister;
     public int moveSpeed;
     public bool pickedUp = false;
+    public bool pickedUpS = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +20,15 @@ public class Coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pickedUpS) 
+        {
+            Vector3 moveDir = (sister.transform.position - transform.position).normalized;
+            transform.position += moveDir * moveSpeed * Time.deltaTime;
+        }
         if (pickedUp) 
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            Vector3 moveDir = (player.transform.position - transform.position).normalized;
+            transform.position += moveDir * moveSpeed * Time.deltaTime;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +41,10 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "PickUp")
         {
             pickedUp = true;
+        }
+        if (collision.gameObject.tag == "PickUpS")
+        {
+            pickedUpS = true;
         }
     }
 }

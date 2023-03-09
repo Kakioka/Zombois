@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Sister
   - gameM
+  - PickUpS
   layers:
   - Default
   - TransparentFX

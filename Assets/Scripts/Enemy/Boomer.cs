@@ -52,7 +52,8 @@ public class Boomer : MonoBehaviour
                 {
                     Flip();
                 }
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector3 moveDir = (player.transform.position - transform.position).normalized;
+                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
             }
             else if (distP >= distS)
             {
@@ -66,7 +67,8 @@ public class Boomer : MonoBehaviour
                 {
                     Flip();
                 }
-                transform.position = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector3 moveDir = (sister.transform.position - transform.position).normalized;
+                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
             }
         }
         if (inRange == true)
