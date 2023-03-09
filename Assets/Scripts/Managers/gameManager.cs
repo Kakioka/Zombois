@@ -263,17 +263,17 @@ public class gameManager : MonoBehaviour
         {
             case 1:
                 gun.GetComponent<Gun>().projectiles += 1;
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.9f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.8f);
                 break;
 
             case 2:
                 gun.GetComponent<Gun>().projectiles += 2;
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.8f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.6f);
                 break;
 
             case 3:
                 gun.GetComponent<Gun>().projectiles += 3;
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.7f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.5f);
                 break;
         }
 
@@ -295,15 +295,15 @@ public class gameManager : MonoBehaviour
         switch (sizeUp)
         {
             case 1:
-                gun.GetComponent<Gun>().bulletSize += 0.25f;
-                break;
-
-            case 2:
                 gun.GetComponent<Gun>().bulletSize += 0.5f;
                 break;
 
-            case 3:
+            case 2:
                 gun.GetComponent<Gun>().bulletSize += 0.75f;
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().bulletSize += 1f;
                 break;
         }
 
