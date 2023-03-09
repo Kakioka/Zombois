@@ -83,7 +83,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -97,7 +97,7 @@ public class gameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             spawnLevel(8);
-        }*/
+        }
     }
 
     void levelStart()
