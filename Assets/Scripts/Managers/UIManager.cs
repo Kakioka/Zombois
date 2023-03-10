@@ -30,9 +30,9 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        h1.color = Color.red;
-        h2.color = Color.red;
-        h3.color = Color.red;
+        h1.color = Color.white;
+        h2.color = Color.white;
+        h3.color = Color.white;
         aniGun.speed /= gun.GetComponent<Gun>().reloadSpeed;
     }
 
@@ -51,20 +51,20 @@ public class UIManager : MonoBehaviour
                 break;
             case 1:
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
-                h1.color = Color.red;
+                h1.color = Color.white;
                 h2.color = Color.black;
                 h3.color = Color.black;
                 break;
             case 2:
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 h3.color = Color.black;
-                h1.color = Color.red;
-                h2.color = Color.red;
+                h1.color = Color.white;
+                h2.color = Color.white;
                 break;
             case 3:
-                h1.color = Color.red;
-                h2.color = Color.red;
-                h3.color = Color.red;
+                h1.color = Color.white;
+                h2.color = Color.white;
+                h3.color = Color.white;
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
@@ -78,20 +78,20 @@ public class UIManager : MonoBehaviour
                 break;
             case 1:
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
-                sh1.color = Color.red;
+                sh1.color = Color.white;
                 sh2.color = Color.black;
                 sh3.color = Color.black;
                 break;
             case 2:
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 sh3.color = Color.black;
-                sh1.color = Color.red;
-                sh2.color = Color.red;
+                sh1.color = Color.white;
+                sh2.color = Color.white;
                 break;
             case 3:
-                sh1.color = Color.red;
-                sh2.color = Color.red;
-                sh3.color = Color.red;
+                sh1.color = Color.white;
+                sh2.color = Color.white;
+                sh3.color = Color.white;
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }

@@ -11,7 +11,6 @@ public class Basic : MonoBehaviour
 
     public int damage = 1;
 
-    public float health = 10;
 
     public bool lookingRight = true;
 
@@ -20,7 +19,6 @@ public class Basic : MonoBehaviour
     {
         player = this.gameObject.GetComponent<Enemy>().player;
         sister = this.gameObject.GetComponent<Enemy>().sister;
-        gameObject.GetComponent<Enemy>().health = health;
     }
 
     // Update is called once per frame

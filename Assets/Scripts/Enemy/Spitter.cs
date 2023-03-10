@@ -7,7 +7,6 @@ public class Spitter : MonoBehaviour
     public GameObject player;
     public GameObject sister;
     public int damage;
-    public float health;
     public Rigidbody2D rb;
     public Transform firePoint;
     public GameObject bulletPre;
@@ -27,7 +26,6 @@ public class Spitter : MonoBehaviour
         ani = gameObject.GetComponent<Animator>();
         player = this.gameObject.GetComponent<Enemy>().player;
         sister = this.gameObject.GetComponent<Enemy>().sister;
-        gameObject.GetComponent<Enemy>().health = health;
     }
 
     IEnumerator Shooting()

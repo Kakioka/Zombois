@@ -245,6 +245,7 @@ MonoBehaviour:
   gun: {fileID: 0}
   moveUp: 0
   rangeUp: 0
+  sisMoveUp: 0
   playerH: 3
   sisPre: {fileID: 8741561835794063889, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}
   sis: {fileID: 0}
@@ -257,6 +258,7 @@ MonoBehaviour:
   speedUp: 0
   fireUp: 0
   reloadUp: 0
+  ammoUp: 0
   levelNum: 1
   stage1ManagerPre: {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
   stage2ManagerPre: {fileID: 1468025485690917258, guid: b75152a4889c17b41a9ca4dfd7e816c9, type: 3}
@@ -276,6 +278,9 @@ MonoBehaviour:
   damageMultiIII: 0
   UI: {fileID: 5474136242747793142, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
   cam: {fileID: 1947471614}
+  cursorTexture: {fileID: 2800000, guid: 754da0a9258df8f4da897171ff9b42a9, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!82 &317871882217373571
 AudioSource:
   m_ObjectHideFlags: 0

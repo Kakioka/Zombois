@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
-using Unity.VisualScripting;
 
 public class gameManager : MonoBehaviour
 {
@@ -76,10 +75,15 @@ public class gameManager : MonoBehaviour
     public GameObject UI;
     public Camera cam;
 
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+
     // Start is called before the first frame update
     void Start()
     {
+        Vector2 hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
         DontDestroyOnLoad(this.gameObject);
+        Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
     }
 
     // Update is called once per frame

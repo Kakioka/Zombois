@@ -117,8 +117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 1
   player: {fileID: 0}
-  moveSpeed: 15
+  sister: {fileID: 0}
+  moveSpeed: 30
   pickedUp: 0
+  pickedUpS: 0
 --- !u!95 &1323663305235475013
 Animator:
   serializedVersion: 5
