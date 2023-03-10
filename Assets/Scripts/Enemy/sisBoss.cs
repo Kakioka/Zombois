@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using Unity.Collections;
-using UnityEngine.SceneManagement;
 
 public class sisBoss : MonoBehaviour
 {
@@ -19,11 +14,12 @@ public class sisBoss : MonoBehaviour
     public int iniShieldHp;
     public int shieldMod;
     public GameObject coinPre;
-    
+
     private bool shieldOn = true;
     private int tempCurr;
 
-    private void shieldSpawn(){
+    private void shieldSpawn()
+    {
         shield = Instantiate(shieldPref);
         shield.GetComponent<SpitterShoot>().spit = gameObject;
         shield.GetComponent<Enemy>().coinPref = coinPre;
@@ -48,14 +44,18 @@ public class sisBoss : MonoBehaviour
     void Update()
     {
         currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (shield == null){
+        if (shield == null)
+        {
             shieldOn = false;
         }
         if (currSpawns < tempCurr)
         {
-            if (shieldOn == false){
+            if (shieldOn == false)
+            {
                 shieldSpawn();
-            }else{
+            }
+            else
+            {
                 shield.GetComponent<Enemy>().health += shieldMod;
             }
             tempCurr--;

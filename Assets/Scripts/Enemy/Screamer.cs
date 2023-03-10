@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Screamer : MonoBehaviour
@@ -18,7 +16,7 @@ public class Screamer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<Enemy>().health <= 0) 
+        if (gameObject.GetComponent<Enemy>().health <= 0)
         {
             spawner.GetComponent<Spawner>().time /= spawnMod;
         }
@@ -26,7 +24,7 @@ public class Screamer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy") 
+        if (collision.tag == "Enemy")
         {
             collision.GetComponent<Enemy>().moveSpeed *= speedMod;
         }

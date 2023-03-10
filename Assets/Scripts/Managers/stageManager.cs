@@ -1,11 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using Unity.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 
 public class stageManager : MonoBehaviour
 {
@@ -48,7 +44,7 @@ public class stageManager : MonoBehaviour
 
     public float timer;
 
-    private IEnumerator end() 
+    private IEnumerator end()
     {
         yield return new WaitForSeconds(5f);
         Time.timeScale = 0;
@@ -107,20 +103,20 @@ public class stageManager : MonoBehaviour
                     bossBar.GetComponent<BossHpBar>().enabled = true;
                 }
             }
-            else if(stageCount != 7)
+            else if (stageCount != 7)
             {
                 stageEnd.SetActive(true);
                 if (timer > 0)
                 {
                     timer -= Time.deltaTime;
-                    stageEnd.GetComponent<TextMeshProUGUI>().text = "Stage ends in: " + Mathf.Round(timer * 100f)/100f;
+                    stageEnd.GetComponent<TextMeshProUGUI>().text = "Stage ends in: " + Mathf.Round(timer * 100f) / 100f;
                 }
-                else 
+                else
                 {
                     stageEnd.GetComponent<TextMeshProUGUI>().text = "Stage ends in: 0.00";
                     Time.timeScale = 0;
                     levelDone.SetActive(true);
-                }  
+                }
             }
         }
         else if (maxSpawns == 0)
@@ -143,15 +139,15 @@ public class stageManager : MonoBehaviour
             {
                 playerDied.SetActive(true);
             }
-            else 
+            else
             {
                 sisDied.SetActive(true);
             }
         }
-        
-        if (bossSpawned == true) 
+
+        if (bossSpawned == true)
         {
-            if (boss == null) 
+            if (boss == null)
             {
                 bossBar.SetActive(false);
                 StartCoroutine(end());

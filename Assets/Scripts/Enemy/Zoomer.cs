@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Zoomer : MonoBehaviour
@@ -27,7 +25,7 @@ public class Zoomer : MonoBehaviour
         {
             if (distP < distS)
             {
-               
+
                 Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
@@ -42,7 +40,7 @@ public class Zoomer : MonoBehaviour
             }
             else if (distP >= distS)
             {
-                
+
                 Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
@@ -56,7 +54,7 @@ public class Zoomer : MonoBehaviour
                 transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
             }
         }
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)

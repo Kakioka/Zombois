@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (testR == true && coolDown == false) 
+        if (testR == true && coolDown == false)
         {
             StartCoroutine(spawnRandom());
         }
@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public IEnumerator spawnNumAtOnceType(int num, int type) 
+    public IEnumerator spawnNumAtOnceType(int num, int type)
     {
         coolDown = true;
         for (int i = 0; i < num; i++)
@@ -66,7 +66,7 @@ public class Spawner : MonoBehaviour
         coolDown = false;
     }
 
-    public IEnumerator spawnNumAtOnceRandom(int num) 
+    public IEnumerator spawnNumAtOnceRandom(int num)
     {
         coolDown = true;
         for (int i = 0; i < num; i++)
@@ -80,13 +80,13 @@ public class Spawner : MonoBehaviour
     public IEnumerator spawnRandom()
     {
         coolDown = true;
-        helperSpawn(nums[Random.Range(0,nums.Count)]);
+        helperSpawn(nums[Random.Range(0, nums.Count)]);
         yield return new WaitForSeconds(time);
         coolDown = false;
     }
 
     public IEnumerator spawnNum(int num)
-    { 
+    {
         coolDown = true;
         helperSpawn(num);
         yield return new WaitForSeconds(time);
@@ -95,10 +95,10 @@ public class Spawner : MonoBehaviour
     void helperSpawn(float num)
     {
         Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(target.transform.position.x, target.transform.position.y);
-        switch (num) 
+        switch (num)
         {
             case 1:
-                GameObject b =  Instantiate(basic, temp, Quaternion.identity);
+                GameObject b = Instantiate(basic, temp, Quaternion.identity);
                 b.GetComponent<Enemy>().player = player;
                 b.GetComponent<Enemy>().sister = sister;
                 b.GetComponent<Enemy>().health = Mathf.Ceil(b.GetComponent<Enemy>().health *= hpMod);
@@ -130,7 +130,7 @@ public class Spawner : MonoBehaviour
                 break;
             case 6:
                 GameObject be = Instantiate(beef, temp, Quaternion.identity);
-                be.GetComponent<Enemy>().player = player;   
+                be.GetComponent<Enemy>().player = player;
                 be.GetComponent<Enemy>().sister = sister;
                 be.GetComponent<Enemy>().health = Mathf.Ceil(be.GetComponent<Enemy>().health *= hpMod);
                 break;

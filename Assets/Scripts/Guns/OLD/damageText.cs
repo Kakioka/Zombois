@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class damageText : MonoBehaviour
@@ -17,6 +15,6 @@ public class damageText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.transform.position =  initial.position + target.transform.position;
+        text.transform.position = initial.position + target.transform.position;
     }
 }

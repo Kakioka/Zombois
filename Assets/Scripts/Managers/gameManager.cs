@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Cinemachine;
 
 public class gameManager : MonoBehaviour
 {
@@ -125,7 +123,7 @@ public class gameManager : MonoBehaviour
         playerUpgrade();
     }
 
-    void spawnPlayer() 
+    void spawnPlayer()
     {
         player = Instantiate(playerPref, playerPref.transform.position, Quaternion.identity);
         player.GetComponent<PlayerMovement>().bank = bank;
@@ -135,9 +133,9 @@ public class gameManager : MonoBehaviour
         sis.GetComponent<Sister>().player = player;
     }
 
-    void playerUpgrade() 
+    void playerUpgrade()
     {
-        switch (moveUp) 
+        switch (moveUp)
         {
             case 1:
                 player.GetComponent<PlayerMovement>().moveSpeed += 0.5f;
@@ -150,7 +148,7 @@ public class gameManager : MonoBehaviour
                 break;
         }
 
-        switch (rangeUp) 
+        switch (rangeUp)
         {
             case 1:
                 player.GetComponent<PlayerMovement>().pickUpRadius += 0.3f;
@@ -215,7 +213,7 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    void wepUpgrade() 
+    void wepUpgrade()
     {
         switch (ammoUp)
         {
@@ -232,14 +230,14 @@ public class gameManager : MonoBehaviour
                 break;
         }
 
-        switch (damageUp) 
+        switch (damageUp)
         {
             case 1:
                 gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.2f);
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage *1.6f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.6f);
                 break;
 
             case 3:
@@ -409,7 +407,7 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (scene.name == "Tutorial") 
+        if (scene.name == "Tutorial")
         {
             Destroy(gameObject);
         }
@@ -586,7 +584,7 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    void uiStart(GameObject currUI) 
+    void uiStart(GameObject currUI)
     {
         currUI.GetComponent<UIManager>().player = player;
         currUI.GetComponent<UIManager>().sister = sis;

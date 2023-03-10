@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -48,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInv) 
+        if (isInv)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
         }
@@ -56,11 +54,11 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         if (movement.x == 0 && movement.y == 0)
         {
-           ani.SetBool("move", false);
+            ani.SetBool("move", false);
         }
-        else 
+        else
         {
-           ani.SetBool("move", true);
+            ani.SetBool("move", true);
         }
         if (health <= 0)
         {
@@ -76,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-        else if (movement.x < 0 && lookingRight) 
+        else if (movement.x < 0 && lookingRight)
         {
             Flip();
         }
@@ -98,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Flip() 
+    private void Flip()
     {
         lookingRight = !lookingRight;
         Vector3 theScale = transform.localScale;

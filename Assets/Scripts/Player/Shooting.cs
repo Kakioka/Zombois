@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -12,15 +10,15 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
     }
 
-    void Shoot() 
+    void Shoot()
     {
-        GameObject bullet =  Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }

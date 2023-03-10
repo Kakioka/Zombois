@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class upgradeShopTabs : MonoBehaviour
@@ -12,24 +10,24 @@ public class upgradeShopTabs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void wepUpTab() 
+    public void wepUpTab()
     {
         wepUp.SetActive(true);
         Guns.SetActive(false);
         Vac.SetActive(false);
-        playerUp.SetActive(false); 
+        playerUp.SetActive(false);
     }
 
-    public void gunTab() 
+    public void gunTab()
     {
         wepUp.SetActive(false);
         Guns.SetActive(true);
@@ -37,7 +35,7 @@ public class upgradeShopTabs : MonoBehaviour
         playerUp.SetActive(false);
     }
 
-    public void vacTab() 
+    public void vacTab()
     {
         wepUp.SetActive(false);
         Guns.SetActive(false);
@@ -45,7 +43,7 @@ public class upgradeShopTabs : MonoBehaviour
         playerUp.SetActive(false);
     }
 
-    public void playerUpTab() 
+    public void playerUpTab()
     {
         wepUp.SetActive(false);
         Guns.SetActive(false);

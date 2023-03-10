@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class Revolver : MonoBehaviour
 {
@@ -57,16 +56,16 @@ public class Revolver : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             shooting = true;
-        }   
+        }
 
         if (Input.GetButtonUp("Fire1"))
         {
             shooting = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            if (isReload == false && ammo != maxAmmo) 
+            if (isReload == false && ammo != maxAmmo)
             {
                 Reload();
             }
@@ -92,7 +91,7 @@ public class Revolver : MonoBehaviour
         rb.rotation = angle;
     }
 
-    void Shoot() 
+    void Shoot()
     {
         fireDelay = true;
         Spawn(projectiles);
@@ -101,7 +100,7 @@ public class Revolver : MonoBehaviour
         StartCoroutine("Shooting");
     }
 
-    void Reload() 
+    void Reload()
     {
         isReload = true;
         StartCoroutine("Reloading");
@@ -157,7 +156,7 @@ public class Revolver : MonoBehaviour
 
     }
 
-    void helperSpawn(GameObject obj) 
+    void helperSpawn(GameObject obj)
     {
         obj.GetComponent<Bullet>().damage = damage;
         obj.GetComponent<Bullet>().pierce = piecre;

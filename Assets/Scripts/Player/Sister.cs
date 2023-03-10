@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.Rendering.VirtualTexturing;
-using System.Net.NetworkInformation;
 
 public class Sister : MonoBehaviour
 {
@@ -60,11 +56,11 @@ public class Sister : MonoBehaviour
             transform.position += moveDir * moveSpeed * Time.deltaTime;
             ani.SetBool("move", true);
         }
-        else 
+        else
         {
             ani.SetBool("move", false);
         }
-        if (player.GetComponent<PlayerMovement>().isInv && !isInv) 
+        if (player.GetComponent<PlayerMovement>().isInv && !isInv)
         {
             StartCoroutine(invincible());
         }

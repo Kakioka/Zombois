@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot: MonoBehaviour
+public class Shoot : MonoBehaviour
 {
     private Transform firePoint;
     public GameObject bulletPre;
@@ -27,7 +25,7 @@ public class Shoot: MonoBehaviour
         switch (projectiles)
         {
             case 1:
-                GameObject bullet =  Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 bullet.GetComponent<Bullet>().damage = damage;
                 bullet.GetComponent<Bullet>().pierce = piecre;
                 bullet.GetComponent<Bullet>().knockBack = knockBack;
@@ -50,6 +48,6 @@ public class Shoot: MonoBehaviour
                 break;
 
         }
-        
+
     }
 }

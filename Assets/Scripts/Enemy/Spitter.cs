@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spitter : MonoBehaviour
@@ -70,10 +69,10 @@ public class Spitter : MonoBehaviour
                 Vector3 moveDir = (sister.transform.position - transform.position).normalized;
                 transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
                 ani.SetBool("move", true);
-            }        
-            else if (distP <= maxDist || distS <= maxDist) 
+            }
+            else if (distP <= maxDist || distS <= maxDist)
             {
-                if (fireDelay == false) 
+                if (fireDelay == false)
                 {
                     ani.SetBool("move", false);
                     Shoot();
@@ -98,7 +97,7 @@ public class Spitter : MonoBehaviour
         {
             Flip();
         }
-        else if (lookDir.x < 0 && lookingRight) 
+        else if (lookDir.x < 0 && lookingRight)
         {
             Flip();
         }

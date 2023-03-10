@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RevolverCris : MonoBehaviour
@@ -25,7 +24,7 @@ public class RevolverCris : MonoBehaviour
         Debug.Log(ammo);
     }
 
-    IEnumerator Reloading() 
+    IEnumerator Reloading()
     {
         Debug.Log("reloading");
         yield return new WaitForSeconds(reloadSpeed);
@@ -35,7 +34,7 @@ public class RevolverCris : MonoBehaviour
         isReload = false;
     }
 
-    IEnumerator Shooting() 
+    IEnumerator Shooting()
     {
         yield return new WaitForSeconds(fireRate);
         fireDelay = false;
@@ -44,31 +43,32 @@ public class RevolverCris : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1"))
         {
             if (ammo != 0 && isReload == false && fireDelay == false)
             {
                 Shoot();
             }
-            else if(ammo == 0 && isReload == false) {
+            else if (ammo == 0 && isReload == false)
+            {
                 Reload();
             }
-            
+
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            if (isReload == false && ammo != maxAmmo) 
+            if (isReload == false && ammo != maxAmmo)
             {
                 Reload();
             }
         }
     }
 
-    void Shoot() 
+    void Shoot()
     {
         fireDelay = true;
-        GameObject bullet =  Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Bullet>().damage = damage;
         bullet.GetComponent<Bullet>().pierce = piecre;
         bullet.GetComponent<Bullet>().knockBack = knockBack;
@@ -79,7 +79,7 @@ public class RevolverCris : MonoBehaviour
         StartCoroutine("Shooting");
     }
 
-    void Reload() 
+    void Reload()
     {
         isReload = true;
         StartCoroutine("Reloading");

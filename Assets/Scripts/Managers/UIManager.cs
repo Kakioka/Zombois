@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEngine.Rendering.VirtualTexturing;
+using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject gameManager;
+
+    public GameObject arrow;
 
     public TextMeshProUGUI ammo;
     public TextMeshProUGUI cash;
@@ -43,8 +41,18 @@ public class UIManager : MonoBehaviour
     {
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
-        
-        switch (player.GetComponent<PlayerMovement>().health) 
+
+        if (!sister.GetComponent<SpriteRenderer>().isVisible)
+        {
+            arrow.SetActive(true);
+        }
+        else 
+        {
+            arrow.SetActive(false);
+        }
+
+
+        switch (player.GetComponent<PlayerMovement>().health)
         {
             case 0:
                 h1.color = Color.black;
@@ -70,10 +78,8 @@ public class UIManager : MonoBehaviour
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
-        if (sisH.activeInHierarchy) 
+        switch (sister.GetComponent<Sister>().health)
         {
-            switch (sister.GetComponent<Sister>().health)
-            {
             case 0:
                 sh1.color = Color.black;
                 sh2.color = Color.black;
@@ -97,9 +103,8 @@ public class UIManager : MonoBehaviour
                 sh3.color = Color.white;
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
-            }
         }
-        
+
 
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);
     }

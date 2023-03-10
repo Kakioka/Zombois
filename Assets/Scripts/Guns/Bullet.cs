@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        gameObject.transform.localScale += new Vector3(scale,scale,scale);
+        gameObject.transform.localScale += new Vector3(scale, scale, scale);
         Destroy(gameObject, 5f);
     }
 

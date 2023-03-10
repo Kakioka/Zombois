@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -14,18 +12,18 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (pickedUpS) 
+        if (pickedUpS)
         {
             Vector3 moveDir = (sister.transform.position - transform.position).normalized;
             transform.position += moveDir * moveSpeed * Time.deltaTime;
         }
-        if (pickedUp) 
+        if (pickedUp)
         {
             Vector3 moveDir = (player.transform.position - transform.position).normalized;
             transform.position += moveDir * moveSpeed * Time.deltaTime;
@@ -33,7 +31,7 @@ public class Coin : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Sister") 
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Sister")
         {
             player.GetComponent<PlayerMovement>().bank += value;
             Destroy(gameObject);

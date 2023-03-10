@@ -1,45 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    
+
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
 
     //Update is called once per fram
-    public void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)){
-            if (GameIsPaused){
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
                 Resume();
-            } else {
+            }
+            else
+            {
                 Pause();
             }
         }
     }
 
-    public void Resume(){
+    public void Resume()
+    {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         GameIsPaused = false;
     }
 
-    void Pause(){
+    void Pause()
+    {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    public void LoadMenu(){
+    public void LoadMenu()
+    {
 
         Debug.Log("Loading menu...");
         SceneManager.LoadScene(0);
     }
 
-    public void QuitGame(){
+    public void QuitGame()
+    {
 
         Debug.Log("Quitting game...");
         Application.Quit();

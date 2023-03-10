@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class upgradeShopManager : MonoBehaviour
 {
@@ -33,7 +31,7 @@ public class upgradeShopManager : MonoBehaviour
         hpVal();
     }
 
-    void hpVal() 
+    void hpVal()
     {
         playerHPVal.text = gameManager.GetComponent<gameManager>().playerH.ToString();
         sisHPVal.text = gameManager.GetComponent<gameManager>().sisH.ToString();
@@ -42,7 +40,7 @@ public class upgradeShopManager : MonoBehaviour
         {
             playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "HP Max";
         }
-        else 
+        else
         {
             playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
         }
@@ -51,7 +49,7 @@ public class upgradeShopManager : MonoBehaviour
         {
             sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "HP Max";
         }
-        else 
+        else
         {
             sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
         }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -155,7 +154,7 @@ public class Shotgun : MonoBehaviour
                 break;
 
             case 5:
-                GameObject  bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                GameObject bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 firePoint.Rotate(0f, 0f, -3f);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 firePoint.Rotate(0f, 0f, -4f);
@@ -193,7 +192,7 @@ public class Shotgun : MonoBehaviour
                 helperSpawn(bullet5);
                 helperSpawn(bullet6);
                 break;
-            
+
             case 7:
                 bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 firePoint.Rotate(0f, 0f, -3f);
