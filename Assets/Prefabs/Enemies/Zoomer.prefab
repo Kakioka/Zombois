@@ -143,7 +143,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 2.5
+  moveSpeed: 2.4
 --- !u!114 &758037289149234798
 MonoBehaviour:
   m_ObjectHideFlags: 0

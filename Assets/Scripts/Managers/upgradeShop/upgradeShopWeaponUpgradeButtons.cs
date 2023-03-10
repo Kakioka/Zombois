@@ -17,6 +17,7 @@ public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
     public TextMeshProUGUI pierce;
     public TextMeshProUGUI size;
     public TextMeshProUGUI speed;
+    public TextMeshProUGUI ammo;
 
     public GameObject damageB;
     public GameObject fireRateB;
@@ -26,10 +27,15 @@ public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
     public GameObject pierceB;
     public GameObject sizeB;
     public GameObject speedB;
+    public GameObject ammoB;
 
     public int damageI;
     public int damageII;
     public int damageIII;
+
+    public int ammoI;
+    public int ammoII;
+    public int ammoIII;
 
     public int fireRateI;
     public int fireRateII;
@@ -74,6 +80,26 @@ public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
 
     void wepUpgrades()
     {
+        switch (gameManager.GetComponent<gameManager>().ammoUp)
+        {
+            case 0:
+                ammo.text = "Ammo Up Level I";
+                ammoB.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + ammoI;
+                break;
+            case 1:
+                ammo.text = "Ammo Up Level II";
+                ammoB.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + ammoII;
+                break;
+            case 2:
+                ammo.text = "Ammo Up Level III";
+                ammoB.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + ammoIII;
+                break;
+            case 3:
+                ammo.text = "Ammo Up Maxed";
+                ammoB.SetActive(false);
+                break;
+        }
+
         switch (gameManager.GetComponent<gameManager>().damageUp)
         {
             case 0:
@@ -217,19 +243,19 @@ public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
         switch (gameManager.GetComponent<gameManager>().sizeUp)
         {
             case 0:
-                size.text = "Size Up Level I";
+                size.text = "Bullet Size Up Level I";
                 sizeB.GetComponentInChildren<TextMeshProUGUI>().text = "Cost :" + sizeI;
                 break;
             case 1:
-                size.text = "Size Up Level II";
+                size.text = "Bullet Size Up Level II";
                 sizeB.GetComponentInChildren<TextMeshProUGUI>().text = "Cost :" + sizeII;
                 break;
             case 2:
-                size.text = "Size Up Level III";
+                size.text = "Bullet Size Up Level III";
                 sizeB.GetComponentInChildren<TextMeshProUGUI>().text = "Cost :" + sizeIII;
                 break;
             case 3:
-                size.text = "Size Up Maxed";
+                size.text = "Bullet Size Up Maxed";
                 sizeB.SetActive(false);
                 break;
         }
@@ -258,6 +284,34 @@ public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
                 {
                     gameManager.GetComponent<gameManager>().damageUp = 3;
                     player.GetComponent<PlayerMovement>().bank -= damageIII;
+                }
+                break;
+        }
+    }
+
+    public void ammoButton()
+    {
+        switch (gameManager.GetComponent<gameManager>().ammoUp)
+        {
+            case 0:
+                if (player.GetComponent<PlayerMovement>().bank >= ammoI)
+                {
+                    gameManager.GetComponent<gameManager>().ammoUp = 1;
+                    player.GetComponent<PlayerMovement>().bank -= ammoI;
+                }
+                break;
+            case 1:
+                if (player.GetComponent<PlayerMovement>().bank >= ammoII)
+                {
+                    gameManager.GetComponent<gameManager>().ammoUp = 2;
+                    player.GetComponent<PlayerMovement>().bank -= ammoII;
+                }
+                break;
+            case 2:
+                if (player.GetComponent<PlayerMovement>().bank >= ammoIII)
+                {
+                    gameManager.GetComponent<gameManager>().ammoUp = 3;
+                    player.GetComponent<PlayerMovement>().bank -= ammoIII;
                 }
                 break;
         }

@@ -19,9 +19,11 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
 
     public TextMeshProUGUI pickUpText;
     public TextMeshProUGUI moveSpeedText;
+    public TextMeshProUGUI sisMoveSpeedText;
 
     public GameObject pickUpButton;
     public GameObject moveSpeedButton;
+    public GameObject sisMoveSpeedButton;
 
 
     // Start is called before the first frame update
@@ -39,22 +41,42 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
 
     void playerText()
     {
+        switch (gameManager.GetComponent<gameManager>().sisMoveUp)
+        {
+            case 0:
+                sisMoveSpeedText.text = "Sister Move Speed Level I";
+                sisMoveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedI;
+                break;
+            case 1:
+                sisMoveSpeedText.text = "Sister Move Speed Level II";
+                sisMoveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedII;
+                break;
+            case 2:
+                sisMoveSpeedText.text = "Sister Move Speed Level III";
+                sisMoveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedIII;
+                break;
+            case 3:
+                sisMoveSpeedText.text = "Sister Move Speed Level Maxed";
+                sisMoveSpeedButton.SetActive(false);
+                break;
+        }
+
         switch (gameManager.GetComponent<gameManager>().moveUp)
         {
             case 0:
-                moveSpeedText.text = "Move Speed Level I";
+                moveSpeedText.text = "Player Move Speed Level I";
                 moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedI;
                 break;
             case 1:
-                moveSpeedText.text = "Move Speed Level II";
+                moveSpeedText.text = "Player Move Speed Level II";
                 moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedII;
                 break;
             case 2:
-                moveSpeedText.text = "Move Speed Level III";
+                moveSpeedText.text = "Player Move Speed Level III";
                 moveSpeedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + moveSpeedIII;
                 break;
             case 3:
-                moveSpeedText.text = "Move Speed Level Maxed";
+                moveSpeedText.text = "Player Move Speed Level Maxed";
                 moveSpeedButton.SetActive(false);
                 break;
         }
@@ -130,6 +152,34 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 if (player.GetComponent<PlayerMovement>().bank >= moveSpeedIII)
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 3;
+                    player.GetComponent<PlayerMovement>().bank -= moveSpeedIII;
+                }
+                break;
+        }
+    }
+
+    public void sisterSpeedButton()
+    {
+        switch (gameManager.GetComponent<gameManager>().sisMoveUp)
+        {
+            case 0:
+                if (player.GetComponent<PlayerMovement>().bank >= moveSpeedI)
+                {
+                    gameManager.GetComponent<gameManager>().sisMoveUp = 1;
+                    player.GetComponent<PlayerMovement>().bank -= moveSpeedI;
+                }
+                break;
+            case 1:
+                if (player.GetComponent<PlayerMovement>().bank >= moveSpeedII)
+                {
+                    gameManager.GetComponent<gameManager>().sisMoveUp = 2;
+                    player.GetComponent<PlayerMovement>().bank -= moveSpeedII;
+                }
+                break;
+            case 2:
+                if (player.GetComponent<PlayerMovement>().bank >= moveSpeedIII)
+                {
+                    gameManager.GetComponent<gameManager>().sisMoveUp = 3;
                     player.GetComponent<PlayerMovement>().bank -= moveSpeedIII;
                 }
                 break;

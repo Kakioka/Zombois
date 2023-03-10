@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: -589730292727215571}
   m_Layer: 10
   m_Name: Sister
-  m_TagString: Player
+  m_TagString: Sister
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

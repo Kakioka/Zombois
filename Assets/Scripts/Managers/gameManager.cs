@@ -31,6 +31,7 @@ public class gameManager : MonoBehaviour
     //player upgrades
     public int moveUp;
     public int rangeUp;
+    public int sisMoveUp;
     public int playerH = 3;
 
     //sister
@@ -47,6 +48,7 @@ public class gameManager : MonoBehaviour
     public int speedUp;
     public int fireUp;
     public int reloadUp;
+    public int ammoUp;
 
     //level count
     public int levelNum = 0;
@@ -105,9 +107,6 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 1;
         spawnPlayer();
         playerUpgrade();
-        sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
-        sis.GetComponent<Sister>().health = sisH;
-        sis.GetComponent<Sister>().player = player;
         spawnWep(wepNum);
         wepUpgrade();
     }
@@ -116,11 +115,8 @@ public class gameManager : MonoBehaviour
     {
         spawnPlayer();
         player.transform.position = new Vector3(0, -2, 10);
-        playerUpgrade();
-        sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
-        sis.GetComponent<Sister>().health = sisH;
-        sis.GetComponent<Sister>().player = player;
         sis.transform.position = new Vector3(0.8f, -2, 10);
+        playerUpgrade();
     }
 
     void spawnPlayer() 
@@ -128,6 +124,9 @@ public class gameManager : MonoBehaviour
         player = Instantiate(playerPref, playerPref.transform.position, Quaternion.identity);
         player.GetComponent<PlayerMovement>().bank = bank;
         player.GetComponent<PlayerMovement>().health = playerH;
+        sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
+        sis.GetComponent<Sister>().health = sisH;
+        sis.GetComponent<Sister>().player = player;
     }
 
     void playerUpgrade() 
@@ -155,6 +154,19 @@ public class gameManager : MonoBehaviour
                 break;
             case 3:
                 player.GetComponent<PlayerMovement>().pickUpRadius += 1f;
+                break;
+        }
+
+        switch (sisMoveUp)
+        {
+            case 1:
+                sis.GetComponent<Sister>().moveSpeed += 0.3f;
+                break;
+            case 2:
+                sis.GetComponent<Sister>().moveSpeed += 0.6f;
+                break;
+            case 3:
+                sis.GetComponent<Sister>().moveSpeed += 0.9f;
                 break;
         }
     }
@@ -199,6 +211,21 @@ public class gameManager : MonoBehaviour
 
     void wepUpgrade() 
     {
+        switch (ammoUp)
+        {
+            case 1:
+                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * 1.2f);
+                break;
+
+            case 2:
+                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * 1.5f);
+                break;
+
+            case 3:
+                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * 1.7f);
+                break;
+        }
+
         switch (damageUp) 
         {
             case 1:

@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
 {
     public GameObject gameManager;
 
-    public TextMeshProUGUI sHealth;
     public TextMeshProUGUI ammo;
     public TextMeshProUGUI cash;
 
@@ -21,6 +20,10 @@ public class UIManager : MonoBehaviour
     public SpriteRenderer h3;
     public SpriteRenderer h2;
     public SpriteRenderer h1;
+
+    public SpriteRenderer sh3;
+    public SpriteRenderer sh2;
+    public SpriteRenderer sh1;
 
     public Animator aniGun;
 
@@ -37,7 +40,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
-        sHealth.text = sister.GetComponent<Sister>().health.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
         
         switch (player.GetComponent<PlayerMovement>().health) 
@@ -66,6 +68,34 @@ public class UIManager : MonoBehaviour
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
+
+        switch (sister.GetComponent<Sister>().health)
+        {
+            case 0:
+                sh1.color = Color.black;
+                sh2.color = Color.black;
+                sh3.color = Color.black;
+                break;
+            case 1:
+                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
+                sh1.color = Color.red;
+                sh2.color = Color.black;
+                sh3.color = Color.black;
+                break;
+            case 2:
+                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
+                sh3.color = Color.black;
+                sh1.color = Color.red;
+                sh2.color = Color.red;
+                break;
+            case 3:
+                sh1.color = Color.red;
+                sh2.color = Color.red;
+                sh3.color = Color.red;
+                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
+                break;
+        }
+
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);
     }
 }

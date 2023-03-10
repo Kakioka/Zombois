@@ -798,6 +798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boomer
       objectReference: {fileID: 0}
+    - target: {fileID: 6211457537093139744, guid: c66364beb08ff8d4cb0c56cc2f2e11d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6211457537093139745, guid: c66364beb08ff8d4cb0c56cc2f2e11d9, type: 3}
       propertyPath: player
       value: 
