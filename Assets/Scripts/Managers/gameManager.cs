@@ -294,17 +294,17 @@ public class gameManager : MonoBehaviour
         {
             case 1:
                 gun.GetComponent<Gun>().projectiles += 1;
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.8f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.8f);
                 break;
 
             case 2:
                 gun.GetComponent<Gun>().projectiles += 2;
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.6f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.6f);
                 break;
 
             case 3:
                 gun.GetComponent<Gun>().projectiles += 3;
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 0.5f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.5f);
                 break;
         }
 
