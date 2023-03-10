@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Collections;
 using UnityEngine.SceneManagement;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 public class stageManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class stageManager : MonoBehaviour
 
     public int stageCount;
     public TextMeshProUGUI stageCountText;
+    public GameObject stageEnd;
 
     public float spawnSpeed = 3;
     public float spawnSpeedMod = 1;
@@ -44,11 +46,14 @@ public class stageManager : MonoBehaviour
 
     public GameObject boss;
 
-    private IEnumerator end()
+    public float timer;
+
+    private IEnumerator end() 
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         Time.timeScale = 0;
         levelDone.SetActive(true);
+
     }
 
     // Start is called before the first frame update
@@ -67,8 +72,6 @@ public class stageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (currSpawns < tempCurr)
         {
@@ -80,22 +83,44 @@ public class stageManager : MonoBehaviour
         {
             if (stageCount == 7 && bossSpawned == false)
             {
-                bossSpawned = true;
-                spawner.SetActive(false);
-                boss = Instantiate(bossPre, sister.transform.position, Quaternion.identity);
-                sister.SetActive(false);
-                boss.GetComponent<sisBoss>().player = player;
-                boss.GetComponent<Enemy>().player = player;
-                boss.GetComponent<Enemy>().sister = player;
-                enemyLeftObj.SetActive(false);
-                enemyLeftText.gameObject.SetActive(false);
-                bossBar.SetActive(true);
-                bossBar.GetComponent<BossHpBar>().boss = boss;
-                bossBar.GetComponent<BossHpBar>().enabled = true;
+                stageEnd.SetActive(true);
+                if (timer > 0)
+                {
+                    timer -= Time.deltaTime;
+                    stageEnd.GetComponent<TextMeshProUGUI>().text = "Stage ends in: " + Mathf.Round(timer * 100f) / 100f;
+                }
+                else
+                {
+                    gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false);
+                    stageEnd.SetActive(false);
+                    bossSpawned = true;
+                    spawner.SetActive(false);
+                    boss = Instantiate(bossPre, sister.transform.position, Quaternion.identity);
+                    sister.SetActive(false);
+                    boss.GetComponent<sisBoss>().player = player;
+                    boss.GetComponent<Enemy>().player = player;
+                    boss.GetComponent<Enemy>().sister = player;
+                    enemyLeftObj.SetActive(false);
+                    enemyLeftText.gameObject.SetActive(false);
+                    bossBar.SetActive(true);
+                    bossBar.GetComponent<BossHpBar>().boss = boss;
+                    bossBar.GetComponent<BossHpBar>().enabled = true;
+                }
             }
-            else 
+            else if(stageCount != 7)
             {
-                StartCoroutine(end());
+                stageEnd.SetActive(true);
+                if (timer > 0)
+                {
+                    timer -= Time.deltaTime;
+                    stageEnd.GetComponent<TextMeshProUGUI>().text = "Stage ends in: " + Mathf.Round(timer * 100f)/100f;
+                }
+                else 
+                {
+                    stageEnd.GetComponent<TextMeshProUGUI>().text = "Stage ends in: 0.00";
+                    Time.timeScale = 0;
+                    levelDone.SetActive(true);
+                }  
             }
         }
         else if (maxSpawns == 0)
@@ -126,9 +151,10 @@ public class stageManager : MonoBehaviour
         
         if (bossSpawned == true) 
         {
-            if (boss.GetComponent<Enemy>().health <= 0) 
+            if (boss == null) 
             {
                 bossBar.SetActive(false);
+                StartCoroutine(end());
             }
         }
     }

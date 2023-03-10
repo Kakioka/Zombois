@@ -367,6 +367,8 @@ MonoBehaviour:
   pickUpRadius: 1.1
   pickUp: {fileID: 615078914}
   lookingRight: 1
+  pingPongSpeed: 0.05
+  flashSpeed: 8
 --- !u!95 &700162175254647332
 Animator:
   serializedVersion: 5

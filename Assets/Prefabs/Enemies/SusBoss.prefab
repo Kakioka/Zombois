@@ -205,7 +205,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 5504292816335067635}
   spawner: {fileID: 5504292816161458209}
-  hpMod: 0
+  hpMod: 1.5
   spawnSpeed: 3
   spawnSpeedMod: 1
   shieldPref: {fileID: 8082949207099179199, guid: b6072d549bef4a84eaa91eab035ca973, type: 3}
@@ -267,5 +267,4 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   damage: 1
-  health: 50
   lookingRight: 1

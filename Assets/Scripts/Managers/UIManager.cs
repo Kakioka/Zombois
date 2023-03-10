@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     public Animator aniGun;
 
+    public GameObject sisH;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,9 +70,10 @@ public class UIManager : MonoBehaviour
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
-
-        switch (sister.GetComponent<Sister>().health)
+        if (sisH.activeInHierarchy) 
         {
+            switch (sister.GetComponent<Sister>().health)
+            {
             case 0:
                 sh1.color = Color.black;
                 sh2.color = Color.black;
@@ -94,7 +97,9 @@ public class UIManager : MonoBehaviour
                 sh3.color = Color.white;
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
+            }
         }
+        
 
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);
     }

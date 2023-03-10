@@ -78,6 +78,8 @@ public class gameManager : MonoBehaviour
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
 
+    public GameObject currUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -299,12 +301,12 @@ public class gameManager : MonoBehaviour
 
             case 2:
                 gun.GetComponent<Gun>().projectiles += 2;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.6f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.7f);
                 break;
 
             case 3:
                 gun.GetComponent<Gun>().projectiles += 3;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.5f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.6f);
                 break;
         }
 
@@ -420,7 +422,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
@@ -432,7 +434,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
@@ -444,7 +446,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
@@ -456,7 +458,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
@@ -468,7 +470,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
@@ -480,7 +482,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
@@ -492,14 +494,15 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
         if (scene.name == "UpgradeShop")
         {
+            Time.timeScale = 1;
             currManager = Instantiate(upgradeShopManagerPre);
-            GameObject currUI = Instantiate(UI);
+            currUI = Instantiate(UI);
             upgradeStart();
             cam.gameObject.transform.position = Vector2.zero;
             player.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;

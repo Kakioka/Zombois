@@ -18,6 +18,9 @@ public class Sister : MonoBehaviour
     public bool lookingRight = true;
     private Animator ani;
 
+    public float pingPongSpeed;
+    public float flashSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,10 @@ public class Sister : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isInv)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
+        }
         Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         if ((temp.x - transform.position.x > 0) && !lookingRight)
         {
@@ -70,6 +77,7 @@ public class Sister : MonoBehaviour
         prevHealth = health;
         ring.SetActive(true);
         yield return new WaitForSeconds(invTimer);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         ring.SetActive(false);
         isInv = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;

@@ -236,6 +236,7 @@ MonoBehaviour:
   sh2: {fileID: 8398923414399327793}
   sh1: {fileID: 8398923415008375624}
   aniGun: {fileID: 7978822152366045291}
+  sisH: {fileID: 8398923414542305966}
 --- !u!1 &5474136242797880934
 GameObject:
   m_ObjectHideFlags: 0

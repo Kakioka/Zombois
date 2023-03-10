@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public CircleCollider2D pickUp;
     public bool lookingRight = true;
 
+    public float pingPongSpeed;
+    public float flashSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         prevHealth = health;
         ring.SetActive(true);
         yield return new WaitForSeconds(invTimer);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         ring.SetActive(false);
         isInv = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
@@ -44,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isInv) 
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
+        }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         if (movement.x == 0 && movement.y == 0)
@@ -59,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             isDead = true;
         }
 
-        if (health != prevHealth)
+        if (health != prevHealth && !isInv)
         {
             StartCoroutine(invincible());
         }

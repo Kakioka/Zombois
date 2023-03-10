@@ -55,10 +55,11 @@ MonoBehaviour:
   levelDone: {fileID: 3320824099468004275}
   enemyLeft: 0
   enemyLeftText: {fileID: 3320824099409635615}
-  enemyLeftObj: {fileID: 0}
+  enemyLeftObj: {fileID: 3320824099830368771}
   hpMod: 1.5
   stageCount: 4
   stageCountText: {fileID: 6352382587101464252}
+  stageEnd: {fileID: 1070267616042645134}
   spawnSpeed: 3
   spawnSpeedMod: 0.5
   spawnMulti: 0
@@ -69,6 +70,7 @@ MonoBehaviour:
   bossPre: {fileID: 0}
   bossBar: {fileID: 0}
   boss: {fileID: 0}
+  timer: 5
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,6 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1070267616042645134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5973769810224967495, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+  m_PrefabInstance: {fileID: 6646553579936684489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2986010208434046214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8452479364122860751, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
@@ -311,6 +318,11 @@ MonoBehaviour:
 --- !u!1 &3320824099468004275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8226003564294754938, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+  m_PrefabInstance: {fileID: 6646553579936684489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3320824099830368771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8226003564100064202, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
   m_PrefabInstance: {fileID: 6646553579936684489}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &3320824099928649394 stripped

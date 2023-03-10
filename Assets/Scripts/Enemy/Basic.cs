@@ -31,7 +31,7 @@ public class Basic : MonoBehaviour
             if (distP < distS)
             {
 
-                Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
                     Flip();
@@ -41,12 +41,12 @@ public class Basic : MonoBehaviour
                     Flip();
                 }
                 Vector3 moveDir = (player.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                transform.position += moveDir * gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
             }
             else if (distP >= distS)
             {
 
-                Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
                     Flip();
@@ -56,7 +56,7 @@ public class Basic : MonoBehaviour
                     Flip();
                 }
                 Vector3 moveDir = (sister.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                transform.position += moveDir * gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
             }
         }
     }

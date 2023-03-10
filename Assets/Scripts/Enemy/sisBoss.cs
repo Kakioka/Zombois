@@ -23,12 +23,6 @@ public class sisBoss : MonoBehaviour
     private bool shieldOn = true;
     private int tempCurr;
 
-    private IEnumerator end()
-    {
-        yield return new WaitForSeconds(3f);
-        Time.timeScale = 0;
-    }
-
     private void shieldSpawn(){
         shield = Instantiate(shieldPref);
         shield.GetComponent<SpitterShoot>().spit = gameObject;
@@ -66,11 +60,8 @@ public class sisBoss : MonoBehaviour
             }
             tempCurr--;
         }
-        if (currSpawns == 0 && this.GetComponent<Enemy>().health == 0)
-        {
-            StartCoroutine(end());
-        }
-        else if (this.GetComponent<Enemy>().health == 0)
+
+        if (this.GetComponent<Enemy>().health == 0)
         {
             spawner.SetActive(false);
         }
