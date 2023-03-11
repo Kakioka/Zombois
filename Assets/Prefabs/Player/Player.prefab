@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   prevHealth: 0
-  moveSpeed: 2.7
+  moveSpeed: 2.6
   rb: {fileID: 8514121530740298774}
   isDead: 0
   ani: {fileID: 0}

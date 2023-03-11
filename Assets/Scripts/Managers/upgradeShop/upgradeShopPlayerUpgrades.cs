@@ -6,6 +6,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
 
     public GameObject gameManager;
     public GameObject player;
+    public GameObject sister;
 
     public int pickUpI;
     public int pickUpII;
@@ -23,12 +24,18 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
     public GameObject moveSpeedButton;
     public GameObject sisMoveSpeedButton;
 
+    public float baseSpeedP;
+    public float baseSpeedS;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = gameObject.GetComponent<upgradeShopManager>().gameManager;
         player = gameObject.GetComponent<upgradeShopManager>().player;
+        sister = gameObject.GetComponent<upgradeShopManager>().sister;
+        baseSpeedP = player.GetComponent<PlayerMovement>().moveSpeed;
+        baseSpeedS = sister.GetComponent<Sister>().moveSpeed;
+        gameManager.GetComponent<gameManager>().playerUpgrade();
     }
 
     // Update is called once per frame
@@ -137,6 +144,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 1;
                     player.GetComponent<PlayerMovement>().bank -= moveSpeedI;
+                    player.GetComponent<PlayerMovement>().moveSpeed = baseSpeedP + 0.5f;
                 }
                 break;
             case 1:
@@ -144,6 +152,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 2;
                     player.GetComponent<PlayerMovement>().bank -= moveSpeedII;
+                    player.GetComponent<PlayerMovement>().moveSpeed = baseSpeedP + 1f;
                 }
                 break;
             case 2:
@@ -151,6 +160,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 {
                     gameManager.GetComponent<gameManager>().moveUp = 3;
                     player.GetComponent<PlayerMovement>().bank -= moveSpeedIII;
+                    player.GetComponent<PlayerMovement>().moveSpeed = baseSpeedP + 1.5f;
                 }
                 break;
         }
@@ -165,6 +175,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 {
                     gameManager.GetComponent<gameManager>().sisMoveUp = 1;
                     player.GetComponent<PlayerMovement>().bank -= moveSpeedI;
+                    sister.GetComponent<Sister>().moveSpeed = baseSpeedS + 0.5f;
                 }
                 break;
             case 1:
@@ -172,6 +183,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 {
                     gameManager.GetComponent<gameManager>().sisMoveUp = 2;
                     player.GetComponent<PlayerMovement>().bank -= moveSpeedII;
+                    sister.GetComponent<Sister>().moveSpeed = baseSpeedS + 1f;
                 }
                 break;
             case 2:
@@ -179,6 +191,7 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 {
                     gameManager.GetComponent<gameManager>().sisMoveUp = 3;
                     player.GetComponent<PlayerMovement>().bank -= moveSpeedIII;
+                    sister.GetComponent<Sister>().moveSpeed = baseSpeedS + 2f;
                 }
                 break;
         }

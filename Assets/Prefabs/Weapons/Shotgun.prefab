@@ -157,7 +157,7 @@ MonoBehaviour:
   ammo: 2
   maxAmmo: 2
   isReload: 0
-  bulletForce: 5
+  bulletForce: 4
   reloadSpeed: 1
   fireRate: 0.7
   fireDelay: 0

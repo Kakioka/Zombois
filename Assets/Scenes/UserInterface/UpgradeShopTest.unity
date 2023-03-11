@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1947471613, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216070, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -678,11 +682,15 @@ PrefabInstance:
       objectReference: {fileID: 2032353246}
     - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: bank
-      value: 50
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: health
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+      propertyPath: moveSpeed
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 8514121530740298771, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: m_Name

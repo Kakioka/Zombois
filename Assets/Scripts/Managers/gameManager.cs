@@ -66,9 +66,41 @@ public class gameManager : MonoBehaviour
     public bool sniperO = false;
     public bool machinegunO = false;
 
-    public float damageMultiI;
-    public float damageMultiII;
-    public float damageMultiIII;
+    public float damageI;
+    public float damageII;
+    public float damageIII;
+
+    public float ammoI;
+    public float ammoII;
+    public float ammoIII;
+
+    public float fireRateI;
+    public float fireRateII;
+    public float fireRateIII;
+
+    public float knockBackI;
+    public float knockBackII;
+    public float knockBackIII;
+
+    public float reloadI;
+    public float reloadII;
+    public float reloadIII;
+
+    public float bulletI;
+    public float bulletII;
+    public float bulletIII;
+
+    public int pierceI;
+    public int pierceII;
+    public int pierceIII;
+
+    public float sizeI;
+    public float sizeII;
+    public float sizeIII;
+
+    public float bulletSpeedI;
+    public float bulletSpeedII;
+    public float bulletSpeedIII;
 
     public GameObject UI;
     public Camera cam;
@@ -112,7 +144,7 @@ public class gameManager : MonoBehaviour
         spawnPlayer();
         playerUpgrade();
         spawnWep(wepNum);
-        wepUpgrade();
+        wepUpgrade(gun);
     }
 
     void upgradeStart()
@@ -120,7 +152,7 @@ public class gameManager : MonoBehaviour
         spawnPlayer();
         player.transform.position = new Vector3(0, -2, 10);
         sis.transform.position = new Vector3(0.8f, -2, 10);
-        playerUpgrade();
+        //playerUpgrade();
     }
 
     void spawnPlayer()
@@ -133,7 +165,7 @@ public class gameManager : MonoBehaviour
         sis.GetComponent<Sister>().player = player;
     }
 
-    void playerUpgrade()
+    public void playerUpgrade()
     {
         switch (moveUp)
         {
@@ -213,80 +245,80 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    void wepUpgrade()
+    public void wepUpgrade(GameObject gun)
     {
         switch (ammoUp)
         {
             case 1:
-                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * 1.2f);
+                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * ammoI);
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * 1.5f);
+                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * ammoII);
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * 1.7f);
+                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * ammoIII);
                 break;
         }
 
         switch (damageUp)
         {
             case 1:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.2f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * damageI);
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 1.6f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * damageII);
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * 2f);
+                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * damageIII);
                 break;
         }
 
         switch (speedUp)
         {
             case 1:
-                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * 1.1f;
+                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * bulletSpeedI;
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * 1.2f;
+                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * bulletSpeedII;
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * 1.3f;
+                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * bulletSpeedIII;
                 break;
         }
 
         switch (reloadUp)
         {
             case 1:
-                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * 0.8f;
+                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * reloadI;
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * 0.7f;
+                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * reloadII;
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * 0.6f;
+                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * reloadIII;
                 break;
         }
 
         switch (fireUp)
         {
             case 1:
-                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * 0.9f;
+                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * fireRateI;
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * 0.8f;
+                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * fireRateII;
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * 0.7f;
+                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * fireRateIII;
                 break;
         }
 
@@ -294,62 +326,62 @@ public class gameManager : MonoBehaviour
         {
             case 1:
                 gun.GetComponent<Gun>().projectiles += 1;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.8f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * bulletI);
                 break;
 
             case 2:
                 gun.GetComponent<Gun>().projectiles += 2;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.7f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * bulletII);
                 break;
 
             case 3:
                 gun.GetComponent<Gun>().projectiles += 3;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * 0.6f);
+                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * bulletIII);
                 break;
         }
 
         switch (pierceUp)
         {
             case 1:
-                gun.GetComponent<Gun>().piecre += 1;
+                gun.GetComponent<Gun>().piecre += pierceI;
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().piecre += 2;
+                gun.GetComponent<Gun>().piecre += pierceII;
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().piecre += 3;
+                gun.GetComponent<Gun>().piecre += pierceIII;
                 break;
         }
 
         switch (sizeUp)
         {
             case 1:
-                gun.GetComponent<Gun>().bulletSize += 0.5f;
+                gun.GetComponent<Gun>().bulletSize += sizeI;
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().bulletSize += 0.75f;
+                gun.GetComponent<Gun>().bulletSize += sizeII;
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().bulletSize += 1f;
+                gun.GetComponent<Gun>().bulletSize += sizeIII;
                 break;
         }
 
         switch (knockUp)
         {
             case 1:
-                gun.GetComponent<Gun>().knockBack += 1;
+                gun.GetComponent<Gun>().knockBack += knockBackI;
                 break;
 
             case 2:
-                gun.GetComponent<Gun>().knockBack += 2;
+                gun.GetComponent<Gun>().knockBack += knockBackII;
                 break;
 
             case 3:
-                gun.GetComponent<Gun>().knockBack += 3;
+                gun.GetComponent<Gun>().knockBack += knockBackIII;
                 break;
         }
     }
@@ -509,70 +541,70 @@ public class gameManager : MonoBehaviour
                 case 1:
                     spawnWep(2);
                     currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(3);
                     currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(4);
                     currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(1);
                     currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     break;
                 case 2:
                     spawnWep(1);
                     currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(3);
                     currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(4);
                     currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(2);
                     currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     break;
                 case 3:
                     spawnWep(1);
                     currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(2);
                     currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(4);
                     currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(3);
                     currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     break;
                 case 4:
                     spawnWep(1);
                     currManager.GetComponent<upgradeShopWepButtons>().revObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(2);
                     currManager.GetComponent<upgradeShopWepButtons>().shotgunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(3);
                     currManager.GetComponent<upgradeShopWepButtons>().machinegunObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     gun.SetActive(false);
                     spawnWep(4);
                     currManager.GetComponent<upgradeShopWepButtons>().sniperObj = gun;
-                    wepUpgrade();
+                    //wepUpgrade();
                     break;
             }
             uiStart(currUI);
