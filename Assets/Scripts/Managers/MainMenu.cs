@@ -1,13 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject volumeSlider;
 
     public void Start()
     {
         Time.timeScale = 1;
+        if (volumeSlider != null)
+        {
+            volumeSlider.GetComponent<Slider>().value = 1f;
+        }
     }
+        
 
     public void PlayGame()
     {
@@ -16,10 +24,19 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    private void Update()
+    {
+        
+    }
+
+    public void volume()
+    {
+        AudioListener.volume = volumeSlider.GetComponent<Slider>().value;
+    }
+
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quit");
     }
 
 }

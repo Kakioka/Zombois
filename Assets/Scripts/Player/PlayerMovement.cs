@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public float pingPongSpeed;
     public float flashSpeed;
 
+    public float speedReduction;
+    private bool speedReduced;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +80,16 @@ public class PlayerMovement : MonoBehaviour
         else if (movement.x < 0 && lookingRight)
         {
             Flip();
+        }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            moveSpeed *= speedReduction;
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            moveSpeed /= speedReduction;
         }
     }
 
