@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class MultiplayerMenu : MonoBehaviour
 {
-    private PlayerMovement pc;
-    private bool pcAssigned;
 
     [SerializeField] TextMeshProUGUI ipAddressText;
     [SerializeField] TMP_InputField ip;
@@ -22,8 +20,6 @@ public class MultiplayerMenu : MonoBehaviour
     {
         ipAddress = "0.0.0.0";
         SetIpAddress(); // Set the Ip to the above address
-        pcAssigned = false;
-        InvokeRepeating("assignPlayerController", 0.1f, 0.1f);
     }
 
     // To Host a game
@@ -68,19 +64,5 @@ public class MultiplayerMenu : MonoBehaviour
     {
         transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         transport.ConnectionData.Address = ipAddress;
-    }
-
-    // Assigns the player to this script when player is loaded
-    private void assignPlayerController()
-    {
-        if (pc == null)
-        {
-            pc = FindObjectOfType<PlayerMovement>();
-        }
-        else if (pc == FindObjectOfType<PlayerMovement>())
-        {
-            pcAssigned = true;
-            CancelInvoke();
-        }
     }
 }
