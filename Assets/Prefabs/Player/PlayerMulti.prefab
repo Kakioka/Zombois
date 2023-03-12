@@ -75,11 +75,11 @@ GameObject:
   - component: {fileID: 3043077711380610714}
   - component: {fileID: 3043077711380610712}
   - component: {fileID: 3043077711380610711}
-  - component: {fileID: 7866355285973049548}
   - component: {fileID: 6171174676133312682}
   - component: {fileID: 3043077711380610792}
   - component: {fileID: 3043077711380610794}
   - component: {fileID: 3043077711380610793}
+  - component: {fileID: 6755882140168318053}
   m_Layer: 10
   m_Name: PlayerMulti
   m_TagString: Player
@@ -194,34 +194,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.002249062, y: -0.15311983}
   m_Size: {x: 0.32243508, y: 0.61045593}
   m_Direction: 0
---- !u!114 &7866355285973049548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3043077711380610717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3371fa303916611408f963a91192f876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  prevHealth: 0
-  moveSpeed: 2.6
-  rb: {fileID: 3043077711380610712}
-  isDead: 0
-  ani: {fileID: 0}
-  invTimer: 1
-  ring: {fileID: 3043077711173772269}
-  isInv: 0
-  bank: 0
-  pickUpRadius: 1.1
-  pickUp: {fileID: 6634667988619458188}
-  lookingRight: 1
-  pingPongSpeed: 0.05
-  flashSpeed: 8
-  speedReduction: 0.7
 --- !u!95 &6171174676133312682
 Animator:
   serializedVersion: 5
@@ -296,6 +268,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6755882140168318053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043077711380610717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79edc37d061bdd46b15cd593004cd90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  prevHealth: 0
+  moveSpeed: 2.6
+  rb: {fileID: 3043077711380610712}
+  isDead: 0
+  ani: {fileID: 0}
+  invTimer: 1
+  ring: {fileID: 0}
+  isInv: 0
+  bank: 0
+  pickUpRadius: 1.1
+  pickUp: {fileID: 6634667988619458188}
+  lookingRight: 1
+  pingPongSpeed: 0.05
+  flashSpeed: 8
+  speedReduction: 0.7
 --- !u!1 &5040780102161626092
 GameObject:
   m_ObjectHideFlags: 0
