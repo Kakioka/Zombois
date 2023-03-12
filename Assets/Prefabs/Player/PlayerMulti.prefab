@@ -287,7 +287,7 @@ MonoBehaviour:
   isDead: 0
   ani: {fileID: 0}
   invTimer: 1
-  ring: {fileID: 0}
+  ring: {fileID: 3043077711173772269}
   isInv: 0
   bank: 0
   pickUpRadius: 1.1
