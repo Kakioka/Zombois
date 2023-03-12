@@ -11,6 +11,7 @@ public class Boomer : MonoBehaviour
     public GameObject explosion;
     public float maxDist;
     public bool lookingRight = true;
+    public float speed;
 
     private IEnumerator explode()
     {

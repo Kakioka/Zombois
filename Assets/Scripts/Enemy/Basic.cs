@@ -2,21 +2,17 @@ using UnityEngine;
 
 public class Basic : MonoBehaviour
 {
-
     public GameObject player;
-
     public GameObject sister;
-
     public int damage = 1;
-
-
     public bool lookingRight = true;
+    public float current, target;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = this.gameObject.GetComponent<Enemy>().player;
-        sister = this.gameObject.GetComponent<Enemy>().sister;
+        player = gameObject.GetComponent<Enemy>().player;
+        sister = gameObject.GetComponent<Enemy>().sister;
     }
 
     // Update is called once per frame
@@ -29,7 +25,7 @@ public class Basic : MonoBehaviour
             if (distP < distS)
             {
 
-                Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector3 temp = player.transform.position - transform.position;
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
                     Flip();
@@ -38,13 +34,13 @@ public class Basic : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector3 moveDir = (player.transform.position - transform.position).normalized;
-                transform.position += moveDir * gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                current = Mathf.MoveTowards(current,target, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
             else if (distP >= distS)
             {
 
-                Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector3 temp = sister.transform.position - transform.position;
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
                     Flip();
@@ -53,8 +49,8 @@ public class Basic : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector3 moveDir = (sister.transform.position - transform.position).normalized;
-                transform.position += moveDir * gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                current = Mathf.MoveTowards(current, target, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
             }
         }
     }

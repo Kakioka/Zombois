@@ -82,13 +82,15 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !speedReduced)
         {
+            speedReduced = true;
             moveSpeed *= speedReduction;
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1") && speedReduced)
         {
+            speedReduced = false;
             moveSpeed /= speedReduction;
         }
     }

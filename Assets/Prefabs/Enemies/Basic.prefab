@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6767434612970430739}
   - component: {fileID: 6767434612970430738}
   - component: {fileID: 6767434612970430737}
-  - component: {fileID: 6767434612970430736}
   - component: {fileID: 6767434612970430743}
   - component: {fileID: 6767434612970430748}
   - component: {fileID: 6294015574692275128}
+  - component: {fileID: -8658588603275888696}
   m_Layer: 9
   m_Name: Basic
   m_TagString: Enemy
@@ -105,27 +105,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.019894272, y: -0.0019922853}
   m_Size: {x: 0.4648803, y: 0.9344276}
   m_Direction: 0
---- !u!50 &6767434612970430736
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6767434612970430742}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 3
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &6767434612970430743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +122,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 1.3
+  moveSpeed: 1
 --- !u!114 &6767434612970430748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +139,8 @@ MonoBehaviour:
   sister: {fileID: 0}
   damage: 1
   lookingRight: 1
+  current: 0
+  target: 1
 --- !u!95 &6294015574692275128
 Animator:
   serializedVersion: 5
@@ -180,3 +161,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!50 &-8658588603275888696
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767434612970430742}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 3
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UserInterface/UpgradeShop.unity
     guid: d977ddddc08864a03955fe1a062e067d
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerTest.unity
+    guid: 748c462c2f0cab84c97902a4117e5ab7
   m_configObjects: {}

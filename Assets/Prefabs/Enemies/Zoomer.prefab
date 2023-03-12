@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 758037289149234797}
   - component: {fileID: 758037289149234796}
   - component: {fileID: 758037289149234799}
-  - component: {fileID: 758037289149234798}
   - component: {fileID: 2160345483454237238}
+  - component: {fileID: 6226869153184322155}
   m_Layer: 9
   m_Name: Zoomer
   m_TagString: Enemy
@@ -144,24 +144,6 @@ MonoBehaviour:
   sister: {fileID: 0}
   spawner: {fileID: 0}
   moveSpeed: 2.4
---- !u!114 &758037289149234798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758037289149234769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26fb762a2aa0404c818e72d66732106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  sister: {fileID: 0}
-  moveSpeed: 2
-  damage: 1
-  health: 5
-  lookingRight: 1
 --- !u!95 &2160345483454237238
 Animator:
   serializedVersion: 5
@@ -182,3 +164,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &6226869153184322155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758037289149234769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5f37bd6afaac64abecd5cac63b38e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  sister: {fileID: 0}
+  damage: 1
+  lookingRight: 1
