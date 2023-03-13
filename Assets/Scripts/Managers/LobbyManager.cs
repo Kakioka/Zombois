@@ -9,8 +9,9 @@ using Unity.Netcode.Transports.UTP;
 using TMPro;
 using UnityEditorInternal;
 using UnityEditor.Animations;
+using Mono.Cecil.Cil;
 
-public class LobbyManager : MonoBehaviour
+public class LobbyManager : NetworkBehaviour
 {
     [SerializeField] TextMeshProUGUI ipAddressText;
     [SerializeField] string ipAddress;
@@ -18,6 +19,7 @@ public class LobbyManager : MonoBehaviour
     public GameObject player;
     public GameObject player2;
     public UnityEditor.Animations.AnimatorController sisAni;
+    public GameObject[] list;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +29,15 @@ public class LobbyManager : MonoBehaviour
         GetLocalIPAddress();
     }
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsClient) Destroy(this) 
+    }
+
     // Update is called once per frame
     void Update()
     {
-        GameObject[] list = GameObject.FindGameObjectsWithTag("Player");
+        list = GameObject.FindGameObjectsWithTag("Player");
         if (player == null) 
         {
             NetworkManager.Singleton.StartHost(); 
