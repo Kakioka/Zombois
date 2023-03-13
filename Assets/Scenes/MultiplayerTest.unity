@@ -1005,7 +1005,7 @@ MonoBehaviour:
   GlobalObjectIdHash: 888865427
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 1
-  AutoObjectParentSync: 1
+  AutoObjectParentSync: 0
 --- !u!1 &1511143900
 GameObject:
   m_ObjectHideFlags: 0
