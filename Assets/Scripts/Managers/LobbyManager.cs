@@ -13,6 +13,7 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ipAddressText;
     [SerializeField] string ipAddress;
     [SerializeField] UnityTransport transport;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,10 @@ public class LobbyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player == null) 
+        {
+            NetworkManager.Singleton.StartHost();
+        }
     }
 
     public string GetLocalIPAddress()
