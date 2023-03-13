@@ -26,11 +26,6 @@ public class PlayerMovementMulti : NetworkBehaviour
     public float speedReduction;
     private bool speedReduced;
 
-    public override void OnNetworkSpawn()
-    {
-        if (!IsOwner) Destroy(this);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -61,8 +56,11 @@ public class PlayerMovementMulti : NetworkBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
         }
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (IsOwner) 
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
         if (movement.x == 0 && movement.y == 0)
         {
             ani.SetBool("move", false);
@@ -89,17 +87,19 @@ public class PlayerMovementMulti : NetworkBehaviour
         {
             Flip();
         }
-
-        if (Input.GetButtonDown("Fire1") && !speedReduced)
+        if (IsOwner) 
         {
-            speedReduced = true;
-            moveSpeed *= speedReduction;
-        }
+            if (Input.GetButtonDown("Fire1") && !speedReduced)
+            {
+                speedReduced = true;
+                moveSpeed *= speedReduction;
+            }
 
-        if (Input.GetButtonUp("Fire1") && speedReduced)
-        {
-            speedReduced = false;
-            moveSpeed /= speedReduction;
+            if (Input.GetButtonUp("Fire1") && speedReduced)
+            {
+                speedReduced = false;
+                moveSpeed /= speedReduction;
+            }
         }
     }
 
