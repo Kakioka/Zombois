@@ -14,6 +14,7 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] string ipAddress;
     [SerializeField] UnityTransport transport;
     private GameObject player;
+    private GameObject player2;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +27,16 @@ public class LobbyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject[] list = GameObject.FindGameObjectsWithTag("Player");
         if (player == null) 
         {
-            NetworkManager.Singleton.StartHost();
+            NetworkManager.Singleton.StartHost(); 
+            list = GameObject.FindGameObjectsWithTag("Player");
+            player = list[0];
+        }
+        if (list[1] != null) 
+        {
+            player2 = list[1];
         }
     }
 

@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class MultiplayerMenu : MonoBehaviour
 {
-
-    [SerializeField] TextMeshProUGUI ipAddressText;
     [SerializeField] TMP_InputField ip;
 
     [SerializeField] string ipAddress;
@@ -26,7 +24,6 @@ public class MultiplayerMenu : MonoBehaviour
     public void StartHost()
     {
         SceneManager.LoadScene(10);
-        NetworkManager.Singleton.StartHost();
     }
 
     // To Join a game
@@ -35,25 +32,6 @@ public class MultiplayerMenu : MonoBehaviour
         ipAddress = ip.text;
         SetIpAddress();
         NetworkManager.Singleton.StartClient();
-    }
-
-    /* Gets the Ip Address of your connected network and
-	shows on the screen in order to let other players join
-	by inputing that Ip in the input field */
-    // ONLY FOR HOST SIDE 
-    public string GetLocalIPAddress()
-    {
-        var host = Dns.GetHostEntry(Dns.GetHostName());
-        foreach (var ip in host.AddressList)
-        {
-            if (ip.AddressFamily == AddressFamily.InterNetwork)
-            {
-                ipAddressText.text = ip.ToString();
-                ipAddress = ip.ToString();
-                return ip.ToString();
-            }
-        }
-        throw new System.Exception("No network adapters with an IPv4 address in the system!");
     }
 
     /* Sets the Ip Address of the Connection Data in Unity Transport

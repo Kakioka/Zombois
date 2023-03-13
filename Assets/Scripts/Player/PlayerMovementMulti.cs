@@ -26,6 +26,11 @@ public class PlayerMovementMulti : NetworkBehaviour
     public float speedReduction;
     private bool speedReduced;
 
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +56,6 @@ public class PlayerMovementMulti : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner) return;
         if (isInv)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
