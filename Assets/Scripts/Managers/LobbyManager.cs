@@ -31,7 +31,7 @@ public class LobbyManager : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (IsClient) Destroy(this) 
+        if (IsClient) Destroy(this);
     }
 
     // Update is called once per frame
