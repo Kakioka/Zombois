@@ -52,15 +52,13 @@ public class PlayerMovementMulti : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
         if (isInv)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
         }
-        if (IsOwner) 
-        {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
-        }
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
         if (movement.x == 0 && movement.y == 0)
         {
             ani.SetBool("move", false);
@@ -87,19 +85,16 @@ public class PlayerMovementMulti : NetworkBehaviour
         {
             Flip();
         }
-        if (IsOwner) 
+        if (Input.GetButtonDown("Fire1") && !speedReduced)
         {
-            if (Input.GetButtonDown("Fire1") && !speedReduced)
-            {
-                speedReduced = true;
-                moveSpeed *= speedReduction;
-            }
+             speedReduced = true;
+             moveSpeed *= speedReduction;
+        }
 
-            if (Input.GetButtonUp("Fire1") && speedReduced)
-            {
-                speedReduced = false;
-                moveSpeed /= speedReduction;
-            }
+        if (Input.GetButtonUp("Fire1") && speedReduced)
+        {
+             speedReduced = false;
+             moveSpeed /= speedReduction;
         }
     }
 
