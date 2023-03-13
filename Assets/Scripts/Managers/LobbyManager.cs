@@ -1,47 +1,35 @@
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Net;
 using Unity.Netcode;
+using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 using Unity.Netcode.Transports.UTP;
 using TMPro;
-using System.Net;
-using System.Net.Sockets;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-using UnityEngine.SceneManagement;
 
-public class MultiplayerMenu : MonoBehaviour
+public class LobbyManager : MonoBehaviour
 {
-
     [SerializeField] TextMeshProUGUI ipAddressText;
-    [SerializeField] TMP_InputField ip;
 
     [SerializeField] string ipAddress;
     [SerializeField] UnityTransport transport;
 
+    // Start is called before the first frame update
     void Start()
     {
         ipAddress = "0.0.0.0";
         SetIpAddress(); // Set the Ip to the above address
+        NetworkManager.Singleton.StartHost();
+        GetLocalIPAddress();
     }
 
-    // To Host a game
-    public void StartHost()
+    // Update is called once per frame
+    void Update()
     {
-        //NetworkManager.Singleton.StartHost();
-        //GetLocalIPAddress();
-        SceneManager.LoadScene(10);
+        
     }
 
-    // To Join a game
-    public void StartClient()
-    {
-        ipAddress = ip.text;
-        SetIpAddress();
-        NetworkManager.Singleton.StartClient();
-    }
-
-    /* Gets the Ip Address of your connected network and
-	shows on the screen in order to let other players join
-	by inputing that Ip in the input field */
-    // ONLY FOR HOST SIDE 
     public string GetLocalIPAddress()
     {
         var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -57,9 +45,6 @@ public class MultiplayerMenu : MonoBehaviour
         throw new System.Exception("No network adapters with an IPv4 address in the system!");
     }
 
-    /* Sets the Ip Address of the Connection Data in Unity Transport
-	to the Ip Address which was input in the Input Field */
-    // ONLY FOR CLIENT SIDE
     public void SetIpAddress()
     {
         transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
