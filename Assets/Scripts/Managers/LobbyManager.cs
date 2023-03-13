@@ -11,7 +11,6 @@ using TMPro;
 public class LobbyManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI ipAddressText;
-
     [SerializeField] string ipAddress;
     [SerializeField] UnityTransport transport;
 
@@ -20,7 +19,6 @@ public class LobbyManager : MonoBehaviour
     {
         ipAddress = "0.0.0.0";
         SetIpAddress(); // Set the Ip to the above address
-        NetworkManager.Singleton.StartHost();
         GetLocalIPAddress();
     }
 

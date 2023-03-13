@@ -25,9 +25,8 @@ public class MultiplayerMenu : MonoBehaviour
     // To Host a game
     public void StartHost()
     {
-        //NetworkManager.Singleton.StartHost();
-        //GetLocalIPAddress();
         SceneManager.LoadScene(10);
+        NetworkManager.Singleton.StartHost();
     }
 
     // To Join a game
