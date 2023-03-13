@@ -948,6 +948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465077495}
   - component: {fileID: 1465077496}
+  - component: {fileID: 1465077497}
   m_Layer: 0
   m_Name: LobbyManager
   m_TagString: Untagged
@@ -988,6 +989,23 @@ MonoBehaviour:
   player: {fileID: 0}
   player2: {fileID: 0}
   sisAni: {fileID: 9100000, guid: 5aa718888e856364082def5751702243, type: 2}
+  list: []
+--- !u!114 &1465077497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465077494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 888865427
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 1
+  AutoObjectParentSync: 1
 --- !u!1 &1511143900
 GameObject:
   m_ObjectHideFlags: 0
