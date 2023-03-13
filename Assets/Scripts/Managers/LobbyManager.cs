@@ -18,38 +18,21 @@ public class LobbyManager : NetworkBehaviour
     [SerializeField] UnityTransport transport;
     public GameObject player;
     public GameObject player2;
-    public UnityEditor.Animations.AnimatorController sisAni;
     public GameObject[] list;
 
     // Start is called before the first frame update
     void Start()
     {
         ipAddress = "0.0.0.0";
-        SetIpAddress(); // Set the Ip to the above address
+        SetIpAddressServerRpc(); // Set the Ip to the above address
         GetLocalIPAddress();
-    }
-
-    public override void OnNetworkSpawn()
-    {
-        if (IsClient) Destroy(this);
+        NetworkManager.Singleton.StartHost();
     }
 
     // Update is called once per frame
     void Update()
     {
-        list = GameObject.FindGameObjectsWithTag("Player");
-        if (player == null) 
-        {
-            NetworkManager.Singleton.StartHost(); 
-            list = GameObject.FindGameObjectsWithTag("Player");
-            player = list[0];
-        }
-
-        if (list.Length == 2) 
-        {
-            player2 = list[1];
-            player2.GetComponent<PlayerMovementMulti>().ani.runtimeAnimatorController = sisAni;
-        }
+        setPlayerServerRpc();
     }
 
     public string GetLocalIPAddress()
@@ -66,10 +49,26 @@ public class LobbyManager : NetworkBehaviour
         }
         throw new System.Exception("No network adapters with an IPv4 address in the system!");
     }
-
-    public void SetIpAddress()
+    [ServerRpc]
+    public void SetIpAddressServerRpc()
     {
         transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         transport.ConnectionData.Address = ipAddress;
+    }
+
+    [ServerRpc]
+    private void setPlayerServerRpc() 
+    {
+        list = GameObject.FindGameObjectsWithTag("Player");
+        if (player == null)
+        {
+            list = GameObject.FindGameObjectsWithTag("Player");
+            player = list[0];
+        }
+
+        if (list.Length == 2)
+        {
+            player2 = list[1];
+        }
     }
 }
