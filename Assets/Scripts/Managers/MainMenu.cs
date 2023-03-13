@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public GameObject volumeSlider;
+    public GameObject networkM;
 
     public void Start()
     {
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
         //uses the scene manager to load a scene by index
         //gets the index of the current active scene and adds 1 to it so the index of the next scene is loaded
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Destroy(networkM);
     }
 
     private void Update()

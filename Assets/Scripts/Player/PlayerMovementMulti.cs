@@ -34,6 +34,7 @@ public class PlayerMovementMulti : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         prevHealth = health;
         ring.SetActive(false);
         pickUp.radius = pickUpRadius;

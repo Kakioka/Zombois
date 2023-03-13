@@ -7,14 +7,17 @@ using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 using Unity.Netcode.Transports.UTP;
 using TMPro;
+using UnityEditorInternal;
+using UnityEditor.Animations;
 
 public class LobbyManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI ipAddressText;
     [SerializeField] string ipAddress;
     [SerializeField] UnityTransport transport;
-    private GameObject player;
-    private GameObject player2;
+    public GameObject player;
+    public GameObject player2;
+    public UnityEditor.Animations.AnimatorController sisAni;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +37,11 @@ public class LobbyManager : MonoBehaviour
             list = GameObject.FindGameObjectsWithTag("Player");
             player = list[0];
         }
-        if (list[1] != null) 
+
+        if (list.Length == 2) 
         {
             player2 = list[1];
+            player2.GetComponent<PlayerMovementMulti>().ani.runtimeAnimatorController = sisAni;
         }
     }
 

@@ -12,7 +12,7 @@ public class MultiplayerMenu : MonoBehaviour
     [SerializeField] TMP_InputField ip;
 
     [SerializeField] string ipAddress;
-    [SerializeField] UnityTransport transport;
+    public UnityTransport transport;
 
     void Start()
     {
