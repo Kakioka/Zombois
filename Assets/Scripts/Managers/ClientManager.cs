@@ -13,10 +13,8 @@ public class ClientManager : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-        NetworkManager.Singleton.StartClient();
         player = NetworkManager.LocalClient.PlayerObject;
-        player.GetComponent<Animator>().runtimeAnimatorController = sis;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame

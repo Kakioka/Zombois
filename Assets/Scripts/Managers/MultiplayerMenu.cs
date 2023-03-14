@@ -26,6 +26,8 @@ public class MultiplayerMenu : MonoBehaviour
     // To Host a game
     public void StartHost()
     {
+        
+        NetworkManager.Singleton.StartHost();
         Instantiate(hostManager);
         SceneManager.LoadScene(10);
     }
@@ -35,6 +37,7 @@ public class MultiplayerMenu : MonoBehaviour
     {
         ipAddress = ip.text;
         SetIpAddress();
+        NetworkManager.Singleton.StartClient();
         Instantiate(clientManager);
     }
 

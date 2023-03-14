@@ -34,7 +34,6 @@ public class HostManager : NetworkBehaviour
     {
         if (scene.name == "MultiplayerTest")
         {
-            NetworkManager.Singleton.StartHost();
             player = NetworkManager.LocalClient.PlayerObject;
         }
 
