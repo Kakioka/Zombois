@@ -14,6 +14,9 @@ public class MultiplayerMenu : MonoBehaviour
     [SerializeField] string ipAddress;
     public UnityTransport transport;
 
+    public GameObject hostManager;
+    public GameObject clientManager;
+
     void Start()
     {
         ipAddress = "0.0.0.0";
@@ -23,6 +26,7 @@ public class MultiplayerMenu : MonoBehaviour
     // To Host a game
     public void StartHost()
     {
+        Instantiate(hostManager);
         SceneManager.LoadScene(10);
     }
 
@@ -31,7 +35,7 @@ public class MultiplayerMenu : MonoBehaviour
     {
         ipAddress = ip.text;
         SetIpAddress();
-        NetworkManager.Singleton.StartClient();
+        Instantiate(clientManager);
     }
 
     /* Sets the Ip Address of the Connection Data in Unity Transport

@@ -24,15 +24,14 @@ public class LobbyManager : NetworkBehaviour
     void Start()
     {
         ipAddress = "0.0.0.0";
-        SetIpAddressServerRpc(); // Set the Ip to the above address
+        SetIpAddress(); // Set the Ip to the above address
         GetLocalIPAddress();
-        NetworkManager.Singleton.StartHost();
     }
 
     // Update is called once per frame
     void Update()
     {
-        setPlayerServerRpc();
+
     }
 
     public string GetLocalIPAddress()
@@ -49,26 +48,10 @@ public class LobbyManager : NetworkBehaviour
         }
         throw new System.Exception("No network adapters with an IPv4 address in the system!");
     }
-    [ServerRpc]
-    public void SetIpAddressServerRpc()
+
+    public void SetIpAddress()
     {
         transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         transport.ConnectionData.Address = ipAddress;
-    }
-
-    [ServerRpc]
-    private void setPlayerServerRpc() 
-    {
-        list = GameObject.FindGameObjectsWithTag("Player");
-        if (player == null)
-        {
-            list = GameObject.FindGameObjectsWithTag("Player");
-            player = list[0];
-        }
-
-        if (list.Length == 2)
-        {
-            player2 = list[1];
-        }
     }
 }

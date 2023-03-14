@@ -3758,6 +3758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 6920080007181307571}
+  networkM: {fileID: 0}
 --- !u!114 &6920080007952145775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3773,6 +3774,8 @@ MonoBehaviour:
   ip: {fileID: 241497261}
   ipAddress: 
   transport: {fileID: 0}
+  hostManager: {fileID: 7145417771491689384, guid: a9cc5d3558f9b4ab3b69c6c9c042a572, type: 3}
+  clientManager: {fileID: 2416935135904831100, guid: 329ee2e720049449f92e65a81b94e36d, type: 3}
 --- !u!1 &6920080008078875248
 GameObject:
   m_ObjectHideFlags: 0
