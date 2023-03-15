@@ -26,10 +26,6 @@ public class gameManager : MonoBehaviour
     //gun obj
     public GameObject gun;
 
-    //player upgrades
-    public int moveUp;
-    public int rangeUp;
-    public int sisMoveUp;
     public int playerH = 3;
 
     //sister
@@ -37,19 +33,22 @@ public class gameManager : MonoBehaviour
     public GameObject sis;
     public int sisH = 3;
 
-    //weapon upgrades
-    public int projectileUp;
-    public int damageUp;
-    public int pierceUp;
-    public int sizeUp;
-    public int knockUp;
-    public int speedUp;
-    public int fireUp;
-    public int reloadUp;
-    public int ammoUp;
-
     //item counts
     public List<int> itemCounts = new List<int>();
+
+    //item stats
+    public float stim;
+    public float run;
+    public float gunpowder;
+    public float bangDmg, bangSize, bangFire;
+    public float fullAmmo;
+    public float MultiDmg;
+    public float leash;
+    public float mag;
+    public float powerDmg, powerSpeed, powerAmmo;
+    public float lowAmmo, lowDmg;
+    public GameObject snow;
+    public float snowRadius, snowPower;
 
     //level count
     public int levelNum = 0;
@@ -70,42 +69,6 @@ public class gameManager : MonoBehaviour
     public bool sniperO = false;
     public bool machinegunO = false;
 
-    public float damageI;
-    public float damageII;
-    public float damageIII;
-
-    public float ammoI;
-    public float ammoII;
-    public float ammoIII;
-
-    public float fireRateI;
-    public float fireRateII;
-    public float fireRateIII;
-
-    public float knockBackI;
-    public float knockBackII;
-    public float knockBackIII;
-
-    public float reloadI;
-    public float reloadII;
-    public float reloadIII;
-
-    public float bulletI;
-    public float bulletII;
-    public float bulletIII;
-
-    public int pierceI;
-    public int pierceII;
-    public int pierceIII;
-
-    public float sizeI;
-    public float sizeII;
-    public float sizeIII;
-
-    public float bulletSpeedI;
-    public float bulletSpeedII;
-    public float bulletSpeedIII;
-
     public GameObject UI;
     public Camera cam;
 
@@ -125,12 +88,12 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             levelNum++;
             spawnLevel(levelNum);
@@ -146,9 +109,8 @@ public class gameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         spawnPlayer();
-        playerUpgrade();
         spawnWep(wepNum);
-        wepUpgrade(gun);
+        itemUpgrade();
     }
 
     void upgradeStart()
@@ -167,48 +129,6 @@ public class gameManager : MonoBehaviour
         sis = Instantiate(sisPre, sisPre.transform.position, Quaternion.identity);
         sis.GetComponent<Sister>().health = sisH;
         sis.GetComponent<Sister>().player = player;
-    }
-
-    public void playerUpgrade()
-    {
-        switch (moveUp)
-        {
-            case 1:
-                player.GetComponent<PlayerMovement>().moveSpeed += 0.5f;
-                break;
-            case 2:
-                player.GetComponent<PlayerMovement>().moveSpeed += 1f;
-                break;
-            case 3:
-                player.GetComponent<PlayerMovement>().moveSpeed += 1.5f;
-                break;
-        }
-
-        switch (rangeUp)
-        {
-            case 1:
-                player.GetComponent<PlayerMovement>().pickUpRadius += 0.3f;
-                break;
-            case 2:
-                player.GetComponent<PlayerMovement>().pickUpRadius += 0.6f;
-                break;
-            case 3:
-                player.GetComponent<PlayerMovement>().pickUpRadius += 1f;
-                break;
-        }
-
-        switch (sisMoveUp)
-        {
-            case 1:
-                sis.GetComponent<Sister>().moveSpeed += 0.3f;
-                break;
-            case 2:
-                sis.GetComponent<Sister>().moveSpeed += 0.6f;
-                break;
-            case 3:
-                sis.GetComponent<Sister>().moveSpeed += 0.9f;
-                break;
-        }
     }
 
     public void levelEnd()
@@ -249,144 +169,25 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    public void wepUpgrade(GameObject gun)
+    public void itemUpgrade() 
     {
-        switch (ammoUp)
+        gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * (1 + (stim * itemCounts[0])) * (1 - (bangFire * itemCounts[3]) - (lowDmg * itemCounts[12]));
+        gun.GetComponent<Gun>().damage = Mathf.RoundToInt(gun.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[3]) + (powerDmg * itemCounts[11])) * (1 -(MultiDmg * itemCounts[5])));
+        gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[3]));
+        gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2]));
+        gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2];
+        gun.GetComponent<Gun>().ammo = Mathf.RoundToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[12])) * (1 - (fullAmmo * itemCounts[4]) - (powerAmmo * itemCounts[11])));
+        gun.GetComponent<Gun>().projectiles = gun.GetComponent<Gun>().projectiles + itemCounts[4] + itemCounts[5];
+
+        player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]) + (leash * itemCounts[6]));
+        sis.GetComponent<Sister>().moveSpeed = sis.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[6]));
+        player.GetComponent<PlayerMovement>().pickUpRadius = player.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[7]));
+
+        if (itemCounts[8] > 0) 
         {
-            case 1:
-                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * ammoI);
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * ammoII);
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().maxAmmo * ammoIII);
-                break;
-        }
-
-        switch (damageUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * damageI);
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * damageII);
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * damageIII);
-                break;
-        }
-
-        switch (speedUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * bulletSpeedI;
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * bulletSpeedII;
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * bulletSpeedIII;
-                break;
-        }
-
-        switch (reloadUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * reloadI;
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * reloadII;
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * reloadIII;
-                break;
-        }
-
-        switch (fireUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * fireRateI;
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * fireRateII;
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * fireRateIII;
-                break;
-        }
-
-        switch (projectileUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().projectiles += 1;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * bulletI);
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().projectiles += 2;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * bulletII);
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().projectiles += 3;
-                gun.GetComponent<Gun>().damage = Mathf.FloorToInt(gun.GetComponent<Gun>().damage * bulletIII);
-                break;
-        }
-
-        switch (pierceUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().piecre += pierceI;
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().piecre += pierceII;
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().piecre += pierceIII;
-                break;
-        }
-
-        switch (sizeUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().bulletSize += sizeI;
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().bulletSize += sizeII;
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().bulletSize += sizeIII;
-                break;
-        }
-
-        switch (knockUp)
-        {
-            case 1:
-                gun.GetComponent<Gun>().knockBack += knockBackI;
-                break;
-
-            case 2:
-                gun.GetComponent<Gun>().knockBack += knockBackII;
-                break;
-
-            case 3:
-                gun.GetComponent<Gun>().knockBack += knockBackIII;
-                break;
+            GameObject snowObj = Instantiate(snow, player.transform);
+            snowObj.GetComponent<Snow>().radius = snowObj.GetComponent<Snow>().radius * (1 + (snowRadius * itemCounts[8]));
+            snowObj.GetComponent<Snow>().speedMod = snowObj.GetComponent<Snow>().radius * (1 - (snowPower * itemCounts[8]));
         }
     }
 

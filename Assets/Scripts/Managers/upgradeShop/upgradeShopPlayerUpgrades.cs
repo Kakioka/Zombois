@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class upgradeShopPlayerUpgrades : MonoBehaviour
+/*public class upgradeShopPlayerUpgrades : MonoBehaviour
 {
 
     public GameObject gameManager;
@@ -196,4 +196,4 @@ public class upgradeShopPlayerUpgrades : MonoBehaviour
                 break;
         }
     }
-}
+}*/

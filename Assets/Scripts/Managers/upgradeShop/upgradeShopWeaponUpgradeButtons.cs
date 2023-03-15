@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
+/*public class upgradeShopWeaponUpgradeButtons : MonoBehaviour
 {
     public GameObject gameManager;
     public GameObject player;
@@ -763,4 +763,4 @@ void Update()
         }
 
     }
-}
+}*/

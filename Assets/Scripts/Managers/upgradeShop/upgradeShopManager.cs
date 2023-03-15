@@ -11,18 +11,13 @@ public class upgradeShopManager : MonoBehaviour
     public GameObject UI;
 
     public GameObject sisHPButton;
-    public TextMeshProUGUI sisHPVal;
-
-    public TextMeshProUGUI playerHPVal;
     public GameObject playerHPButton;
-
     public int vaccineCost;
-    public TextMeshProUGUI vaccineCostText;
 
     // Start is called before the first frame update
     void Start()
     {
-        vaccineCostText.text = vaccineCost.ToString();
+
     }
 
     // Update is called once per frame
@@ -33,16 +28,13 @@ public class upgradeShopManager : MonoBehaviour
 
     void hpVal()
     {
-        playerHPVal.text = gameManager.GetComponent<gameManager>().playerH.ToString();
-        sisHPVal.text = gameManager.GetComponent<gameManager>().sisH.ToString();
-
         if (gameManager.GetComponent<gameManager>().playerH == 3)
         {
             playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "HP Max";
         }
         else
         {
-            playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
+            playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + vaccineCost;
         }
 
         if (gameManager.GetComponent<gameManager>().sisH == 3)
@@ -51,7 +43,7 @@ public class upgradeShopManager : MonoBehaviour
         }
         else
         {
-            sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
+            sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + vaccineCost;
         }
     }
 
