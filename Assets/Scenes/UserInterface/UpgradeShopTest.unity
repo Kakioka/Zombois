@@ -1311,6 +1311,10 @@ PrefabInstance:
       propertyPath: levelNum
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+      propertyPath: itemCounts.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216073, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -4514,6 +4518,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8741561835794063885, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8741561835794063885, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}
       propertyPath: player
       value: 
@@ -11845,6 +11853,9 @@ MonoBehaviour:
   - {fileID: 7444943483134988125, guid: 4b73fd8f2befcec44a0821b78295e523, type: 3}
   - {fileID: 3126690072673572655, guid: 3b555293efeb0a44599ff0576c84ce5b, type: 3}
   - {fileID: 9096934690173942309, guid: 802c2b274f6b05b4292228ff613dc9fd, type: 3}
+  - {fileID: 2751152297916346587, guid: b316a9fe1cc916740952c992f1f3927b, type: 3}
+  - {fileID: 3388458290724851622, guid: d9fb86f8802b87a4cb2e1a4c3427e70a, type: 3}
+  - {fileID: 1908912849253656663, guid: 6630c1b0a74fdbb409b2c14ee1e0ccbf, type: 3}
   item1: {fileID: 13282756}
   item2: {fileID: 2022523643}
   item3: {fileID: 684205917}
