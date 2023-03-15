@@ -1,4 +1,5 @@
 using Cinemachine;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -46,6 +47,9 @@ public class gameManager : MonoBehaviour
     public int fireUp;
     public int reloadUp;
     public int ammoUp;
+
+    //item counts
+    public List<int> itemCounts = new List<int>();
 
     //level count
     public int levelNum = 0;

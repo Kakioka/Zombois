@@ -9,8 +9,8 @@ public class Screamer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawner = gameObject.GetComponent<Enemy>().spawner;
-        spawner.GetComponent<Spawner>().time *= spawnMod;
+        //spawner = gameObject.GetComponent<Enemy>().spawner;
+        //spawner.GetComponent<Spawner>().time *= spawnMod;
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class Screamer : MonoBehaviour
     {
         if (gameObject.GetComponent<Enemy>().health <= 0)
         {
-            spawner.GetComponent<Spawner>().time /= spawnMod;
+            //spawner.GetComponent<Spawner>().time /= spawnMod;
         }
     }
 

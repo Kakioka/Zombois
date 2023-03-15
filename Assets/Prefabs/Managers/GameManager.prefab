@@ -259,6 +259,7 @@ MonoBehaviour:
   fireUp: 0
   reloadUp: 0
   ammoUp: 0
+  itemCounts: 000000000000000000000000000000000000000000000000
   levelNum: 1
   stage1ManagerPre: {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
   stage2ManagerPre: {fileID: 1468025485690917258, guid: b75152a4889c17b41a9ca4dfd7e816c9, type: 3}

@@ -13,14 +13,19 @@ public class ClientManager : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = NetworkManager.LocalClient.PlayerObject;
         DontDestroyOnLoad(this.gameObject);
+        NetworkManager.Singleton.StartClient();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        player = NetworkManager.LocalClient.PlayerObject;
     }
 
     private void OnEnable()

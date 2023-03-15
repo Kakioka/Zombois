@@ -37,7 +37,7 @@ public class MultiplayerMenu : MonoBehaviour
     {
         ipAddress = ip.text;
         SetIpAddress();
-        NetworkManager.Singleton.StartClient();
+        //NetworkManager.Singleton.StartClient();
         Instantiate(clientManager);
     }
 

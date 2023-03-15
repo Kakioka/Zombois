@@ -2,21 +2,71 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEditor.ShaderKeywordFilter;
+using System.Collections.Generic;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject volumeSlider;
     public GameObject networkM;
+    public Toggle fullscreenTog, vsyncTog;
+    public TMP_Dropdown resDrop;
+    private Resolution[] resolutions;
+    private List<Resolution> filteredResolutions;
+    private float currentRefreshRate;
+    private int currentResolutionIndex;
+
+    private Resolution resolution;
 
     public void Start()
     {
+        resolutions = Screen.resolutions;
+        filteredResolutions = new List<Resolution>();
+        resDrop.ClearOptions();
+        currentRefreshRate = Screen.currentResolution.refreshRate;
+
+        for (int i = 0; i < resolutions.Length; i++) 
+        {
+            if (resolutions[i].refreshRate == currentRefreshRate) 
+            {
+                filteredResolutions.Add(resolutions[i]);
+            }
+        }
+
+        List<string> options = new List<string>();
+        for (int i = 0; i < filteredResolutions.Count; i++) 
+        {
+            string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height + " " + filteredResolutions[i].refreshRate + " Hz";
+            options.Add(resolutionOption);
+            if (filteredResolutions[i].width == Screen.width && filteredResolutions[i].height == Screen.height) 
+            {
+                currentResolutionIndex= i;
+            }
+        }
+
+        resDrop.AddOptions(options);
+        resDrop.value= currentResolutionIndex;
+        resDrop.RefreshShownValue();
+
+        fullscreenTog.isOn = Screen.fullScreen;
+
+        if (QualitySettings.vSyncCount == 0)
+        {
+            vsyncTog.isOn = false;
+        }
+        else
+        {
+            vsyncTog.isOn = true;
+        }
+
         Time.timeScale = 1;
         if (volumeSlider != null)
         {
             volumeSlider.GetComponent<Slider>().value = 1f;
         }
     }
-        
+
 
     public void PlayGame()
     {
@@ -28,7 +78,27 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        
+
+    }
+    public void setRes(int resolutionIntdex) 
+    {
+        resolution = filteredResolutions[resolutionIntdex];
+    }
+    
+
+    public void ApplyGraphics() 
+    {
+        Screen.SetResolution(resolution.width, resolution.height, true);
+        Screen.fullScreen = fullscreenTog.isOn;
+
+        if (vsyncTog.isOn)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else 
+        {
+            QualitySettings.vSyncCount = 0;
+        }
     }
 
     public void volume()
