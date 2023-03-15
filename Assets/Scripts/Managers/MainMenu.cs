@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        Time.timeScale = 1;
+
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
         resDrop.ClearOptions();
@@ -60,7 +62,6 @@ public class MainMenu : MonoBehaviour
             vsyncTog.isOn = true;
         }
 
-        Time.timeScale = 1;
         if (volumeSlider != null)
         {
             volumeSlider.GetComponent<Slider>().value = 1f;

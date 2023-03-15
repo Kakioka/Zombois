@@ -834,7 +834,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1391695571}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
@@ -1770,7 +1770,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391695569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f74c08a03c9b92f488c3f688a7defc2c, type: 3}
+  m_Script: {fileID: 11500000, guid: be96ca5f7b0cb144bbae51089f2738ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1869369446 stripped
