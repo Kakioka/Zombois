@@ -1650,8 +1650,8 @@ MonoBehaviour:
   m_text: 'Beware your health will carry over between days
 
 
-    Purchase upgrades
-    and healing from the shopkeeper and ready yourself'
+    Purchase items and
+    healing from the shopkeeper and ready yourself for the next day'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -23.632507, w: -211.72571}
+  m_margin: {x: 0, y: 0, z: -23.632507, w: -245.22339}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
