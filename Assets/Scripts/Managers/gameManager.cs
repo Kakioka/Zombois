@@ -77,6 +77,7 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioListener.volume = AudioListener.volume;
         Vector2 hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
         DontDestroyOnLoad(this.gameObject);
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
