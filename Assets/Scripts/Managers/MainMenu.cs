@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        volumeSlider.GetComponent<Slider>().value = AudioListener.volume;
         Time.timeScale = 1;
 
         resolutions = Screen.resolutions;
