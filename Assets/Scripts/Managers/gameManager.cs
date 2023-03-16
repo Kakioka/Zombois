@@ -258,7 +258,7 @@ public class gameManager : MonoBehaviour
 
         if (itemCounts[11] > 0)
         {
-            if (missileG != null) 
+            if (missileG == null) 
             {
                 missileG = Instantiate(missile, player.transform);
                 missileG.GetComponent<MissileLauncher>().player = player;
