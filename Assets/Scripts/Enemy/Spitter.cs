@@ -7,6 +7,7 @@ public class Spitter : MonoBehaviour
     public GameObject sister;
     public int damage;
     public Rigidbody2D rb;
+    private Rigidbody2D rbLocal;
     public Transform firePoint;
     public GameObject bulletPre;
     public float bulletForce;
@@ -23,9 +24,16 @@ public class Spitter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rbLocal = GetComponent<Rigidbody2D>();
         ani = gameObject.GetComponent<Animator>();
         player = this.gameObject.GetComponent<Enemy>().player;
         sister = this.gameObject.GetComponent<Enemy>().sister;
+    }
+
+    private IEnumerator knockBack()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<Enemy>().knock = false;
     }
 
     IEnumerator Shooting()
@@ -37,6 +45,10 @@ public class Spitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.GetComponent<Enemy>().knock == true)
+        {
+            StartCoroutine(knockBack());
+        }
         distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
         distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
         if (transform.position != player.transform.position || transform.position != sister.transform.position)
@@ -52,8 +64,9 @@ public class Spitter : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector3 moveDir = (player.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                Vector2 direction = (Vector2)player.transform.position - rbLocal.position;
+                direction.Normalize();
+                rbLocal.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
                 ani.SetBool("move", true);
             }
             else if (distP >= distS && distS > maxDist)
@@ -67,8 +80,9 @@ public class Spitter : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector3 moveDir = (sister.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                Vector2 direction = (Vector2)sister.transform.position - rbLocal.position;
+                direction.Normalize();
+                rbLocal.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
                 ani.SetBool("move", true);
             }
             else if (distP <= maxDist || distS <= maxDist)

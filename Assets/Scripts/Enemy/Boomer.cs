@@ -12,6 +12,13 @@ public class Boomer : MonoBehaviour
     public float maxDist;
     public bool lookingRight = true;
     public float speed;
+    private Rigidbody2D rb;
+
+    private IEnumerator knockBack()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<Enemy>().knock = false;
+    }
 
     private IEnumerator explode()
     {
@@ -23,6 +30,7 @@ public class Boomer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         player = this.gameObject.GetComponent<Enemy>().player;
         sister = this.gameObject.GetComponent<Enemy>().sister;
     }
@@ -30,6 +38,10 @@ public class Boomer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.GetComponent<Enemy>().knock == true)
+        {
+            StartCoroutine(knockBack());
+        }
         if (gameObject.GetComponent<Enemy>().health <= 0)
         {
             GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
@@ -50,8 +62,12 @@ public class Boomer : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector3 moveDir = (player.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                if (gameObject.GetComponent<Enemy>().knock == false)
+                {
+                    Vector2 direction = (Vector2)player.transform.position - rb.position;
+                    direction.Normalize();
+                    rb.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
+                }
             }
             else if (distP >= distS)
             {
@@ -65,8 +81,13 @@ public class Boomer : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector3 moveDir = (sister.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                if (gameObject.GetComponent<Enemy>().knock == false)
+                {
+                    Vector2 direction = (Vector2)sister.transform.position - rb.position;
+                    direction.Normalize();
+                    rb.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
+                }
+
             }
         }
         if (inRange == true)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Basic : MonoBehaviour
 {
@@ -6,18 +7,29 @@ public class Basic : MonoBehaviour
     public GameObject sister;
     public int damage = 1;
     public bool lookingRight = true;
-    public float current, target;
+    private Rigidbody2D rb;
+
+    private IEnumerator knockBack()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<Enemy>().knock = false;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         player = gameObject.GetComponent<Enemy>().player;
         sister = gameObject.GetComponent<Enemy>().sister;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.GetComponent<Enemy>().knock == true)
+        {
+            StartCoroutine(knockBack());
+        }
         float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
         float distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
         if (transform.position != player.transform.position || transform.position != sister.transform.position)
@@ -34,10 +46,13 @@ public class Basic : MonoBehaviour
                 {
                     Flip();
                 }
-                //current = Mathf.MoveTowards(current,target, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
-                //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
-                Vector3 moveDir = (player.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
+                if (gameObject.GetComponent<Enemy>().knock == false)
+                {
+                    Vector2 direction = (Vector2)player.transform.position - rb.position;
+                    direction.Normalize();
+                    rb.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
+                }
+
             }
             else if (distP >= distS)
             {
@@ -51,11 +66,12 @@ public class Basic : MonoBehaviour
                 {
                     Flip();
                 }
-                //current = Mathf.MoveTowards(current, target, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
-                //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
-                Vector3 moveDir = (sister.transform.position - transform.position).normalized;
-                transform.position += moveDir * this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime;
-                
+                if (gameObject.GetComponent<Enemy>().knock == false)
+                {
+                    Vector2 direction = (Vector2)sister.transform.position - rb.position;
+                    direction.Normalize();
+                    rb.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
+                }
             }
         }
     }

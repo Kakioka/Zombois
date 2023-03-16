@@ -14,14 +14,12 @@ public class gameManager : MonoBehaviour
 
     //player prefab
     public GameObject playerPref;
+
     //player obj
     public GameObject player;
 
     //gun prefabs
-    public GameObject rev;
-    public GameObject shotG;
-    public GameObject snipe;
-    public GameObject machineG;
+    public GameObject rev, shotG, snipe, machineG;
 
     //gun obj
     public GameObject gun;
@@ -29,8 +27,7 @@ public class gameManager : MonoBehaviour
     public int playerH = 3;
 
     //sister
-    public GameObject sisPre;
-    public GameObject sis;
+    public GameObject sisPre, sis;
     public int sisH = 3;
 
     //item counts
@@ -49,19 +46,13 @@ public class gameManager : MonoBehaviour
     public float lowAmmo, lowDmg;
     public GameObject snow;
     public float snowRadius, snowPower;
+    public GameObject bubble;
 
     //level count
     public int levelNum = 0;
 
     //stageManagerPrefabs
-    public GameObject stage1ManagerPre;
-    public GameObject stage2ManagerPre;
-    public GameObject stage3ManagerPre;
-    public GameObject stage4ManagerPre;
-    public GameObject stage5ManagerPre;
-    public GameObject stage6ManagerPre;
-    public GameObject stage7ManagerPre;
-    public GameObject upgradeShopManagerPre;
+    public List<GameObject> stageManager = new List<GameObject>();
     public GameObject currManager;
 
     public bool revO = true;
@@ -189,6 +180,13 @@ public class gameManager : MonoBehaviour
             snowObj.GetComponent<Snow>().radius = snowObj.GetComponent<Snow>().radius * (1 + (snowRadius * itemCounts[8]));
             snowObj.GetComponent<Snow>().speedMod = snowObj.GetComponent<Snow>().radius * (1 - (snowPower * itemCounts[8]));
         }
+
+        if (itemCounts[9] > 0)
+        {
+            itemCounts[9]--;
+            Instantiate(bubble, player.transform);
+            Instantiate(bubble, sis.transform);
+        }
     }
 
     public void spawnLevel(int level)
@@ -252,7 +250,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage1")
         {
             levelStart();
-            currManager = Instantiate(stage1ManagerPre);
+            currManager = Instantiate(stageManager[0]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
@@ -264,7 +262,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage2")
         {
             levelStart();
-            currManager = Instantiate(stage2ManagerPre);
+            currManager = Instantiate(stageManager[1]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
@@ -276,7 +274,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage3")
         {
             levelStart();
-            currManager = Instantiate(stage3ManagerPre);
+            currManager = Instantiate(stageManager[2]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
@@ -288,7 +286,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage4")
         {
             levelStart();
-            currManager = Instantiate(stage4ManagerPre);
+            currManager = Instantiate(stageManager[3]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
@@ -300,7 +298,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage5")
         {
             levelStart();
-            currManager = Instantiate(stage5ManagerPre);
+            currManager = Instantiate(stageManager[4]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
@@ -312,7 +310,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage6")
         {
             levelStart();
-            currManager = Instantiate(stage6ManagerPre);
+            currManager = Instantiate(stageManager[5]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
@@ -324,7 +322,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "Stage7")
         {
             levelStart();
-            currManager = Instantiate(stage7ManagerPre);
+            currManager = Instantiate(stageManager[6]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
@@ -336,7 +334,7 @@ public class gameManager : MonoBehaviour
         if (scene.name == "UpgradeShop")
         {
             Time.timeScale = 1;
-            currManager = Instantiate(upgradeShopManagerPre);
+            currManager = Instantiate(stageManager[7]);
             currUI = Instantiate(UI);
             upgradeStart();
             cam.gameObject.transform.position = Vector2.zero;

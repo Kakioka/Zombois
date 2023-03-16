@@ -13,6 +13,7 @@ public class Sister : MonoBehaviour
     public GameObject ring;
     public bool lookingRight = true;
     private Animator ani;
+    private Rigidbody2D rb;
 
     public float pingPongSpeed;
     public float flashSpeed;
@@ -20,6 +21,7 @@ public class Sister : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         prevHealth = health;
         ring.SetActive(false);
         ani = gameObject.GetComponent<Animator>();
@@ -32,6 +34,7 @@ public class Sister : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
         }
+
         Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         if ((temp.x - transform.position.x > 0) && !lookingRight)
         {
@@ -41,19 +44,24 @@ public class Sister : MonoBehaviour
         {
             Flip();
         }
+
         if (health <= 0)
         {
             //Destroy(gameObject);
         }
+
         if (health != prevHealth)
         {
             StartCoroutine(invincible());
         }
+
         float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
+
         if (transform.position != player.transform.position && distP > maxDist)
         {
-            Vector3 moveDir = (player.transform.position - transform.position).normalized;
-            transform.position += moveDir * moveSpeed * Time.deltaTime;
+            Vector2 direction = (Vector2)player.transform.position - rb.position;
+            direction.Normalize();
+            rb.velocity = direction * moveSpeed;
             ani.SetBool("move", true);
         }
         else

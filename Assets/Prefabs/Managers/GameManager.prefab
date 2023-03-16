@@ -249,31 +249,35 @@ MonoBehaviour:
   sisH: 3
   itemCounts: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   stim: 0.1
-  run: 0.1
+  run: 0.2
   gunpowder: 0.1
-  bangDmg: 0.1
-  bangSize: 0.1
+  bangDmg: 0.2
+  bangSize: 0.2
   bangFire: 0.1
-  fullAmmo: 0.1
-  MultiDmg: 0.1
-  leash: 0.1
-  mag: 0.1
-  powerDmg: 0.1
-  powerSpeed: 0.1
+  fullAmmo: 0.2
+  MultiDmg: 0.2
+  leash: 0.2
+  mag: 0.2
+  powerDmg: 0.2
+  powerSpeed: 0.2
   powerAmmo: 0.1
-  lowAmmo: 0.1
+  lowAmmo: 0.3
   lowDmg: 0.1
   snow: {fileID: 611411238212071733, guid: 90ff5b312cc16dc4b89d44a7fb783286, type: 3}
   snowRadius: 0.1
   snowPower: 0.1
+  bubble: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
   levelNum: 1
-  stage1ManagerPre: {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
-  stage2ManagerPre: {fileID: 1468025485690917258, guid: b75152a4889c17b41a9ca4dfd7e816c9, type: 3}
-  stage3ManagerPre: {fileID: 1468025485690917258, guid: 73163090803d345c9855adeb6b6dc2c5, type: 3}
-  stage4ManagerPre: {fileID: 1468025485690917258, guid: 6a025b9d8cfae364997179b43f358125, type: 3}
-  stage5ManagerPre: {fileID: 1468025485690917258, guid: 41897537fa761e84b99854dfce7d7721, type: 3}
-  stage6ManagerPre: {fileID: 1468025485690917258, guid: bb7c5b557ec6051478bf50da63eea070, type: 3}
-  stage7ManagerPre: {fileID: 1468025485690917258, guid: bc667ea0a87af09419a293249fe4d7dc, type: 3}
+  stageManager:
+  - {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
+  - {fileID: 1468025485690917258, guid: b75152a4889c17b41a9ca4dfd7e816c9, type: 3}
+  - {fileID: 1468025485690917258, guid: 73163090803d345c9855adeb6b6dc2c5, type: 3}
+  - {fileID: 1468025485690917258, guid: 6a025b9d8cfae364997179b43f358125, type: 3}
+  - {fileID: 1468025485690917258, guid: 41897537fa761e84b99854dfce7d7721, type: 3}
+  - {fileID: 1468025485690917258, guid: bb7c5b557ec6051478bf50da63eea070, type: 3}
+  - {fileID: 1468025485690917258, guid: bc667ea0a87af09419a293249fe4d7dc, type: 3}
+  - {fileID: 1468025485690917258, guid: bc667ea0a87af09419a293249fe4d7dc, type: 3}
+  - {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
   upgradeShopManagerPre: {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
   currManager: {fileID: 0}
   revO: 1

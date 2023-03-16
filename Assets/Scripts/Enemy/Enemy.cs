@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public GameObject sister;
     public GameObject spawner;
     public float moveSpeed;
+    public bool knock = false;
 
     // Start is called before the first frame update
     void Start()

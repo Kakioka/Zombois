@@ -25,6 +25,11 @@ public class Gun : MonoBehaviour
     public Vector3 offset;
     public bool lookingRight = true;
 
+    public bool bleedOn = false;
+    public int bleedLvl = 0;
+    public bool splinterOn = false;
+    public int splintLvl = 0;
+
     // Update is called once per frame
     private void Start()
     {
@@ -231,8 +236,22 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().pierce = piecre;
         obj.GetComponent<Bullet>().knockBack = knockBack;
         obj.GetComponent<Bullet>().scale = bulletSize;
+        obj.GetComponent<Bullet>().force = bulletForce;
+        obj.GetComponent<Bullet>().splintLvl = splintLvl;
+        obj.GetComponent<Bullet>().bleedLvl = bleedLvl;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
+
+        if (bleedOn)
+        {
+            obj.GetComponent<Bullet>().bleedOn = true;
+        }
+
+
+        if (splinterOn)
+        {
+            obj.GetComponent<Bullet>().splinterOn = true;
+        }
     }
 
     private void Flip()

@@ -21,8 +21,9 @@ public class Ring : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            collision.GetComponent<Enemy>().knock = true;
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            rb.AddForce(collision.transform.position - player.transform.position * knockBack, ForceMode2D.Impulse);
+            rb.AddForce((collision.transform.position - player.transform.position) * knockBack, ForceMode2D.Impulse);
         }
     }
 }
