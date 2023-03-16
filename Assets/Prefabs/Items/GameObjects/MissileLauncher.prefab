@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 3
-  damage: 5
+  damage: 3
   speed: 5
   rotateSpeed: 200
   coolDown: 0

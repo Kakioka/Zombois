@@ -251,14 +251,14 @@ MonoBehaviour:
   stim: 0.1
   run: 0.2
   gunpowder: 0.1
-  bangDmg: 0.2
+  bangDmg: 0.3
   bangSize: 0.2
   bangFire: 0.1
   fullAmmo: 0.2
   MultiDmg: 0.2
   leash: 0.2
   mag: 0.2
-  powerDmg: 0.2
+  powerDmg: 0.3
   powerSpeed: 0.2
   powerAmmo: 0.1
   lowAmmo: 0.3
@@ -267,6 +267,7 @@ MonoBehaviour:
   snowRadius: 0.1
   snowPower: 0.1
   bubble: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
+  missile: {fileID: 0}
   levelNum: 1
   stageManager:
   - {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
@@ -276,9 +277,7 @@ MonoBehaviour:
   - {fileID: 1468025485690917258, guid: 41897537fa761e84b99854dfce7d7721, type: 3}
   - {fileID: 1468025485690917258, guid: bb7c5b557ec6051478bf50da63eea070, type: 3}
   - {fileID: 1468025485690917258, guid: bc667ea0a87af09419a293249fe4d7dc, type: 3}
-  - {fileID: 1468025485690917258, guid: bc667ea0a87af09419a293249fe4d7dc, type: 3}
   - {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
-  upgradeShopManagerPre: {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
   currManager: {fileID: 0}
   revO: 1
   shotgunO: 0

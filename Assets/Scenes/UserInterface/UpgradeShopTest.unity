@@ -261,6 +261,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+      propertyPath: sis
+      value: 
+      objectReference: {fileID: 1023926575}
+    - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: bank
       value: 50
       objectReference: {fileID: 0}
@@ -268,6 +272,10 @@ PrefabInstance:
       propertyPath: sisH
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032353245}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: playerH
       value: 1
@@ -689,6 +697,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2032353246}
     - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 555087877}
+    - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: bank
       value: 999
       objectReference: {fileID: 0}
@@ -844,6 +856,10 @@ PrefabInstance:
       propertyPath: UI
       value: 
       objectReference: {fileID: 859357825}
+    - target: {fileID: 5332791133942605328, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032353245}
     - target: {fileID: 5332791133942605328, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
       propertyPath: revObj
       value: 

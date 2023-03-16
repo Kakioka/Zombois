@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public float speedReduction;
     private bool speedReduced;
 
+    public GameObject gun;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,13 +84,14 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetButtonDown("Fire1") && !speedReduced)
+
+        if (Input.GetButton("Fire1") && !speedReduced)
         {
             speedReduced = true;
             moveSpeed *= speedReduction;
         }
 
-        if (Input.GetButtonUp("Fire1") && speedReduced)
+        if ((Input.GetButtonUp("Fire1") && speedReduced) || (gun.GetComponent<Gun>().isReload && speedReduced))
         {
             speedReduced = false;
             moveSpeed /= speedReduction;
