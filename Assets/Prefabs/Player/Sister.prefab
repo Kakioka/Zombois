@@ -222,6 +222,8 @@ MonoBehaviour:
   moveSpeed: 0.9
   ring: {fileID: 4945562483153095412}
   lookingRight: 1
+  pickUpRadius: 1.1
+  pickUp: {fileID: 437741344378778408}
   pingPongSpeed: 0.05
   flashSpeed: 8
 --- !u!70 &8741561835794063886

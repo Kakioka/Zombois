@@ -23,13 +23,14 @@ public class BleedEffect : MonoBehaviour
     IEnumerator bleed()
     {
         coolDown = true;
+        yield return new WaitForSeconds(DoT);
         GetComponentInParent<Enemy>().health -= damage;
         Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(transform.position.x, transform.position.y);
         temp.z = 10;
         GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
         num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
         Destroy(num, 1f);
-        yield return new WaitForSeconds(DoT);
+        
         coolDown = false;
     }
 

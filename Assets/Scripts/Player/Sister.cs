@@ -15,12 +15,15 @@ public class Sister : MonoBehaviour
     private Animator ani;
     private Rigidbody2D rb;
 
+    public float pickUpRadius;
+    public CircleCollider2D pickUp;
     public float pingPongSpeed;
     public float flashSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
+        pickUp.radius = pickUpRadius;
         rb = GetComponent<Rigidbody2D>();
         prevHealth = health;
         ring.SetActive(false);
