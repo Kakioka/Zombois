@@ -544,3 +544,4 @@ MonoBehaviour:
   itemNum: 14
   description: On hit chance to make zombies bleed
   itemSprite: {fileID: 0}
+  itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}

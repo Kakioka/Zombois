@@ -191,6 +191,7 @@ MonoBehaviour:
   itemNum: 15
   description: Your bullets explode into more bullets
   itemSprite: {fileID: 0}
+  itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
 --- !u!1 &3663174721151751112
 GameObject:
   m_ObjectHideFlags: 0

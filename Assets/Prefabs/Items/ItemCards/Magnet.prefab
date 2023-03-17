@@ -409,6 +409,7 @@ MonoBehaviour:
   itemNum: 8
   description: Increases coin pick up range
   itemSprite: {fileID: 0}
+  itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
 --- !u!1 &240781993171235732
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,6 +54,9 @@ MonoBehaviour:
   textItemCost: {fileID: 449313549524393944}
   cost: 10
   itemNum: 1
+  description: 
+  itemSprite: {fileID: 0}
+  itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
 --- !u!1 &449313549159212369
 GameObject:
   m_ObjectHideFlags: 0

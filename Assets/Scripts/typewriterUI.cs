@@ -5,7 +5,6 @@ using TMPro;
 
 public class typewriterUI : MonoBehaviour
 {
-    public ItemDescription description;
     Text _text;
     public TMP_Text _tmpProText;
     public string writer;
@@ -19,16 +18,11 @@ public class typewriterUI : MonoBehaviour
 
     Coroutine typeWriterCoroutine;
 
-    private void Start()
-    {
 
-    }
-
-    void Awake()
+    void Start()
     {
         _text = GetComponent<Text>();
         _tmpProText = GetComponent<TMP_Text>();
-        _tmpProText.text = description.description;
 
         if (_text != null)
         {

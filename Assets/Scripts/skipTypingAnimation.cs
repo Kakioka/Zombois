@@ -4,35 +4,30 @@ using UnityEngine;
 
 public class skipTypingAnimation : MonoBehaviour
 {
-    public typewriterUI typewriter;
     private int stage = 0;
     public float closeTime;
 
     private void Start()
     {
-
-    }
-
-    private void Awake()
-    {
-        stage = 0;
+        
     }
 
     private IEnumerator close()
     {
         yield return new WaitForSeconds(closeTime);
         GameObject parent = this.transform.parent.gameObject;
-        parent.SetActive(false);
+        Destroy(parent);
 
     }
 
     private void Update()
     {
-        if (GetComponent<typewriterUI>()._tmpProText.text == GetComponent<typewriterUI>().writer)
-        {
-            stage = 1;
-            StartCoroutine(close());
-        }
+
+            if (GetComponent<typewriterUI>()._tmpProText.text == GetComponent<typewriterUI>().writer)
+            {
+                stage = 1;
+                StartCoroutine(close());
+            }
     }
 
     public void OnClick()
@@ -45,7 +40,7 @@ public class skipTypingAnimation : MonoBehaviour
         if (stage == 0)
         {
             Debug.Log("Button clicked"); // Debug statement
-            typewriter.skipTypingAnimation = true;
+            GetComponent<typewriterUI>().skipTypingAnimation = true;
             stage++;
         }
     }

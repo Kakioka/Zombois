@@ -409,6 +409,7 @@ MonoBehaviour:
   itemNum: 3
   description: Increases bullet damage and size, decreases ammo
   itemSprite: {fileID: 0}
+  itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
 --- !u!1 &5548918970423585974
 GameObject:
   m_ObjectHideFlags: 0

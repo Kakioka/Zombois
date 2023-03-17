@@ -56,6 +56,7 @@ MonoBehaviour:
   itemNum: 9
   description: Creates a field around you that slows zombies
   itemSprite: {fileID: 0}
+  itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
 --- !u!1 &4581698822402791800
 GameObject:
   m_ObjectHideFlags: 0
