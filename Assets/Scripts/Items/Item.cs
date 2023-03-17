@@ -44,6 +44,7 @@ public class Item : MonoBehaviour
                 player.GetComponent<PlayerMovement>().bank -= cost;
                 textItemCost.text = "Bought";
                 gameM.GetComponent<gameManager>().itemCounts[itemNum]++;
+                gameM.GetComponent<gameManager>().itemListUpdate();
                 GameObject des = Instantiate(itemDescription);
                 des.GetComponent<ItemDescription>().itemName = itemName;
                 des.GetComponent<ItemDescription>().item = itemSprite;
