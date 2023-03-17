@@ -267,7 +267,7 @@ MonoBehaviour:
   snowRadius: 0.1
   snowPower: 0.1
   bubble: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
-  missile: {fileID: 0}
+  missile: {fileID: 8827306215690556667, guid: 82af7ab7712214b4b834e606ead7eb69, type: 3}
   powerDmg: 0.3
   powerSpeed: 0.2
   levelNum: 1
