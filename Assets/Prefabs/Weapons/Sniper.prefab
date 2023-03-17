@@ -160,10 +160,10 @@ MonoBehaviour:
   isReload: 0
   bulletForce: 8
   reloadSpeed: 2
-  fireRate: 1
+  fireRate: 0.9
   fireDelay: 0
   damage: 10
-  piecre: 2
+  piecre: 1
   knockBack: 7
   rb: {fileID: 3758488845514612957}
   cam: {fileID: 0}
@@ -173,6 +173,10 @@ MonoBehaviour:
   bulletSize: 0
   offset: {x: 0, y: -0.2, z: 0}
   lookingRight: 1
+  bleedOn: 0
+  bleedLvl: 0
+  splinterOn: 0
+  splintLvl: 0
 --- !u!82 &-5978246235573484533
 AudioSource:
   m_ObjectHideFlags: 0

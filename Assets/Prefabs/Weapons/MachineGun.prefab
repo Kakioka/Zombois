@@ -123,12 +123,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8252517988091119175}
   bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
-  ammo: 20
+  ammo: 11
   maxAmmo: 20
   isReload: 0
   bulletForce: 5
   reloadSpeed: 2
-  fireRate: 0.3
+  fireRate: 0.27
   fireDelay: 0
   damage: 2
   piecre: 0
@@ -141,6 +141,10 @@ MonoBehaviour:
   bulletSize: 0
   offset: {x: 0, y: -0.2, z: 0}
   lookingRight: 1
+  bleedOn: 0
+  bleedLvl: 0
+  splinterOn: 0
+  splintLvl: 0
 --- !u!82 &7104343852018072323
 AudioSource:
   m_ObjectHideFlags: 0

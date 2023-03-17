@@ -38,13 +38,13 @@ public class upgradeShopWepButtons : MonoBehaviour
         cashTrack = player.GetComponent<PlayerMovement>().bank;
 
         wepsB.Add(revolverB);
-        wepsB.Add(machineGunB);
-        wepsB.Add(sniperB);  
-        wepsB.Add(sniper);
+        wepsB.Add(shotgunB);
+        wepsB.Add(machineGunB);  
+        wepsB.Add(sniperB);
 
-        weps.Add(revolverB);
-        weps.Add(machineGunB);
-        weps.Add(sniperB);
+        weps.Add(revolver);
+        weps.Add(shotgun);
+        weps.Add(machineGun);
         weps.Add(sniper);
     }
     
