@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -27,6 +28,14 @@ public class UIManager : MonoBehaviour
 
     public GameObject sisH;
 
+    //item UI
+    public Transform itemPos;
+    public int itemBuffer;
+    public List<GameObject> items = new List<GameObject>();
+    private List<GameObject> currItems = new List<GameObject>();
+    private List<int> currItemIndex = new List<int>();
+    private Transform lastItemPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +48,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lastItemPos = itemPos;
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
 
@@ -107,5 +117,22 @@ public class UIManager : MonoBehaviour
 
 
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);
+    }
+
+    void updateItemList() 
+    {
+        foreach (int i in gameManager.GetComponent<gameManager>().itemEquiped) 
+        {
+            if (!currItemIndex.Contains(i))
+            {
+                currItems.Add(Instantiate(items[i], lastItemPos.position, Quaternion.identity));
+                currItems[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[i].ToString();
+                currItemIndex.Add(i);
+            }
+            else 
+            {
+
+            }
+        }
     }
 }
