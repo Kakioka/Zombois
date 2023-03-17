@@ -407,6 +407,8 @@ MonoBehaviour:
   textItemCost: {fileID: 5548918969991845439}
   cost: 10
   itemNum: 3
+  description: Increases bullet damage and size, decreases ammo
+  itemSprite: {fileID: 0}
 --- !u!1 &5548918970423585974
 GameObject:
   m_ObjectHideFlags: 0

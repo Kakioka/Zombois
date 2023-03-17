@@ -49,11 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameM: {fileID: 0}
-  itemName: Missile
+  itemName: Missile Launcher
   textItemName: {fileID: 7931868185922793050}
   textItemCost: {fileID: 7931868186296325341}
   cost: 10
   itemNum: 11
+  description: Periodically shoot a missile
+  itemSprite: {fileID: 0}
 --- !u!1 &7931868185922793044
 GameObject:
   m_ObjectHideFlags: 0

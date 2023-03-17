@@ -407,6 +407,8 @@ MonoBehaviour:
   textItemCost: {fileID: 3126690072587585142}
   cost: 10
   itemNum: 1
+  description: Increases player move speed
+  itemSprite: {fileID: 0}
 --- !u!1 &3126690072953273599
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,10 @@ using TMPro;
 
 public class typewriterUI : MonoBehaviour
 {
+    public ItemDescription description;
     Text _text;
-    TMP_Text _tmpProText;
-    string writer;
+    public TMP_Text _tmpProText;
+    public string writer;
 
     [SerializeField] float delayBeforeStart = 0f;
     [SerializeField] float timeBtwChars = 0.1f;
@@ -18,10 +19,16 @@ public class typewriterUI : MonoBehaviour
 
     Coroutine typeWriterCoroutine;
 
-    void Start()
+    private void Start()
+    {
+
+    }
+
+    void Awake()
     {
         _text = GetComponent<Text>();
         _tmpProText = GetComponent<TMP_Text>();
+        _tmpProText.text = description.description;
 
         if (_text != null)
         {

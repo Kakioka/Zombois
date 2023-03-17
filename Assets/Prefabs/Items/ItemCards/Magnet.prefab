@@ -407,6 +407,8 @@ MonoBehaviour:
   textItemCost: {fileID: 240781992730577181}
   cost: 10
   itemNum: 8
+  description: Increases coin pick up range
+  itemSprite: {fileID: 0}
 --- !u!1 &240781993171235732
 GameObject:
   m_ObjectHideFlags: 0

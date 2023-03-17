@@ -407,6 +407,8 @@ MonoBehaviour:
   textItemCost: {fileID: 7444943483019648516}
   cost: 10
   itemNum: 0
+  description: Increases fire rate
+  itemSprite: {fileID: 0}
 --- !u!1 &7444943483392140429
 GameObject:
   m_ObjectHideFlags: 0

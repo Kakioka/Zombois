@@ -189,6 +189,8 @@ MonoBehaviour:
   textItemCost: {fileID: 1908912849369004302}
   cost: 10
   itemNum: 6
+  description: Gain an extra bullet, decreases damage
+  itemSprite: {fileID: 0}
 --- !u!1 &1908912849369004300
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,12 +42,13 @@ public class gameManager : MonoBehaviour
     public float MultiDmg;
     public float leash;
     public float mag;
-    public float powerDmg, powerSpeed, powerAmmo;
+    public float highDmg, highSpeed, highAmmo;
     public float lowAmmo, lowDmg;
     public GameObject snow;
     public float snowRadius, snowPower;
     public GameObject bubble;
     public GameObject missile;
+    public float powerDmg, powerSpeed;
 
     //track if upgrade exists
     private GameObject snowG;
@@ -163,12 +164,12 @@ public class gameManager : MonoBehaviour
 
     public void itemUpgrade() 
     {
-        gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * (1 + (stim * itemCounts[0])) * (1 - (bangFire * itemCounts[4]) - (lowDmg * itemCounts[13]));
-        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (powerDmg * itemCounts[12])) * (1 -(MultiDmg * itemCounts[6])));
+        gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * ((1 + (stim * itemCounts[0])) + (lowDmg * itemCounts[13])) * (1 - (bangFire * itemCounts[4]));
+        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[3])) * (1 -(MultiDmg * itemCounts[6])));
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
-        gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2]));
-        gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2];
-        gun.GetComponent<Gun>().ammo = Mathf.CeilToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (1 - (fullAmmo * itemCounts[5]) - (powerAmmo * itemCounts[12])));
+        gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 - (powerSpeed * itemCounts[12]));
+        gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
+        gun.GetComponent<Gun>().ammo = Mathf.CeilToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (1 - (fullAmmo * itemCounts[5]) - (highAmmo * itemCounts[3])));
         gun.GetComponent<Gun>().projectiles = gun.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
 
         player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]) + (leash * itemCounts[7]));
@@ -211,12 +212,12 @@ public class gameManager : MonoBehaviour
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
     {
-        gun.GetComponent<Gun>().fireRate = gunb.GetComponent<Gun>().fireRate * (1 + (stim * itemCounts[0])) * (1 - (bangFire * itemCounts[4]) - (lowDmg * itemCounts[13]));
-        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gunb.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6])));
+        gun.GetComponent<Gun>().fireRate = gunb.GetComponent<Gun>().fireRate * ((1 + (stim * itemCounts[0])) + (lowDmg * itemCounts[13])) * (1 - (bangFire * itemCounts[4]));
+        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gunb.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[3])) * (1 - (MultiDmg * itemCounts[6])));
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
-        gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2]));
-        gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2];
-        gun.GetComponent<Gun>().ammo = Mathf.CeilToInt(gunb.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (1 - (fullAmmo * itemCounts[5]) - (powerAmmo * itemCounts[12])));
+        gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 - (powerSpeed * itemCounts[12]));
+        gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
+        gun.GetComponent<Gun>().ammo = Mathf.CeilToInt(gunb.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (1 - (fullAmmo * itemCounts[5]) - (highAmmo * itemCounts[3])));
         gun.GetComponent<Gun>().projectiles = gunb.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
 
         if (itemCounts[14] > 0)

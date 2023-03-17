@@ -189,6 +189,8 @@ MonoBehaviour:
   textItemCost: {fileID: 3663174721151751114}
   cost: 10
   itemNum: 15
+  description: Your bullets explode into more bullets
+  itemSprite: {fileID: 0}
 --- !u!1 &3663174721151751112
 GameObject:
   m_ObjectHideFlags: 0
