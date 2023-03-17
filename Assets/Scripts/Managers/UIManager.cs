@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     public List<GameObject> items = new List<GameObject>();
     private List<GameObject> currItems = new List<GameObject>();
     private List<int> currItemIndex = new List<int>();
-    private Transform lastItemPos;
+    private Vector2 lastItemPos;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lastItemPos = itemPos;
+        lastItemPos = itemPos.position;
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
 
@@ -119,19 +119,20 @@ public class UIManager : MonoBehaviour
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);
     }
 
-    void updateItemList() 
+    public void updateItemList() 
     {
         foreach (int i in gameManager.GetComponent<gameManager>().itemEquiped) 
         {
             if (!currItemIndex.Contains(i))
             {
-                currItems.Add(Instantiate(items[i], lastItemPos.position, Quaternion.identity));
+                currItems.Add(Instantiate(items[i], lastItemPos, Quaternion.identity));
                 currItems[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[i].ToString();
                 currItemIndex.Add(i);
+                lastItemPos.x +=  itemBuffer;
             }
             else 
             {
-
+                currItems[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[i].ToString();
             }
         }
     }

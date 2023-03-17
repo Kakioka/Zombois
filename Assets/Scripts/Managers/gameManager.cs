@@ -508,5 +508,6 @@ public class gameManager : MonoBehaviour
                 itemEquiped.Add(i);
             }
         }
+        currUI.GetComponent<UIManager>().updateItemList();
     }
 }

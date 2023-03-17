@@ -277,6 +277,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+      propertyPath: currUI
+      value: 
+      objectReference: {fileID: 1219127304}
+    - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2032353245}
@@ -403,6 +407,11 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3758488845514612959, guid: cce63f99798cd49bc8af33e125a7ee57, type: 3}
   m_PrefabInstance: {fileID: 1816098583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1219127304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+  m_PrefabInstance: {fileID: 1109364119428418760}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1633785661 stripped
 GameObject:
