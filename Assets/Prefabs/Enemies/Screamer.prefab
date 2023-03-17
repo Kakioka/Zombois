@@ -146,6 +146,7 @@ MonoBehaviour:
   sister: {fileID: 0}
   spawner: {fileID: 0}
   moveSpeed: 1
+  knock: 0
 --- !u!114 &2125738780208844001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb4ebdf313ad8748b36b6c93358f9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMod: 1.5
+  speedMod: 1.2
   spawnMod: 0.9
   spawner: {fileID: 0}
 --- !u!95 &6177637036398676233

@@ -42,7 +42,6 @@ public class Bullet : MonoBehaviour
     {
         for (int i = 0; i < 3 + splintLvl; i++)
         {
-
             Vector3 temp = (Random.insideUnitCircle.normalized * 0.7f) + new Vector2(collision.transform.position.x, collision.transform.position.y);
             Vector2 lookDir = (Vector2)temp - (Vector2)collision.transform.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
@@ -51,6 +50,7 @@ public class Bullet : MonoBehaviour
             clone.GetComponent<Bullet>().damage = Mathf.CeilToInt(damage * 0.3f);
             clone.GetComponent<Bullet>().splinterOn = false;
             clone.GetComponent<Rigidbody2D>().rotation = angle;
+            clone.GetComponent<Bullet>().knockBack = 0;
             Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
             rb.AddForce((temp - collision.transform.position) * (force * 0.6f), ForceMode2D.Impulse);
         }

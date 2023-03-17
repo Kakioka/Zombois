@@ -77,7 +77,7 @@ public class Sister : MonoBehaviour
         }
     }
 
-    private IEnumerator invincible()
+    public IEnumerator invincible()
     {
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         isInv = true;

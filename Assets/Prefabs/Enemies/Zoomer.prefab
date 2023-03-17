@@ -143,7 +143,8 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 2.4
+  moveSpeed: 2.2
+  knock: 0
 --- !u!95 &2160345483454237238
 Animator:
   serializedVersion: 5

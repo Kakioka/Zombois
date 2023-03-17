@@ -5,11 +5,26 @@ using UnityEngine;
 public class Bubble : MonoBehaviour
 {
     public PlayerMovement player;
+    public Sister sister;
+
+    private bool pRing;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = transform.GetComponentInParent<PlayerMovement>();
+ 
+            player = transform.GetComponentInParent<PlayerMovement>();
+
+            sister = transform.GetComponentInParent<Sister>();
+
+        if (player != null)
+        {
+            pRing = true;
+        }
+        else 
+        {
+            pRing = false;
+        }
     }
 
     // Update is called once per frame
@@ -22,7 +37,14 @@ public class Bubble : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
         {
-            StartCoroutine(player.invincible());
+            if (pRing)
+            {
+                StartCoroutine(player.invincible());
+            }
+            else 
+            {
+                StartCoroutine(sister.invincible());
+            }
             gameObject.GetComponent<CircleCollider2D>().enabled= false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject, 1.5f);

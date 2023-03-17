@@ -216,6 +216,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 317871882217373571, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216070, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -788,6 +792,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 821763371664601265, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
       propertyPath: m_Name
       value: upgradeShopManager
@@ -856,6 +864,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2106031546}
+    - target: {fileID: 2586660100815630004, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5332791133942605328, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
       propertyPath: UI
       value: 
@@ -884,5 +896,45 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 547197215}
+    - target: {fileID: 7201801920266290642, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366949868104660991, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2106031546}
+    - target: {fileID: 7366949868104660991, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032353245}
+    - target: {fileID: 8097388864926226512, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2106031546}
+    - target: {fileID: 8097388864926226512, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032353245}
+    - target: {fileID: 8535014343021665554, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2106031546}
+    - target: {fileID: 8535014343021665554, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032353245}
+    - target: {fileID: 8909551559129585731, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138754692699998206, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2106031546}
+    - target: {fileID: 9138754692699998206, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032353245}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}

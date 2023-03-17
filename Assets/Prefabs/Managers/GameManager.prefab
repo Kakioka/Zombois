@@ -258,9 +258,9 @@ MonoBehaviour:
   MultiDmg: 0.2
   leash: 0.2
   mag: 0.2
-  powerDmg: 0.3
-  powerSpeed: 0.2
-  powerAmmo: 0.1
+  highDmg: 0
+  highSpeed: 0
+  highAmmo: 0
   lowAmmo: 0.3
   lowDmg: 0.1
   snow: {fileID: 611411238212071733, guid: 90ff5b312cc16dc4b89d44a7fb783286, type: 3}
@@ -268,6 +268,8 @@ MonoBehaviour:
   snowPower: 0.1
   bubble: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
   missile: {fileID: 0}
+  powerDmg: 0.3
+  powerSpeed: 0.2
   levelNum: 1
   stageManager:
   - {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
@@ -299,7 +301,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b73fde7d95fad4e8c8eb3f8a5a2c096c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
