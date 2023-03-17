@@ -24,6 +24,7 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        itemSprite = GetComponentInChildren<SpriteRenderer>().sprite;
         textItemName.text = itemName;
         textItemCost.text = "Cost: " + cost;
     }

@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameM: {fileID: 0}
-  itemName: BabyBoomer
+  itemName: Baby Boomer
   textItemName: {fileID: 3663174720779233613}
   textItemCost: {fileID: 3663174721151751114}
   cost: 10
@@ -192,6 +192,7 @@ MonoBehaviour:
   description: Your bullets explode into more bullets
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
+  cam: {fileID: 0}
 --- !u!1 &3663174721151751112
 GameObject:
   m_ObjectHideFlags: 0

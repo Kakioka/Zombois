@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameM: {fileID: 0}
-  itemName: BigBang
+  itemName: Big Bang
   textItemName: {fileID: 2751152297661815557}
   textItemCost: {fileID: 2751152298371424642}
   cost: 10
@@ -192,6 +192,7 @@ MonoBehaviour:
   description: Increases bullet damage and size at the cost of fire rate
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
+  cam: {fileID: 0}
 --- !u!1 &2751152298246619804
 GameObject:
   m_ObjectHideFlags: 0
