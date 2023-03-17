@@ -189,7 +189,7 @@ MonoBehaviour:
   textItemCost: {fileID: 3663174721151751114}
   cost: 10
   itemNum: 15
-  description: Your bullets explode into more bullets
+  description: Back in the old days... Your bullets now explode into more bullets
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   cam: {fileID: 0}
@@ -401,7 +401,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b6a96c7c65795c94abf54a62adbf5c38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0881323dc68cee94db2e2eaaa24ef929, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

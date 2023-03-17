@@ -254,15 +254,15 @@ MonoBehaviour:
   bangDmg: 0.3
   bangSize: 0.2
   bangFire: 0.1
-  fullAmmo: 0.2
+  fullAmmo: 0.3
   MultiDmg: 0.2
   leash: 0.2
   mag: 0.2
-  highDmg: 0
-  highSpeed: 0
-  highAmmo: 0
-  lowAmmo: 0.3
-  lowDmg: 0.1
+  highDmg: 0.3
+  highSpeed: 0.3
+  highAmmo: 0.3
+  lowAmmo: 0.4
+  lowDmg: 0.3
   snow: {fileID: 611411238212071733, guid: 90ff5b312cc16dc4b89d44a7fb783286, type: 3}
   snowRadius: 0.1
   snowPower: 0.1
