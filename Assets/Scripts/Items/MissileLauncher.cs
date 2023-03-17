@@ -17,10 +17,10 @@ public class MissileLauncher : MonoBehaviour
 
     IEnumerator fire()
     {
-        findTarget();
+        //findTarget();
         coolDown = true;
         GameObject miss = Instantiate(missile, player.transform.position, Quaternion.identity);
-        miss.GetComponent<Missile>().target = target;
+        //miss.GetComponent<Missile>().target = target;
         miss.GetComponent<Missile>().damage = damage;
         miss.GetComponent<Missile>().speed = speed;
         miss.GetComponent<Missile>().rotateSpeed = rotateSpeed;
@@ -51,9 +51,10 @@ public class MissileLauncher : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject g in enemies)
         {
-            float gDist = Vector3.Distance(gameObject.transform.position, g.transform.position);
+            float gDist = Vector2.Distance(player.transform.position, g.transform.position);
             if (gDist < dist)
             {
+                dist = gDist;
                 target = g;
             }
         }

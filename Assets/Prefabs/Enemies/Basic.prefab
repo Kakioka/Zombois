@@ -122,7 +122,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 0.8
+  moveSpeed: 0.7
   knock: 0
 --- !u!114 &6767434612970430748
 MonoBehaviour:

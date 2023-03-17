@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Lobbies.Models;
 using UnityEngine;
 
 public class Missile : MonoBehaviour
@@ -11,6 +12,7 @@ public class Missile : MonoBehaviour
     public int damage;
     public float life;
     public GameObject boom;
+    private float dist = 99999;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class Missile : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        findTarget();
         if (target != null)
         {
             Vector2 direction = (Vector2)target.transform.position - rb.position;
@@ -51,6 +54,20 @@ public class Missile : MonoBehaviour
             GameObject boomObj = Instantiate(boom, collision.transform.position, Quaternion.identity);
             boomObj.GetComponent<BoomMissile>().damage = damage;
             Destroy(gameObject);
+        }
+    }
+
+    void findTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject g in enemies)
+        {
+            float gDist = Vector2.Distance(transform.position, g.transform.position);
+            if (gDist < dist)
+            {
+                dist = gDist;
+                target = g;
+            }
         }
     }
 }

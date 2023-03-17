@@ -173,7 +173,6 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   damage: 1
-  health: 10
   rb: {fileID: 507789772}
   firePoint: {fileID: 8039879459331072205}
   bulletPre: {fileID: 2201232264264790160, guid: fc6cf3ccc08c1f341b9c1c6d50e36d43, type: 3}
@@ -199,7 +198,8 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 0.5
+  knock: 0
 --- !u!70 &8039879459582361419
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -20,6 +20,9 @@ public class Explode : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(boomer.explode());
+        if (collision.gameObject.tag == "Player") 
+        {
+            StartCoroutine(boomer.explode());
+        }
     }
 }
