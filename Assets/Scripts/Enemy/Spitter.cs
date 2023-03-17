@@ -19,7 +19,6 @@ public class Spitter : MonoBehaviour
     private float distS;
     public bool lookingRight = true;
     private Animator ani;
-    public float speed;
 
     // Start is called before the first frame update
     void Start()

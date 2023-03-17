@@ -6,13 +6,15 @@ public class Boomer : MonoBehaviour
     public GameObject player;
     public GameObject sister;
     public int damage = 1;
-    public bool inRange = false;
     public float timer = 0.5f;
     public GameObject explosion;
     public float maxDist;
     public bool lookingRight = true;
-    public float speed;
     private Rigidbody2D rb;
+
+    private bool inRange = false;
+    public float pingPongSpeed;
+    public float flashSpeed;
 
     private IEnumerator knockBack()
     {
@@ -20,8 +22,9 @@ public class Boomer : MonoBehaviour
         gameObject.GetComponent<Enemy>().knock = false;
     }
 
-    private IEnumerator explode()
+    public IEnumerator explode()
     {
+        inRange = true;
         yield return new WaitForSeconds(timer);
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
         gameObject.GetComponent<Enemy>().health = 0;
@@ -38,6 +41,10 @@ public class Boomer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inRange) 
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
+        }
         if (gameObject.GetComponent<Enemy>().knock == true)
         {
             StartCoroutine(knockBack());
@@ -46,13 +53,18 @@ public class Boomer : MonoBehaviour
         {
             GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
         }
-        float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        float distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
+
+        float distP = Vector3.Distance(player.transform.position, transform.position);
+        float distS = Vector3.Distance(sister.transform.position, transform.position);
+        /*if (distP <= maxDist || distS <= maxDist)
+        {
+            StartCoroutine(explode());
+        }*/
+
         if (transform.position != player.transform.position || transform.position != sister.transform.position)
         {
             if (distP < distS)
             {
-
                 Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
@@ -90,15 +102,6 @@ public class Boomer : MonoBehaviour
 
             }
         }
-        if (inRange == true)
-        {
-            StartCoroutine(explode());
-        }
-        if (distP <= maxDist || distS <= maxDist)
-        {
-            inRange = true;
-        }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)

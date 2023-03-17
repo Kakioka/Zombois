@@ -942,6 +942,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic
       objectReference: {fileID: 0}
+    - target: {fileID: 6767434612970430742, guid: b76b8dd613b3b234ca745072a8def304, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6767434612970430743, guid: b76b8dd613b3b234ca745072a8def304, type: 3}
       propertyPath: health
       value: 100
@@ -1175,7 +1179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211457537093139744, guid: c66364beb08ff8d4cb0c56cc2f2e11d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6211457537093139745, guid: c66364beb08ff8d4cb0c56cc2f2e11d9, type: 3}
       propertyPath: player
@@ -1322,6 +1326,10 @@ PrefabInstance:
     - target: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
       propertyPath: m_Name
       value: Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1433825985532310198, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
       propertyPath: m_RootOrder
@@ -2221,7 +2229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8827306215690556667, guid: 82af7ab7712214b4b834e606ead7eb69, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82af7ab7712214b4b834e606ead7eb69, type: 3}

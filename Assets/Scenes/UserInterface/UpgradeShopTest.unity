@@ -274,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: sisH
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: player
@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 8827306215690556667, guid: 82af7ab7712214b4b834e606ead7eb69, type: 3}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: playerH
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: levelNum
@@ -633,7 +633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8741561835794063885, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}
       propertyPath: health
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8741561835794063885, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}
       propertyPath: player
@@ -714,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: health
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: moveSpeed

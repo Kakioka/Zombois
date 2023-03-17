@@ -24,13 +24,16 @@ public class Bomb : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - damage;
         }
+
         if (collision.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
+            collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - 5;
         }
+
         if (collision.gameObject.tag == "Sister")
         {
             collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
         }
+        GetComponent<CircleCollider2D>().enabled = false;
     }
 }
