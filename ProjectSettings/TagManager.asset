@@ -10,6 +10,7 @@ TagManager:
   - Sister
   - gameM
   - PickUpS
+  - Shield
   layers:
   - Default
   - TransparentFX
