@@ -175,9 +175,26 @@ public class gameManager : MonoBehaviour
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
-        gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (1 - (fullAmmo * itemCounts[5]) - (highAmmo * itemCounts[3])));
+        float temp = 1 - (fullAmmo * itemCounts[5]);
+        if (temp < 0.4 && itemCounts[3] > 0)
+        {
+            temp = 0.4f;
+        }
+        float temp2 = 1 - (highAmmo * itemCounts[3]);
+        if (temp < 0.4 && itemCounts[5] > 0)
+        {
+            temp2 = 0.4f;
+        }
+        gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (temp * temp2));
+        if (gun.GetComponent<Gun>().maxAmmo < 1) 
+        {
+            gun.GetComponent<Gun>().maxAmmo = 1;
+        }
         gun.GetComponent<Gun>().projectiles = gun.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
-
+        if (gun.GetComponent<Gun>().projectiles > 7) 
+        {
+            gun.GetComponent<Gun>().projectiles = 7;
+        }
         player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]) + (leash * itemCounts[7]));
         sis.GetComponent<Sister>().moveSpeed = sis.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
         player.GetComponent<PlayerMovement>().pickUpRadius = player.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
@@ -198,9 +215,9 @@ public class gameManager : MonoBehaviour
 
         if (itemCounts[11] > 0)
         {
-            GameObject temp = Instantiate(missile, player.transform);
-            temp.GetComponent<MissileLauncher>().damage += (itemCounts[11] * 2);
-            temp.GetComponent<MissileLauncher>().player = player;
+            GameObject miss = Instantiate(missile, player.transform);
+            miss.GetComponent<MissileLauncher>().damage += (itemCounts[11] * 2);
+            miss.GetComponent<MissileLauncher>().player = player;
         }
 
         if (itemCounts[14] > 0) 
@@ -223,9 +240,26 @@ public class gameManager : MonoBehaviour
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
-        gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gunb.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (1 - (fullAmmo * itemCounts[5]) - (highAmmo * itemCounts[3])));
+        float temp = 1 - (fullAmmo * itemCounts[5]);
+        if (temp < 0.4 && itemCounts[3] > 0) 
+        {
+            temp = 0.4f;
+        }
+        float temp2 = 1 - (highAmmo * itemCounts[3]);
+        if (temp < 0.4 && itemCounts[5] > 0)
+        {
+            temp2 = 0.4f;
+        }
+        gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gunb.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (temp * temp2));
+        if (gun.GetComponent<Gun>().maxAmmo < 1)
+        {
+            gun.GetComponent<Gun>().maxAmmo = 1;
+        }
         gun.GetComponent<Gun>().projectiles = gunb.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
-
+        if (gun.GetComponent<Gun>().projectiles > 7)
+        {
+            gun.GetComponent<Gun>().projectiles = 7;
+        }
         if (itemCounts[14] > 0)
         {
             gun.GetComponent<Gun>().bleedOn = true;
@@ -241,10 +275,10 @@ public class gameManager : MonoBehaviour
 
     public void itemUpgradePlayer() 
     {
-        player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]) + (leash * itemCounts[7]));
-        sis.GetComponent<Sister>().moveSpeed = sis.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
-        player.GetComponent<PlayerMovement>().pickUpRadius = player.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
-        sis.GetComponent<Sister>().pickUpRadius = sis.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
+        player.GetComponent<PlayerMovement>().moveSpeed = playerPref.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]) + (leash * itemCounts[7]));
+        sis.GetComponent<Sister>().moveSpeed = sisPre.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
+        player.GetComponent<PlayerMovement>().pickUpRadius = playerPref.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
+        sis.GetComponent<Sister>().pickUpRadius = sisPre.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
         if (itemCounts[9] > 0)
         {
             if (snowG == null) 
