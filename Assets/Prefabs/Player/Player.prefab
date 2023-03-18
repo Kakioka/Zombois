@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   prevHealth: 0
-  moveSpeed: 2.6
+  moveSpeed: 2.3
   rb: {fileID: 8514121530740298774}
   isDead: 0
   ani: {fileID: 0}
@@ -370,6 +370,7 @@ MonoBehaviour:
   pingPongSpeed: 0.05
   flashSpeed: 8
   speedReduction: 0.7
+  gun: {fileID: 0}
 --- !u!95 &700162175254647332
 Animator:
   serializedVersion: 5
