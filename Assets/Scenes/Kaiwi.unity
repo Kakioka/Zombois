@@ -197,6 +197,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+--- !u!1 &245531312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 816795137638649300, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
+  m_PrefabInstance: {fileID: 562302406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &250574173 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1947471614, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
@@ -262,9 +267,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 250574173}
     - target: {fileID: 1800193195471310934, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
+      propertyPath: piecre
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800193195471310934, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 576263696}
+    - target: {fileID: 1800193195471310934, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
+      propertyPath: splinterOn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
 --- !u!1 &576263696 stripped
@@ -284,6 +297,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3547142255276493378, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 245531312}
     - target: {fileID: 8514121530740298771, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
       propertyPath: m_Name
       value: Player
@@ -605,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8604823626909752758, guid: 28127316f3152644aa60778bfc431560, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 214
+      value: 466
       objectReference: {fileID: 0}
     - target: {fileID: 8604823626909752758, guid: 28127316f3152644aa60778bfc431560, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

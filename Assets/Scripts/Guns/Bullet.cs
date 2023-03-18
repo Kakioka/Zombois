@@ -42,6 +42,7 @@ public class Bullet : MonoBehaviour
     {
         for (int i = 0; i < 2 + splintLvl; i++)
         {
+            float rad = 0.8f * collision.gameObject.transform.localScale.y;
             Vector3 temp = (Random.insideUnitCircle.normalized * 0.7f) + new Vector2(collision.transform.position.x, collision.transform.position.y);
             Vector2 lookDir = (Vector2)temp - (Vector2)collision.transform.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
@@ -52,14 +53,15 @@ public class Bullet : MonoBehaviour
             clone.GetComponent<Rigidbody2D>().rotation = angle;
             clone.GetComponent<Bullet>().knockBack = 0;
             Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
-            rb.AddForce((temp - collision.transform.position) * (force * 0.6f), ForceMode2D.Impulse);
+            float forceMod = 0.6f / collision.gameObject.transform.localScale.y;
+            rb.AddForce((temp - collision.transform.position) * (force * 0.7f), ForceMode2D.Impulse);
         }
 
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Shield")
         {
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
 
@@ -87,7 +89,7 @@ public class Bullet : MonoBehaviour
             if (pierce <= 0)
             {
                 GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                if (splinterOn)
+                if (splinterOn && collision.gameObject.tag != "Shield")
                 {
                     splinter(collision);
                 }
@@ -96,6 +98,12 @@ public class Bullet : MonoBehaviour
             }
             else
             {
+                if (collision.gameObject.tag == "Shield")
+                {
+                    GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                    Destroy(effect, 1f);
+                    Destroy(gameObject);
+                }
                 pierce--;
             }
         }
@@ -105,5 +113,7 @@ public class Bullet : MonoBehaviour
             Destroy(effect, 1f);
             Destroy(gameObject);
         }
+
+        
     }
 }
