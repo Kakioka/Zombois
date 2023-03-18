@@ -184,8 +184,8 @@ public class gameManager : MonoBehaviour
         if (itemCounts[9] > 0) 
         {
             GameObject snowObj = Instantiate(snow, player.transform);
-            snowObj.GetComponent<Snow>().radius = snowObj.GetComponent<Snow>().radius * (1 + (snowRadius * itemCounts[9]));
-            snowObj.GetComponent<Snow>().speedMod = snowObj.GetComponent<Snow>().radius * (1 - (snowPower * itemCounts[9]));
+            snowObj.GetComponent<Snow>().radius *= (1 + (snowRadius * itemCounts[9]));
+            snowObj.GetComponent<Snow>().speedMod *= (1 - (snowPower * itemCounts[9]));
         }
 
         if (itemCounts[10] > 0)

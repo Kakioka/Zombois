@@ -17,7 +17,6 @@ public class skipTypingAnimation : MonoBehaviour
         yield return new WaitForSeconds(closeTime);
         GameObject parent = this.transform.parent.gameObject;
         Destroy(parent);
-
     }
 
     private void Update()
@@ -35,7 +34,7 @@ public class skipTypingAnimation : MonoBehaviour
         if (stage == 1)
         {
             GameObject parent = this.transform.parent.gameObject;
-            parent.SetActive(false);
+            Destroy(parent);
         }
         if (stage == 0)
         {

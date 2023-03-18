@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -39,16 +40,17 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lastItemPos = itemPos.position;
         h1.color = Color.white;
         h2.color = Color.white;
         h3.color = Color.white;
         aniGun.speed /= gun.GetComponent<Gun>().reloadSpeed;
+        spawnItemList();
     }
 
     // Update is called once per frame
     void Update()
     {
-        lastItemPos = itemPos.position;
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
 
@@ -121,18 +123,43 @@ public class UIManager : MonoBehaviour
 
     public void updateItemList() 
     {
-        foreach (int i in gameManager.GetComponent<gameManager>().itemEquiped) 
+        for(int i = 0; i < gameManager.GetComponent<gameManager>().itemEquiped.Count; i++) 
         {
-            if (!currItemIndex.Contains(i))
+            if (!currItemIndex.Contains(gameManager.GetComponent<gameManager>().itemEquiped[i]))
             {
-                currItems.Add(Instantiate(items[i], lastItemPos, Quaternion.identity));
-                currItems[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[i].ToString();
-                currItemIndex.Add(i);
+                GameObject temp = Instantiate(items[gameManager.GetComponent<gameManager>().itemEquiped[i]], itemPos);
+                temp.transform.position = lastItemPos;
+                currItems.Add(temp);
+                temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
+                currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
                 lastItemPos.x +=  itemBuffer;
+                if (currItemIndex.Count % 12 == 0) 
+                {
+                    lastItemPos.x = itemPos.position.x;
+                    lastItemPos.y -= itemBuffer;
+                }
             }
             else 
             {
-                currItems[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[i].ToString();
+                currItems[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
+            }
+        }
+    }
+
+    public void spawnItemList()
+    {
+        for (int i = 0; i < gameManager.GetComponent<gameManager>().itemEquiped.Count; i++)
+        {    
+            GameObject temp = Instantiate(items[gameManager.GetComponent<gameManager>().itemEquiped[i]], itemPos);
+            temp.transform.position = lastItemPos;
+            currItems.Add(temp);
+            temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
+            currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
+            lastItemPos.x += itemBuffer;
+            if (currItemIndex.Count % 12 == 0)
+            {
+                lastItemPos.x = itemPos.position.x;
+                lastItemPos.y -= itemBuffer;
             }
         }
     }
