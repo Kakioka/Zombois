@@ -107,9 +107,9 @@ MonoBehaviour:
   isReload: 0
   bulletForce: 4
   reloadSpeed: 1
-  fireRate: 0.9
+  fireRate: 0.8
   fireDelay: 0
-  damage: 2
+  damage: 3
   piecre: 0
   knockBack: 2
   rb: {fileID: 4229727540086970746}

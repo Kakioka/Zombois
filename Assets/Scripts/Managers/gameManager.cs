@@ -170,19 +170,19 @@ public class gameManager : MonoBehaviour
     public void itemUpgrade() 
     {
         gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
-        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[3])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
         float temp = 1 - (fullAmmo * itemCounts[5]);
-        if (temp < 0.4 && itemCounts[3] > 0)
+        if (temp < 0.3 && itemCounts[3] > 0)
         {
-            temp = 0.4f;
+            temp = 0.3f;
         }
         float temp2 = 1 - (highAmmo * itemCounts[3]);
-        if (temp < 0.4 && itemCounts[5] > 0)
+        if (temp < 0.3 && itemCounts[5] > 0)
         {
-            temp2 = 0.4f;
+            temp2 = 0.3f;
         }
         gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (temp * temp2));
         if (gun.GetComponent<Gun>().maxAmmo < 1) 
@@ -200,23 +200,23 @@ public class gameManager : MonoBehaviour
         sis.GetComponent<Sister>().pickUpRadius = sis.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
         if (itemCounts[9] > 0) 
         {
-            GameObject snowObj = Instantiate(snow, player.transform);
-            snowObj.GetComponent<Snow>().radius *= (1 + (snowRadius * itemCounts[9]));
-            snowObj.GetComponent<Snow>().speedMod *= (1 - (snowPower * itemCounts[9]));
+            snowG = Instantiate(snow, player.transform);
+            snowG.GetComponent<Snow>().radius *= (1 + (snowRadius * itemCounts[9]));
+            snowG.GetComponent<Snow>().speedMod *= (1 - (snowPower * itemCounts[9]));
         }
 
         if (itemCounts[10] > 0)
         {
-            itemCounts[10]--;
-            Instantiate(bubble, player.transform);
-            Instantiate(bubble, sis.transform);
+            bubbleG = Instantiate(bubble, player.transform);
+            GameObject bubblS = Instantiate(bubble, sis.transform);
+            bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
         }
 
         if (itemCounts[11] > 0)
         {
-            GameObject miss = Instantiate(missile, player.transform);
-            miss.GetComponent<MissileLauncher>().damage += (itemCounts[11] * 2);
-            miss.GetComponent<MissileLauncher>().player = player;
+            missileG = Instantiate(missile, player.transform);
+            missileG.GetComponent<MissileLauncher>().damage += (itemCounts[11] * 2);
+            missileG.GetComponent<MissileLauncher>().player = player;
         }
 
         if (itemCounts[14] > 0) 
@@ -235,19 +235,19 @@ public class gameManager : MonoBehaviour
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
     {
         gun.GetComponent<Gun>().fireRate = gunb.GetComponent<Gun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
-        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gunb.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[3])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+        gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gunb.GetComponent<Gun>().damage * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
         float temp = 1 - (fullAmmo * itemCounts[5]);
-        if (temp < 0.4 && itemCounts[3] > 0) 
+        if (temp < 0.3 && itemCounts[3] > 0) 
         {
-            temp = 0.4f;
+            temp = 0.3f;
         }
         float temp2 = 1 - (highAmmo * itemCounts[3]);
-        if (temp < 0.4 && itemCounts[5] > 0)
+        if (temp < 0.3 && itemCounts[5] > 0)
         {
-            temp2 = 0.4f;
+            temp2 = 0.3f;
         }
         gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gunb.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (temp * temp2));
         if (gun.GetComponent<Gun>().maxAmmo < 1)
@@ -293,7 +293,8 @@ public class gameManager : MonoBehaviour
             if (bubbleG == null) 
             {
                 bubbleG = Instantiate(bubble, player.transform);
-                Instantiate(bubble, sis.transform);
+                GameObject bubblS = Instantiate(bubble, sis.transform);
+                bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
             }  
         }
 

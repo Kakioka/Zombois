@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
     private void bleedEffect(Collider2D collision)
     {
         float chanceBleed = Random.Range(0, 100);
-        if (chanceBleed > 70)
+        if (chanceBleed >= 65)
         {
             GameObject clone = Instantiate(bleedPre, collision.transform);
             clone.GetComponent<BleedEffect>().DoT *= (1 - (bleedLvl * 0.3f)); 

@@ -6,24 +6,25 @@ public class Bubble : MonoBehaviour
 {
     public PlayerMovement player;
     public Sister sister;
+    public int bubbleLvl;
+    public float speedMod;
 
     private bool pRing;
 
     // Start is called before the first frame update
     void Start()
     {
- 
-            player = transform.GetComponentInParent<PlayerMovement>();
-
-            sister = transform.GetComponentInParent<Sister>();
-
+        player = transform.GetComponentInParent<PlayerMovement>();
+        sister = transform.GetComponentInParent<Sister>();
         if (player != null)
         {
             pRing = true;
+            player.moveSpeed *= (1+ (speedMod * bubbleLvl));
         }
         else 
         {
             pRing = false;
+            sister.moveSpeed *= (1+ (speedMod * bubbleLvl));
         }
     }
 
@@ -40,10 +41,12 @@ public class Bubble : MonoBehaviour
             if (pRing)
             {
                 StartCoroutine(player.invincible());
+                player.moveSpeed /= (1+(speedMod * bubbleLvl));
             }
             else 
             {
                 StartCoroutine(sister.invincible());
+                sister.moveSpeed /= (1+(speedMod * bubbleLvl));
             }
             gameObject.GetComponent<CircleCollider2D>().enabled= false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;

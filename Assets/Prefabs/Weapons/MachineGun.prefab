@@ -155,16 +155,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8252517988091119175}
   bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
-  ammo: 20
-  maxAmmo: 20
+  ammo: 25
+  maxAmmo: 25
   isReload: 0
   bulletForce: 5
-  reloadSpeed: 2
-  fireRate: 0.3
+  reloadSpeed: 1.8
+  fireRate: 0.25
   fireDelay: 0
   damage: 2
   piecre: 0
-  knockBack: 1.2
+  knockBack: 3
   rb: {fileID: 8252517987037821162}
   cam: {fileID: 0}
   player: {fileID: 0}

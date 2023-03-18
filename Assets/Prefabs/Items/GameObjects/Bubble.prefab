@@ -115,3 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  sister: {fileID: 0}
+  bubbleLvl: 0
+  speedMod: 0.1
