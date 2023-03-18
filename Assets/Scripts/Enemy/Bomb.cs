@@ -7,9 +7,12 @@ public class Bomb : MonoBehaviour
     public int enemyDamage = 0;
 
     // Start is called before the first frame update
+    
+
+    
     void Start()
     {
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.3f);
     }
 
     // Update is called once per frame
