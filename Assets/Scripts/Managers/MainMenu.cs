@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEditor.ShaderKeywordFilter;
 using System.Collections.Generic;
 using TMPro;
 

@@ -7,8 +7,6 @@ using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 using Unity.Netcode.Transports.UTP;
 using TMPro;
-using UnityEditorInternal;
-using UnityEditor.Animations;
 using Mono.Cecil.Cil;
 
 public class LobbyManager : NetworkBehaviour
