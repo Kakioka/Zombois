@@ -8,7 +8,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 10f);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

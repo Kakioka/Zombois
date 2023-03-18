@@ -246,12 +246,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e283203ed438f4d9b1583b471f4417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
   coinPref: {fileID: 9205036790924861423, guid: 67daf60d5194b7547aebdece35cbedd6, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 0}
   moveSpeed: 0.25
+  knock: 0
 --- !u!114 &-3017505946881025708
 MonoBehaviour:
   m_ObjectHideFlags: 0

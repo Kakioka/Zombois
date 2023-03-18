@@ -176,7 +176,7 @@ MonoBehaviour:
   rb: {fileID: 507789772}
   firePoint: {fileID: 8039879459331072205}
   bulletPre: {fileID: 2201232264264790160, guid: fc6cf3ccc08c1f341b9c1c6d50e36d43, type: 3}
-  bulletForce: 3
+  bulletForce: 1
   fireRate: 3
   fireDelay: 0
   maxDist: 4.5

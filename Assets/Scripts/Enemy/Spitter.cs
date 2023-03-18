@@ -48,13 +48,13 @@ public class Spitter : MonoBehaviour
         {
             StartCoroutine(knockBack());
         }
-        distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
+        distP = Vector2.Distance(player.transform.position, gameObject.transform.position);
+        distS = Vector2.Distance(sister.transform.position, gameObject.transform.position);
         if (transform.position != player.transform.position || transform.position != sister.transform.position)
         {
             if (distP < distS && distP > maxDist)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector2 temp = Vector2.MoveTowards(transform.position, player.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
                     Flip();
@@ -63,14 +63,18 @@ public class Spitter : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector2 direction = (Vector2)player.transform.position - rbLocal.position;
-                direction.Normalize();
-                rbLocal.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
-                ani.SetBool("move", true);
+                if (gameObject.GetComponent<Enemy>().knock == false) 
+                {
+                    Vector2 direction = (Vector2)player.transform.position - rbLocal.position;
+                    direction.Normalize();
+                    rbLocal.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
+                    ani.SetBool("move", true);
+                }
+                
             }
             else if (distP >= distS && distS > maxDist)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+                Vector2 temp = Vector2.MoveTowards(transform.position, sister.transform.position, this.gameObject.GetComponent<Enemy>().moveSpeed * Time.deltaTime);
                 if ((temp.x - transform.position.x > 0) && !lookingRight)
                 {
                     Flip();
@@ -79,10 +83,14 @@ public class Spitter : MonoBehaviour
                 {
                     Flip();
                 }
-                Vector2 direction = (Vector2)sister.transform.position - rbLocal.position;
-                direction.Normalize();
-                rbLocal.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
-                ani.SetBool("move", true);
+                if (gameObject.GetComponent<Enemy>().knock == false) 
+                {
+                    Vector2 direction = (Vector2)sister.transform.position - rbLocal.position;
+                    direction.Normalize();
+                    rbLocal.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
+                    ani.SetBool("move", true);
+                }
+                
             }
             else if (distP <= maxDist || distS <= maxDist)
             {
