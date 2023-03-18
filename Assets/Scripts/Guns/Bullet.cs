@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameObject.transform.localScale += new Vector3(scale, scale, scale);
+        gameObject.transform.localScale = new Vector3(scale, scale, scale);
         Destroy(gameObject, life);
     }
 
@@ -34,19 +34,19 @@ public class Bullet : MonoBehaviour
         if (chanceBleed > 70)
         {
             GameObject clone = Instantiate(bleedPre, collision.transform);
-            clone.GetComponent<BleedEffect>().DoT *= (1 - (bleedLvl * 0.1f)); 
+            clone.GetComponent<BleedEffect>().DoT *= (1 - (bleedLvl * 0.3f)); 
         }
     }
 
     private void splinter(Collider2D collision)
     {
-        for (int i = 0; i < 3 + splintLvl; i++)
+        for (int i = 0; i < 2 + splintLvl; i++)
         {
             Vector3 temp = (Random.insideUnitCircle.normalized * 0.7f) + new Vector2(collision.transform.position.x, collision.transform.position.y);
             Vector2 lookDir = (Vector2)temp - (Vector2)collision.transform.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
             GameObject clone = Instantiate(gameObject, temp, Quaternion.identity);
-            clone.GetComponent<Bullet>().life = 0.5f;
+            clone.GetComponent<Bullet>().life = 0.3f;
             clone.GetComponent<Bullet>().damage = Mathf.CeilToInt(damage * 0.3f);
             clone.GetComponent<Bullet>().splinterOn = false;
             clone.GetComponent<Rigidbody2D>().rotation = angle;
