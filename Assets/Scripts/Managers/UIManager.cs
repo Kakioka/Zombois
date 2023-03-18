@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
 
     //item UI
     public Transform itemPos;
-    public int itemBuffer;
+    public float itemBuffer;
     public List<GameObject> items = new List<GameObject>();
     private List<GameObject> currItems = new List<GameObject>();
     private List<int> currItemIndex = new List<int>();
@@ -133,7 +133,7 @@ public class UIManager : MonoBehaviour
                 temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
                 currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
                 lastItemPos.x +=  itemBuffer;
-                if (currItemIndex.Count % 12 == 0) 
+                if (currItemIndex.Count % 10 == 0) 
                 {
                     lastItemPos.x = itemPos.position.x;
                     lastItemPos.y -= itemBuffer;
@@ -157,7 +157,7 @@ public class UIManager : MonoBehaviour
             temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
             currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
             lastItemPos.x += itemBuffer;
-            if (currItemIndex.Count % 12 == 0)
+            if (currItemIndex.Count % 10 == 0)
             {
                 lastItemPos.x = itemPos.position.x;
                 lastItemPos.y -= itemBuffer;
