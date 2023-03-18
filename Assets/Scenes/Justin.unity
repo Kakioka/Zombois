@@ -1720,6 +1720,10 @@ PrefabInstance:
       propertyPath: offset.y
       value: -0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1800193195471310934, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
+      propertyPath: splinterOn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
 --- !u!1001 &5276163415015706941
