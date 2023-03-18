@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36a7573a09ef4b27865642e57fc30c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 9
+  time: 8
   damage: 1
-  DoT: 3
+  DoT: 2
   radius: 0.5
   damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
 --- !u!198 &8475423851022976291
