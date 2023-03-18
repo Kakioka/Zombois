@@ -194,7 +194,7 @@ public class gameManager : MonoBehaviour
         {
             gun.GetComponent<Gun>().projectiles = 7;
         }
-        player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]) + (leash * itemCounts[7]));
+        player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]));
         sis.GetComponent<Sister>().moveSpeed = sis.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
         player.GetComponent<PlayerMovement>().pickUpRadius = player.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().pickUpRadius = sis.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
@@ -274,7 +274,7 @@ public class gameManager : MonoBehaviour
 
     public void itemUpgradePlayer() 
     {
-        player.GetComponent<PlayerMovement>().moveSpeed = playerPref.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]) + (leash * itemCounts[7]));
+        player.GetComponent<PlayerMovement>().moveSpeed = playerPref.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]));
         sis.GetComponent<Sister>().moveSpeed = sisPre.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
         player.GetComponent<PlayerMovement>().pickUpRadius = playerPref.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().pickUpRadius = sisPre.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));

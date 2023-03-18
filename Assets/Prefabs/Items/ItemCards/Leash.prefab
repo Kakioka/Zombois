@@ -54,7 +54,7 @@ MonoBehaviour:
   textItemCost: {fileID: 1199820001487946446}
   cost: 10
   itemNum: 7
-  description: Drag your sister around! Increases player and sister move speed
+  description: Drag your sister around! Increases your sister's move speed
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   cam: {fileID: 0}
