@@ -33,7 +33,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-
+        ammo = maxAmmo;
     }
 
     IEnumerator Reloading()
