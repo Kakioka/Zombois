@@ -201,15 +201,17 @@ public class gameManager : MonoBehaviour
         if (itemCounts[9] > 0) 
         {
             snowG = Instantiate(snow, player.transform);
-            snowG.GetComponent<Snow>().radius *= (1 + (snowRadius * itemCounts[9]));
+            float temp = snowG.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
+            snowG.transform.localScale.x *= (1 + (snowRadius * itemCounts[9]));
             snowG.GetComponent<Snow>().speedMod *= (1 - (snowPower * itemCounts[9]));
         }
 
         if (itemCounts[10] > 0)
         {
             bubbleG = Instantiate(bubble, player.transform);
-            GameObject bubblS = Instantiate(bubble, sis.transform);
+            GameObject bubbleS = Instantiate(bubble, sis.transform);
             bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
+            bubbleS.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
         }
 
         if (itemCounts[11] > 0)
@@ -284,7 +286,7 @@ public class gameManager : MonoBehaviour
             {
                 snowG = Instantiate(snow, player.transform);
             }
-            snowG.GetComponent<Snow>().radius = snow.GetComponent<Snow>().radius * (1 + (snowRadius * itemCounts[9]));
+            snowG.transform.localScale.x = snowG.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
             snowG.GetComponent<Snow>().speedMod = snow.GetComponent<Snow>().radius * (1 - (snowPower * itemCounts[9]));
         }
 
@@ -293,8 +295,9 @@ public class gameManager : MonoBehaviour
             if (bubbleG == null) 
             {
                 bubbleG = Instantiate(bubble, player.transform);
-                GameObject bubblS = Instantiate(bubble, sis.transform);
+                GameObject bubbleS = Instantiate(bubble, sis.transform);
                 bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
+                bubbleS.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
             }  
         }
 

@@ -19,12 +19,12 @@ public class Bubble : MonoBehaviour
         if (player != null)
         {
             pRing = true;
-            player.moveSpeed *= (1+ (speedMod * bubbleLvl));
+            player.moveSpeed *= (1 + (speedMod * bubbleLvl));
         }
         else 
         {
             pRing = false;
-            sister.moveSpeed *= (1+ (speedMod * bubbleLvl));
+            sister.moveSpeed *= (1 + (speedMod * bubbleLvl));
         }
     }
 
