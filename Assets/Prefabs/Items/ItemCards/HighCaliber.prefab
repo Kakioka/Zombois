@@ -407,7 +407,7 @@ MonoBehaviour:
   textItemCost: {fileID: 5548918969991845439}
   cost: 10
   itemNum: 3
-  description: Show them what freedom looks like. Increases bullet damage and size,
+  description: Show them what freedom looks like. Increases bullet damage and speed,
     decreases ammo
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
