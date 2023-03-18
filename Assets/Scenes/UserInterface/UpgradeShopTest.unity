@@ -571,10 +571,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1023926575}
     - target: {fileID: 5474136242747793140, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
-      propertyPath: itemBuffer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5474136242747793140, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 547197215}

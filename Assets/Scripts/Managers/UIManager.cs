@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     public List<GameObject> items = new List<GameObject>();
     private List<GameObject> currItems = new List<GameObject>();
     private List<int> currItemIndex = new List<int>();
-    private Vector2 lastItemPos;
+    private Vector3 lastItemPos;
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +151,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < gameManager.GetComponent<gameManager>().itemEquiped.Count; i++)
         {    
             GameObject temp = Instantiate(items[gameManager.GetComponent<gameManager>().itemEquiped[i]], itemPos);
+            //lastItemPos.z = 0;
             temp.transform.position = lastItemPos;
             currItems.Add(temp);
             temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();

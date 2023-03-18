@@ -105,6 +105,7 @@ public class gameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
+            levelNum++;
             spawnLevel(8);
         }
     }
