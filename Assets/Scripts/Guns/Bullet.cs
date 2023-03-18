@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
         for (int i = 0; i < 2 + splintLvl; i++)
         {
             float rad = 0.8f * collision.gameObject.transform.localScale.y;
-            Vector3 temp = (Random.insideUnitCircle.normalized * 0.7f) + new Vector2(collision.transform.position.x, collision.transform.position.y);
+            Vector3 temp = (Random.insideUnitCircle.normalized * rad) + new Vector2(collision.transform.position.x, collision.transform.position.y);
             Vector2 lookDir = (Vector2)temp - (Vector2)collision.transform.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
             GameObject clone = Instantiate(gameObject, temp, Quaternion.identity);
@@ -54,7 +54,7 @@ public class Bullet : MonoBehaviour
             clone.GetComponent<Bullet>().knockBack = 0;
             Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
             float forceMod = 0.6f / collision.gameObject.transform.localScale.y;
-            rb.AddForce((temp - collision.transform.position) * (force * 0.7f), ForceMode2D.Impulse);
+            rb.AddForce((temp - collision.transform.position) * (force * forceMod), ForceMode2D.Impulse);
         }
 
     }
