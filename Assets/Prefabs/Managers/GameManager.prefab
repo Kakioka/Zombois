@@ -256,6 +256,7 @@ MonoBehaviour:
   bangSize: 0.3
   bangFire: 0.2
   fullAmmo: 0.3
+  fullReload: 0.2
   MultiDmg: 0.3
   leash: 0.2
   mag: 0.2
@@ -271,6 +272,7 @@ MonoBehaviour:
   missile: {fileID: 8827306215690556667, guid: 82af7ab7712214b4b834e606ead7eb69, type: 3}
   powerDmg: 0.3
   powerSpeed: 0.2
+  glove: 0.2
   levelNum: 1
   stageManager:
   - {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}

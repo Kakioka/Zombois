@@ -40,7 +40,7 @@ public class gameManager : MonoBehaviour
     public float run;
     public float gunpowder;
     public float bangDmg, bangSize, bangFire;
-    public float fullAmmo;
+    public float fullAmmo, fullReload;
     public float MultiDmg;
     public float leash;
     public float mag;
@@ -51,6 +51,7 @@ public class gameManager : MonoBehaviour
     public GameObject bubble;
     public GameObject missile;
     public float powerDmg, powerSpeed;
+    public float glove;
 
     
 
@@ -174,6 +175,7 @@ public class gameManager : MonoBehaviour
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
+        gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5]) * (1 - (glove * itemCounts[16])));
         float temp = 1 - (fullAmmo * itemCounts[5]);
         if (temp < 0.3 && itemCounts[3] > 0)
         {
@@ -241,6 +243,7 @@ public class gameManager : MonoBehaviour
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
+        gun.GetComponent<Gun>().reloadSpeed = gunb.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5])) * (1 - (glove * itemCounts[16]));
         float temp = 1 - (fullAmmo * itemCounts[5]);
         if (temp < 0.3 && itemCounts[3] > 0) 
         {

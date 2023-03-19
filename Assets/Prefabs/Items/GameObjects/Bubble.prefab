@@ -117,4 +117,4 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   bubbleLvl: 0
-  speedMod: 0.1
+  speedMod: 0.05

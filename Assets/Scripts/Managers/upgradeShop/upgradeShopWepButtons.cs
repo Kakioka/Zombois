@@ -62,6 +62,7 @@ public class upgradeShopWepButtons : MonoBehaviour
             }
             gameManager.GetComponent<gameManager>().itemUpgradePlayer();
             cashTrack = player.GetComponent<PlayerMovement>().bank;
+            UI.GetComponent<UIManager>().aniGun.speed = 1 / UI.GetComponent<UIManager>().gun.GetComponent<Gun>().reloadSpeed;
         }
     }
 

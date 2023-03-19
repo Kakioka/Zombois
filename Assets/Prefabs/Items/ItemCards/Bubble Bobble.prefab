@@ -407,7 +407,8 @@ MonoBehaviour:
   textItemCost: {fileID: 7105383796929055475}
   cost: 10
   itemNum: 10
-  description: Creates a one use shield for you and your sister
+  description: Creates a shield for you and your sister that also increases speed
+    while active
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   cam: {fileID: 0}

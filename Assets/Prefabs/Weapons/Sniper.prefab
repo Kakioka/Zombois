@@ -162,7 +162,7 @@ MonoBehaviour:
   reloadSpeed: 1.8
   fireRate: 1
   fireDelay: 0
-  damage: 10
+  damage: 12
   piecre: 1
   knockBack: 7
   rb: {fileID: 3758488845514612957}
