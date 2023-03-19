@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 6
   damage: 2
-  DoT: 1.5
+  DoT: 2
   radius: 0.5
   damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
 --- !u!198 &8475423851022976291

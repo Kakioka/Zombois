@@ -19,13 +19,15 @@ public class ItemManager : MonoBehaviour
 
     public int refreshCost;
     public TextMeshProUGUI refreshbuttonText;
+    public int refreshCount;
+    public TextMeshProUGUI refreshText;
 
     // Start is called before the first frame update
     void Start()
     {
         
         refreshbuttonText.text = "Cost: " + refreshCost;
-
+        refreshText.text = "Refresh shop chances: " + refreshCount;
         player = gameObject.GetComponent<upgradeShopManager>().player;
         gameM = gameObject.GetComponent<upgradeShopManager>().gameManager;
         cam = gameM.GetComponent<gameManager>().cam;
@@ -41,7 +43,7 @@ public class ItemManager : MonoBehaviour
 
     public void refresh() 
     {
-        if (player.GetComponent<PlayerMovement>().bank >= refreshCost) 
+        if (player.GetComponent<PlayerMovement>().bank >= refreshCost && refreshCount != 0) 
         {
             for (int i = 0; i < 6; i++)
             {
@@ -52,6 +54,8 @@ public class ItemManager : MonoBehaviour
                 item[i].GetComponent<Item>().cam = cam;
             }
             player.GetComponent<PlayerMovement>().bank -= refreshCost;
+            refreshCount--;
+            refreshText.text = "Refresh shop chances: " + refreshCount;
         }
     }
 
