@@ -164,7 +164,7 @@ MonoBehaviour:
   fireDelay: 0
   damage: 5
   piecre: 0
-  knockBack: 2
+  knockBack: 3
   rb: {fileID: 816795137638649296}
   cam: {fileID: 0}
   player: {fileID: 0}

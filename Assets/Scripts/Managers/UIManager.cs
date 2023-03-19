@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using TMPro;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -15,6 +17,8 @@ public class UIManager : MonoBehaviour
     public GameObject player;
     public GameObject sister;
     public GameObject gun;
+
+    public GameObject reload;
 
     //public Animator aniHealth;
     public SpriteRenderer h3;
@@ -40,6 +44,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //reload.SetActive(false);
         lastItemPos = itemPos.position;
         h1.color = Color.white;
         h2.color = Color.white;
@@ -119,6 +124,17 @@ public class UIManager : MonoBehaviour
 
 
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);
+        /*if (gun.GetComponent<Gun>().isReload)
+        {
+            reload.SetActive(true);
+            reload.transform.Rotate(0, 0, -600 * Time.deltaTime);
+        }
+        else 
+        {
+            reload.SetActive(false);
+            reload.transform.Rotate(0, 0, 0);
+
+        }*/
     }
 
     public void updateItemList() 

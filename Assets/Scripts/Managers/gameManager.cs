@@ -201,8 +201,8 @@ public class gameManager : MonoBehaviour
         if (itemCounts[9] > 0) 
         {
             snowG = Instantiate(snow, player.transform);
-            float temp = snowG.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
-            snowG.transform.localScale.x *= (1 + (snowRadius * itemCounts[9]));
+            float snowScale = snowG.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
+            snowG.transform.localScale = new Vector3(snowScale,snowScale,snowScale);
             snowG.GetComponent<Snow>().speedMod *= (1 - (snowPower * itemCounts[9]));
         }
 
@@ -286,7 +286,8 @@ public class gameManager : MonoBehaviour
             {
                 snowG = Instantiate(snow, player.transform);
             }
-            snowG.transform.localScale.x = snowG.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
+            float snowScale = snow.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
+            snowG.transform.localScale = new Vector3(snowScale, snowScale, snowScale);
             snowG.GetComponent<Snow>().speedMod = snow.GetComponent<Snow>().radius * (1 - (snowPower * itemCounts[9]));
         }
 

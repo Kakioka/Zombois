@@ -114,6 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38aa0608f899a2e428af6ef257607a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMod: 0.9
-  radius: 0.08
+  speedMod: 0.8
+  radius: 0.05
+  damage: 2
+  delay: 2
   range: {fileID: 611411238212071735}
+  damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}

@@ -794,6 +794,7 @@ MonoBehaviour:
   player: {fileID: 0}
   sister: {fileID: 0}
   gun: {fileID: 0}
+  reload: {fileID: 7978822152366045287}
   h3: {fileID: 5325097725237886826}
   h2: {fileID: 5325097723872241001}
   h1: {fileID: 5325097724450048016}
