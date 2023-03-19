@@ -349,6 +349,9 @@ public class gameManager : MonoBehaviour
             case 8:
                 SceneManager.LoadScene("UpgradeShop");
                 break;
+            case 9:
+                SceneManager.LoadScene("Stage1Hard");
+                break;
         }
     }
 
@@ -375,6 +378,18 @@ public class gameManager : MonoBehaviour
         }
 
         if (scene.name == "Stage1")
+        {
+            levelStart();
+            currManager = Instantiate(stageManager[0]);
+            currManager.GetComponent<stageManager>().gameM = this.gameObject;
+            currManager.GetComponent<stageManager>().player = player;
+            currManager.GetComponent<stageManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currUI = Instantiate(UI);
+            uiStart(currUI);
+        }
+
+        if (scene.name == "Stage1Hard")
         {
             levelStart();
             currManager = Instantiate(stageManager[0]);
