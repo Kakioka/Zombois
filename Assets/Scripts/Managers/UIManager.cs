@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using TMPro;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
