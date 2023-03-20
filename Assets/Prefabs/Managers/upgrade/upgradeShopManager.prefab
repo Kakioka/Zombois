@@ -549,7 +549,7 @@ MonoBehaviour:
 
     Bullets: 1
 
-    Pierce: 1
+    Pierce: 0
 
     Ammo: 25
 
@@ -4798,7 +4798,7 @@ MonoBehaviour:
 
     Bullets: 1
 
-    Pierce: 1
+    Pierce: 0
 
     Ammo: 6
 
