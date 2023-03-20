@@ -118,7 +118,7 @@ MonoBehaviour:
   shooting: 0
   projectiles: 4
   bulletSize: 1.2
-  bulletLife: 1.5
+  bulletLife: 1.2
   offset: {x: 0, y: -0.2, z: 0}
   lookingRight: 1
   bleedOn: 0

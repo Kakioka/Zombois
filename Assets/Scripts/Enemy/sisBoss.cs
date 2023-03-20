@@ -22,7 +22,7 @@ public class sisBoss : MonoBehaviour
     {
         shield = Instantiate(shieldPref);
         shield.GetComponent<SpitterShoot>().spit = gameObject;
-        shield.GetComponent<Enemy>().coinPref = coinPre;
+        //shield.GetComponent<Enemy>().coinPref = coinPre;
         shield.GetComponent<Enemy>().player = player;
         shield.GetComponent<Enemy>().sister = player;
         shield.GetComponent<Enemy>().health = iniShieldHp;

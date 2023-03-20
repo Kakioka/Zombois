@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9205036790924861419}
   - component: {fileID: 1323663305235475013}
   m_Layer: 13
-  m_Name: Coin
+  m_Name: Silver
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1140940891, guid: 4daa5df78a65f4f6fa5632b28560ebc7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.7927799, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b3cc475b1502f43ae232829b589fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: 2
   player: {fileID: 0}
   sister: {fileID: 0}
   moveSpeed: 30

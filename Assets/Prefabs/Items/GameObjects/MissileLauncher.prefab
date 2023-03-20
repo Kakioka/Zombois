@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 3
-  damage: 3
+  damage: 5
   speed: 4
   rotateSpeed: 250
   coolDown: 0
   missile: {fileID: 4863663162033751002, guid: 8a11ed216e5fb4bc898e8e91cb14988d, type: 3}
   player: {fileID: 0}
+  missileLvl: 0

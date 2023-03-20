@@ -17,21 +17,32 @@ public class upgradeShopWepButtons : MonoBehaviour
     public GameObject shotgunB;
     public GameObject machineGunB;
     public GameObject sniperB;
-    public int shotgunPrice;
+    /*public int shotgunPrice;
     public int sniperPrice;
     public int machineGunPrice;
     public TextMeshProUGUI shotgunT;
     public TextMeshProUGUI revolverT;
     public TextMeshProUGUI machineGunT;
-    public TextMeshProUGUI sniperT;
+    public TextMeshProUGUI sniperT;*/
     public int cashTrack;
 
     public List<GameObject> wepsB = new List<GameObject>();
     public List<GameObject> weps = new List<GameObject>();
 
+    public List<GameObject> weaponCards = new List<GameObject>();
+
+    public Transform wepPos;
+
+    private GameObject weapCard;
+
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        weapCard = Instantiate(weaponCards[Random.Range(0, weaponCards.Count-1)], wepPos);
+        weapCard.GetComponent<weaponCard>().player = player;
+        weapCard.GetComponent<weaponCard>().gameM = gameManager;
+        weapCard.GetComponent<weaponCard>().upgradeShopWepButtons = GetComponent<upgradeShopWepButtons>();
+
         player = GetComponent<upgradeShopManager>().player;
         gameManager = GetComponent<upgradeShopManager>().gameManager;
         UI = GetComponent<upgradeShopManager>().UI;
@@ -52,7 +63,7 @@ public class upgradeShopWepButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        wepButtons();
+        //wepButtons();
 
         if (cashTrack > player.GetComponent<PlayerMovement>().bank)
         {
@@ -66,7 +77,72 @@ public class upgradeShopWepButtons : MonoBehaviour
         }
     }
 
-    void wepButtons()
+    public void refreshWep()
+    {
+        Destroy(weapCard);
+        weapCard = Instantiate(weaponCards[Random.Range(0, weaponCards.Count)], wepPos);
+        weapCard.GetComponent<weaponCard>().player = player;
+        weapCard.GetComponent<weaponCard>().gameM = gameManager;
+        weapCard.GetComponent<weaponCard>().upgradeShopWepButtons = GetComponent<upgradeShopWepButtons>();
+    }
+
+    public void setWeapon()
+    {
+        switch (gameManager.GetComponent<gameManager>().wepNum)
+        {
+            case 1:
+                revolver.SetActive(true);
+                machineGun.SetActive(false);
+                sniper.SetActive(false);
+                shotgun.SetActive(false);
+                revolver.GetComponent<Gun>().fireDelay = false;
+                revolver.GetComponent<Gun>().isReload = false;
+                revolver.GetComponent<Gun>().ammo = revolver.GetComponent<Gun>().maxAmmo;
+                UI.GetComponent<UIManager>().gun = revolver;
+                UI.GetComponent<UIManager>().aniGun.speed = 1 / revolver.GetComponent<Gun>().reloadSpeed;
+                player.GetComponent<PlayerMovement>().gun = revolver;
+                break;
+            case 2:
+                revolver.SetActive(false);
+                machineGun.SetActive(false);
+                sniper.SetActive(false);
+                shotgun.SetActive(true);
+                shotgun.GetComponent<Gun>().fireDelay = false;
+                shotgun.GetComponent<Gun>().isReload = false;
+                shotgun.GetComponent<Gun>().ammo = shotgun.GetComponent<Gun>().maxAmmo;
+                UI.GetComponent<UIManager>().gun = shotgun;
+                UI.GetComponent<UIManager>().aniGun.speed = 1 / shotgun.GetComponent<Gun>().reloadSpeed;
+                player.GetComponent<PlayerMovement>().gun = shotgun;
+                break;
+            case 3:
+                revolver.SetActive(false);
+                machineGun.SetActive(true);
+                sniper.SetActive(false);
+                shotgun.SetActive(false);
+                machineGun.GetComponent<Gun>().fireDelay = false;
+                machineGun.GetComponent<Gun>().isReload = false;
+                machineGun.GetComponent<Gun>().ammo = machineGun.GetComponent<Gun>().maxAmmo;
+                UI.GetComponent<UIManager>().gun = machineGun;
+                UI.GetComponent<UIManager>().aniGun.speed = 1 / machineGun.GetComponent<Gun>().reloadSpeed;
+                player.GetComponent<PlayerMovement>().gun = machineGun;
+                break;
+            case 4:
+                gameManager.GetComponent<gameManager>().wepNum = 4;
+                revolver.SetActive(false);
+                machineGun.SetActive(false);
+                sniper.SetActive(true);
+                shotgun.SetActive(false);
+                sniper.GetComponent<Gun>().fireDelay = false;
+                sniper.GetComponent<Gun>().isReload = false;
+                sniper.GetComponent<Gun>().ammo = sniper.GetComponent<Gun>().maxAmmo;
+                UI.GetComponent<UIManager>().gun = sniper;
+                UI.GetComponent<UIManager>().aniGun.speed = 1 / sniper.GetComponent<Gun>().reloadSpeed;
+                player.GetComponent<PlayerMovement>().gun = sniper;
+                break;
+        }
+    }
+
+    /*void wepButtons()
     {
         if (gameManager.GetComponent<gameManager>().revO)
         {
@@ -272,6 +348,6 @@ public class upgradeShopWepButtons : MonoBehaviour
                 player.GetComponent<PlayerMovement>().gun = revolver;
             }
         }
-    }
+    }*/
 
 }

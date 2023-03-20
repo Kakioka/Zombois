@@ -219,7 +219,7 @@ public class gameManager : MonoBehaviour
         if (itemCounts[11] > 0)
         {
             missileG = Instantiate(missile, player.transform);
-            missileG.GetComponent<MissileLauncher>().damage += (itemCounts[11] * 2);
+            missileG.GetComponent<MissileLauncher>().missileLvl = itemCounts[11];
             missileG.GetComponent<MissileLauncher>().player = player;
         }
 
@@ -312,7 +312,7 @@ public class gameManager : MonoBehaviour
                 missileG = Instantiate(missile, player.transform);
                 missileG.GetComponent<MissileLauncher>().player = player;
             }
-            missileG.GetComponent<MissileLauncher>().damage = missile.GetComponent<MissileLauncher>().damage + (itemCounts[11] * 2);
+            missileG.GetComponent<MissileLauncher>().missileLvl = itemCounts[11];
         }
     }
 

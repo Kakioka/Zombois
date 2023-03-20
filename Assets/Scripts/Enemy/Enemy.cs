@@ -3,7 +3,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float health;
-    public GameObject coinPref;
+    public GameObject gold;
+    public GameObject copper;
+    public GameObject silver;
     public GameObject player;
     public GameObject sister;
     public GameObject spawner;
@@ -26,9 +28,25 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-            GameObject coin = Instantiate(coinPref, transform.position, Quaternion.identity);
-            coin.GetComponent<Coin>().player = player;
-            coin.GetComponent<Coin>().sister = sister;
+            int random = Random.Range(0, 100);
+            if (random >= 80)
+            {
+                GameObject coin = Instantiate(gold, transform.position, Quaternion.identity);
+                coin.GetComponent<Coin>().player = player;
+                coin.GetComponent<Coin>().sister = sister;
+            }
+            else if (random >= 70)
+            {
+                GameObject coin = Instantiate(silver, transform.position, Quaternion.identity);
+                coin.GetComponent<Coin>().player = player;
+                coin.GetComponent<Coin>().sister = sister;
+            }
+            else
+            {
+                GameObject coin = Instantiate(copper, transform.position, Quaternion.identity);
+                coin.GetComponent<Coin>().player = player;
+                coin.GetComponent<Coin>().sister = sister;
+            }
             Destroy(gameObject);
         }
     }

@@ -12,6 +12,7 @@ public class MissileLauncher : MonoBehaviour
     public bool coolDown = false;
     public GameObject missile;
     public GameObject player;
+    public int missileLvl;
     private float dist = 99999;
     private GameObject target;
 
@@ -19,11 +20,15 @@ public class MissileLauncher : MonoBehaviour
     {
         //findTarget();
         coolDown = true;
-        GameObject miss = Instantiate(missile, player.transform.position, Quaternion.identity);
-        //miss.GetComponent<Missile>().target = target;
-        miss.GetComponent<Missile>().damage = damage;
-        miss.GetComponent<Missile>().speed = speed;
-        miss.GetComponent<Missile>().rotateSpeed = rotateSpeed;
+        for (int i = 0; i < missileLvl; i++)
+        {
+            GameObject miss = Instantiate(missile, player.transform.position, Quaternion.identity);
+            //miss.GetComponent<Missile>().target = target;
+            miss.GetComponent<Missile>().damage = damage;
+            miss.GetComponent<Missile>().speed = speed;
+            miss.GetComponent<Missile>().rotateSpeed = rotateSpeed;
+            yield return new WaitForSeconds(0.2f);
+        }
         yield return new WaitForSeconds(fireRate);
         coolDown = false;
     }
