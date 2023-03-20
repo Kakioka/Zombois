@@ -40,7 +40,7 @@ public class stageManager : MonoBehaviour
 
     private int tempCurr;
 
-    private bool bossSpawned = false;
+    public bool bossSpawned = false;
 
     public GameObject boss;
 

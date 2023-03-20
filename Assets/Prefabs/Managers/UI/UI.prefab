@@ -373,8 +373,8 @@ MonoBehaviour:
   UI: {fileID: 5474136242747793142}
   gameM: {fileID: 0}
   rb: {fileID: 1378707901894807840}
-  borderSize: 75
-  borderSizeS: 125
+  borderSize: 60
+  borderSizeS: 110
   sisA: {fileID: 2840707842222784550}
 --- !u!50 &1378707901894807840
 Rigidbody2D:
