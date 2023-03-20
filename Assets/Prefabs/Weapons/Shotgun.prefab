@@ -105,8 +105,8 @@ MonoBehaviour:
   ammo: 2
   maxAmmo: 2
   isReload: 0
-  bulletForce: 5
-  reloadSpeed: 1
+  bulletForce: 4.5
+  reloadSpeed: 0.85
   fireRate: 0.4
   fireDelay: 0
   damage: 3
@@ -117,7 +117,8 @@ MonoBehaviour:
   player: {fileID: 0}
   shooting: 0
   projectiles: 4
-  bulletSize: 1
+  bulletSize: 1.2
+  bulletLife: 1.5
   offset: {x: 0, y: -0.2, z: 0}
   lookingRight: 1
   bleedOn: 0

@@ -22,8 +22,10 @@ public class Gun : MonoBehaviour
     public bool shooting = false;
     public int projectiles;
     public float bulletSize;
+    public float bulletLife;
     public Vector3 offset;
     public bool lookingRight = true;
+
 
     public bool bleedOn = false;
     public int bleedLvl = 0;
@@ -239,6 +241,7 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().force = bulletForce;
         obj.GetComponent<Bullet>().splintLvl = splintLvl;
         obj.GetComponent<Bullet>().bleedLvl = bleedLvl;
+        obj.GetComponent<Bullet>().life = bulletLife;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
 

@@ -158,11 +158,11 @@ MonoBehaviour:
   ammo: 25
   maxAmmo: 25
   isReload: 0
-  bulletForce: 6
+  bulletForce: 5
   reloadSpeed: 1.8
   fireRate: 0.25
   fireDelay: 0
-  damage: 2
+  damage: 3
   piecre: 0
   knockBack: 3
   rb: {fileID: 8252517987037821162}
@@ -171,6 +171,7 @@ MonoBehaviour:
   shooting: 0
   projectiles: 1
   bulletSize: 1
+  bulletLife: 5
   offset: {x: 0, y: -0.2, z: 0}
   lookingRight: 1
   bleedOn: 0

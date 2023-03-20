@@ -257,7 +257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -735, y: 49}
+  m_AnchoredPosition: {x: -735, y: 7.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &643637255780864479
@@ -545,16 +545,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Damage: 2
+  m_text: 'Damage: 3
 
     Bullets: 1
 
+    Pierce: 1
+
     Ammo: 25
 
-    Fire rate: Fast
+    Fire rate:
+    Fast
 
-    Reload:
-    Slow'
+    Reload: Slow'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3004,7 +3006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 178.6, y: -282}
+  m_AnchoredPosition: {x: 178.6, y: -325.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2043577983017413915
@@ -3408,7 +3410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105, y: 33}
+  m_AnchoredPosition: {x: -105, y: -6.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2043577983256251179
@@ -3542,7 +3544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -525, y: 51.392456}
+  m_AnchoredPosition: {x: -525, y: 8.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2043577983378975508
@@ -4792,16 +4794,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Damage: 5
+  m_text: 'Damage: 4
 
     Bullets: 1
 
+    Pierce: 1
+
     Ammo: 6
 
-    Fire rate: Average
+    Fire rate:
+    Average
 
-    Reload:
-    Average'
+    Reload: Average'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5528,12 +5532,14 @@ MonoBehaviour:
 
     Bullets: 4
 
+    Pierce: 0
+
     Ammo: 2
 
-    Fire rate: Fast
+    Fire rate:
+    Fast
 
-    Reload:
-    Fast'
+    Reload: Fast'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6489,12 +6495,14 @@ MonoBehaviour:
 
     Bullets: 1
 
+    Pierce: 1
+
     Ammo: 5
 
-    Fire rate: Slow
+    Fire rate:
+    Slow
 
-    Reload:
-    Slow'
+    Reload: Slow'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
