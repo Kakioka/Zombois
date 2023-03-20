@@ -92,7 +92,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+       /* if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -107,7 +107,7 @@ public class gameManager : MonoBehaviour
         {
             levelNum++;
             spawnLevel(8);
-        }
+        }*/
     }
 
     void levelStart()
@@ -377,19 +377,7 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (scene.name == "Stage1")
-        {
-            levelStart();
-            currManager = Instantiate(stageManager[0]);
-            currManager.GetComponent<stageManager>().gameM = this.gameObject;
-            currManager.GetComponent<stageManager>().player = player;
-            currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
-            currUI = Instantiate(UI);
-            uiStart(currUI);
-        }
-
-        if (scene.name == "Stage1Hard")
+        if (scene.name == "Stage1" || scene.name == "Stage1Hard" || scene.name == "Stage1Hell")
         {
             levelStart();
             currManager = Instantiate(stageManager[0]);

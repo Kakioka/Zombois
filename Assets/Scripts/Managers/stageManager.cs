@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ public class stageManager : MonoBehaviour
     public GameObject enemyLeftObj;
 
     public float hpMod;
+    public float speedMod;
 
     public int stageCount;
     public TextMeshProUGUI stageCountText;
@@ -61,6 +63,7 @@ public class stageManager : MonoBehaviour
         spawner.GetComponent<Spawner>().target = player;
         spawner.GetComponent<Spawner>().hpMod = hpMod;
         spawner.GetComponent<Spawner>().time = spawnSpeed * spawnSpeedMod;
+        spawner.GetComponent<Spawner>().speedMod = speedMod;
         enemyLeftText.text = enemyLeft.ToString();
         stageCountText.text = "Day " + stageCount;
     }

@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     public float radius = 1;
     public float hpMod;
     public List<int> nums = new List<int>();
-
+    public float speedMod;
     public bool testN;
     public bool testR;
 
@@ -102,24 +102,28 @@ public class Spawner : MonoBehaviour
                 b.GetComponent<Enemy>().player = player;
                 b.GetComponent<Enemy>().sister = sister;
                 b.GetComponent<Enemy>().health = Mathf.Ceil(b.GetComponent<Enemy>().health *= hpMod);
+                b.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
             case 2:
                 GameObject s = Instantiate(spitter, temp, Quaternion.identity);
                 s.GetComponent<Enemy>().player = player;
                 s.GetComponent<Enemy>().sister = sister;
                 s.GetComponent<Enemy>().health = Mathf.Ceil(s.GetComponent<Enemy>().health *= hpMod);
+                s.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
             case 3:
                 GameObject z = Instantiate(zoomer, temp, Quaternion.identity);
                 z.GetComponent<Enemy>().player = player;
                 z.GetComponent<Enemy>().sister = sister;
                 z.GetComponent<Enemy>().health = Mathf.Ceil(z.GetComponent<Enemy>().health *= hpMod);
+                z.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
             case 4:
                 GameObject bo = Instantiate(boomer, temp, Quaternion.identity);
                 bo.GetComponent<Enemy>().player = player;
                 bo.GetComponent<Enemy>().sister = sister;
                 bo.GetComponent<Enemy>().health = Mathf.Ceil(bo.GetComponent<Enemy>().health *= hpMod);
+                bo.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
             case 5:
                 GameObject scre = Instantiate(screamer, temp, Quaternion.identity);
@@ -127,18 +131,21 @@ public class Spawner : MonoBehaviour
                 scre.GetComponent<Enemy>().sister = sister;
                 scre.GetComponent<Enemy>().spawner = gameObject;
                 scre.GetComponent<Enemy>().health = Mathf.Ceil(scre.GetComponent<Enemy>().health *= hpMod);
+                screamer.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
             case 6:
                 GameObject be = Instantiate(beef, temp, Quaternion.identity);
                 be.GetComponent<Enemy>().player = player;
                 be.GetComponent<Enemy>().sister = sister;
                 be.GetComponent<Enemy>().health = Mathf.Ceil(be.GetComponent<Enemy>().health *= hpMod);
+                be.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
             case 7:
                 GameObject k = Instantiate(knock, temp, Quaternion.identity);
                 k.GetComponent<Enemy>().player = player;
                 k.GetComponent<Enemy>().sister = sister;
                 k.GetComponent<Enemy>().health = Mathf.Ceil(k.GetComponent<Enemy>().health *= hpMod);
+                k.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
         }
     }
