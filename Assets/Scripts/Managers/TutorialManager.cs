@@ -24,4 +24,23 @@ public class TutorialManager : MonoBehaviour
         //gets the index of the current active scene and adds 1 to it so the index of the next scene is loaded
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void Easy() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Hard() 
+    {
+        SceneManager.LoadScene(11);
+    }
+
+    public void Hell() 
+    {
+        SceneManager.LoadScene(12);
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

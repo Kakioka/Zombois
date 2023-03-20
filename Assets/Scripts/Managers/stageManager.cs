@@ -96,6 +96,7 @@ public class stageManager : MonoBehaviour
                     boss.GetComponent<sisBoss>().player = player;
                     boss.GetComponent<Enemy>().player = player;
                     boss.GetComponent<Enemy>().sister = player;
+                    boss.GetComponent<Enemy>().health *= hpMod;
                     enemyLeftObj.SetActive(false);
                     enemyLeftText.gameObject.SetActive(false);
                     bossBar.SetActive(true);

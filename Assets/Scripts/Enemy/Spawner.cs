@@ -135,7 +135,7 @@ public class Spawner : MonoBehaviour
                 be.GetComponent<Enemy>().health = Mathf.Ceil(be.GetComponent<Enemy>().health *= hpMod);
                 break;
             case 7:
-                GameObject k = Instantiate(beef, temp, Quaternion.identity);
+                GameObject k = Instantiate(knock, temp, Quaternion.identity);
                 k.GetComponent<Enemy>().player = player;
                 k.GetComponent<Enemy>().sister = sister;
                 k.GetComponent<Enemy>().health = Mathf.Ceil(k.GetComponent<Enemy>().health *= hpMod);

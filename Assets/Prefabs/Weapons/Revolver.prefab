@@ -158,11 +158,11 @@ MonoBehaviour:
   ammo: 6
   maxAmmo: 6
   isReload: 0
-  bulletForce: 5
+  bulletForce: 6
   reloadSpeed: 1.2
-  fireRate: 0.8
+  fireRate: 0.6
   fireDelay: 0
-  damage: 5
+  damage: 4
   piecre: 0
   knockBack: 3
   rb: {fileID: 816795137638649296}

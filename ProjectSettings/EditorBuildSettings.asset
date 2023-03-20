@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MultiplayerTest.unity
     guid: 748c462c2f0cab84c97902a4117e5ab7
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage1Hard.unity
+    guid: 5d5eebf87a6ccc74bb25c3d330dc4406
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage1Hell.unity
+    guid: 41ce31c3326defb42974e02441681ef4
   m_configObjects: {}

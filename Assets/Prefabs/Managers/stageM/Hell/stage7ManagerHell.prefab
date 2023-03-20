@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1468025485690917260}
   - component: {fileID: 6012591791773139508}
   m_Layer: 0
-  m_Name: stage7Manager
+  m_Name: stage7ManagerHell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29746f3cf08faf04cab9af7df8b01957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawns: 40
+  maxSpawns: 50
   currSpawns: 0
   gameM: {fileID: 0}
   player: {fileID: 0}
@@ -56,11 +56,11 @@ MonoBehaviour:
   enemyLeft: 0
   enemyLeftText: {fileID: 5667431703964229792}
   enemyLeftObj: {fileID: 5667431703547675580}
-  hpMod: 1.8
+  hpMod: 2.4
   stageCount: 7
   stageCountText: {fileID: 4078887669659225859}
   stageEnd: {fileID: 7956020294468927281}
-  spawnSpeed: 3
+  spawnSpeed: 2.2
   spawnSpeedMod: 0.3
   spawnMulti: 0
   sisDied: {fileID: 2787364826102517011}
