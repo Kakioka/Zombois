@@ -823,6 +823,7 @@ MonoBehaviour:
   - {fileID: 4064017187819208264, guid: 7dcd3414aeda2dd4181eb5a7c1be1d44, type: 3}
   - {fileID: 5053870715138426462, guid: d69968857fc3d894d9a1c1484f21455f, type: 3}
   - {fileID: 5053870715138426462, guid: c716265c2a6303843b7f77ec0c7ca3f4, type: 3}
+  - {fileID: 8890358436404006919, guid: 4307836a9fe252943b3da06b0f05412d, type: 3}
 --- !u!1 &5474136242797880934
 GameObject:
   m_ObjectHideFlags: 0

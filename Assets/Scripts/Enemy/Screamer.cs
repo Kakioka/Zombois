@@ -4,7 +4,7 @@ public class Screamer : MonoBehaviour
 {
     public float speedMod;
     public float spawnMod;
-    public GameObject spawner;
+    //public GameObject spawner;
 
     // Start is called before the first frame update
     void Start()

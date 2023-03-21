@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class upgradeShopManager : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class upgradeShopManager : MonoBehaviour
 
     public GameObject UI;
 
-    public GameObject sisHPButton;
-    public GameObject playerHPButton;
-    public int vaccineCost;
+    [SerializeField] 
+    private GameObject sisHPButton;
+    [SerializeField]
+    private GameObject playerHPButton;
+    [SerializeField]
+    private int vaccineCost;
+    [SerializeField]
+    private GameObject dead;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +44,7 @@ public class upgradeShopManager : MonoBehaviour
             playerHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + vaccineCost;
         }
 
-        if (gameManager.GetComponent<gameManager>().sisH == 3)
+        if (gameManager.GetComponent<gameManager>().sisH == sister.GetComponent<Sister>().maxHealth)
         {
             sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "HP Max";
         }
@@ -45,11 +52,17 @@ public class upgradeShopManager : MonoBehaviour
         {
             sisHPButton.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + vaccineCost;
         }
+
+        if (sister.GetComponent<Sister>().health <= 0) 
+        {
+            Time.timeScale = 0;
+            dead.SetActive(true);
+        }
     }
 
     public void sisButton()
     {
-        if (gameManager.GetComponent<gameManager>().sisH != 3)
+        if (gameManager.GetComponent<gameManager>().sisH != sister.GetComponent<Sister>().maxHealth)
         {
             if (player.GetComponent<PlayerMovement>().bank >= vaccineCost)
             {
@@ -77,5 +90,15 @@ public class upgradeShopManager : MonoBehaviour
     {
         gameManager.GetComponent<gameManager>().bank = player.GetComponent<PlayerMovement>().bank;
         gameManager.GetComponent<gameManager>().spawnLevel(gameManager.GetComponent<gameManager>().levelNum);
+    }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void menu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

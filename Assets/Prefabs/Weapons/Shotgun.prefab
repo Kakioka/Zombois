@@ -105,15 +105,14 @@ MonoBehaviour:
   ammo: 2
   maxAmmo: 2
   isReload: 0
-  bulletForce: 4.5
-  reloadSpeed: 0.85
+  bulletForce: 4
+  reloadSpeed: 1
   fireRate: 0.4
   fireDelay: 0
   damage: 3
   piecre: 0
   knockBack: 2
   rb: {fileID: 4229727540086970746}
-  cam: {fileID: 0}
   player: {fileID: 0}
   shooting: 0
   projectiles: 4

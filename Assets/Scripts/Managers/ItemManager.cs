@@ -10,8 +10,8 @@ public class ItemManager : MonoBehaviour
     private GameObject player;
     private GameObject gameM;
 
-    public Transform[] itemPos = new Transform[6];
-    public GameObject[] item = new GameObject[6];
+    public Transform[] itemPos = new Transform[3];
+    public GameObject[] item = new GameObject[3];
 
 
 
@@ -29,7 +29,7 @@ public class ItemManager : MonoBehaviour
         player = gameObject.GetComponent<upgradeShopManager>().player;
         gameM = gameObject.GetComponent<upgradeShopManager>().gameManager;
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < item.Length; i++)
         {
             item[i] = Instantiate(Items[Random.Range(0, Items.Count)], itemPos[i]);
             item[i].GetComponent<Item>().player = player;
@@ -41,7 +41,7 @@ public class ItemManager : MonoBehaviour
     {
         if (player.GetComponent<PlayerMovement>().bank >= refreshCost && refreshCount != 0) 
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < item.Length; i++)
             {
                 Destroy(item[i]);
                 item[i] = Instantiate(Items[Random.Range(0, Items.Count)], itemPos[i]);

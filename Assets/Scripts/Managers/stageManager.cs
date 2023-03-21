@@ -138,7 +138,7 @@ public class stageManager : MonoBehaviour
         {
             Time.timeScale = 0;
             death.SetActive(true);
-            survived.text = "You surivived " + stageCount + " days";
+            survived.text = "You survived " + stageCount + " days";
             if (player.GetComponent<PlayerMovement>().health <= 0)
             {
                 playerDied.SetActive(true);

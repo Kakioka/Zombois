@@ -6,6 +6,7 @@ public class Sister : MonoBehaviour
     public GameObject player;
     public float maxDist;
     public int health;
+    public int maxHealth;
     public bool isInv = false;
     public float invTimer = 1f;
     public int prevHealth;

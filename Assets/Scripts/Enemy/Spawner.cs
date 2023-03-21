@@ -131,7 +131,7 @@ public class Spawner : MonoBehaviour
                 scre.GetComponent<Enemy>().sister = sister;
                 scre.GetComponent<Enemy>().spawner = gameObject;
                 scre.GetComponent<Enemy>().health = Mathf.Ceil(scre.GetComponent<Enemy>().health *= hpMod);
-                screamer.GetComponent<Enemy>().moveSpeed *= speedMod;
+                scre.GetComponent<Enemy>().moveSpeed *= speedMod;
                 break;
             case 6:
                 GameObject be = Instantiate(beef, temp, Quaternion.identity);

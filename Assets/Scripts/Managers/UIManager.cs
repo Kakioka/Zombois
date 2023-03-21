@@ -101,6 +101,7 @@ public class UIManager : MonoBehaviour
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
+
         switch (sister.GetComponent<Sister>().health)
         {
             case 0:
@@ -141,7 +142,7 @@ public class UIManager : MonoBehaviour
                 GameObject temp = Instantiate(items[gameManager.GetComponent<gameManager>().itemEquiped[i]], itemPos);
                 temp.transform.position = lastItemPos;
                 currItems.Add(temp);
-                temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
+                temp.GetComponentInChildren<TextMeshPro>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
                 currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
                 lastItemPos.x +=  itemBuffer;
                 if (currItemIndex.Count % 10 == 0) 
@@ -152,7 +153,7 @@ public class UIManager : MonoBehaviour
             }
             else 
             {
-                currItems[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
+                currItems[i].GetComponentInChildren<TextMeshPro>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
             }
         }
     }
@@ -165,7 +166,7 @@ public class UIManager : MonoBehaviour
             //lastItemPos.z = 0;
             temp.transform.position = lastItemPos;
             currItems.Add(temp);
-            temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
+            temp.GetComponentInChildren<TextMeshPro>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
             temp.GetComponentInChildren<Tooltip>().manager = gameManager.GetComponent<gameManager>();
             currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
             lastItemPos.x += itemBuffer;
