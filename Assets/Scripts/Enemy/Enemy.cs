@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     public GameObject silver;
     public GameObject player;
     public GameObject sister;
-    public GameObject spawner;
     public float moveSpeed;
     public bool knock = false;
 
