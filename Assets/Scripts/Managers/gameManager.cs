@@ -352,6 +352,9 @@ public class gameManager : MonoBehaviour
             case 9:
                 SceneManager.LoadScene("Stage1Hard");
                 break;
+            case 10:
+                SceneManager.LoadScene("Stage1Hell");
+                break;
         }
     }
 

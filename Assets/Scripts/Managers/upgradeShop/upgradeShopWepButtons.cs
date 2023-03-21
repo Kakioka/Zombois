@@ -38,15 +38,15 @@ public class upgradeShopWepButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapCard = Instantiate(weaponCards[Random.Range(0, weaponCards.Count-1)], wepPos);
-        weapCard.GetComponent<weaponCard>().player = player;
-        weapCard.GetComponent<weaponCard>().gameM = gameManager;
-        weapCard.GetComponent<weaponCard>().upgradeShopWepButtons = GetComponent<upgradeShopWepButtons>();
-
         player = GetComponent<upgradeShopManager>().player;
         gameManager = GetComponent<upgradeShopManager>().gameManager;
         UI = GetComponent<upgradeShopManager>().UI;
         cashTrack = player.GetComponent<PlayerMovement>().bank;
+
+        weapCard = Instantiate(weaponCards[Random.Range(0, weaponCards.Count-1)], wepPos);
+        weapCard.GetComponent<weaponCard>().player = player;
+        weapCard.GetComponent<weaponCard>().gameM = gameManager;
+        weapCard.GetComponent<weaponCard>().upgradeShopWepButtons = GetComponent<upgradeShopWepButtons>();
 
         wepsB.Add(revolverB);
         wepsB.Add(shotgunB);

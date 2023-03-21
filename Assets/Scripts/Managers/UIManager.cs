@@ -58,9 +58,12 @@ public class UIManager : MonoBehaviour
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
 
-        if (!sister.GetComponent<SpriteRenderer>().isVisible && !gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>().bossSpawned)
+        if (gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>() != null)
         {
-            arrow.SetActive(true);
+            if (!sister.GetComponent<SpriteRenderer>().isVisible && !gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>().bossSpawned)
+            {
+                arrow.SetActive(true);
+            }
         }
         else 
         {

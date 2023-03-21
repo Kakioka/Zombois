@@ -189,7 +189,8 @@ MonoBehaviour:
   textItemCost: {fileID: 3663174721151751114}
   cost: 10
   itemNum: 15
-  description: Back in the old days... Your bullets now explode into more bullets
+  description: Give them something to cry about! Your bullets now explode into more
+    bullets
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   cam: {fileID: 0}
