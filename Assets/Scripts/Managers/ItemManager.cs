@@ -51,6 +51,7 @@ public class ItemManager : MonoBehaviour
             player.GetComponent<PlayerMovement>().bank -= refreshCost;
             refreshCount--;
             refreshText.text = "Refresh shop chances: " + refreshCount;
+            GetComponent<upgradeShopWepButtons>().refreshWep();
         }
     }
 
