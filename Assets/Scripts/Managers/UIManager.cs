@@ -64,6 +64,10 @@ public class UIManager : MonoBehaviour
             {
                 arrow.SetActive(true);
             }
+            else
+            {
+                arrow.SetActive(false);
+            }
         }
         else 
         {
@@ -126,17 +130,6 @@ public class UIManager : MonoBehaviour
 
 
         aniGun.SetBool("ReloadTrigger", gun.GetComponent<Gun>().isReload);
-        /*if (gun.GetComponent<Gun>().isReload)
-        {
-            reload.SetActive(true);
-            reload.transform.Rotate(0, 0, -600 * Time.deltaTime);
-        }
-        else 
-        {
-            reload.SetActive(false);
-            reload.transform.Rotate(0, 0, 0);
-
-        }*/
     }
 
     public void updateItemList() 

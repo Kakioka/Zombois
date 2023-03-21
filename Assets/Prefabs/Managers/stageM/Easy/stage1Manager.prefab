@@ -70,6 +70,7 @@ MonoBehaviour:
   survived: {fileID: 3098333279044718462}
   bossPre: {fileID: 0}
   bossBar: {fileID: 0}
+  bossSpawned: 0
   boss: {fileID: 0}
   timer: 5
 --- !u!1001 &2297483680030115214

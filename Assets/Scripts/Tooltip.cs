@@ -27,14 +27,21 @@ public class Tooltip : MonoBehaviour
     {
         Vector3 screenPoint = Input.mousePosition;
         screenPoint.z = 10.0f;
-        transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
+        //transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
 
-        Vector2 anchoredPosition = transform.GetComponent<RectTransform>().anchoredPosition;
-        if(anchoredPosition.x + background.rect.width > manager.currUI.GetComponentInChildren<RectTransform>().rect.width) 
-        {
-            anchoredPosition.x =  manager.currUI.GetComponentInChildren<RectTransform>().rect.width - background.rect.width;
-        }
-        transform.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
+        Vector3 target = Camera.main.WorldToScreenPoint(screenPoint);
+        Vector3 cap = target;
+        
+        if (cap.x <= 0) cap.x = 0;
+        if (cap.x >= Screen.width) cap.x = Screen.width - 0;
+        if (cap.y <= 0) cap.y = 0;
+        if (cap.y >= Screen.height) cap.y = Screen.height - 0;
+
+        Vector3 pos = Camera.main.WorldToScreenPoint(cap);
+
+        transform.position = pos;
+
+        transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
     }
 
     public void ShowTooltip() 

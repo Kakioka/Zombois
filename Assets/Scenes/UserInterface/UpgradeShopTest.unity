@@ -909,5 +909,9 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 547197215}
+    - target: {fileID: 5992078570145940308, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 171.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
