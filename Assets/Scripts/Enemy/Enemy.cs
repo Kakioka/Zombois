@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
                 coin.GetComponent<Coin>().player = player;
                 coin.GetComponent<Coin>().sister = sister;
             }
-            else if (random <= 40)
+            else if (random <= 30)
             {
                 GameObject coin = Instantiate(silver, transform.position, Quaternion.identity);
                 coin.GetComponent<Coin>().player = player;
