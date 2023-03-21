@@ -16,7 +16,6 @@ public class Item : MonoBehaviour
     public string description;
     public Sprite itemSprite;
     public GameObject itemDescription;
-    public Camera cam;
 
 
     private GameObject parent;
@@ -49,7 +48,7 @@ public class Item : MonoBehaviour
                 des.GetComponent<ItemDescription>().itemName = itemName;
                 des.GetComponent<ItemDescription>().item = itemSprite;
                 des.GetComponent<ItemDescription>().description = description;
-                des.GetComponent<Canvas>().worldCamera = cam;
+                des.GetComponent<Canvas>().worldCamera = Camera.main;
             }
         }
     }

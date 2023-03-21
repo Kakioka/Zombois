@@ -542,7 +542,8 @@ MonoBehaviour:
   textItemCost: {fileID: 2756272189720091616}
   cost: 10
   itemNum: 12
-  description: Increase bullet pierce and damage, decreases bullet speed
+  description: Check out these gains. Increase bullet pierce and damage, decreases
+    bullet speed
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   cam: {fileID: 0}

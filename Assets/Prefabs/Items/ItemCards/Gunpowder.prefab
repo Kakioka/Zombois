@@ -542,7 +542,7 @@ MonoBehaviour:
   textItemCost: {fileID: 9096934689551084412}
   cost: 10
   itemNum: 2
-  description: Increases bullet pierce and bullet speed
+  description: Don't try this at home. Increases bullet pierce and bullet speed
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   cam: {fileID: 0}

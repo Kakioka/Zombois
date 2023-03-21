@@ -197,11 +197,6 @@ PrefabInstance:
       objectReference: {fileID: 2032353245}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f971621ba99693c4fa4eae0f0d5479ec, type: 3}
---- !u!1 &126151078 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
-  m_PrefabInstance: {fileID: 642714842531419943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &547197214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,7 +303,7 @@ PrefabInstance:
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: currManager
       value: 
-      objectReference: {fileID: 126151078}
+      objectReference: {fileID: 1492766149137204780}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: itemCounts.Array.size
       value: 20
@@ -571,6 +566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3408350482258477018, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2106031546}
     - target: {fileID: 5474136242747793140, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
       propertyPath: gun
       value: 
@@ -802,7 +801,12 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 1947471614, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
   m_PrefabInstance: {fileID: 547197214}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &642714842531419943
+--- !u!1 &1492766149137204780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2043577983158571275, guid: 018c7bf0eac964bee8abe95e5141c436, type: 3}
+  m_PrefabInstance: {fileID: 2221285600738591464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2221285600738591464
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

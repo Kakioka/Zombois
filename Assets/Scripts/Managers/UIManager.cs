@@ -173,6 +173,7 @@ public class UIManager : MonoBehaviour
             temp.transform.position = lastItemPos;
             currItems.Add(temp);
             temp.GetComponentInChildren<TextMeshProUGUI>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
+            temp.GetComponentInChildren<Tooltip>().manager = gameManager.GetComponent<gameManager>();
             currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
             lastItemPos.x += itemBuffer;
             if (currItemIndex.Count % 10 == 0)

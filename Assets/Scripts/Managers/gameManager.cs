@@ -73,7 +73,6 @@ public class gameManager : MonoBehaviour
     public bool machinegunO = false;
 
     public GameObject UI;
-    public Camera cam;
 
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
@@ -164,7 +163,6 @@ public class gameManager : MonoBehaviour
                 break;
         }
         gun.GetComponent<Gun>().player = player;
-        gun.GetComponent<Gun>().cam = cam;
         player.GetComponent<PlayerMovement>().gun = gun;
     }
 
@@ -387,7 +385,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currUI = Instantiate(UI);
             uiStart(currUI);
         }
@@ -399,7 +397,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currUI = Instantiate(UI);
             uiStart(currUI);
         }
@@ -411,7 +409,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currUI = Instantiate(UI);
             uiStart(currUI);
         }
@@ -423,7 +421,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currUI = Instantiate(UI);
             uiStart(currUI);
         }
@@ -435,7 +433,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currUI = Instantiate(UI);
             uiStart(currUI);
         }
@@ -447,7 +445,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currUI = Instantiate(UI);
             uiStart(currUI);
         }
@@ -459,7 +457,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currUI = Instantiate(UI);
             uiStart(currUI);
         }
@@ -470,7 +468,7 @@ public class gameManager : MonoBehaviour
             currManager = Instantiate(stageManager[7]);
             currUI = Instantiate(UI);
             upgradeStart();
-            cam.gameObject.transform.position = Vector2.zero;
+            Camera.main.gameObject.transform.position = Vector2.zero;
             player.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
             switch (wepNum)
             {
@@ -529,7 +527,7 @@ public class gameManager : MonoBehaviour
             }
             uiStart(currUI);
             currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
-            currManager.GetComponentInChildren<Canvas>().worldCamera = cam;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currManager.GetComponentInChildren<upgradeShopManager>().UI = currUI;
             currManager.GetComponent<upgradeShopManager>().player = player;
             currManager.GetComponent<upgradeShopManager>().sister = sis;
@@ -544,7 +542,7 @@ public class gameManager : MonoBehaviour
         currUI.GetComponent<UIManager>().sister = sis;
         currUI.GetComponent<UIManager>().gun = gun;
         currUI.GetComponent<UIManager>().gameManager = gameObject;
-        currUI.GetComponentInChildren<Canvas>().worldCamera = cam;
+        currUI.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
     }
 
     public void itemListUpdate() 

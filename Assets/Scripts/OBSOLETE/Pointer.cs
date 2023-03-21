@@ -11,19 +11,17 @@ public class Pointer : MonoBehaviour
     public GameObject sisA;
 
 
-    private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
         gameM = UI.GetComponent<UIManager>().gameManager;
-        cam = gameM.GetComponent<gameManager>().cam;
         sister = UI.GetComponent<UIManager>().sister;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 target = cam.WorldToScreenPoint(sister.transform.position);
+        Vector3 target = Camera.main.WorldToScreenPoint(sister.transform.position);
         Vector3 cap = target;
         Vector3 capS = target;
         if (cap.x <= borderSize) cap.x = borderSize;
@@ -36,9 +34,9 @@ public class Pointer : MonoBehaviour
         if (capS.y <= borderSizeS) capS.y = borderSizeS;
         if (capS.y >= Screen.height) capS.y = Screen.height - borderSizeS;
 
-        Vector3 pointerPos = cam.ScreenToWorldPoint(cap);
+        Vector3 pointerPos = Camera.main.ScreenToWorldPoint(cap);
         transform.position = pointerPos;
-        sisA.transform.position = cam.ScreenToWorldPoint(capS);
+        sisA.transform.position = Camera.main.ScreenToWorldPoint(capS);
 
     }
 

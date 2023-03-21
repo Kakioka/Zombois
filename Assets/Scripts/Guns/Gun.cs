@@ -17,7 +17,6 @@ public class Gun : MonoBehaviour
     public float knockBack;
     public Rigidbody2D rb;
     Vector2 mousePos;
-    public Camera cam;
     public GameObject player;
     public bool shooting = false;
     public int projectiles;
@@ -54,7 +53,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position + offset;
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetButtonDown("Fire1"))
         {
             shooting = true;
