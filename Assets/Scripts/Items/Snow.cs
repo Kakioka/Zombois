@@ -7,10 +7,9 @@ public class Snow : MonoBehaviour
 {
 
     public float speedMod;
-    public float radius = 0.08f;
+    public float radius = 0.05f;
     public int damage;
     public float delay;
-    public CircleCollider2D range;
     public GameObject damageNum;
 
     private List<float> timers = new List<float>();
@@ -19,7 +18,6 @@ public class Snow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        range.radius = radius;
     }
 
     // Update is called once per frame

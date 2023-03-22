@@ -1061,7 +1061,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   sisHPButton: {fileID: 7904114448466140683}
   playerHPButton: {fileID: 2221285600927935961}
-  vaccineCost: 10
+  vaccineCost: 15
   dead: {fileID: 1748946710671421953}
 --- !u!114 &4331842096827959474
 MonoBehaviour:
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 5332791134427405676}
   - component: {fileID: 5332791134427405679}
   - component: {fileID: 5332791134427405678}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3635,7 +3635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7904114449145274590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -812.16, y: -354, z: -9960.759}
+  m_LocalPosition: {x: -611, y: -288, z: -9960.759}
   m_LocalScale: {x: 151.2, y: 151.2, z: 151.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3749,7 +3749,6 @@ MonoBehaviour:
   silver: {fileID: 0}
   player: {fileID: 0}
   sister: {fileID: 0}
-  spawner: {fileID: 0}
   moveSpeed: 0
   knock: 0
 --- !u!1 &7994119833015621228
