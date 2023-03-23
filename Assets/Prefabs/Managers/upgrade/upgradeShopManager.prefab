@@ -1137,6 +1137,7 @@ MonoBehaviour:
   - {fileID: 6854913540575278223, guid: b30386caaef1e4b8aacb46c09ed92e1c, type: 3}
   - {fileID: 2361122916725125274, guid: c2bede14dfd214509a99874219c2dc73, type: 3}
   - {fileID: 7391654423620294880, guid: cce6f8d3d087b42248ac4630514cdb67, type: 3}
+  - {fileID: 2361122916725125274, guid: e5a76ee17b8a14bbd98b366e81318a63, type: 3}
   wepPos: {fileID: 642714840783509546}
 --- !u!1 &2043577983178528619
 GameObject:

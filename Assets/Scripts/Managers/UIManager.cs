@@ -43,12 +43,11 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //reload.SetActive(false);
         lastItemPos = itemPos.position;
         h1.color = Color.white;
         h2.color = Color.white;
         h3.color = Color.white;
-        aniGun.speed /= gun.GetComponent<Gun>().reloadSpeed;
+        //aniGun.speed /= gun.GetComponent<Gun>().reloadSpeed;
         spawnItemList();
     }
 

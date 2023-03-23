@@ -9,7 +9,7 @@ public class gameManager : MonoBehaviour
     public int bank = 0;
 
     //current player wep
-    public int wepNum = 1;
+    public int wepNum = 0;
 
     //player prefab
     public GameObject playerPref;
@@ -18,7 +18,7 @@ public class gameManager : MonoBehaviour
     public GameObject player;
 
     //gun prefabs
-    public GameObject rev, shotG, snipe, machineG;
+    public List<GameObject> guns = new List<GameObject>();
 
     //gun obj
     public GameObject gun;
@@ -66,12 +66,6 @@ public class gameManager : MonoBehaviour
     //stageManagerPrefabs
     public List<GameObject> stageManager = new List<GameObject>();
     public GameObject currManager;
-
-    public bool revO = true;
-    public bool shotgunO = false;
-    public bool sniperO = false;
-    public bool machinegunO = false;
-
     public GameObject UI;
 
     public Texture2D cursorTexture;
@@ -122,6 +116,8 @@ public class gameManager : MonoBehaviour
         spawnPlayer();
         player.transform.position = new Vector3(0, -2, 10);
         sis.transform.position = new Vector3(0.8f, -2, 10);
+        spawnWep(wepNum);
+        itemUpgrade();
     }
 
     void spawnPlayer()
@@ -143,25 +139,9 @@ public class gameManager : MonoBehaviour
         spawnLevel(8);
     }
 
-    void spawnWep(int num)
+    public void spawnWep(int num)
     {
-        switch (num)
-        {
-            case 1:
-                gun = Instantiate(rev, player.transform.position, player.transform.rotation);
-                break;
-            case 2:
-                gun = Instantiate(shotG, player.transform.position, player.transform.rotation);
-                break;
-
-            case 3:
-                gun = Instantiate(machineG, player.transform.position, player.transform.rotation);
-                break;
-
-            case 4:
-                gun = Instantiate(snipe, player.transform.position, player.transform.rotation);
-                break;
-        }
+        gun = Instantiate(guns[num], player.transform.position, player.transform.rotation);   
         gun.GetComponent<Gun>().player = player;
         player.GetComponent<PlayerMovement>().gun = gun;
     }
@@ -477,74 +457,35 @@ public class gameManager : MonoBehaviour
         if (scene.name == "UpgradeShop")
         {
             Time.timeScale = 1;
+            
             currManager = Instantiate(stageManager[7]);
             currUI = Instantiate(UI);
             upgradeStart();
             Camera.main.gameObject.transform.position = Vector2.zero;
             player.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
-            switch (wepNum)
-            {
-                case 1:
-                    spawnWep(2);
-                    currManager.GetComponent<upgradeShopWepButtons>().shotgun = gun;
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    currManager.GetComponent<upgradeShopWepButtons>().machineGun = gun;
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    currManager.GetComponent<upgradeShopWepButtons>().sniper = gun;
-                    gun.SetActive(false);
-                    spawnWep(1);
-                    currManager.GetComponent<upgradeShopWepButtons>().revolver = gun;
-                    break;
-                case 2:
-                    spawnWep(1);
-                    currManager.GetComponent<upgradeShopWepButtons>().revolver = gun;
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    currManager.GetComponent<upgradeShopWepButtons>().machineGun = gun;
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    currManager.GetComponent<upgradeShopWepButtons>().sniper = gun;
-                    gun.SetActive(false);
-                    spawnWep(2);
-                    currManager.GetComponent<upgradeShopWepButtons>().shotgun = gun;
-                    break;
-                case 3:
-                    spawnWep(1);
-                    currManager.GetComponent<upgradeShopWepButtons>().revolver = gun;
-                    gun.SetActive(false);
-                    spawnWep(2);
-                    currManager.GetComponent<upgradeShopWepButtons>().shotgun = gun;
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    currManager.GetComponent<upgradeShopWepButtons>().sniper = gun;
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    currManager.GetComponent<upgradeShopWepButtons>().machineGun = gun;
-                    break;
-                case 4:
-                    spawnWep(1);
-                    currManager.GetComponent<upgradeShopWepButtons>().revolver = gun;
-                    gun.SetActive(false);
-                    spawnWep(2);
-                    currManager.GetComponent<upgradeShopWepButtons>().shotgun = gun;
-                    gun.SetActive(false);
-                    spawnWep(3);
-                    currManager.GetComponent<upgradeShopWepButtons>().machineGun = gun;
-                    gun.SetActive(false);
-                    spawnWep(4);
-                    currManager.GetComponent<upgradeShopWepButtons>().sniper = gun;
-                    break;
-            }
             uiStart(currUI);
             currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
             currManager.GetComponentInChildren<upgradeShopManager>().UI = currUI;
             currManager.GetComponent<upgradeShopManager>().player = player;
             currManager.GetComponent<upgradeShopManager>().sister = sis;
-            itemUpgrade();
-            player.GetComponent<PlayerMovement>().gun = gun;
+        }
+
+        if (scene.name == "UpgradeShopTest")
+        {
+            Time.timeScale = 1;
+
+            currManager = Instantiate(stageManager[7]);
+            currUI = Instantiate(UI);
+            upgradeStart();
+            Camera.main.gameObject.transform.position = Vector2.zero;
+            player.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
+            uiStart(currUI);
+            currManager.GetComponent<upgradeShopManager>().gameManager = this.gameObject;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
+            currManager.GetComponentInChildren<upgradeShopManager>().UI = currUI;
+            currManager.GetComponent<upgradeShopManager>().player = player;
+            currManager.GetComponent<upgradeShopManager>().sister = sis;
         }
     }
 
@@ -555,6 +496,7 @@ public class gameManager : MonoBehaviour
         currUI.GetComponent<UIManager>().gun = gun;
         currUI.GetComponent<UIManager>().gameManager = gameObject;
         currUI.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
+        currUI.GetComponent<UIManager>().aniGun.speed = 1 / gun.GetComponent<Gun>().reloadSpeed;
     }
 
     public void itemListUpdate() 

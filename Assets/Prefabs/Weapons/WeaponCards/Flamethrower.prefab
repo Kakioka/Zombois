@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2361122915760089989}
   - component: {fileID: 2361122915760089988}
   m_Layer: 5
-  m_Name: MachineGun
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 122}
-  m_SizeDelta: {x: 242.27, y: 50}
+  m_SizeDelta: {x: 256.1987, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2361122915760089989
 CanvasRenderer:
@@ -150,9 +150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Machine Gun
-
-'
+  m_text: Flamethrower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -234,7 +232,7 @@ GameObject:
   - component: {fileID: 2361122916239811852}
   - component: {fileID: 2361122916239811855}
   m_Layer: 5
-  m_Name: MachineGunButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +490,7 @@ GameObject:
   - component: {fileID: 2361122916725125275}
   - component: {fileID: -1923807244856086679}
   m_Layer: 5
-  m_Name: MachineGun
+  m_Name: Flamethrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +536,7 @@ MonoBehaviour:
   gameM: {fileID: 0}
   buttonText: {fileID: 2361122916777178249}
   upgradeShopWepButtons: {fileID: 0}
-  wepNum: 2
+  wepNum: 4
   wepCost: 10
   toolTip: {fileID: 5903196327772329979}
 --- !u!1 &2361122916777178251
@@ -777,20 +775,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3351793307401283672, guid: 29ed20c6657518c46aa0cf192de5b129, type: 3}
       propertyPath: m_text
-      value: 'Damage: 3
+      value: 'Damage: 1
 
         Bullets: 1
 
-        Pierce: 0
+        Pierce: 3
 
-        Ammo: 25
+        Ammo: 10
 
         Fire
         rate: Fast
 
         Reload: Slow
 
-        Knock back: Weak'
+        Knock back: Weak
+
+        Lights
+        enemies on fire!'
       objectReference: {fileID: 0}
     - target: {fileID: 3351793307686992378, guid: 29ed20c6657518c46aa0cf192de5b129, type: 3}
       propertyPath: text
