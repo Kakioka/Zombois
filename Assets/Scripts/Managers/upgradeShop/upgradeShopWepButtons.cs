@@ -27,7 +27,7 @@ public class upgradeShopWepButtons : MonoBehaviour
         UI = GetComponent<upgradeShopManager>().UI;
         cashTrack = player.GetComponent<PlayerMovement>().bank;
 
-        weapCard = Instantiate(weaponCards[Random.Range(0, weaponCards.Count-1)], wepPos);
+        weapCard = Instantiate(weaponCards[Random.Range(0, weaponCards.Count)], wepPos);
         weapCard.GetComponent<weaponCard>().player = player;
         weapCard.GetComponent<weaponCard>().gameM = gameManager;
         weapCard.GetComponent<weaponCard>().upgradeShopWepButtons = GetComponent<upgradeShopWepButtons>();

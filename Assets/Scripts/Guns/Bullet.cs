@@ -55,6 +55,7 @@ public class Bullet : MonoBehaviour
             Vector3 temp = (Random.insideUnitCircle.normalized * rad) + new Vector2(collision.transform.position.x, collision.transform.position.y);
             Vector2 lookDir = (Vector2)temp - (Vector2)collision.transform.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+            temp.z = 10;
             GameObject clone = Instantiate(gameObject, temp, Quaternion.identity);
             clone.GetComponent<Bullet>().life = 0.3f;
             clone.GetComponent<Bullet>().damage = Mathf.CeilToInt(damage * 0.3f);
