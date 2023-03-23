@@ -34,6 +34,7 @@ public class ItemManager : MonoBehaviour
             item[i] = Instantiate(Items[Random.Range(0, Items.Count)], itemPos[i]);
             item[i].GetComponent<Item>().player = player;
             item[i].GetComponent<Item>().gameM = gameM;
+            item[i].GetComponent<Item>().upgradeShop = gameObject;
         }
     }
 
@@ -47,6 +48,7 @@ public class ItemManager : MonoBehaviour
                 item[i] = Instantiate(Items[Random.Range(0, Items.Count)], itemPos[i]);
                 item[i].GetComponent<Item>().player = player;
                 item[i].GetComponent<Item>().gameM = gameM;
+                item[i].GetComponent<Item>().upgradeShop = gameObject;
             }
             player.GetComponent<PlayerMovement>().bank -= refreshCost;
             refreshCount--;
@@ -54,8 +56,6 @@ public class ItemManager : MonoBehaviour
             GetComponent<upgradeShopWepButtons>().refreshWep();
         }
     }
-
-
 
     // Update is called once per frame
     void Update()

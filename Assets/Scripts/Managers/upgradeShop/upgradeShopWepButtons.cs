@@ -32,18 +32,18 @@ public class upgradeShopWepButtons : MonoBehaviour
         weapCard.GetComponent<weaponCard>().gameM = gameManager;
         weapCard.GetComponent<weaponCard>().upgradeShopWepButtons = GetComponent<upgradeShopWepButtons>();
     }
-    
+
+    public void updateInShop()
+    {
+        gameManager.GetComponent<gameManager>().itemUpgradePlayer();
+        cashTrack = player.GetComponent<PlayerMovement>().bank;
+        setWeapon();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (cashTrack > player.GetComponent<PlayerMovement>().bank)
-        {
-            manager.itemUpgradeGun(manager.gun, manager.guns[manager.wepNum]);
-            gameManager.GetComponent<gameManager>().itemUpgradePlayer();
-            cashTrack = player.GetComponent<PlayerMovement>().bank;
-            UI.GetComponent<UIManager>().aniGun.speed = 1 / UI.GetComponent<UIManager>().gun.GetComponent<Gun>().reloadSpeed;
-        }
+
     }
 
     public void refreshWep()
@@ -61,6 +61,7 @@ public class upgradeShopWepButtons : MonoBehaviour
         manager.spawnWep(manager.wepNum);
         manager.itemUpgradeGun(manager.gun, manager.guns[manager.wepNum]);
         UI.GetComponent<UIManager>().gun = manager.gun;
+        manager.itemUpgradeGun(manager.gun, manager.guns[manager.wepNum]);
         UI.GetComponent<UIManager>().aniGun.speed = 1 / manager.gun.GetComponent<Gun>().reloadSpeed;
     }
 }

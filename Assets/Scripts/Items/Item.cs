@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
 {
     public GameObject player;
     public GameObject gameM;
+    public GameObject upgradeShop;
+
 
     [SerializeField]
     private string itemName;
@@ -62,6 +64,7 @@ public class Item : MonoBehaviour
                 des.GetComponent<ItemDescription>().item = itemSprite;
                 des.GetComponent<ItemDescription>().description = description;
                 des.GetComponent<Canvas>().worldCamera = Camera.main;
+                upgradeShop.GetComponent<upgradeShopWepButtons>().updateInShop();
             }
         }
     }
