@@ -370,7 +370,7 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (scene.name == "Stage1" || scene.name == "Stage1Hard" || scene.name == "Stage1Hell")
+        if (scene.name == "Stage1" || scene.name == "Stage1Hard" || scene.name == "Stage1Hell" || scene.name == "Stage1Normal")
         {
             levelStart();
             currManager = Instantiate(stageManager[0]);
