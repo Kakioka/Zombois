@@ -56,13 +56,13 @@ MonoBehaviour:
   enemyLeft: 0
   enemyLeftText: {fileID: 5667431703964229792}
   enemyLeftObj: {fileID: 5667431703547675580}
-  hpMod: 1.8
+  hpMod: 1.2
   speedMod: 1
   stageCount: 7
   stageCountText: {fileID: 4078887669659225859}
   stageEnd: {fileID: 7956020294468927281}
   spawnSpeed: 3
-  spawnSpeedMod: 0.3
+  spawnSpeedMod: 0.6
   spawnMulti: 0
   sisDied: {fileID: 2787364826102517011}
   playerDied: {fileID: 2759070417950790427}

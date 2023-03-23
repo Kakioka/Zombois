@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stages/Stage1Hell.unity
     guid: 41ce31c3326defb42974e02441681ef4
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage1Normal.unity
+    guid: 653b167544d9e4e1fa908dfacdb60d52
   m_configObjects: {}

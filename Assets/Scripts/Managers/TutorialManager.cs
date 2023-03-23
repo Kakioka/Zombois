@@ -39,6 +39,11 @@ public class TutorialManager : MonoBehaviour
         SceneManager.LoadScene(12);
     }
 
+    public void Normal()
+    {
+        SceneManager.LoadScene(13);
+    }
+
     public void Back()
     {
         SceneManager.LoadScene(0);

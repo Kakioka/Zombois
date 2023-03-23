@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1468025485690917260}
   - component: {fileID: 6012591791773139508}
   m_Layer: 0
-  m_Name: stage5Manager
+  m_Name: stage5ManagerNormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29746f3cf08faf04cab9af7df8b01957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawns: 30
+  maxSpawns: 35
   currSpawns: 0
   gameM: {fileID: 0}
   player: {fileID: 0}
@@ -56,13 +56,13 @@ MonoBehaviour:
   enemyLeft: 0
   enemyLeftText: {fileID: 2571045497686582160}
   enemyLeftObj: {fileID: 2571045497566773388}
-  hpMod: 1
+  hpMod: 1.4
   speedMod: 1
   stageCount: 5
   stageCountText: {fileID: 6166533865116044339}
   stageEnd: {fileID: 243622190781873153}
   spawnSpeed: 3
-  spawnSpeedMod: 0.6
+  spawnSpeedMod: 0.4
   spawnMulti: 0
   sisDied: {fileID: 5451122274892025379}
   playerDied: {fileID: 5423139567585988651}
