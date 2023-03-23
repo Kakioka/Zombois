@@ -4,17 +4,36 @@ using UnityEngine;
 
 public class DualPistols : MonoBehaviour
 {
+    private GameObject temp;
+    public GameObject parent;
+    public bool check = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject temp = Instantiate(gameObject);
-        temp.GetComponent<Gun>().offset = new Vector3(-0.1f,-0.2f,0f);
-        Destroy(temp.GetComponent<DualPistols>());
+        spawnCopy();
+    }
+
+    private void spawnCopy()
+    {
+        if (!check)
+        {
+            temp = Instantiate(gameObject);
+            temp.GetComponent<Gun>().offset = new Vector3(-0.1f, -0.2f, 0f);
+            temp.GetComponent<DualPistols>().parent = gameObject;
+            temp.GetComponent<DualPistols>().check = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (check)
+        {
+            if (parent == null)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
