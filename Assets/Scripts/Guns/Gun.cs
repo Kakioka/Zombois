@@ -31,6 +31,9 @@ public class Gun : MonoBehaviour
     public bool splinterOn = false;
     public int splintLvl = 0;
 
+    [SerializeField]
+    private float spread;
+
     // Update is called once per frame
     private void Start()
     {
@@ -122,15 +125,24 @@ public class Gun : MonoBehaviour
         switch (projectiles)
         {
             case 1:
+                float ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f,0f, ran);
                 GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 helperSpawn(bullet);
                 break;
 
             case 2:
                 firePoint.Rotate(0f, 0f, 5f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -10f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 GameObject bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 helperSpawn(bullet);
                 helperSpawn(bullet2);
                 firePoint.Rotate(0f, 0f, 5f);
@@ -138,9 +150,15 @@ public class Gun : MonoBehaviour
 
             case 3:
                 firePoint.Rotate(0f, 0f, 5f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -10f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 5f);
                 GameObject bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
                 helperSpawn(bullet);
@@ -150,13 +168,25 @@ public class Gun : MonoBehaviour
 
             case 4:
                 firePoint.Rotate(0f, 0f, -2f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -4f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 8f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 4f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 GameObject bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -6f);
                 helperSpawn(bullet);
                 helperSpawn(bullet2);
@@ -165,15 +195,30 @@ public class Gun : MonoBehaviour
                 break;
 
             case 5:
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 GameObject bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -4f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 10f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 4f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -7f);
                 helperSpawn(bullet);
                 helperSpawn(bullet2);
@@ -184,17 +229,35 @@ public class Gun : MonoBehaviour
 
             case 6:
                 firePoint.Rotate(0f, 0f, -2f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 10f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 GameObject bullet6 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -8f);
                 helperSpawn(bullet);
                 helperSpawn(bullet2);
@@ -205,19 +268,40 @@ public class Gun : MonoBehaviour
                 break;
 
             case 7:
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet5 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet2 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet3 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 12f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet4 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 bullet6 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, 3f);
+                ran = Random.Range(-spread, spread);
+                firePoint.Rotate(0f, 0f, ran);
                 GameObject bullet7 = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
+                firePoint.Rotate(0f, 0f, -ran);
                 firePoint.Rotate(0f, 0f, -9f);
                 helperSpawn(bullet);
                 helperSpawn(bullet2);

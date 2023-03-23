@@ -50,13 +50,14 @@ MonoBehaviour:
   player: {fileID: 0}
   gameM: {fileID: 0}
   itemName: Stim Booster
-  textItemName: {fileID: 449313549159212383}
+  textItemName: {fileID: 0}
   textItemCost: {fileID: 449313549524393944}
   cost: 10
   itemNum: 1
   description: 
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
+  toolTip: {fileID: 0}
 --- !u!1 &449313549159212369
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449313549668007109}
   - component: {fileID: 449313549668007108}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -20,6 +20,10 @@ public class Bullet : MonoBehaviour
     public int splintLvl;
 
     private Rigidbody2D rb;
+    [SerializeField]
+    private GameObject fire;
+    [SerializeField]
+    private bool fireOn;
 
     private void Start()
     {
@@ -36,6 +40,11 @@ public class Bullet : MonoBehaviour
             GameObject clone = Instantiate(bleedPre, collision.transform);
             clone.GetComponent<BleedEffect>().DoT *= (1 - (bleedLvl * 0.3f)); 
         }
+    }
+
+    private void fireEffect(Collider2D collision) 
+    {
+        GameObject clone = Instantiate(fire, collision.transform);
     }
 
     private void splinter(Collider2D collision)
@@ -84,6 +93,11 @@ public class Bullet : MonoBehaviour
             if (bleedOn)
             {
                 bleedEffect(collision);
+            }
+
+            if (fireOn) 
+            {
+                fireEffect(collision);
             }
 
             if (pierce <= 0)

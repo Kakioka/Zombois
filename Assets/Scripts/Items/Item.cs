@@ -8,24 +8,37 @@ public class Item : MonoBehaviour
 {
     public GameObject player;
     public GameObject gameM;
-    public string itemName;
-    public TextMeshProUGUI textItemName;
-    public TextMeshProUGUI textItemCost;
-    public int cost;
-    public int itemNum;
-    public string description;
-    public Sprite itemSprite;
-    public GameObject itemDescription;
+
+    [SerializeField]
+    private string itemName;
+    [SerializeField]
+    private TextMeshPro textItemName;
+    [SerializeField]
+    private TextMeshProUGUI textItemCost;
+    [SerializeField]
+    private int cost;
+    [SerializeField]
+    private int itemNum;
+    [SerializeField]
+    private string description;
+    [SerializeField]
+    private Sprite itemSprite;
+    [SerializeField]
+    private GameObject itemDescription;
+    [SerializeField]
+    private Tooltip toolTip;
 
 
-    private GameObject parent;
 
     // Start is called before the first frame update
     void Start()
     {
+        textItemName = GetComponentInChildren<TextMeshPro>();
         itemSprite = GetComponentInChildren<SpriteRenderer>().sprite;
+        toolTip = GetComponentInChildren<Tooltip>();
         textItemName.text = itemName;
         textItemCost.text = "Cost: " + cost;
+        toolTip.manager = gameM.GetComponent<gameManager>();
     }
 
     // Update is called once per frame

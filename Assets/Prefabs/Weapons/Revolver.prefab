@@ -159,14 +159,13 @@ MonoBehaviour:
   maxAmmo: 6
   isReload: 0
   bulletForce: 6
-  reloadSpeed: 1.2
-  fireRate: 0.55
+  reloadSpeed: 1.4
+  fireRate: 0.5
   fireDelay: 0
   damage: 4
   piecre: 0
   knockBack: 4
   rb: {fileID: 816795137638649296}
-  cam: {fileID: 0}
   player: {fileID: 0}
   shooting: 0
   projectiles: 1

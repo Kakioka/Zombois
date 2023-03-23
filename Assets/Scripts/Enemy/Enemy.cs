@@ -28,13 +28,13 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             int random = Mathf.RoundToInt(Random.Range(0, 100));
-            if (random <= 3)
+            if (random <= 5)
             {
                 GameObject coin = Instantiate(gold, transform.position, Quaternion.identity);
                 coin.GetComponent<Coin>().player = player;
                 coin.GetComponent<Coin>().sister = sister;
             }
-            else if (random <= 10)
+            else if (random <= 15)
             {
                 GameObject coin = Instantiate(silver, transform.position, Quaternion.identity);
                 coin.GetComponent<Coin>().player = player;
