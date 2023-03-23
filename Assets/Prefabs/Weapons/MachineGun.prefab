@@ -177,6 +177,7 @@ MonoBehaviour:
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
+  spread: 3
 --- !u!82 &7104343852018072323
 AudioSource:
   m_ObjectHideFlags: 0
