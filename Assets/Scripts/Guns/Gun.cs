@@ -34,6 +34,9 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private float spread;
 
+    [SerializeField]
+    private float boomScale;
+
     // Update is called once per frame
     private void Start()
     {
@@ -325,6 +328,7 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().splintLvl = splintLvl;
         obj.GetComponent<Bullet>().bleedLvl = bleedLvl;
         obj.GetComponent<Bullet>().life = bulletLife;
+        obj.GetComponent<Bullet>().explodeScale = boomScale;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
 

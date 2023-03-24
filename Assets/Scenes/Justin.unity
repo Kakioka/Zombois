@@ -321,6 +321,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d8c6f1238ea48c4483717267d961d5b, type: 3}
+--- !u!1001 &407496145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 518697862318952363, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: piecre
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 518697862318952363, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 8056761361802338101}
+    - target: {fileID: 518697862318952363, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: boomScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821156, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_Name
+      value: MissileGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821156, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252517987037821160, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
 --- !u!1 &441435785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7978822152366045287, guid: 717aefb2cc7d8d343839026316bc433f, type: 3}
@@ -1385,6 +1458,10 @@ PrefabInstance:
     - target: {fileID: 816795137638649300, guid: d0fb9a94f4614450a93c5f30544890cc, type: 3}
       propertyPath: m_Name
       value: DualPistols
+      objectReference: {fileID: 0}
+    - target: {fileID: 816795137638649300, guid: d0fb9a94f4614450a93c5f30544890cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 816795137638649303, guid: d0fb9a94f4614450a93c5f30544890cc, type: 3}
       propertyPath: m_RootOrder

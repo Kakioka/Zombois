@@ -56,13 +56,13 @@ MonoBehaviour:
   enemyLeft: 0
   enemyLeftText: {fileID: 2571045497686582160}
   enemyLeftObj: {fileID: 2571045497566773388}
-  hpMod: 2
+  hpMod: 1.6
   speedMod: 1.4
   stageCount: 5
   stageCountText: {fileID: 6166533865116044339}
   stageEnd: {fileID: 243622190781873153}
-  spawnSpeed: 2.2
-  spawnSpeedMod: 0.4
+  spawnSpeed: 2.5
+  spawnSpeedMod: 0.6
   spawnMulti: 0
   sisDied: {fileID: 5451122274892025379}
   playerDied: {fileID: 5423139567585988651}
@@ -70,6 +70,7 @@ MonoBehaviour:
   survived: {fileID: 671403519860963597}
   bossPre: {fileID: 0}
   bossBar: {fileID: 0}
+  bossSpawned: 0
   boss: {fileID: 0}
   timer: 5
 --- !u!1001 &2297483680030115214

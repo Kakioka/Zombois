@@ -18,12 +18,10 @@ public class MissileLauncher : MonoBehaviour
 
     IEnumerator fire()
     {
-        //findTarget();
         coolDown = true;
         for (int i = 0; i < missileLvl; i++)
         {
             GameObject miss = Instantiate(missile, player.transform.position, Quaternion.identity);
-            //miss.GetComponent<Missile>().target = target;
             miss.GetComponent<Missile>().damage = damage;
             miss.GetComponent<Missile>().speed = speed;
             miss.GetComponent<Missile>().rotateSpeed = rotateSpeed;
