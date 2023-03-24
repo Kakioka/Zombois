@@ -86,7 +86,7 @@ MonoBehaviour:
   shooting: 0
   projectiles: 1
   bulletSize: 1
-  bulletLife: 1.5
+  bulletLife: 1.25
   offset: {x: 0, y: -0.2, z: 0}
   lookingRight: 1
   bleedOn: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   splinterOn: 0
   splintLvl: 0
   spread: 10
+  boomScale: 0
 --- !u!82 &4532673133978993596
 AudioSource:
   m_ObjectHideFlags: 0
