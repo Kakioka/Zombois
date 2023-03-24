@@ -156,14 +156,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 114602871010719490}
   bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
-  ammo: 7
-  maxAmmo: 7
+  ammo: 6
+  maxAmmo: 6
   isReload: 0
   bulletForce: 6
   reloadSpeed: 1.8
   fireRate: 0.5
   fireDelay: 0
-  damage: 4
+  damage: 3
   piecre: 0
   knockBack: 4
   rb: {fileID: 816795137638649296}
@@ -179,6 +179,7 @@ MonoBehaviour:
   splinterOn: 0
   splintLvl: 0
   spread: 0
+  boomScale: 0
 --- !u!82 &8611747866515176802
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,6 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4798c7fd29c5a4ae19e99b36f1108276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  check: 0
 --- !u!1 &6481643930231755870
 GameObject:
   m_ObjectHideFlags: 0

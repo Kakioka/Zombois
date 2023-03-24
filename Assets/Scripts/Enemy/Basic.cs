@@ -24,11 +24,12 @@ public class Basic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (gameObject.GetComponent<Enemy>().knock == true)
+        if (GetComponent<Enemy>().knock)
         {
             StartCoroutine(knockBack());
+            return;
         }
         float distP = Vector3.Distance(player.transform.position, gameObject.transform.position);
         float distS = Vector3.Distance(sister.transform.position, gameObject.transform.position);
@@ -46,13 +47,15 @@ public class Basic : MonoBehaviour
                 {
                     Flip();
                 }
-                if (gameObject.GetComponent<Enemy>().knock == false)
+
+                if (!GetComponent<Enemy>().knock)
                 {
                     Vector2 direction = (Vector2)player.transform.position - rb.position;
                     direction.Normalize();
                     rb.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
-                }
 
+                }
+                
             }
             else if (distP >= distS)
             {
@@ -66,11 +69,13 @@ public class Basic : MonoBehaviour
                 {
                     Flip();
                 }
-                if (gameObject.GetComponent<Enemy>().knock == false)
+
+                if (!GetComponent<Enemy>().knock)
                 {
                     Vector2 direction = (Vector2)sister.transform.position - rb.position;
                     direction.Normalize();
                     rb.velocity = direction * gameObject.GetComponent<Enemy>().moveSpeed;
+
                 }
             }
         }

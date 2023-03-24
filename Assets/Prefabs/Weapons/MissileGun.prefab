@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 77d0f9b8cd86f6147ae0222171369bf6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2f3f594a1a6f024fbe97ce5388a41bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -160,17 +160,17 @@ MonoBehaviour:
   isReload: 0
   bulletForce: 3
   reloadSpeed: 1.6
-  fireRate: 1
+  fireRate: 0.5
   fireDelay: 0
   damage: 5
   piecre: 0
-  knockBack: 0
+  knockBack: 0.7
   rb: {fileID: 8252517987037821162}
   player: {fileID: 0}
   shooting: 0
   projectiles: 1
   bulletSize: 1
-  bulletLife: 5
+  bulletLife: 3
   offset: {x: 0, y: -0.2, z: 0}
   lookingRight: 1
   bleedOn: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   splinterOn: 0
   splintLvl: 0
   spread: 3
-  boomScale: 1
+  boomScale: 0.8
 --- !u!82 &7104343852018072323
 AudioSource:
   m_ObjectHideFlags: 0

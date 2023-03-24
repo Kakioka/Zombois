@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Services.Lobbies.Models;
@@ -43,7 +44,25 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameObject.transform.localScale = new Vector3(scale, scale, scale);
-        Destroy(gameObject, life);
+        if (explodeOn)
+        {
+            StartCoroutine(endLifeExplode());
+        }
+        else 
+        {
+            Destroy(gameObject, life);
+        }
+    }
+
+    private IEnumerator endLifeExplode() 
+    {
+        yield return new WaitForSeconds(life);
+        GameObject boomObj = Instantiate(explode, transform.position, Quaternion.identity);
+        boomObj.GetComponent<BoomMissile>().damage = damage;
+        boomObj.GetComponent<BoomMissile>().boomRadius = explodeScale;
+        boomObj.GetComponent<BoomMissile>().knockBack = knockBack;
+        Destroy(gameObject);
+
     }
 
     private void FixedUpdate()
@@ -127,7 +146,7 @@ public class Bullet : MonoBehaviour
             {
                 fireEffect(collision);
             }
-
+           
             if (pierce <= 0)
             {
                 GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
@@ -138,10 +157,12 @@ public class Bullet : MonoBehaviour
 
                 if (explodeOn)
                 {
-                    GameObject boomObj = Instantiate(explode, collision.transform.position, Quaternion.identity);
+                    GameObject boomObj = Instantiate(explode, transform.position, Quaternion.identity);
                     boomObj.GetComponent<BoomMissile>().damage = damage;
                     boomObj.GetComponent<BoomMissile>().boomRadius = explodeScale;
+                    boomObj.GetComponent<BoomMissile>().knockBack = knockBack;
                     Destroy(gameObject);
+                    Destroy(effect, 1f);
                     return;
                 }
 
@@ -155,13 +176,15 @@ public class Bullet : MonoBehaviour
                     GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
                     Destroy(effect, 1f);
                     Destroy(gameObject);
+                    return;
                 }
                 pierce--;
             }
 
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
-
+            collision.gameObject.GetComponent<Enemy>().knock = true;
             Rigidbody2D rbE = collision.gameObject.GetComponent<Rigidbody2D>();
+            rbE.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
 
             //spawn damage text
             Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
@@ -170,12 +193,6 @@ public class Bullet : MonoBehaviour
             num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
             Destroy(num, 1f);
 
-            collision.gameObject.GetComponent<Enemy>().knock = true;
-            //Vector2 direction = (Vector2)collision.transform.position - rb.position;
-            //collision.transform = 
-
-            rbE.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
-            //rbE.velocity = gameObject.transform.up * knockBack;
         }
         else
         {

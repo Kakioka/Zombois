@@ -245,6 +245,8 @@ MonoBehaviour:
   - {fileID: 3758488845514612959, guid: cce63f99798cd49bc8af33e125a7ee57, type: 3}
   - {fileID: 3383940849777442907, guid: 10ffce14c03910d4e8c00e2f580e45a7, type: 3}
   - {fileID: 816795137638649300, guid: d0fb9a94f4614450a93c5f30544890cc, type: 3}
+  - {fileID: 8252517987037821156, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
+  - {fileID: 8252517987037821156, guid: ca6d9c07ff37a4e668cd579a82be736d, type: 3}
   gun: {fileID: 0}
   playerH: 3
   sisPre: {fileID: 8741561835794063889, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}

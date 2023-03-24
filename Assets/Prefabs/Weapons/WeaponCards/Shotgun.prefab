@@ -788,7 +788,10 @@ PrefabInstance:
 
         Reload: Fast
 
-        Knock back: Strong'
+        Knock back: Strong
+
+        This
+        is my boom stick!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ed20c6657518c46aa0cf192de5b129, type: 3}

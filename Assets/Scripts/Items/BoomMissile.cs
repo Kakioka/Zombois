@@ -29,16 +29,24 @@ public class BoomMissile : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
+            collision.GetComponent<Enemy>().knock = true;
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            rb.AddForce((collision.transform.position - gameObject.transform.position) * knockBack, ForceMode2D.Impulse);
+
             Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
             temp.z = 10;
             GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
             num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
             Destroy(num, 1f);
             collision.GetComponent<Enemy>().health -= damage;
-
-            collision.GetComponent<Enemy>().knock = true;
-            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            rb.AddForce((collision.transform.position - transform.position) * knockBack, ForceMode2D.Impulse);
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        collision.GetComponent<Enemy>().knock = true;
+        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+        rb.AddForce((collision.transform.position - gameObject.transform.position) * knockBack, ForceMode2D.Impulse);
+    }
+
 }

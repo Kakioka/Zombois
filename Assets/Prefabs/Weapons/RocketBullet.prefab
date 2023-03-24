@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4630302181059396195}
   - component: {fileID: 5973495244224871634}
   m_Layer: 6
-  m_Name: MissileBullet
+  m_Name: RocketBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4933,8 +4933,8 @@ MonoBehaviour:
   splintLvl: 0
   fire: {fileID: 0}
   fireOn: 0
-  trackingOn: 1
+  trackingOn: 0
   explode: {fileID: 6304155242975271792, guid: 6b810c544766e42ffbfac0c209e6c46f, type: 3}
-  rotateSpeed: 250
+  rotateSpeed: 0
   explodeOn: 1
   explodeScale: 0
