@@ -54,7 +54,7 @@ MonoBehaviour:
   itemName: Full Barrel
   textItemName: {fileID: 0}
   textItemCost: {fileID: 3388458291108634367}
-  cost: 20
+  cost: 25
   itemNum: 5
   description: Load more bullets into your barrel at once! Gain an extra bullet.
     Decrease max ammo and reload speed.

@@ -54,7 +54,7 @@ MonoBehaviour:
   itemName: Multi-Shot
   textItemName: {fileID: 0}
   textItemCost: {fileID: 1908912849369004302}
-  cost: 20
+  cost: 25
   itemNum: 6
   description: Just like rabbits. Gain an extra bullet, decreases damage
   itemSprite: {fileID: 0}

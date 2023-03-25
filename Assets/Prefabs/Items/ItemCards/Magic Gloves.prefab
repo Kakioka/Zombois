@@ -54,7 +54,7 @@ MonoBehaviour:
   itemName: Magic Gloves
   textItemName: {fileID: 0}
   textItemCost: {fileID: 449313549524393944}
-  cost: 20
+  cost: 25
   itemNum: 16
   description: Its all sleight of hand. Increase reload speed.
   itemSprite: {fileID: 0}

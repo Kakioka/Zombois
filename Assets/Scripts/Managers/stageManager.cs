@@ -45,6 +45,7 @@ public class stageManager : MonoBehaviour
 
     public GameObject boss;
 
+    [SerializeField]
     private float timer;
 
     [SerializeField]
@@ -83,11 +84,15 @@ public class stageManager : MonoBehaviour
             enemyLeftText.text = enemyLeft.ToString();
         }*/
 
-        stageTimer -= Time.deltaTime;
-        enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
+        if (stageTimer >= 0) 
+        {
+             stageTimer -= Time.deltaTime;
+            enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
+        }
+       
 
         //if (currSpawns == 0 && maxSpawns == 0)
-        if(stageTimer == 0)
+        if(stageTimer <= 0)
         {
             if (stageCount == 7 && bossSpawned == false)
             {
@@ -132,7 +137,7 @@ public class stageManager : MonoBehaviour
                 }
             }
         }
-        else if (stageTimer == 0) 
+        else if (stageTimer <= 0) 
         {
             spawner.SetActive(false);
         }

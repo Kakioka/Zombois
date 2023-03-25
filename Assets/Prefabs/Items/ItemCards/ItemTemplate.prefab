@@ -53,7 +53,7 @@ MonoBehaviour:
   itemName: Stim Booster
   textItemName: {fileID: 0}
   textItemCost: {fileID: 449313549524393944}
-  cost: 20
+  cost: 25
   itemNum: 1
   description: 
   itemSprite: {fileID: 0}

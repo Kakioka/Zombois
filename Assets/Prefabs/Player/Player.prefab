@@ -369,7 +369,7 @@ MonoBehaviour:
   lookingRight: 1
   pingPongSpeed: 0.05
   flashSpeed: 8
-  speedReduction: 0.7
+  speedReduction: 0.4
   gun: {fileID: 0}
 --- !u!95 &700162175254647332
 Animator:

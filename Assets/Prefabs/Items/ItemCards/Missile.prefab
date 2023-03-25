@@ -226,7 +226,7 @@ MonoBehaviour:
   itemName: Missile Launcher
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7931868186296325341}
-  cost: 20
+  cost: 25
   itemNum: 11
   description: Tactical nuke incoming! Periodically shoot a missile
   itemSprite: {fileID: 21300000, guid: 0dc4e7d3617174a7a856e7fa8da9a11c, type: 3}

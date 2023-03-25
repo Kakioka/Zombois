@@ -226,7 +226,7 @@ MonoBehaviour:
   itemName: Baby Boomer
   textItemName: {fileID: 7907933877160300125}
   textItemCost: {fileID: 3663174721151751114}
-  cost: 20
+  cost: 25
   itemNum: 15
   description: Give them something to cry about! Your bullets now explode into more
     bullets

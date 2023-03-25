@@ -72,6 +72,7 @@ MonoBehaviour:
   bossBar: {fileID: 0}
   bossSpawned: 0
   boss: {fileID: 0}
+  timer: 5
   stageTimer: 120
 --- !u!1001 &2297483680030115214
 PrefabInstance:

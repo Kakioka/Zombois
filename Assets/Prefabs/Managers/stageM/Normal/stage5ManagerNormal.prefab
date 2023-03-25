@@ -61,7 +61,7 @@ MonoBehaviour:
   stageCount: 5
   stageCountText: {fileID: 6166533865116044339}
   stageEnd: {fileID: 243622190781873153}
-  spawnSpeed: 0.5
+  spawnSpeed: 0.7
   spawnSpeedMod: 0.6
   spawnMulti: 0
   sisDied: {fileID: 5451122274892025379}
@@ -72,6 +72,7 @@ MonoBehaviour:
   bossBar: {fileID: 0}
   bossSpawned: 0
   boss: {fileID: 0}
+  timer: 5
   stageTimer: 120
 --- !u!1001 &2297483680030115214
 PrefabInstance:

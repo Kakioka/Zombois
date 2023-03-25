@@ -620,7 +620,7 @@ MonoBehaviour:
   itemName: Bubble Bobble
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7105383796929055475}
-  cost: 20
+  cost: 25
   itemNum: 10
   description: Float away. Creates a shield for you and your sister that also increases
     speed while active

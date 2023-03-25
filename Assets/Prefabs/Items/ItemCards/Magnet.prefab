@@ -448,7 +448,7 @@ MonoBehaviour:
   itemName: Magnet
   textItemName: {fileID: 0}
   textItemCost: {fileID: 240781992730577181}
-  cost: 10
+  cost: 25
   itemNum: 8
   description: Opposites attract? Increases coin pick up range.
   itemSprite: {fileID: 0}

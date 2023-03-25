@@ -207,7 +207,6 @@ MonoBehaviour:
   silver: {fileID: 9205036790924861423, guid: 6efdef7ae9ac248daa3da0253e291ab4, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
-  spawner: {fileID: 0}
   moveSpeed: 0.8
   knock: 0
 --- !u!114 &853790935078622270

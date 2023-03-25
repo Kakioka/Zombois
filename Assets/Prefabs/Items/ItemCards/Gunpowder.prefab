@@ -620,7 +620,7 @@ MonoBehaviour:
   itemName: Gunpowder
   textItemName: {fileID: 0}
   textItemCost: {fileID: 9096934689551084412}
-  cost: 20
+  cost: 25
   itemNum: 2
   description: Don't try this at home. Increases bullet pierce and bullet speed
   itemSprite: {fileID: 0}

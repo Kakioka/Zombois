@@ -8,7 +8,6 @@ public class Boomer : MonoBehaviour
     public int damage = 1;
     public float timer = 0.5f;
     public GameObject explosion;
-    public float maxDist;
     public bool lookingRight = true;
     private Rigidbody2D rb;
 
@@ -56,10 +55,6 @@ public class Boomer : MonoBehaviour
 
         float distP = Vector3.Distance(player.transform.position, transform.position);
         float distS = Vector3.Distance(sister.transform.position, transform.position);
-        /*if (distP <= maxDist || distS <= maxDist)
-        {
-            StartCoroutine(explode());
-        }*/
 
         if (transform.position != player.transform.position || transform.position != sister.transform.position)
         {

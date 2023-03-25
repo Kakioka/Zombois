@@ -226,7 +226,7 @@ MonoBehaviour:
   itemName: Snow Globe
   textItemName: {fileID: 0}
   textItemCost: {fileID: 4581698822843442161}
-  cost: 20
+  cost: 25
   itemNum: 9
   description: Where have those days gone... Creates a field around you that slows
     zombies and damages them

@@ -448,7 +448,7 @@ MonoBehaviour:
   itemName: Power Shot
   textItemName: {fileID: 0}
   textItemCost: {fileID: 2756272189720091616}
-  cost: 20
+  cost: 25
   itemNum: 12
   description: Check out these gains. Increase bullet pierce and damage, decreases
     bullet speed

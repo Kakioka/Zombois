@@ -448,7 +448,7 @@ MonoBehaviour:
   itemName: Unrequited Love
   textItemName: {fileID: 0}
   textItemCost: {fileID: 6094270341923560936}
-  cost: 20
+  cost: 25
   itemNum: 14
   description: It's enough to make a heart bleed. On hit chance to make enemies bleed
   itemSprite: {fileID: 0}

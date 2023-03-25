@@ -620,7 +620,7 @@ MonoBehaviour:
   itemName: Low Caliber
   textItemName: {fileID: 0}
   textItemCost: {fileID: 8730721139030766027}
-  cost: 20
+  cost: 25
   itemNum: 13
   description: Tiny can still pack a punch! Increases ammo and decreases damage
   itemSprite: {fileID: 0}

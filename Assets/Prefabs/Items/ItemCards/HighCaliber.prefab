@@ -448,7 +448,7 @@ MonoBehaviour:
   itemName: High Caliber
   textItemName: {fileID: 0}
   textItemCost: {fileID: 5548918969991845439}
-  cost: 20
+  cost: 25
   itemNum: 3
   description: Show them what freedom looks like. Increases bullet damage and speed,
     decreases ammo
