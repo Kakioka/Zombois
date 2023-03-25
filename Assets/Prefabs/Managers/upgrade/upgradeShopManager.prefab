@@ -1061,7 +1061,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   sisHPButton: {fileID: 7904114448466140683}
   playerHPButton: {fileID: 2221285600927935961}
-  vaccineCost: 15
+  vaccineCost: 30
   dead: {fileID: 1748946710671421953}
 --- !u!114 &4331842096827959474
 MonoBehaviour:

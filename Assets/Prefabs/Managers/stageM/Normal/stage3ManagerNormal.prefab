@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29746f3cf08faf04cab9af7df8b01957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawns: 25
+  maxSpawns: 80
   currSpawns: 0
   gameM: {fileID: 0}
   player: {fileID: 0}
@@ -56,12 +56,12 @@ MonoBehaviour:
   enemyLeft: 0
   enemyLeftText: {fileID: 4615255181196250478}
   enemyLeftObj: {fileID: 4615255181076459122}
-  hpMod: 1.2
-  speedMod: 1
+  hpMod: 0.6
+  speedMod: 0.6
   stageCount: 3
   stageCountText: {fileID: 3905029347876709069}
   stageEnd: {fileID: 6972446846500639487}
-  spawnSpeed: 3
+  spawnSpeed: 0.5
   spawnSpeedMod: 0.8
   spawnMulti: 0
   sisDied: {fileID: 2883667926985646301}
@@ -72,7 +72,7 @@ MonoBehaviour:
   bossBar: {fileID: 0}
   bossSpawned: 0
   boss: {fileID: 0}
-  timer: 5
+  stageTimer: 120
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0

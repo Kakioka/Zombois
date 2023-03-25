@@ -35,7 +35,8 @@ public class stageManager : MonoBehaviour
     public GameObject death;
     public TextMeshProUGUI survived;
 
-    public GameObject bossPre;
+    [SerializeField]
+    private GameObject bossPre;
     public GameObject bossBar;
 
     private int tempCurr;
@@ -44,7 +45,10 @@ public class stageManager : MonoBehaviour
 
     public GameObject boss;
 
-    public float timer;
+    private float timer;
+
+    [SerializeField]
+    private float stageTimer;
 
     private IEnumerator end()
     {
@@ -71,14 +75,19 @@ public class stageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        /*currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (currSpawns < tempCurr)
         {
             tempCurr--;
             enemyLeft--;
             enemyLeftText.text = enemyLeft.ToString();
-        }
-        if (currSpawns == 0 && maxSpawns == 0)
+        }*/
+
+        stageTimer -= Time.deltaTime;
+        enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
+
+        //if (currSpawns == 0 && maxSpawns == 0)
+        if(stageTimer == 0)
         {
             if (stageCount == 7 && bossSpawned == false)
             {
@@ -123,10 +132,14 @@ public class stageManager : MonoBehaviour
                 }
             }
         }
-        else if (maxSpawns == 0)
+        else if (stageTimer == 0) 
         {
             spawner.SetActive(false);
         }
+        /*else if (maxSpawns == 0)
+        {
+            spawner.SetActive(false);
+        }*/
         else if (spawner.GetComponent<Spawner>().coolDown == false)
         {
             maxSpawns--;

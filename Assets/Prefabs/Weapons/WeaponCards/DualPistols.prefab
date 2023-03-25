@@ -757,7 +757,7 @@ MonoBehaviour:
   buttonText: {fileID: 2191274208858915291}
   upgradeShopWepButtons: {fileID: 0}
   wepNum: 5
-  wepCost: 10
+  wepCost: 25
   toolTip: {fileID: 6997868813938009925}
 --- !u!1001 &5737193249810538175
 PrefabInstance:

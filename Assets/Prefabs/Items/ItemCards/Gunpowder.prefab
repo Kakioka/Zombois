@@ -616,10 +616,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameM: {fileID: 0}
+  upgradeShop: {fileID: 0}
   itemName: Gunpowder
   textItemName: {fileID: 0}
   textItemCost: {fileID: 9096934689551084412}
-  cost: 10
+  cost: 20
   itemNum: 2
   description: Don't try this at home. Increases bullet pierce and bullet speed
   itemSprite: {fileID: 0}

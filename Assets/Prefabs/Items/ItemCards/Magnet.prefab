@@ -444,10 +444,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameM: {fileID: 0}
+  upgradeShop: {fileID: 0}
   itemName: Magnet
   textItemName: {fileID: 0}
   textItemCost: {fileID: 240781992730577181}
-  cost: 5
+  cost: 10
   itemNum: 8
   description: Opposites attract? Increases coin pick up range.
   itemSprite: {fileID: 0}

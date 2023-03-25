@@ -539,7 +539,7 @@ MonoBehaviour:
   buttonText: {fileID: 2361122916777178249}
   upgradeShopWepButtons: {fileID: 0}
   wepNum: 2
-  wepCost: 10
+  wepCost: 25
   toolTip: {fileID: 5903196327772329979}
 --- !u!1 &2361122916777178251
 GameObject:
