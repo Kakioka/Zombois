@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class stageManager : MonoBehaviour
 {
-    public int maxSpawns;
-    public int currSpawns;
 
     public GameObject gameM;
     public GameObject player;
@@ -15,7 +13,6 @@ public class stageManager : MonoBehaviour
     public GameObject spawner;
     public GameObject levelDone;
 
-    public int enemyLeft;
     public TextMeshProUGUI enemyLeftText;
     public GameObject enemyLeftObj;
 
@@ -62,38 +59,32 @@ public class stageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyLeft = maxSpawns;
         spawner.GetComponent<Spawner>().player = player;
         spawner.GetComponent<Spawner>().sister = sister;
         spawner.GetComponent<Spawner>().target = player;
         spawner.GetComponent<Spawner>().hpMod = hpMod;
         spawner.GetComponent<Spawner>().time = spawnSpeed * spawnSpeedMod;
         spawner.GetComponent<Spawner>().speedMod = speedMod;
-        enemyLeftText.text = enemyLeft.ToString();
         stageCountText.text = "Day " + stageCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*currSpawns = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (currSpawns < tempCurr)
-        {
-            tempCurr--;
-            enemyLeft--;
-            enemyLeftText.text = enemyLeft.ToString();
-        }*/
 
         if (stageTimer >= 0) 
         {
-             stageTimer -= Time.deltaTime;
+            stageTimer -= Time.deltaTime;
             enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
         }
        
-
-        //if (currSpawns == 0 && maxSpawns == 0)
         if(stageTimer <= 0)
         {
+            spawner.SetActive(false);
+            foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                e.GetComponent<Enemy>().health = 0;
+            }
             if (stageCount == 7 && bossSpawned == false)
             {
                 stageEnd.SetActive(true);
@@ -137,18 +128,8 @@ public class stageManager : MonoBehaviour
                 }
             }
         }
-        else if (stageTimer <= 0) 
-        {
-            spawner.SetActive(false);
-        }
-        /*else if (maxSpawns == 0)
-        {
-            spawner.SetActive(false);
-        }*/
         else if (spawner.GetComponent<Spawner>().coolDown == false)
         {
-            maxSpawns--;
-            tempCurr++;
             StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom());
         }
 
