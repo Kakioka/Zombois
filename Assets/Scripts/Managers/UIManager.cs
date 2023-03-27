@@ -1,3 +1,4 @@
+using Cinemachine.Editor;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -125,6 +126,22 @@ public class UIManager : MonoBehaviour
                 sh2.color = Color.white;
                 sh3.color = Color.white;
                 //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
+                break;
+        }
+
+        switch (sister.GetComponent<Sister>().maxHealth) 
+        {
+            case 0:
+                sh1.enabled = false;
+                sh2.enabled = false;
+                sh3.enabled = false;
+                break;
+            case 1:
+                sh2.enabled = false;
+                sh3.enabled = false;
+                break;
+            case 2:
+                sh3.enabled = false;
                 break;
         }
 

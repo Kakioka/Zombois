@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public float flashSpeed;
 
     public float speedReduction;
-    private bool speedReduced;
+    public bool speedReduced;
 
     public GameObject gun;
 
