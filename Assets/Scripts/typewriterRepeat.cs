@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class typewriterUI : MonoBehaviour
+public class typewriterRepeat : MonoBehaviour
 {
     Text _text;
     public TMP_Text _tmpProText;
@@ -16,14 +17,13 @@ public class typewriterUI : MonoBehaviour
 
     public bool skipTypingAnimation = false;
 
-    Coroutine typeWriterCoroutine;
+    public Coroutine typeWriterCoroutine;
 
 
     void Start()
     {
         _text = GetComponent<Text>();
         _tmpProText = GetComponent<TMP_Text>();
-
         if (_text != null)
         {
             writer = _text.text;
@@ -41,7 +41,6 @@ public class typewriterUI : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         if (skipTypingAnimation && typeWriterCoroutine != null)
@@ -56,9 +55,10 @@ public class typewriterUI : MonoBehaviour
                 _tmpProText.text = writer;
             }
         }
+
     }
 
-    IEnumerator TypeWriterText()
+    public IEnumerator TypeWriterText()
     {
         _text.text = leadingCharBeforeDelay ? leadingChar : "";
 
@@ -81,7 +81,7 @@ public class typewriterUI : MonoBehaviour
         }
     }
 
-    IEnumerator TypeWriterTMP()
+    public IEnumerator TypeWriterTMP()
     {
         _tmpProText.text = leadingCharBeforeDelay ? leadingChar : "";
 

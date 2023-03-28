@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5553266264118934938}
   m_Layer: 6
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,3 +162,8 @@ MonoBehaviour:
   splintLvl: 0
   fire: {fileID: 0}
   fireOn: 0
+  trackingOn: 0
+  explode: {fileID: 0}
+  rotateSpeed: 0
+  explodeOn: 0
+  explodeScale: 0

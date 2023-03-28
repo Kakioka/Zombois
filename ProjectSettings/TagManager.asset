@@ -11,6 +11,7 @@ TagManager:
   - gameM
   - PickUpS
   - Shield
+  - Bullet
   layers:
   - Default
   - TransparentFX

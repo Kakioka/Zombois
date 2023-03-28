@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8428649434888884875}
   m_Layer: 6
   m_Name: Fire
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +136,11 @@ MonoBehaviour:
   splintLvl: 0
   fire: {fileID: 511964044582101384, guid: beb95779772de7941ab92d2580f57124, type: 3}
   fireOn: 1
+  trackingOn: 0
+  explode: {fileID: 0}
+  rotateSpeed: 0
+  explodeOn: 0
+  explodeScale: 0
 --- !u!58 &8428649434888884875
 CircleCollider2D:
   m_ObjectHideFlags: 0

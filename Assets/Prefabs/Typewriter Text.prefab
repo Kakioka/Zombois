@@ -540,6 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9702f8d0de1e648a7fa447293f113a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tmpProText: {fileID: 0}
+  writer: 
   delayBeforeStart: 0
   timeBtwChars: 0.05
   leadingChar: ' |'
@@ -557,4 +559,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04290ddc13167f4d8d94a639b4dd6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriter: {fileID: 3149645218409641885}
+  closeTime: 0
