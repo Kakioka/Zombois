@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cb787c98815504a85d1241aa8c9854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 3758488846536247402}
+  firePoint: {fileID: 3758488846536247403}
   bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
   ammo: 4
   maxAmmo: 4
@@ -166,7 +166,6 @@ MonoBehaviour:
   piecre: 1
   knockBack: 7
   rb: {fileID: 3758488845514612957}
-  cam: {fileID: 0}
   player: {fileID: 0}
   shooting: 0
   projectiles: 1
@@ -178,6 +177,8 @@ MonoBehaviour:
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
+  spread: 0
+  boomScale: 0
 --- !u!82 &-5978246235573484533
 AudioSource:
   m_ObjectHideFlags: 0

@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cb787c98815504a85d1241aa8c9854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 8252517988091119175}
+  firePoint: {fileID: 8252517988091119168}
   bulletPre: {fileID: 4863663162033751002, guid: f4879307fd08b42c18f2c355fe362e87, type: 3}
   ammo: 5
   maxAmmo: 5

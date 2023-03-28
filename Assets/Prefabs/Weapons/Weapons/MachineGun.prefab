@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cb787c98815504a85d1241aa8c9854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 8252517988091119175}
+  firePoint: {fileID: 8252517988091119168}
   bulletPre: {fileID: 2201232264264790160, guid: 6c034a687b0e2a540aa08b442297b931, type: 3}
   ammo: 25
   maxAmmo: 25
@@ -178,6 +178,7 @@ MonoBehaviour:
   splinterOn: 0
   splintLvl: 0
   spread: 3
+  boomScale: 0
 --- !u!82 &7104343852018072323
 AudioSource:
   m_ObjectHideFlags: 0

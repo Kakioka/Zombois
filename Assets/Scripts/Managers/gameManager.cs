@@ -151,6 +151,10 @@ public class gameManager : MonoBehaviour
     {
         gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
         gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * Mathf.Pow(2,itemCounts[17]) * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+        if (gun.GetComponent<Gun>().damage <= 0) 
+        {
+            gun.GetComponent<Gun>().damage = 1;
+        }
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
@@ -171,10 +175,6 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().maxAmmo = 1;
         }
         gun.GetComponent<Gun>().projectiles = gun.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
-        if (gun.GetComponent<Gun>().projectiles > 7) 
-        {
-            gun.GetComponent<Gun>().projectiles = 7;
-        }
         player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]));
         sis.GetComponent<Sister>().moveSpeed = sis.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
         player.GetComponent<PlayerMovement>().pickUpRadius = player.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
@@ -225,6 +225,10 @@ public class gameManager : MonoBehaviour
     {
         gun.GetComponent<Gun>().fireRate = gunb.GetComponent<Gun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
         gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gunb.GetComponent<Gun>().damage * Mathf.Pow(2,itemCounts[17]) * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+        if (gun.GetComponent<Gun>().damage <= 0)
+        {
+            gun.GetComponent<Gun>().damage = 1;
+        }
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
@@ -245,10 +249,6 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().maxAmmo = 1;
         }
         gun.GetComponent<Gun>().projectiles = gunb.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
-        if (gun.GetComponent<Gun>().projectiles > 7)
-        {
-            gun.GetComponent<Gun>().projectiles = 7;
-        }
         if (itemCounts[14] > 0)
         {
             gun.GetComponent<Gun>().bleedOn = true;
