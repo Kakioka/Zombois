@@ -71,7 +71,6 @@ public class stageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (stageTimer >= 0) 
         {
             stageTimer -= Time.deltaTime;

@@ -126,6 +126,7 @@ public class Bullet : MonoBehaviour
             clone.GetComponent<Bullet>().splinterOn = false;
             clone.GetComponent<Rigidbody2D>().rotation = angle;
             clone.GetComponent<Bullet>().knockBack = 0;
+            clone.GetComponent<Bullet>().force = force * 0.3f;
             Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
             float forceMod = 0.6f / collision.gameObject.transform.localScale.y;
             rb.AddForce((temp - collision.transform.position) * (force * forceMod), ForceMode2D.Impulse);

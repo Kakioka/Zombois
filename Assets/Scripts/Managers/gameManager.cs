@@ -85,7 +85,8 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Alpha8))
+       
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

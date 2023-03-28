@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Tooltip : MonoBehaviour
 {
@@ -11,7 +10,6 @@ public class Tooltip : MonoBehaviour
     private TextMeshProUGUI tooltipText;
     [SerializeField]
     private RectTransform background;
-
     private void Awake()
     {
 
@@ -27,21 +25,18 @@ public class Tooltip : MonoBehaviour
     {
         Vector3 screenPoint = Input.mousePosition;
         screenPoint.z = 10.0f;
-        //transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
-
-        Vector3 target = Camera.main.WorldToScreenPoint(screenPoint);
-        Vector3 cap = target;
-        
-        if (cap.x <= 0) cap.x = 0;
-        if (cap.x >= Screen.width) cap.x = Screen.width - 0;
-        if (cap.y <= 0) cap.y = 0;
-        if (cap.y >= Screen.height) cap.y = Screen.height - 0;
-
-        Vector3 pos = Camera.main.WorldToScreenPoint(cap);
-
-        transform.position = pos;
-
         transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
+        Vector3 target = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 cap = target;
+        if (cap.x + background.rect.width >= Screen.width) 
+        {
+            cap.x = Screen.width - background.rect.width;
+        }
+        if (cap.y + background.rect.height >= Screen.height)
+        {
+            cap.y = Screen.height - background.rect.height;
+        }
+        transform.position = Camera.main.ScreenToWorldPoint(cap);
     }
 
     public void ShowTooltip() 
