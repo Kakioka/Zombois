@@ -12,6 +12,7 @@ TagManager:
   - PickUpS
   - Shield
   - Bullet
+  - Shopkeep
   layers:
   - Default
   - TransparentFX

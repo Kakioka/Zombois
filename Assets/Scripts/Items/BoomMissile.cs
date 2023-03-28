@@ -27,7 +27,7 @@ public class BoomMissile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep")
         {
             collision.GetComponent<Enemy>().knock = true;
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();

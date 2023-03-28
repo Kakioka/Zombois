@@ -3080,7 +3080,7 @@ GameObject:
   - component: {fileID: 5055185657076383367}
   m_Layer: 0
   m_Name: Shopkeeper
-  m_TagString: Enemy
+  m_TagString: Shopkeep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
