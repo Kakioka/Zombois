@@ -138,11 +138,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep")
         {
-            if (bleedOn)
-            {
-                bleedEffect(collision);
-            }
-
             if (fireOn)
             {
                 fireEffect(collision);
@@ -162,6 +157,8 @@ public class Bullet : MonoBehaviour
                     boomObj.GetComponent<BoomMissile>().damage = damage;
                     boomObj.GetComponent<BoomMissile>().boomRadius = explodeScale;
                     boomObj.GetComponent<BoomMissile>().knockBack = knockBack;
+                    boomObj.GetComponent<BoomMissile>().bleedOn = bleedOn;
+                    boomObj.GetComponent<BoomMissile>().bleedLvl = bleedLvl;
                     Destroy(gameObject);
                     Destroy(effect, 1f);
                     return;
@@ -180,6 +177,11 @@ public class Bullet : MonoBehaviour
                     return;
                 }
                 pierce--;
+            }
+
+            if (bleedOn)
+            {
+                bleedEffect(collision);
             }
 
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;

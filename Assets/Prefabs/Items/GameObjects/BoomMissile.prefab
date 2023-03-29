@@ -103,6 +103,9 @@ MonoBehaviour:
   radius: 0.5
   boomRadius: 0.5
   knockBack: 0
+  bleedOn: 0
+  bleedLvl: 0
+  bleedPre: {fileID: 511964044582101384, guid: 019509008813e48c0b80b9e5568024a3, type: 3}
 --- !u!58 &-7977796126307526986
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -35,8 +35,7 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private float spread;
 
-    [SerializeField]
-    private float boomScale;
+    public float boomScale;
 
     private List<GameObject> firePointList = new List<GameObject>();
 

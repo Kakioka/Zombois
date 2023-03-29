@@ -156,6 +156,7 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().damage = 1;
         }
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
+        gun.GetComponent<Gun>().boomScale = gun.GetComponent<Gun>().boomScale * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
         gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5]) * (1 - (glove * itemCounts[16])));
@@ -230,6 +231,7 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().damage = 1;
         }
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
+        gun.GetComponent<Gun>().boomScale = gunb.GetComponent<Gun>().boomScale * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
         gun.GetComponent<Gun>().reloadSpeed = gunb.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5])) * (1 - (glove * itemCounts[16]));
