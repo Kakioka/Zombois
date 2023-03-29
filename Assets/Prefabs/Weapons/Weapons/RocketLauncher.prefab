@@ -171,7 +171,7 @@ MonoBehaviour:
   projectiles: 1
   bulletSize: 1.5
   bulletLife: 2.5
-  offset: {x: 0, y: -0.15, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   lookingRight: 1
   bleedOn: 0
   bleedLvl: 0
