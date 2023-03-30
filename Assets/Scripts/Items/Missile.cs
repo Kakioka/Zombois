@@ -43,7 +43,7 @@ public class Missile : MonoBehaviour
         else
         {
             rb.velocity = transform.up * speed;
-            dist = 99999;
+            dist = 20;
         }   
     }
 

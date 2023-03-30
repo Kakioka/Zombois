@@ -81,6 +81,10 @@ public class Cat : MonoBehaviour
                     ani.SetBool("move", false);
                 }
             }
+            else
+            {
+                dist = 9999;
+            }
         }
     }
 

@@ -159,8 +159,8 @@ MonoBehaviour:
   maxAmmo: 5
   isReload: 0
   bulletForce: 2.5
-  reloadSpeed: 1.8
-  fireRate: 0.9
+  reloadSpeed: 2
+  fireRate: 1
   fireDelay: 0
   damage: 5
   piecre: 0
@@ -177,6 +177,10 @@ MonoBehaviour:
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
+  burnOn: 0
+  burnLvl: 0
+  freezeOn: 0
+  freezeLvl: 0
   spread: 3
   boomScale: 0.8
 --- !u!82 &7104343852018072323
