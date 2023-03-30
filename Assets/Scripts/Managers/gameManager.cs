@@ -54,14 +54,17 @@ public class gameManager : MonoBehaviour
     public float glove;
     [SerializeField]
     private GameObject lightHouse;
+    [SerializeField]
+    private GameObject cat;
 
-    
+
 
     //track if upgrade exists
     private GameObject snowG;
     private GameObject bubbleG, bubbleS;
     private GameObject missileG;
     private GameObject lightG;
+    private GameObject catG;
 
     //level count
     public int levelNum = 0;
@@ -241,6 +244,14 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().freezeOn = true;
             gun.GetComponent<Gun>().bleedLvl = itemCounts[20];
         }
+
+        if (itemCounts[21] > 0) 
+        {
+            catG = Instantiate(cat, player.transform.position, Quaternion.identity);
+            catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21] - 1));
+            catG.GetComponent<Cat>().attackCD = catG.GetComponent<Cat>().attackCD * (1-(0.1f*itemCounts[21]));
+            catG.GetComponent<Cat>().moveSpeed = catG.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
+        }
     }
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
@@ -354,6 +365,17 @@ public class gameManager : MonoBehaviour
                 lightG = Instantiate(lightHouse, sis.transform);
             }
             lightG.GetComponent<Lighthouse>().lightLvl = itemCounts[18];
+        }
+
+        if (itemCounts[21] > 0)
+        {
+            if (catG == null) 
+            {
+                catG = Instantiate(cat, player.transform.position, Quaternion.identity);
+            }
+            catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21]-1));
+            catG.GetComponent<Cat>().attackCD = cat.GetComponent<Cat>().attackCD * (1 - (0.1f * itemCounts[21]));
+            catG.GetComponent<Cat>().moveSpeed = cat.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
         }
     }
 
