@@ -31,6 +31,9 @@ public class Gun : MonoBehaviour
     public int bleedLvl = 0;
     public bool splinterOn = false;
     public int splintLvl = 0;
+    public bool burnOn = false;
+    public int burnLvl = 0;
+
 
     [SerializeField]
     private float spread;
@@ -192,17 +195,10 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().explodeScale = boomScale;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
-
-        if (bleedOn)
-        {
-            obj.GetComponent<Bullet>().bleedOn = true;
-        }
-
-
-        if (splinterOn)
-        {
-            obj.GetComponent<Bullet>().splinterOn = true;
-        }
+        obj.GetComponent<Bullet>().bleedOn = bleedOn;
+        obj.GetComponent<Bullet>().splinterOn = splinterOn;
+        obj.GetComponent<Bullet>().burnLvl = burnLvl;
+        obj.GetComponent<Bullet>().burnOn = burnOn;
     }
 
     private void Flip()

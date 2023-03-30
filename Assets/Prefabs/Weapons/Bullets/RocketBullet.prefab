@@ -4931,7 +4931,9 @@ MonoBehaviour:
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
-  fire: {fileID: 0}
+  burnOn: 0
+  burnLvl: 0
+  fire: {fileID: 511964044582101384, guid: beb95779772de7941ab92d2580f57124, type: 3}
   fireOn: 0
   trackingOn: 0
   explode: {fileID: 6304155242975271792, guid: 6b810c544766e42ffbfac0c209e6c46f, type: 3}

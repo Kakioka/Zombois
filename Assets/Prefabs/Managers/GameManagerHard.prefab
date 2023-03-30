@@ -278,6 +278,7 @@ MonoBehaviour:
   powerDmg: 0.3
   powerSpeed: 0.2
   glove: 0.2
+  lightHouse: {fileID: 611411238212071733, guid: 500f09231040b704185134400650a56b, type: 3}
   levelNum: 1
   stageManager:
   - {fileID: 1468025485690917258, guid: be81de067fe03ab4c8e346342b2e716c, type: 3}

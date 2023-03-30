@@ -52,13 +52,16 @@ public class gameManager : MonoBehaviour
     public GameObject missile;
     public float powerDmg, powerSpeed;
     public float glove;
+    [SerializeField]
+    private GameObject lightHouse;
 
     
 
     //track if upgrade exists
     private GameObject snowG;
-    private GameObject bubbleG;
+    private GameObject bubbleG, bubbleS;
     private GameObject missileG;
+    private GameObject lightG;
 
     //level count
     public int levelNum = 0;
@@ -220,6 +223,18 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().splinterOn = true;
             gun.GetComponent<Gun>().splintLvl = itemCounts[15];
         }
+
+        if (itemCounts[18] > 0)
+        {
+            lightG = Instantiate(lightHouse, sis.transform);
+            lightG.GetComponent<Lighthouse>().lightLvl = itemCounts[18];
+        }
+
+        if (itemCounts[19] > 0)
+        {
+            gun.GetComponent<Gun>().burnOn = true;
+            gun.GetComponent<Gun>().bleedLvl = itemCounts[14];
+        }
     }
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
@@ -262,6 +277,12 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().splinterOn = true;
             gun.GetComponent<Gun>().splintLvl = itemCounts[15];
         }
+
+        if (itemCounts[19] > 0)
+        {
+            gun.GetComponent<Gun>().burnOn = true;
+            gun.GetComponent<Gun>().bleedLvl = itemCounts[14];
+        }
     }
 
     public void itemUpgradePlayer() 
@@ -290,13 +311,13 @@ public class gameManager : MonoBehaviour
 
         if (itemCounts[10] > 0)
         {
-            if (bubbleG == null) 
+            if (bubbleG == null)
             {
                 bubbleG = Instantiate(bubble, player.transform);
-                GameObject bubbleS = Instantiate(bubble, sis.transform);
-                bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
-                bubbleS.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
-            }  
+                bubbleS = Instantiate(bubble, sis.transform);
+            }
+            bubbleS.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
+            bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
         }
 
         if (itemCounts[11] > 0)
@@ -307,6 +328,20 @@ public class gameManager : MonoBehaviour
                 missileG.GetComponent<MissileLauncher>().player = player;
             }
             missileG.GetComponent<MissileLauncher>().missileLvl = itemCounts[11];
+        }
+
+        if (itemCounts[18] > 0)
+        {
+            if (lightG == null)
+            {
+                lightG = Instantiate(lightHouse, sis.transform);
+            }
+            else
+            {
+                Destroy(lightG);
+                lightG = Instantiate(lightHouse, sis.transform);
+            }
+            lightG.GetComponent<Lighthouse>().lightLvl = itemCounts[18];
         }
     }
 

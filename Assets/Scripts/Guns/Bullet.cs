@@ -21,11 +21,13 @@ public class Bullet : MonoBehaviour
     public bool splinterOn = false;
     public int splintLvl;
 
+    public bool burnOn;
+    public int burnLvl;
+
     private Rigidbody2D rb;
     [SerializeField]
     private GameObject fire;
-    [SerializeField]
-    private bool fireOn;
+    public bool fireOn;
     [SerializeField]
     private bool trackingOn;
     [SerializeField]
@@ -111,6 +113,16 @@ public class Bullet : MonoBehaviour
         GameObject clone = Instantiate(fire, collision.transform);
     }
 
+    private void burnEffect(Collider2D collision)
+    {
+        float chanceBleed = Random.Range(0, 100);
+        if (chanceBleed >= 65)
+        {
+            GameObject clone = Instantiate(fire, collision.transform);
+            clone.GetComponent<BleedEffect>().time = clone.GetComponent<BleedEffect>().time * (1 + (0.3f * burnLvl));
+        }
+    }
+
     private void splinter(Collider2D collision)
     {
         for (int i = 0; i < 2 + splintLvl; i++)
@@ -159,6 +171,8 @@ public class Bullet : MonoBehaviour
                     boomObj.GetComponent<BoomMissile>().knockBack = knockBack;
                     boomObj.GetComponent<BoomMissile>().bleedOn = bleedOn;
                     boomObj.GetComponent<BoomMissile>().bleedLvl = bleedLvl;
+                    boomObj.GetComponent<BoomMissile>().burnOn = burnOn;
+                    boomObj.GetComponent<BoomMissile>().burnLvl = burnLvl;
                     Destroy(gameObject);
                     Destroy(effect, 1f);
                     return;
@@ -182,6 +196,11 @@ public class Bullet : MonoBehaviour
             if (bleedOn)
             {
                 bleedEffect(collision);
+            }
+
+            if (burnOn)
+            {
+                burnEffect(collision);
             }
 
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;

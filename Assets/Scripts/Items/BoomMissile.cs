@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Services.Lobbies.Models;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class BoomMissile : MonoBehaviour
 {
@@ -14,8 +12,12 @@ public class BoomMissile : MonoBehaviour
     public float knockBack;
     public bool bleedOn = false;
     public int bleedLvl;
+    public bool burnOn = false;
+    public int burnLvl = 0;
     [SerializeField]
     private GameObject bleedPre;
+    [SerializeField]
+    private GameObject burnPre;
 
     private void bleedEffect(Collider2D collision)
     {
@@ -24,6 +26,16 @@ public class BoomMissile : MonoBehaviour
         {
             GameObject clone = Instantiate(bleedPre, collision.transform);
             clone.GetComponent<BleedEffect>().DoT *= (1 - (bleedLvl * 0.3f));
+        }
+    }
+
+    private void burnEffect(Collider2D collision)
+    {
+        float chanceBleed = Random.Range(0, 100);
+        if (chanceBleed >= 65)
+        {
+            GameObject clone = Instantiate(burnPre, collision.transform);
+            clone.GetComponent<BleedEffect>().time = clone.GetComponent<BleedEffect>().time * (1 + (0.3f * burnLvl));
         }
     }
 
@@ -48,6 +60,11 @@ public class BoomMissile : MonoBehaviour
             if (bleedOn)
             {
                 bleedEffect(collision);
+            }
+
+            if (burnOn)
+            {
+                burnEffect(collision);
             }
 
             collision.GetComponent<Enemy>().knock = true;
