@@ -33,7 +33,8 @@ public class Gun : MonoBehaviour
     public int splintLvl = 0;
     public bool burnOn = false;
     public int burnLvl = 0;
-
+    public bool freezeOn = false;
+    public int freezeLvl = 0;
 
     [SerializeField]
     private float spread;
@@ -199,6 +200,8 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().splinterOn = splinterOn;
         obj.GetComponent<Bullet>().burnLvl = burnLvl;
         obj.GetComponent<Bullet>().burnOn = burnOn;
+        obj.GetComponent<Bullet>().freezeLvl = freezeLvl;
+        obj.GetComponent<Bullet>().freezeOn = freezeOn;
     }
 
     private void Flip()

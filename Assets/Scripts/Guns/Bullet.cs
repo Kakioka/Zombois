@@ -24,6 +24,9 @@ public class Bullet : MonoBehaviour
     public bool burnOn;
     public int burnLvl;
 
+    public bool freezeOn;
+    public int freezeLvl;
+
     private Rigidbody2D rb;
     [SerializeField]
     private GameObject fire;
@@ -32,6 +35,8 @@ public class Bullet : MonoBehaviour
     private bool trackingOn;
     [SerializeField]
     private GameObject explode;
+    [SerializeField]
+    private GameObject freeze;
     private float dist = 99999;
     private GameObject target;
     [SerializeField]
@@ -123,6 +128,16 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private void freezeEffect(Collider2D collision)
+    {
+        float chanceBleed = Random.Range(0, 100);
+        if (chanceBleed >= 65)
+        {
+            GameObject clone = Instantiate(freeze, collision.transform);
+            freeze.GetComponent<Freeze>().time = clone.GetComponent<Freeze>().time * (1 + (0.2f * freezeLvl));
+        }
+    }
+
     private void splinter(Collider2D collision)
     {
         for (int i = 0; i < 2 + splintLvl; i++)
@@ -201,6 +216,11 @@ public class Bullet : MonoBehaviour
             if (burnOn)
             {
                 burnEffect(collision);
+            }
+
+            if (freezeOn)
+            {
+                freezeEffect(collision);
             }
 
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;

@@ -233,7 +233,13 @@ public class gameManager : MonoBehaviour
         if (itemCounts[19] > 0)
         {
             gun.GetComponent<Gun>().burnOn = true;
-            gun.GetComponent<Gun>().bleedLvl = itemCounts[14];
+            gun.GetComponent<Gun>().bleedLvl = itemCounts[19];
+        }
+
+        if (itemCounts[20] > 0)
+        {
+            gun.GetComponent<Gun>().freezeOn = true;
+            gun.GetComponent<Gun>().bleedLvl = itemCounts[20];
         }
     }
 
@@ -281,7 +287,13 @@ public class gameManager : MonoBehaviour
         if (itemCounts[19] > 0)
         {
             gun.GetComponent<Gun>().burnOn = true;
-            gun.GetComponent<Gun>().bleedLvl = itemCounts[14];
+            gun.GetComponent<Gun>().bleedLvl = itemCounts[19];
+        }
+
+        if (itemCounts[20] > 0)
+        {
+            gun.GetComponent<Gun>().freezeOn = true;
+            gun.GetComponent<Gun>().bleedLvl = itemCounts[20];
         }
     }
 

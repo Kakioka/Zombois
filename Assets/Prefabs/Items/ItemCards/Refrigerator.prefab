@@ -450,7 +450,7 @@ MonoBehaviour:
   textItemCost: {fileID: 7444943483019648516}
   cost: 25
   itemNum: 20
-  description: One week old takeout? Yum! Bullets have a chance to slow enemies
+  description: One week old takeout? Yum! Bullets have a chance to freeze enemies
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   toolTip: {fileID: 0}

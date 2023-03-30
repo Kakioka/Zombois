@@ -14,10 +14,14 @@ public class BoomMissile : MonoBehaviour
     public int bleedLvl;
     public bool burnOn = false;
     public int burnLvl = 0;
+    public bool freezeOn;
+    public int freezeLvl;
     [SerializeField]
     private GameObject bleedPre;
     [SerializeField]
     private GameObject burnPre;
+    [SerializeField]
+    private GameObject freeze;
 
     private void bleedEffect(Collider2D collision)
     {
@@ -36,6 +40,16 @@ public class BoomMissile : MonoBehaviour
         {
             GameObject clone = Instantiate(burnPre, collision.transform);
             clone.GetComponent<BleedEffect>().time = clone.GetComponent<BleedEffect>().time * (1 + (0.3f * burnLvl));
+        }
+    }
+
+    private void freezeEffect(Collider2D collision)
+    {
+        float chanceBleed = Random.Range(0, 100);
+        if (chanceBleed >= 65)
+        {
+            GameObject clone = Instantiate(freeze, collision.transform);
+            freeze.GetComponent<BleedEffect>().time = clone.GetComponent<BleedEffect>().time * (1 + (0.2f * freezeLvl));
         }
     }
 
