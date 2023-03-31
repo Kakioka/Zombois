@@ -56,15 +56,12 @@ public class gameManager : MonoBehaviour
     private GameObject lightHouse;
     [SerializeField]
     private GameObject cat;
-
+    [SerializeField]
+    private GameObject beats;
 
 
     //track if upgrade exists
-    private GameObject snowG;
-    private GameObject bubbleG, bubbleS;
-    private GameObject missileG;
-    private GameObject lightG;
-    private GameObject catG;
+    private GameObject snowG, bubbleG, bubbleS, missileG, lightG, catG, beatG;
 
     //level count
     public int levelNum = 0;
@@ -252,6 +249,13 @@ public class gameManager : MonoBehaviour
             catG.GetComponent<Cat>().attackCD = catG.GetComponent<Cat>().attackCD * (1-(0.1f*itemCounts[21]));
             catG.GetComponent<Cat>().moveSpeed = catG.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
         }
+
+        if (itemCounts[22] > 0)
+        {
+            beatG = Instantiate(beats);
+            beatG.GetComponent<BeatsManager>().player = player;
+            beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
+        }
     }
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
@@ -376,6 +380,16 @@ public class gameManager : MonoBehaviour
             catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21]-1));
             catG.GetComponent<Cat>().attackCD = cat.GetComponent<Cat>().attackCD * (1 - (0.1f * itemCounts[21]));
             catG.GetComponent<Cat>().moveSpeed = cat.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
+        }
+
+        if (itemCounts[22] > 0)
+        {
+            if (beatG == null)
+            {
+                beatG = Instantiate(beats);
+                beatG.GetComponent<BeatsManager>().player = player;
+            }
+            beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
         }
     }
 

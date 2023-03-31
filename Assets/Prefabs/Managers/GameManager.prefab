@@ -280,6 +280,7 @@ MonoBehaviour:
   glove: 0.2
   lightHouse: {fileID: 611411238212071733, guid: 500f09231040b704185134400650a56b, type: 3}
   cat: {fileID: 6296934307738669560, guid: f1ff25d90070b79409a7ea56a5412053, type: 3}
+  beats: {fileID: 1364543922525471723, guid: 00fa4fb76c8da436bbff1402b715f4f0, type: 3}
   levelNum: 1
   stageManager:
   - {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}
