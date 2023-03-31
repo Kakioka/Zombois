@@ -25,9 +25,10 @@ public class BleedEffect : MonoBehaviour
         coolDown = true;
         yield return new WaitForSeconds(DoT);
         GetComponentInParent<Enemy>().health -= damage;
-        Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(transform.position.x, transform.position.y);
+        Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(transform.parent.position.x, transform.parent.position.y);
         temp.z = 10;
         GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+        num.transform.position += new Vector3(0.25f, 0f);
         num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
         Destroy(num, 1f);
         

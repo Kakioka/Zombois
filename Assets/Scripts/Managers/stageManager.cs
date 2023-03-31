@@ -80,9 +80,12 @@ public class stageManager : MonoBehaviour
         if(stageTimer <= 0)
         {
             spawner.SetActive(false);
-            foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length != 0) 
             {
-                e.GetComponent<Enemy>().health = 0;
+                foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    e.GetComponent<Enemy>().health = 0;
+                }
             }
             if (stageCount == 7 && bossSpawned == false)
             {

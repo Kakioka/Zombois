@@ -88,6 +88,7 @@ public class BoomMissile : MonoBehaviour
             Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
             temp.z = 10;
             GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+            num.transform.position += new Vector3(0.25f, 0f);
             num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
             Destroy(num, 1f);
             collision.GetComponent<Enemy>().health -= damage;

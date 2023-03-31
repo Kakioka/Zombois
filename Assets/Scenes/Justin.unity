@@ -1189,6 +1189,10 @@ PrefabInstance:
       propertyPath: m_LinearDrag
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -8658588603275888696, guid: b76b8dd613b3b234ca745072a8def304, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6767434612970430739, guid: b76b8dd613b3b234ca745072a8def304, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -2080,6 +2084,9 @@ MonoBehaviour:
   speedReduction: 0.7
   speedReduced: 0
   gun: {fileID: 1870029489}
+  coinChance: 0
+  coinOn: 0
+  coinLvl: 0
 --- !u!224 &3149645218361831985 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7101467464006542092, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
@@ -2175,7 +2182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 816795137638649300, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 816795137638649303, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
       propertyPath: m_RootOrder
@@ -2576,7 +2583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3383940849777442907, guid: 10ffce14c03910d4e8c00e2f580e45a7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6575873182472124180, guid: 10ffce14c03910d4e8c00e2f580e45a7, type: 3}
       propertyPath: player

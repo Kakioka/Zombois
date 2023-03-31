@@ -26,6 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject gun;
 
+    [SerializeField]
+    private int coinChance;
+    private int oldCoin;
+    public bool coinOn;
+    public int coinLvl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,19 @@ public class PlayerMovement : MonoBehaviour
         ring.SetActive(false);
         pickUp.radius = pickUpRadius;
         ani = gameObject.GetComponent<Animator>();
+        oldCoin = bank;
+        coinChance += 5 * coinLvl;
+    }
+
+    private void coinUp() 
+    {
+        if (oldCoin != bank) 
+        {
+            if (coinChance < Random.Range(0, 101)) 
+            {
+                bank++;
+            }
+        }
     }
 
     public IEnumerator invincible()
@@ -51,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (coinOn) 
+        {
+            coinUp();
+        }
+        
         if (isInv)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));

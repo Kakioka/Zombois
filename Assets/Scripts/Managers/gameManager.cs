@@ -248,6 +248,7 @@ public class gameManager : MonoBehaviour
             catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21] - 1));
             catG.GetComponent<Cat>().attackCD = catG.GetComponent<Cat>().attackCD * (1-(0.1f*itemCounts[21]));
             catG.GetComponent<Cat>().moveSpeed = catG.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
+            catG.GetComponent<Cat>().player = player;
         }
 
         if (itemCounts[22] > 0)
@@ -255,6 +256,12 @@ public class gameManager : MonoBehaviour
             beatG = Instantiate(beats);
             beatG.GetComponent<BeatsManager>().player = player;
             beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
+        }
+
+        if (itemCounts[23] > 0) 
+        {
+            player.GetComponent<PlayerMovement>().coinOn = true;
+            player.GetComponent<PlayerMovement>().coinLvl = itemCounts[23];
         }
     }
 
@@ -326,6 +333,7 @@ public class gameManager : MonoBehaviour
             beatG.GetComponent<BeatsManager>().player = player;
             beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
         }
+
     }
 
     public void itemUpgradePlayer() 
@@ -393,6 +401,7 @@ public class gameManager : MonoBehaviour
             {
                 catG = Instantiate(cat, player.transform.position, Quaternion.identity);
             }
+            catG.GetComponent<Cat>().player = player;
             catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21]-1));
             catG.GetComponent<Cat>().attackCD = cat.GetComponent<Cat>().attackCD * (1 - (0.1f * itemCounts[21]));
             catG.GetComponent<Cat>().moveSpeed = cat.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
@@ -412,6 +421,12 @@ public class gameManager : MonoBehaviour
             } 
             beatG.GetComponent<BeatsManager>().player = player;
             beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
+        }
+
+        if (itemCounts[23] > 0)
+        {
+            player.GetComponent<PlayerMovement>().coinOn = true;
+            player.GetComponent<PlayerMovement>().coinLvl = itemCounts[23];
         }
     }
 

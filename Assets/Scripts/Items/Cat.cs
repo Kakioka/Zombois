@@ -22,6 +22,8 @@ public class Cat : MonoBehaviour
     private float radius;
     private Rigidbody2D rb;
 
+    public GameObject player;
+
     public float attackCD;
 
     public int damage;
@@ -34,6 +36,7 @@ public class Cat : MonoBehaviour
         Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
         temp.z = 10;
         GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+        num.transform.position += new Vector3(0.25f, 0f);
         num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
         Destroy(num, 1f);
         ani.SetBool("move", false);
@@ -54,7 +57,7 @@ public class Cat : MonoBehaviour
     {
         if (!attacked) 
         {
-            findTarget();
+            
             if (target != null)
             {
                 Vector3 temp = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
@@ -84,6 +87,7 @@ public class Cat : MonoBehaviour
             else
             {
                 dist = 9999;
+                findTarget();
             }
         }
     }
@@ -115,7 +119,7 @@ public class Cat : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject g in enemies)
         {
-            float gDist = Vector2.Distance(transform.position, g.transform.position);
+            float gDist = Vector2.Distance(player.transform.position, g.transform.position);
             if (gDist < dist)
             {
                 dist = gDist;

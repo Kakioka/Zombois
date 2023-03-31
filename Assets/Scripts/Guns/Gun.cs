@@ -185,6 +185,8 @@ public class Gun : MonoBehaviour
 
     void helperSpawn(GameObject obj)
     {
+        float ran = Random.Range(-spread, spread);
+        obj.transform.Rotate(0f, 0f, ran);
         obj.GetComponent<Bullet>().damage = damage;
         obj.GetComponent<Bullet>().pierce = piecre;
         obj.GetComponent<Bullet>().knockBack = knockBack;

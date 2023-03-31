@@ -105,7 +105,7 @@ public class Bullet : MonoBehaviour
 
     private void bleedEffect(Collider2D collision)
     {
-        float chanceBleed = Random.Range(0, 100);
+        float chanceBleed = Random.Range(0, 101);
         if (chanceBleed >= 65)
         {
             GameObject clone = Instantiate(bleedPre, collision.transform);
@@ -120,7 +120,7 @@ public class Bullet : MonoBehaviour
 
     private void burnEffect(Collider2D collision)
     {
-        float chanceBleed = Random.Range(0, 100);
+        float chanceBleed = Random.Range(0, 101);
         if (chanceBleed >= 65)
         {
             GameObject clone = Instantiate(fire, collision.transform);
@@ -130,7 +130,7 @@ public class Bullet : MonoBehaviour
 
     private void freezeEffect(Collider2D collision)
     {
-        float chanceBleed = Random.Range(0, 100);
+        float chanceBleed = Random.Range(0, 101);
         if (chanceBleed >= 65)
         {
             GameObject clone = Instantiate(freeze, collision.transform);
@@ -229,9 +229,10 @@ public class Bullet : MonoBehaviour
             rbE.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
 
             //spawn damage text
-            Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
+            Vector3 temp = (Random.insideUnitCircle.normalized * radius) + (Vector2)collision.transform.position;
             temp.z = 10;
             GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+            num.transform.position += new Vector3(0.25f, 0f);
             num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
             Destroy(num, 1f);
 
