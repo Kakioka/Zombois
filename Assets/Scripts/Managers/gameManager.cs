@@ -310,6 +310,22 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().freezeOn = true;
             gun.GetComponent<Gun>().bleedLvl = itemCounts[20];
         }
+
+        if (itemCounts[22] > 0)
+        {
+            if (beatG == null)
+            {
+                beatG = Instantiate(beats);
+
+            }
+            else
+            {
+                Destroy(beatG);
+                beatG = Instantiate(beats);
+            }
+            beatG.GetComponent<BeatsManager>().player = player;
+            beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
+        }
     }
 
     public void itemUpgradePlayer() 
@@ -387,8 +403,14 @@ public class gameManager : MonoBehaviour
             if (beatG == null)
             {
                 beatG = Instantiate(beats);
-                beatG.GetComponent<BeatsManager>().player = player;
+               
             }
+            else 
+            {
+                Destroy(beatG);
+                beatG = Instantiate(beats);
+            } 
+            beatG.GetComponent<BeatsManager>().player = player;
             beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
         }
     }

@@ -115,3 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
+  beatsManager: {fileID: 0}
+  timeUp: 0.5

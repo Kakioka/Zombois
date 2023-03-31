@@ -292,7 +292,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &1364543922525471724
 MonoBehaviour:
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1364543922525471725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +351,7 @@ MonoBehaviour:
   end: {fileID: 1364543921805552951}
   player: {fileID: 0}
   gun: {fileID: 0}
+  beatsLvl: 0
   timer: 0
 --- !u!1 &1364543923021219715
 GameObject:

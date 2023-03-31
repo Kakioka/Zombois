@@ -7,6 +7,8 @@ public class Note : MonoBehaviour
     public Gun gun;
     public BeatsManager beatsManager;
 
+    [SerializeField]
+    private float timeUp;
     private bool inGreen = false;
 
     // Start is called before the first frame update
@@ -22,7 +24,7 @@ public class Note : MonoBehaviour
         {
             if (inGreen)
             {
-                beatsManager.timer += 0.7f;
+                beatsManager.timer += timeUp;
                 Debug.Log("nice");
             }
             Destroy(gameObject);

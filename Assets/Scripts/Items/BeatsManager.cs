@@ -17,8 +17,7 @@ public class BeatsManager : MonoBehaviour
 
     public GameObject player;
 
-    [SerializeField]
-    private Gun gun;
+    public Gun gun;
 
 
     private bool noteSpawned = false;
