@@ -16,6 +16,9 @@ public class Matrix : MonoBehaviour
     private float rotation;
     [SerializeField]
     private float delay;
+
+    public int matrixLvl;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +50,10 @@ public class Matrix : MonoBehaviour
             yield return new WaitForSeconds(delay);
             GameObject temp = Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
             gun.GetComponent<Gun>().helperSpawn(temp);
-            temp.GetComponent<Bullet>().damage *= Mathf.CeilToInt(0.4f);
+            temp.GetComponent<Bullet>().damage = Mathf.CeilToInt(temp.GetComponent<Bullet>().damage * 0.3f * (1 + (0.3f * (matrixLvl-1))));
+            temp.GetComponent<Bullet>().force *= 0.7f;
+            temp.GetComponent<Bullet>().knockBack *= 0.7f;
+            temp.GetComponent<Bullet>().life *= 0.5f;
             firePoint.transform.Rotate(0f, 0f, -rotation);
         }
         

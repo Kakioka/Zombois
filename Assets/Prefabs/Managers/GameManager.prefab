@@ -282,6 +282,7 @@ MonoBehaviour:
   cat: {fileID: 6296934307738669560, guid: f1ff25d90070b79409a7ea56a5412053, type: 3}
   beats: {fileID: 1364543922525471723, guid: 00fa4fb76c8da436bbff1402b715f4f0, type: 3}
   bell: 0.3
+  matrix: {fileID: 624616705980969380, guid: 266becebd96ca1640b247c4a1c4b708b, type: 3}
   levelNum: 1
   stageManager:
   - {fileID: 1468025485690917258, guid: 2e67989c1dd5d994e864b5550185a37b, type: 3}

@@ -30,13 +30,14 @@ public class DualPistols : MonoBehaviour
     {
         if (check)
         {
-           
             if (parent == null)
             {
                 Destroy(gameObject);
-            } 
-            
-            GetComponent<Gun>().damage = parent.GetComponent<Gun>().damage;
+            }
+            else 
+            {
+                GetComponent<Gun>().damage = parent.GetComponent<Gun>().damage;
+            }
         }
     }
 }

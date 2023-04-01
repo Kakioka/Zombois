@@ -60,10 +60,12 @@ public class gameManager : MonoBehaviour
     private GameObject beats;
     [SerializeField]
     private float bell;
+    [SerializeField]
+    private GameObject matrix;
 
 
     //track if upgrade exists
-    private GameObject snowG, bubbleG, bubbleS, missileG, lightG, catG, beatG;
+    private GameObject snowG, bubbleG, bubbleS, missileG, lightG, catG, beatG, matrixG;
 
     //level count
     public int levelNum = 0;
@@ -114,7 +116,8 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 1;
         spawnPlayer();
         spawnWep(wepNum);
-        itemUpgrade();
+        itemUpgradeGun(gun, guns[wepNum]);
+        itemUpgradePlayer();
     }
 
     void upgradeStart()
@@ -123,7 +126,8 @@ public class gameManager : MonoBehaviour
         player.transform.position = new Vector3(0, -2, 10);
         sis.transform.position = new Vector3(0.8f, -2, 10);
         spawnWep(wepNum);
-        itemUpgrade();
+        itemUpgradeGun(gun, guns[wepNum]);
+        itemUpgradePlayer();
     }
 
     void spawnPlayer()
@@ -152,7 +156,7 @@ public class gameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().gun = gun;
     }
 
-    public void itemUpgrade() 
+    /*public void itemUpgrade() 
     {
         //upgrade gun
         //firerate
@@ -296,7 +300,7 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().laserOn = true;
             gun.GetComponent<Gun>().laserLvl = itemCounts[26];
         }
-    }
+    }*/
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
     {
@@ -378,6 +382,22 @@ public class gameManager : MonoBehaviour
         {
             gun.GetComponent<Gun>().laserOn = true;
             gun.GetComponent<Gun>().laserLvl = itemCounts[26];
+        }
+
+        if (itemCounts[27] > 0)
+        {
+            if (matrixG == null)
+            {
+                matrixG = Instantiate(matrix);
+
+            }
+            else
+            {
+                Destroy(matrixG);
+                matrixG = Instantiate(matrix);
+            }
+            matrixG.GetComponent<Matrix>().player = player;
+            matrixG.GetComponent<Matrix>().matrixLvl = itemCounts[27];
         }
 
     }
@@ -474,6 +494,22 @@ public class gameManager : MonoBehaviour
         {
             player.GetComponent<PlayerMovement>().coinOn = true;
             player.GetComponent<PlayerMovement>().coinLvl = itemCounts[23];
+        }
+
+        if (itemCounts[27] > 0) 
+        {
+            if (matrixG == null)
+            {
+                matrixG = Instantiate(matrix);
+                
+            }
+            else 
+            {
+                Destroy(matrixG);
+                matrixG = Instantiate(matrix);
+            }
+            matrixG.GetComponent<Matrix>().player = player;
+            matrixG.GetComponent<Matrix>().matrixLvl = itemCounts[27];
         }
     }
 
