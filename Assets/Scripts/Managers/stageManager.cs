@@ -48,6 +48,8 @@ public class stageManager : MonoBehaviour
     [SerializeField]
     private float stageTimer;
 
+    private bool stageEnded = false;
+
     private IEnumerator end()
     {
         yield return new WaitForSeconds(5f);
@@ -80,8 +82,9 @@ public class stageManager : MonoBehaviour
         if(stageTimer <= 0)
         {
             spawner.SetActive(false);
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length != 0) 
+            if (!stageEnded) 
             {
+                stageEnded = true;
                 foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
                 {
                     e.GetComponent<Enemy>().health = 0;
