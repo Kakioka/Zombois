@@ -226,7 +226,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    void helperSpawn(GameObject obj)
+    public void helperSpawn(GameObject obj)
     {
         float ran = Random.Range(-spread, spread);
         obj.transform.Rotate(0f, 0f, ran);
