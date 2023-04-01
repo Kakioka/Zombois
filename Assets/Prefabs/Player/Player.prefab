@@ -372,6 +372,9 @@ MonoBehaviour:
   speedReduction: 0.4
   speedReduced: 0
   gun: {fileID: 0}
+  coinChance: 10
+  coinOn: 0
+  coinLvl: 0
 --- !u!95 &700162175254647332
 Animator:
   serializedVersion: 5

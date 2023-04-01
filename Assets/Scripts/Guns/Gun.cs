@@ -36,6 +36,21 @@ public class Gun : MonoBehaviour
     public bool freezeOn = false;
     public int freezeLvl = 0;
 
+
+    public bool tridentOn = false;
+    public int tridentLvl;
+    [SerializeField]
+    private GameObject trident;
+    private bool tridentCoolDown;
+    public float tridentTimer;
+
+    public bool laserOn = false;
+    public int laserLvl;
+    [SerializeField]
+    private GameObject laser;
+    private bool laserCoolDown = false;
+    public float laserTimer;
+
     [SerializeField]
     private float spread;
 
@@ -94,6 +109,24 @@ public class Gun : MonoBehaviour
         }
     }
 
+    IEnumerator laserShoot()
+    {
+        laserCoolDown = true;
+        GameObject temp = Instantiate(laser, firePoint.transform.position, firePoint.transform.rotation);
+        temp.GetComponent<Laser>().laserLvl = laserLvl;
+        yield return new WaitForSeconds(laserTimer);
+        laserCoolDown = false;
+    }
+
+    IEnumerator tridentShoot()
+    {
+        tridentCoolDown = true;
+        GameObject temp = Instantiate(trident, firePoint.transform.position, firePoint.transform.rotation);
+        temp.GetComponent<Bullet>().damage = 5 * tridentLvl;
+        yield return new WaitForSeconds(tridentTimer);
+        tridentCoolDown = false;
+    }
+
     IEnumerator Reloading()
     {
         yield return new WaitForSeconds(reloadSpeed);
@@ -150,6 +183,16 @@ public class Gun : MonoBehaviour
         else if (transform.rotation.eulerAngles.z < 180 && lookingRight)
         {
             Flip();
+        }
+
+        if (tridentOn && !tridentCoolDown)
+        {
+            StartCoroutine(tridentShoot());
+        }
+
+        if (laserOn && !laserCoolDown)
+        {
+            StartCoroutine(laserShoot());
         }
     }
 

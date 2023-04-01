@@ -58,6 +58,8 @@ public class gameManager : MonoBehaviour
     private GameObject cat;
     [SerializeField]
     private GameObject beats;
+    [SerializeField]
+    private float bell;
 
 
     //track if upgrade exists
@@ -152,17 +154,27 @@ public class gameManager : MonoBehaviour
 
     public void itemUpgrade() 
     {
+        //upgrade gun
+        //firerate
         gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
+        //damage
         gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * Mathf.Pow(2,itemCounts[17]) * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+        //damage reduction cap
         if (gun.GetComponent<Gun>().damage <= 0) 
         {
             gun.GetComponent<Gun>().damage = 1;
         }
+        //bullet size
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
+        //explosion size for explosives increases with bullet size
         gun.GetComponent<Gun>().boomScale = gun.GetComponent<Gun>().boomScale * (1 + (bangSize * itemCounts[4]));
+        //bullet speed
         gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
+        //pierce
         gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
+        //reload speed
         gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5]) * (1 - (glove * itemCounts[16])));
+        //ammo reduction cap calulations
         float temp = 1 - (fullAmmo * itemCounts[5]);
         if (temp < 0.3 && itemCounts[3] > 0)
         {
@@ -173,17 +185,26 @@ public class gameManager : MonoBehaviour
         {
             temp2 = 0.3f;
         }
+        //ammo
         gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (temp * temp2));
+        //ammo reduction cap
         if (gun.GetComponent<Gun>().maxAmmo < 1) 
         {
             gun.GetComponent<Gun>().maxAmmo = 1;
         }
+        //bullet up
         gun.GetComponent<Gun>().projectiles = gun.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
+        //knockback
+        gun.GetComponent<Gun>().knockBack = gun.GetComponent<Gun>().knockBack * (1 + (bell * itemCounts[24]));
+
+        //upgrade player
         player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]));
         sis.GetComponent<Sister>().moveSpeed = sis.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
         player.GetComponent<PlayerMovement>().pickUpRadius = player.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().pickUpRadius = sis.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().maxHealth -= itemCounts[17];
+        player.GetComponent<PlayerMovement>().speedReduction = player.GetComponent<PlayerMovement>().speedReduction * (1 + (bell * itemCounts[24]));
+
         if (sis.GetComponent<Sister>().health > sis.GetComponent<Sister>().maxHealth)
         {
             sis.GetComponent<Sister>().health = sis.GetComponent<Sister>().maxHealth;
@@ -233,13 +254,13 @@ public class gameManager : MonoBehaviour
         if (itemCounts[19] > 0)
         {
             gun.GetComponent<Gun>().burnOn = true;
-            gun.GetComponent<Gun>().bleedLvl = itemCounts[19];
+            gun.GetComponent<Gun>().burnLvl = itemCounts[19];
         }
 
         if (itemCounts[20] > 0)
         {
             gun.GetComponent<Gun>().freezeOn = true;
-            gun.GetComponent<Gun>().bleedLvl = itemCounts[20];
+            gun.GetComponent<Gun>().freezeLvl = itemCounts[20];
         }
 
         if (itemCounts[21] > 0) 
@@ -262,6 +283,18 @@ public class gameManager : MonoBehaviour
         {
             player.GetComponent<PlayerMovement>().coinOn = true;
             player.GetComponent<PlayerMovement>().coinLvl = itemCounts[23];
+        }
+
+        if (itemCounts[25] > 0)
+        {
+            gun.GetComponent<Gun>().tridentOn = true;
+            gun.GetComponent<Gun>().tridentLvl = itemCounts[25];
+        }
+
+        if (itemCounts[26] > 0)
+        {
+            gun.GetComponent<Gun>().laserOn = true;
+            gun.GetComponent<Gun>().laserLvl = itemCounts[26];
         }
     }
 
@@ -294,6 +327,7 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().maxAmmo = 1;
         }
         gun.GetComponent<Gun>().projectiles = gunb.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
+        gun.GetComponent<Gun>().knockBack = gunb.GetComponent<Gun>().knockBack * (1 + (bell * itemCounts[24]));
         if (itemCounts[14] > 0)
         {
             gun.GetComponent<Gun>().bleedOn = true;
@@ -309,13 +343,13 @@ public class gameManager : MonoBehaviour
         if (itemCounts[19] > 0)
         {
             gun.GetComponent<Gun>().burnOn = true;
-            gun.GetComponent<Gun>().bleedLvl = itemCounts[19];
+            gun.GetComponent<Gun>().burnLvl = itemCounts[19];
         }
 
         if (itemCounts[20] > 0)
         {
             gun.GetComponent<Gun>().freezeOn = true;
-            gun.GetComponent<Gun>().bleedLvl = itemCounts[20];
+            gun.GetComponent<Gun>().freezeLvl = itemCounts[20];
         }
 
         if (itemCounts[22] > 0)
@@ -334,6 +368,18 @@ public class gameManager : MonoBehaviour
             beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
         }
 
+        if (itemCounts[25] > 0)
+        {
+            gun.GetComponent<Gun>().tridentOn = true;
+            gun.GetComponent<Gun>().tridentLvl = itemCounts[25];
+        }
+
+        if (itemCounts[26] > 0)
+        {
+            gun.GetComponent<Gun>().laserOn = true;
+            gun.GetComponent<Gun>().laserLvl = itemCounts[26];
+        }
+
     }
 
     public void itemUpgradePlayer() 
@@ -344,6 +390,7 @@ public class gameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().pickUpRadius = playerPref.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().pickUpRadius = sisPre.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().maxHealth = sisPre.GetComponent<Sister>().maxHealth - itemCounts[17];
+        player.GetComponent<PlayerMovement>().speedReduction = player.GetComponent<PlayerMovement>().speedReduction * (1 + (bell * itemCounts[24]));
         if (sis.GetComponent<Sister>().health > sis.GetComponent<Sister>().maxHealth) 
         {
             sis.GetComponent<Sister>().health = sis.GetComponent<Sister>().maxHealth;

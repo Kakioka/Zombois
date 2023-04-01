@@ -177,6 +177,18 @@ MonoBehaviour:
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
+  burnOn: 0
+  burnLvl: 0
+  freezeOn: 0
+  freezeLvl: 0
+  tridentOn: 0
+  tridentLvl: 0
+  trident: {fileID: 4440926475043643178, guid: 267f9f45df4bd4a8082c1305da722a4a, type: 3}
+  tridentTimer: 3
+  laserOn: 0
+  laserLvl: 0
+  laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
+  laserTimer: 3
   spread: 3
   boomScale: 1.3
 --- !u!82 &7104343852018072323

@@ -47,10 +47,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (oldCoin != bank) 
         {
-            if (coinChance < Random.Range(0, 101)) 
+            if (coinChance >= Random.Range(0, 101)) 
             {
                 bank++;
             }
+            oldCoin = bank;
         }
     }
 

@@ -22,6 +22,8 @@ public class BoomMissile : MonoBehaviour
     private GameObject burnPre;
     [SerializeField]
     private GameObject freeze;
+    [SerializeField]
+    private GameObject hitEffect;
 
     private void bleedEffect(Collider2D collision)
     {
@@ -92,6 +94,9 @@ public class BoomMissile : MonoBehaviour
             num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
             Destroy(num, 1f);
             collision.GetComponent<Enemy>().health -= damage;
+
+            GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
         }
     }
 

@@ -22,6 +22,9 @@ public class Cat : MonoBehaviour
     private float radius;
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private GameObject hitEffect;
+
     public GameObject player;
 
     public float attackCD;
@@ -39,6 +42,10 @@ public class Cat : MonoBehaviour
         num.transform.position += new Vector3(0.25f, 0f);
         num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
         Destroy(num, 1f);
+
+        GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
+
         ani.SetBool("move", false);
         yield return new WaitForSeconds(attackCD);
         dist = 9999;

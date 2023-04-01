@@ -138,8 +138,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   maxDist: 0.8
+  attacked: 0
   damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
   radius: 0.5
+  hitEffect: {fileID: 278193819304500194, guid: 411131198cdda864ea6127482ddf0efc, type: 3}
+  player: {fileID: 0}
   attackCD: 2
   damage: 5
 --- !u!50 &6296934307738669566

@@ -172,7 +172,6 @@ public class Bullet : MonoBehaviour
            
             if (pierce <= 0)
             {
-                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
                 if (splinterOn && collision.gameObject.tag != "Shield")
                 {
                     splinter(collision);
@@ -189,19 +188,14 @@ public class Bullet : MonoBehaviour
                     boomObj.GetComponent<BoomMissile>().burnOn = burnOn;
                     boomObj.GetComponent<BoomMissile>().burnLvl = burnLvl;
                     Destroy(gameObject);
-                    Destroy(effect, 1f);
                     return;
                 }
-
-                Destroy(effect, 1f);
                 Destroy(gameObject);
             }
             else
             {
                 if (collision.gameObject.tag == "Shield")
                 {
-                    GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                    Destroy(effect, 1f);
                     Destroy(gameObject);
                     return;
                 }
@@ -222,6 +216,9 @@ public class Bullet : MonoBehaviour
             {
                 freezeEffect(collision);
             }
+
+            GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
 
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
             collision.gameObject.GetComponent<Enemy>().knock = true;

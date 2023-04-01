@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25dd4261865721a4ca085c20e2442974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 278193819304500194, guid: 411131198cdda864ea6127482ddf0efc, type: 3}
+  hitEffect: {fileID: 278193819304500194, guid: 16ba9a05a911c48309ec0c82fdb21a78, type: 3}
   damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
   radius: 0.5
   damage: 0
