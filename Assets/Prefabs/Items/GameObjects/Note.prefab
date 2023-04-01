@@ -116,4 +116,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
   beatsManager: {fileID: 0}
+  hitEffect: {fileID: 278193819304500194, guid: ae79afeac8a9f427f9accb2660b2ebad, type: 3}
   timeUp: 0.5

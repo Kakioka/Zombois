@@ -8,13 +8,22 @@ public class Note : MonoBehaviour
     public BeatsManager beatsManager;
 
     [SerializeField]
+    private GameObject hitEffect;
+    [SerializeField]
     private float timeUp;
     private bool inGreen = false;
+    private Collider2D col;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    void hitNice(Collider2D collision)
+    {
+        GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
     }
 
     // Update is called once per frame
@@ -24,8 +33,8 @@ public class Note : MonoBehaviour
         {
             if (inGreen)
             {
+                hitNice(col);
                 beatsManager.timer += timeUp;
-                Debug.Log("nice");
             }
             Destroy(gameObject);
         }
@@ -36,6 +45,7 @@ public class Note : MonoBehaviour
         if (collision.tag == "Bar")
         {
             inGreen = true;
+            col = collision;
         }
     }
 
