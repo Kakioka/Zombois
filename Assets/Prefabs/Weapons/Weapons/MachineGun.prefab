@@ -188,7 +188,7 @@ MonoBehaviour:
   laserOn: 0
   laserLvl: 0
   laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
-  laserTimer: 3
+  laserTimer: 5
   spread: 3
   boomScale: 0
 --- !u!82 &7104343852018072323
