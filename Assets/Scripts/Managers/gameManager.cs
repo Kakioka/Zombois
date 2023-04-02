@@ -424,7 +424,7 @@ public class gameManager : MonoBehaviour
             }
             float snowScale = snow.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
             snowG.transform.localScale = new Vector3(snowScale, snowScale, snowScale);
-            snowG.GetComponent<Snow>().speedMod = snow.GetComponent<Snow>().radius * (1 - (snowPower * itemCounts[9]));
+            snowG.GetComponent<Snow>().speedMod = snow.GetComponent<Snow>().speedMod * (1 - (snowPower * itemCounts[9]));
         }
 
         if (itemCounts[10] > 0)
