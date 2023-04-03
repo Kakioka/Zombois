@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3640582f84c4846aa5438d6f896501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spit: {fileID: 8039879459582361415}
+  target: {fileID: 0}
   offset: {x: 0, y: -0.12, z: 0}
 --- !u!1 &8039879459582361415
 GameObject:
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -199,7 +199,6 @@ MonoBehaviour:
   silver: {fileID: 9205036790924861423, guid: 6efdef7ae9ac248daa3da0253e291ab4, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
-  spawner: {fileID: 0}
   moveSpeed: 0.7
   knock: 0
 --- !u!70 &8039879459582361419

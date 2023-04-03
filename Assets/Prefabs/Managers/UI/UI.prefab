@@ -1570,7 +1570,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 886309965610bee418f550baa9459f8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c53c8f44b1167c24783d2036e726389d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1703,7 +1703,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 886309965610bee418f550baa9459f8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c53c8f44b1167c24783d2036e726389d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1787,7 +1787,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 886309965610bee418f550baa9459f8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c53c8f44b1167c24783d2036e726389d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1973,7 +1973,7 @@ PrefabInstance:
     - target: {fileID: 6987390177815543812, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 886309965610bee418f550baa9459f8e, type: 3}
+      objectReference: {fileID: 21300000, guid: c53c8f44b1167c24783d2036e726389d, type: 3}
     - target: {fileID: 6987390177815543812, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
       propertyPath: m_SortingOrder
       value: 7
@@ -2041,7 +2041,7 @@ PrefabInstance:
     - target: {fileID: 6987390178256792957, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 886309965610bee418f550baa9459f8e, type: 3}
+      objectReference: {fileID: 21300000, guid: c53c8f44b1167c24783d2036e726389d, type: 3}
     - target: {fileID: 6987390178256792957, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
       propertyPath: m_SortingOrder
       value: 7
@@ -2049,7 +2049,7 @@ PrefabInstance:
     - target: {fileID: 6987390179038377854, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 886309965610bee418f550baa9459f8e, type: 3}
+      objectReference: {fileID: 21300000, guid: c53c8f44b1167c24783d2036e726389d, type: 3}
     - target: {fileID: 6987390179038377854, guid: f0e11e7e97e9e5d44958882c9e9349d3, type: 3}
       propertyPath: m_SortingOrder
       value: 7
