@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public int health = 3;
+    public int armor = 0;
     public int prevHealth;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public bool coinOn;
     public int coinLvl;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator invincible()
     {
+        if (armor > 0 && health != prevHealth)
+        {
+            armor--;
+            health++;
+        }
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         isInv = true;
         prevHealth = health;

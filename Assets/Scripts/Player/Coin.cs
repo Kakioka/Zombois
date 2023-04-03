@@ -11,6 +11,8 @@ public class Coin : MonoBehaviour
 
     [SerializeField]
     private bool mag;
+    [SerializeField]
+    private bool armor;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,17 @@ public class Coin : MonoBehaviour
                 foreach (GameObject g in GameObject.FindGameObjectsWithTag("Coin")) 
                 {
                     g.GetComponent<Coin>().GetComponent<Coin>().pickedUp = true;
+                }
+            }
+            if (armor)
+            {
+                if (player.GetComponent<PlayerMovement>().armor != 3)
+                {
+                    player.GetComponent<PlayerMovement>().armor++;
+                }
+                if (sister.GetComponent<Sister>().armor != 3)
+                {
+                    sister.GetComponent<Sister>().armor++;
                 }
             }
             player.GetComponent<PlayerMovement>().bank += value;

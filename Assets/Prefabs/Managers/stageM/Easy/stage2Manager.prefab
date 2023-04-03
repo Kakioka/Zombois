@@ -71,6 +71,7 @@ MonoBehaviour:
   boss: {fileID: 0}
   timer: 5
   stageTimer: 120
+  mag: {fileID: 9205036790924861423, guid: 2bd97ead369dd484ba50c1e6b1b280dd, type: 3}
 --- !u!1001 &1940937707839644205
 PrefabInstance:
   m_ObjectHideFlags: 0

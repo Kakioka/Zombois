@@ -52,6 +52,10 @@ public class stageManager : MonoBehaviour
 
     private float endSpeed;
     private float startSpeed;
+    private bool magCheck;
+
+    [SerializeField]
+    private GameObject mag;
 
     private IEnumerator end()
     {
@@ -59,6 +63,17 @@ public class stageManager : MonoBehaviour
         Time.timeScale = 0;
         levelDone.SetActive(true);
 
+    }
+
+    private IEnumerator spawnMag()
+    {
+        magCheck = true;
+        yield return new WaitForSeconds(30f);
+        Vector3 pos = (Random.insideUnitCircle.normalized * 10f) + new Vector2(player.transform.position.x, player.transform.position.y);
+        GameObject temp = Instantiate(mag, pos, Quaternion.identity);
+        temp.GetComponent<Coin>().player = player;
+        temp.GetComponent<Coin>().sister = sister;
+        magCheck = false;
     }
 
     // Start is called before the first frame update
@@ -83,6 +98,11 @@ public class stageManager : MonoBehaviour
             float temp = 0.1f * stageTimer;
             spawner.GetComponent<Spawner>().time = endSpeed * (1 + (0.001f * stageTimer * 3f));
             enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
+        }
+
+        if (!magCheck)
+        {
+            StartCoroutine(spawnMag());
         }
        
         if(stageTimer <= 0)
