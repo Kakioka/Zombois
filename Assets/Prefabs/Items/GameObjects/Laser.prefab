@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserLvl: 0
   speed: 30
-  maxLength: 10
+  maxLength: 20
   damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
   radius: 0.5
   damage: 0
