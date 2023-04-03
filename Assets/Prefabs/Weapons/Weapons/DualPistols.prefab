@@ -190,7 +190,7 @@ MonoBehaviour:
   laserLvl: 0
   laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
   laserTimer: 5
-  spread: 0
+  spread: 2
   boomScale: 0
 --- !u!82 &8611747866515176802
 AudioSource:

@@ -9,6 +9,9 @@ public class Coin : MonoBehaviour
     public bool pickedUp = false;
     public bool pickedUpS = false;
 
+    [SerializeField]
+    private bool mag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,13 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Sister")
         {
+            if (mag) 
+            {
+                foreach (GameObject g in GameObject.FindGameObjectsWithTag("Coin")) 
+                {
+                    g.GetComponent<Coin>().GetComponent<Coin>().pickedUp = true;
+                }
+            }
             player.GetComponent<PlayerMovement>().bank += value;
             Destroy(gameObject);
         }

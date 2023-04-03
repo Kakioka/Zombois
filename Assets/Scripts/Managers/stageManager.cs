@@ -50,6 +50,9 @@ public class stageManager : MonoBehaviour
 
     private bool stageEnded = false;
 
+    private float endSpeed;
+    private float startSpeed;
+
     private IEnumerator end()
     {
         yield return new WaitForSeconds(5f);
@@ -65,7 +68,8 @@ public class stageManager : MonoBehaviour
         spawner.GetComponent<Spawner>().sister = sister;
         spawner.GetComponent<Spawner>().target = player;
         spawner.GetComponent<Spawner>().hpMod = hpMod;
-        spawner.GetComponent<Spawner>().time = spawnSpeed * spawnSpeedMod;
+        endSpeed = spawnSpeed * spawnSpeedMod;
+        spawner.GetComponent<Spawner>().time = endSpeed;
         spawner.GetComponent<Spawner>().speedMod = speedMod;
         stageCountText.text = "Day " + stageCount;
     }
@@ -76,6 +80,8 @@ public class stageManager : MonoBehaviour
         if (stageTimer >= 0) 
         {
             stageTimer -= Time.deltaTime;
+            float temp = 0.1f * stageTimer;
+            spawner.GetComponent<Spawner>().time = spawner.GetComponent<Spawner>().time * (0.1f * stageTimer);
             enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
         }
        

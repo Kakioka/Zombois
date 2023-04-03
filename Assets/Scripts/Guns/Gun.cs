@@ -66,9 +66,9 @@ public class Gun : MonoBehaviour
         if (projectiles % 2 == 0)
         {
             firePointList.Add(Instantiate(firePoint, transform));
-            firePointList[0].transform.Rotate(0f, 0f, (j * -2f));
+            firePointList[0].transform.Rotate(0f, 0f, (j * -5f));
             firePointList.Add(Instantiate(firePoint, transform));
-            firePointList[1].transform.Rotate(0f, 0f, (j * 2f));
+            firePointList[1].transform.Rotate(0f, 0f, (j * 5f));
             for (int i = 2; i < projectiles; i++)
             {
                 if (i % 2 == 0) 
@@ -78,11 +78,11 @@ public class Gun : MonoBehaviour
                 firePointList.Add(Instantiate(firePoint, transform));
                 if (i % 2 == 0)
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * -3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * -6.5f));
                 }
                 else 
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * 3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * 6.5f));
                 }
             }
         }
@@ -99,11 +99,11 @@ public class Gun : MonoBehaviour
                 firePointList.Add(Instantiate(firePoint, transform));
                 if (i % 2 == 0)
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * -3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * -7f));
                 }
                 else
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * 3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * 7f));
                 }
             }
         }
