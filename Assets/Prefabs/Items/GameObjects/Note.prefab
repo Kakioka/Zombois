@@ -118,3 +118,5 @@ MonoBehaviour:
   beatsManager: {fileID: 0}
   hitEffect: {fileID: 278193819304500194, guid: ae79afeac8a9f427f9accb2660b2ebad, type: 3}
   timeUp: 0.5
+  nicePos: {fileID: 0}
+  nice: {fileID: 5193410335145091897, guid: 984af1eee40a54823856eecea41cdd61, type: 3}

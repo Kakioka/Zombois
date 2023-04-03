@@ -8,9 +8,10 @@ public class Note : MonoBehaviour
     public BeatsManager beatsManager;
 
     [SerializeField]
-    private GameObject hitEffect;
-    [SerializeField]
     private float timeUp;
+    public GameObject nicePos;
+    [SerializeField]
+    private GameObject nice;
     private bool inGreen = false;
     private Collider2D col;
 
@@ -20,12 +21,6 @@ public class Note : MonoBehaviour
         
     }
 
-    void hitNice(Collider2D collision)
-    {
-        GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
-        Destroy(effect, 1f);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -33,8 +28,10 @@ public class Note : MonoBehaviour
         {
             if (inGreen)
             {
-                hitNice(col);
                 beatsManager.timer += timeUp;
+                GameObject temp = Instantiate(nice, nicePos.transform);
+                temp.transform.Rotate(0f, 0f, Random.Range(-20, 20));
+                Destroy(temp, 0.5f);
             }
             Destroy(gameObject);
         }

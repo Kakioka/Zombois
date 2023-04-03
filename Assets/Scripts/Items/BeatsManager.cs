@@ -10,6 +10,9 @@ public class BeatsManager : MonoBehaviour
     private GameObject spawn;
     [SerializeField]
     private GameObject end;
+    [SerializeField]
+    private GameObject nicePos;
+
 
     private GameObject currNote;
 
@@ -73,6 +76,7 @@ public class BeatsManager : MonoBehaviour
             currNote = Instantiate(note, spawn.transform);
             currNote.GetComponent<Note>().gun = gun;
             currNote.GetComponent<Note>().beatsManager = this;
+            currNote.GetComponent<Note>().nicePos = nicePos;
         }
         else
         {
