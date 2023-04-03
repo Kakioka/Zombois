@@ -81,7 +81,7 @@ public class stageManager : MonoBehaviour
         {
             stageTimer -= Time.deltaTime;
             float temp = 0.1f * stageTimer;
-            spawner.GetComponent<Spawner>().time = spawner.GetComponent<Spawner>().time * (0.1f * stageTimer);
+            spawner.GetComponent<Spawner>().time = endSpeed * (1 + (0.001f * stageTimer * 3f));
             enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
         }
        
