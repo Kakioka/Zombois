@@ -17,7 +17,6 @@ public class UIManager : MonoBehaviour
 
     public GameObject reload;
 
-    //public Animator aniHealth;
     public SpriteRenderer h3;
     public SpriteRenderer h2;
     public SpriteRenderer h1;
@@ -37,6 +36,11 @@ public class UIManager : MonoBehaviour
     private List<GameObject> currItems = new List<GameObject>();
     private List<int> currItemIndex = new List<int>();
     private Vector3 lastItemPos;
+
+    [SerializeField]
+    private Sprite armor;
+    [SerializeField]
+    private Sprite heart;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +75,54 @@ public class UIManager : MonoBehaviour
             arrow.SetActive(false);
         }
 
+        switch (player.GetComponent<PlayerMovement>().armor) 
+        {
+            case 0:
+                h1.GetComponent<SpriteRenderer>().sprite = heart;
+                h2.GetComponent<SpriteRenderer>().sprite = heart;
+                h3.GetComponent<SpriteRenderer>().sprite = heart;
+                break;
+            case 1:
+                h1.GetComponent<SpriteRenderer>().sprite = armor;
+                h2.GetComponent<SpriteRenderer>().sprite = heart;
+                h3.GetComponent<SpriteRenderer>().sprite = heart;
+                break;
+            case 2:
+                h1.GetComponent<SpriteRenderer>().sprite = armor;
+                h2.GetComponent<SpriteRenderer>().sprite = armor;
+                h3.GetComponent<SpriteRenderer>().sprite = heart;
+                break;
+            case 3:
+                h1.GetComponent<SpriteRenderer>().sprite = armor;
+                h2.GetComponent<SpriteRenderer>().sprite = armor;
+                h3.GetComponent<SpriteRenderer>().sprite = armor;
+                break;
+        }
+
+
+        switch (sister.GetComponent<Sister>().armor)
+        {
+            case 0:
+                sh1.GetComponent<SpriteRenderer>().sprite = heart;
+                sh2.GetComponent<SpriteRenderer>().sprite = heart;
+                sh3.GetComponent<SpriteRenderer>().sprite = heart;
+                break;
+            case 1:
+                sh1.GetComponent<SpriteRenderer>().sprite = armor;
+                sh2.GetComponent<SpriteRenderer>().sprite = heart;
+                sh3.GetComponent<SpriteRenderer>().sprite = heart;
+                break;
+            case 2:
+                sh1.GetComponent<SpriteRenderer>().sprite = armor;
+                sh2.GetComponent<SpriteRenderer>().sprite = armor;
+                sh3.GetComponent<SpriteRenderer>().sprite = heart;
+                break;
+            case 3:
+                sh1.GetComponent<SpriteRenderer>().sprite = armor;
+                sh2.GetComponent<SpriteRenderer>().sprite = armor;
+                sh3.GetComponent<SpriteRenderer>().sprite = armor;
+                break;
+        }
 
         switch (player.GetComponent<PlayerMovement>().health)
         {
@@ -80,13 +132,11 @@ public class UIManager : MonoBehaviour
                 h3.color = Color.black;
                 break;
             case 1:
-                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 h1.color = Color.white;
                 h2.color = Color.black;
                 h3.color = Color.black;
                 break;
             case 2:
-                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 h3.color = Color.black;
                 h1.color = Color.white;
                 h2.color = Color.white;
@@ -95,7 +145,6 @@ public class UIManager : MonoBehaviour
                 h1.color = Color.white;
                 h2.color = Color.white;
                 h3.color = Color.white;
-                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
 
@@ -107,14 +156,33 @@ public class UIManager : MonoBehaviour
                 sh3.color = Color.black;
                 break;
             case 1:
-                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 sh1.color = Color.white;
-                sh2.color = Color.black;
-                sh3.color = Color.black;
+                if (sister.GetComponent<Sister>().armor >= 2)
+                {
+                    sh2.color = Color.black;
+                }
+                else 
+                {
+                    sh2.color = Color.white;
+                }
+                if (sister.GetComponent<Sister>().armor != 3)
+                {
+                    sh3.color = Color.black;
+                }
+                else 
+                {
+                    sh3.color = Color.white;
+                }
                 break;
             case 2:
-                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
-                sh3.color = Color.black;
+                if (sister.GetComponent<Sister>().armor != 3)
+                {
+                    sh3.color = Color.black;
+                }
+                else
+                {
+                    sh3.color = Color.white;
+                }
                 sh1.color = Color.white;
                 sh2.color = Color.white;
                 break;
@@ -122,7 +190,6 @@ public class UIManager : MonoBehaviour
                 sh1.color = Color.white;
                 sh2.color = Color.white;
                 sh3.color = Color.white;
-                //aniHealth.SetInteger("health", player.GetComponent<PlayerMovement>().health);
                 break;
         }
 

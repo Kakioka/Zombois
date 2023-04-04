@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
@@ -52,10 +53,10 @@ public class stageManager : MonoBehaviour
 
     private float endSpeed;
     private float startSpeed;
-    private bool magCheck;
+    private bool dropCheck;
 
     [SerializeField]
-    private GameObject mag;
+    private List<GameObject> drops = new List<GameObject>();
 
     private IEnumerator end()
     {
@@ -65,15 +66,15 @@ public class stageManager : MonoBehaviour
 
     }
 
-    private IEnumerator spawnMag()
+    private IEnumerator spawnDrop()
     {
-        magCheck = true;
+        dropCheck = true;
         yield return new WaitForSeconds(30f);
         Vector3 pos = (Random.insideUnitCircle.normalized * 10f) + new Vector2(player.transform.position.x, player.transform.position.y);
-        GameObject temp = Instantiate(mag, pos, Quaternion.identity);
+        GameObject temp = Instantiate(drops[Random.Range(0,drops.Count)], pos, Quaternion.identity);
         temp.GetComponent<Coin>().player = player;
         temp.GetComponent<Coin>().sister = sister;
-        magCheck = false;
+        dropCheck = false;
     }
 
     // Start is called before the first frame update
@@ -100,9 +101,9 @@ public class stageManager : MonoBehaviour
             enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
         }
 
-        if (!magCheck)
+        if (!dropCheck)
         {
-            StartCoroutine(spawnMag());
+            StartCoroutine(spawnDrop());
         }
        
         if(stageTimer <= 0)
