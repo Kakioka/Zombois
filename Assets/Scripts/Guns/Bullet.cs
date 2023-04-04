@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject, life);
         }
-        findTarget();
+        //findTarget();
     }
 
     private IEnumerator endLifeExplode() 
@@ -75,7 +75,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //findTarget();
+        findTarget();
         if (target != null)
         {
             Vector2 direction = (Vector2)target.transform.position - rb.position;
