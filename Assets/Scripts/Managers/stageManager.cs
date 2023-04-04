@@ -86,7 +86,7 @@ public class stageManager : MonoBehaviour
         spawner.GetComponent<Spawner>().target = player;
         endHpMod = hpMod;
         endSpeed = spawnSpeed * spawnSpeedMod;
-        endSpeed = speedMod;
+        endSpeedMod = speedMod;
         stageCountText.text = "Day " + stageCount;
     }
 
