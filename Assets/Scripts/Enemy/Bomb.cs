@@ -1,10 +1,19 @@
+using TMPro;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
     public int damage = 1;
     public int knockBack = 1;
-    public int enemyDamage = 0;
+    [SerializeField]
+    private int enemyDamage;
+
+    [SerializeField]
+    private GameObject damageNum;
+    [SerializeField]
+    private GameObject hitEffect;
+    [SerializeField] 
+    private float radius;
 
     // Start is called before the first frame update
     
@@ -30,7 +39,18 @@ public class Bomb : MonoBehaviour
 
         if (collision.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - 5;
+            collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - enemyDamage;
+            Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
+            temp.z = 10;
+            GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+            num.transform.position += new Vector3(0.25f, 0f);
+            num.GetComponentInChildren<TextMeshProUGUI>().text = enemyDamage.ToString();
+            Destroy(num, 1f);
+
+            GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
+
+
         }
 
         if (collision.gameObject.tag == "Sister")

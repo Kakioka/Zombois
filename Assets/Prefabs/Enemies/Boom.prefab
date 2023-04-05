@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8607471019839173686}
   m_Layer: 14
   m_Name: Boom
-  m_TagString: Enemy
+  m_TagString: enemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,3 +117,6 @@ MonoBehaviour:
   damage: 1
   knockBack: 1
   enemyDamage: 5
+  damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
+  hitEffect: {fileID: 278193819304500194, guid: 2144562e47396f447819046dbda47b47, type: 3}
+  radius: 0.05
