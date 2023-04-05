@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
@@ -48,6 +49,16 @@ public class stageManager : MonoBehaviour
     [SerializeField]
     private float stageTimer;
 
+    private bool stageEnded = false;
+
+    private float endSpeed;
+    private float endHpMod;
+    private float endSpeedMod;
+    private bool dropCheck;
+
+    [SerializeField]
+    private List<GameObject> drops = new List<GameObject>();
+
     private IEnumerator end()
     {
         yield return new WaitForSeconds(5f);
@@ -56,15 +67,26 @@ public class stageManager : MonoBehaviour
 
     }
 
+    private IEnumerator spawnDrop()
+    {
+        dropCheck = true;
+        yield return new WaitForSeconds(30f);
+        Vector3 pos = (Random.insideUnitCircle.normalized * 10f) + new Vector2(player.transform.position.x, player.transform.position.y);
+        GameObject temp = Instantiate(drops[Random.Range(0,drops.Count)], pos, Quaternion.identity);
+        temp.GetComponent<Coin>().player = player;
+        temp.GetComponent<Coin>().sister = sister;
+        dropCheck = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         spawner.GetComponent<Spawner>().player = player;
         spawner.GetComponent<Spawner>().sister = sister;
         spawner.GetComponent<Spawner>().target = player;
-        spawner.GetComponent<Spawner>().hpMod = hpMod;
-        spawner.GetComponent<Spawner>().time = spawnSpeed * spawnSpeedMod;
-        spawner.GetComponent<Spawner>().speedMod = speedMod;
+        endHpMod = hpMod;
+        endSpeed = spawnSpeed * spawnSpeedMod;
+        endSpeedMod = speedMod;
         stageCountText.text = "Day " + stageCount;
     }
 
@@ -74,15 +96,28 @@ public class stageManager : MonoBehaviour
         if (stageTimer >= 0) 
         {
             stageTimer -= Time.deltaTime;
+            float temp = 0.1f * stageTimer;
+            spawner.GetComponent<Spawner>().time = endSpeed * (1 + (0.001f * stageTimer * 3f));
+            spawner.GetComponent<Spawner>().hpMod = endHpMod * (1 - (0.001f * stageTimer * 3f));
+            spawner.GetComponent<Spawner>().speedMod = endSpeedMod * (1 - (0.001f * stageTimer * 3f));
             enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
+        }
+
+        if (!dropCheck)
+        {
+            StartCoroutine(spawnDrop());
         }
        
         if(stageTimer <= 0)
         {
             spawner.SetActive(false);
-            foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+            if (!stageEnded) 
             {
-                e.GetComponent<Enemy>().health = 0;
+                stageEnded = true;
+                foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    e.GetComponent<Enemy>().health = 0;
+                }
             }
             if (stageCount == 7 && bossSpawned == false)
             {

@@ -159,7 +159,7 @@ MonoBehaviour:
   maxAmmo: 1
   isReload: 0
   bulletForce: 4
-  reloadSpeed: 1.6
+  reloadSpeed: 1.8
   fireRate: 1
   fireDelay: 0
   damage: 15
@@ -171,13 +171,25 @@ MonoBehaviour:
   projectiles: 1
   bulletSize: 1.5
   bulletLife: 2.5
-  offset: {x: 0, y: -0.15, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   lookingRight: 1
   bleedOn: 0
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
-  spread: 3
+  burnOn: 0
+  burnLvl: 0
+  freezeOn: 0
+  freezeLvl: 0
+  tridentOn: 0
+  tridentLvl: 0
+  trident: {fileID: 4440926475043643178, guid: 267f9f45df4bd4a8082c1305da722a4a, type: 3}
+  tridentTimer: 3
+  laserOn: 0
+  laserLvl: 0
+  laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
+  laserTimer: 5
+  spread: 1
   boomScale: 1.3
 --- !u!82 &7104343852018072323
 AudioSource:

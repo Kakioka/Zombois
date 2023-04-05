@@ -19,7 +19,7 @@ public class DualPistols : MonoBehaviour
         if (!check)
         {
             temp = Instantiate(gameObject);
-            temp.GetComponent<Gun>().offset = new Vector3(-0.1f, -0.2f, 0f);
+            temp.GetComponent<Gun>().offset = new Vector3(-0.1f, -0.1f, 0f);
             temp.GetComponent<DualPistols>().parent = gameObject;
             temp.GetComponent<DualPistols>().check = true;
         }
@@ -33,6 +33,10 @@ public class DualPistols : MonoBehaviour
             if (parent == null)
             {
                 Destroy(gameObject);
+            }
+            else 
+            {
+                GetComponent<Gun>().damage = parent.GetComponent<Gun>().damage;
             }
         }
     }

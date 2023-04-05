@@ -52,13 +52,20 @@ public class gameManager : MonoBehaviour
     public GameObject missile;
     public float powerDmg, powerSpeed;
     public float glove;
+    [SerializeField]
+    private GameObject lightHouse;
+    [SerializeField]
+    private GameObject cat;
+    [SerializeField]
+    private GameObject beats;
+    [SerializeField]
+    private float bell;
+    [SerializeField]
+    private GameObject matrix;
 
-    
 
     //track if upgrade exists
-    private GameObject snowG;
-    private GameObject bubbleG;
-    private GameObject missileG;
+    private GameObject snowG, bubbleG, bubbleS, missileG, lightG, catG, beatG, matrixG;
 
     //level count
     public int levelNum = 0;
@@ -109,7 +116,8 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 1;
         spawnPlayer();
         spawnWep(wepNum);
-        itemUpgrade();
+        itemUpgradeGun(gun, guns[wepNum]);
+        itemUpgradePlayer();
     }
 
     void upgradeStart()
@@ -118,7 +126,8 @@ public class gameManager : MonoBehaviour
         player.transform.position = new Vector3(0, -2, 10);
         sis.transform.position = new Vector3(0.8f, -2, 10);
         spawnWep(wepNum);
-        itemUpgrade();
+        itemUpgradeGun(gun, guns[wepNum]);
+        itemUpgradePlayer();
     }
 
     void spawnPlayer()
@@ -147,18 +156,29 @@ public class gameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().gun = gun;
     }
 
-    public void itemUpgrade() 
+    /*public void itemUpgrade() 
     {
+        //upgrade gun
+        //firerate
         gun.GetComponent<Gun>().fireRate = gun.GetComponent<Gun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
+        //damage
         gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * Mathf.Pow(2,itemCounts[17]) * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+        //damage reduction cap
         if (gun.GetComponent<Gun>().damage <= 0) 
         {
             gun.GetComponent<Gun>().damage = 1;
         }
+        //bullet size
         gun.GetComponent<Gun>().bulletSize = gun.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
+        //explosion size for explosives increases with bullet size
+        gun.GetComponent<Gun>().boomScale = gun.GetComponent<Gun>().boomScale * (1 + (bangSize * itemCounts[4]));
+        //bullet speed
         gun.GetComponent<Gun>().bulletForce = gun.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
+        //pierce
         gun.GetComponent<Gun>().piecre = gun.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
+        //reload speed
         gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5]) * (1 - (glove * itemCounts[16])));
+        //ammo reduction cap calulations
         float temp = 1 - (fullAmmo * itemCounts[5]);
         if (temp < 0.3 && itemCounts[3] > 0)
         {
@@ -169,17 +189,26 @@ public class gameManager : MonoBehaviour
         {
             temp2 = 0.3f;
         }
+        //ammo
         gun.GetComponent<Gun>().maxAmmo = Mathf.CeilToInt(gun.GetComponent<Gun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (temp * temp2));
+        //ammo reduction cap
         if (gun.GetComponent<Gun>().maxAmmo < 1) 
         {
             gun.GetComponent<Gun>().maxAmmo = 1;
         }
+        //bullet up
         gun.GetComponent<Gun>().projectiles = gun.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
+        //knockback
+        gun.GetComponent<Gun>().knockBack = gun.GetComponent<Gun>().knockBack * (1 + (bell * itemCounts[24]));
+
+        //upgrade player
         player.GetComponent<PlayerMovement>().moveSpeed = player.GetComponent<PlayerMovement>().moveSpeed * (1 + (run * itemCounts[1]));
         sis.GetComponent<Sister>().moveSpeed = sis.GetComponent<Sister>().moveSpeed * (1 + (leash * itemCounts[7]));
         player.GetComponent<PlayerMovement>().pickUpRadius = player.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().pickUpRadius = sis.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().maxHealth -= itemCounts[17];
+        player.GetComponent<PlayerMovement>().speedReduction = player.GetComponent<PlayerMovement>().speedReduction * (1 + (bell * itemCounts[24]));
+
         if (sis.GetComponent<Sister>().health > sis.GetComponent<Sister>().maxHealth)
         {
             sis.GetComponent<Sister>().health = sis.GetComponent<Sister>().maxHealth;
@@ -219,7 +248,59 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().splinterOn = true;
             gun.GetComponent<Gun>().splintLvl = itemCounts[15];
         }
-    }
+
+        if (itemCounts[18] > 0)
+        {
+            lightG = Instantiate(lightHouse, sis.transform);
+            lightG.GetComponent<Lighthouse>().lightLvl = itemCounts[18];
+        }
+
+        if (itemCounts[19] > 0)
+        {
+            gun.GetComponent<Gun>().burnOn = true;
+            gun.GetComponent<Gun>().burnLvl = itemCounts[19];
+        }
+
+        if (itemCounts[20] > 0)
+        {
+            gun.GetComponent<Gun>().freezeOn = true;
+            gun.GetComponent<Gun>().freezeLvl = itemCounts[20];
+        }
+
+        if (itemCounts[21] > 0) 
+        {
+            catG = Instantiate(cat, player.transform.position, Quaternion.identity);
+            catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21] - 1));
+            catG.GetComponent<Cat>().attackCD = catG.GetComponent<Cat>().attackCD * (1-(0.1f*itemCounts[21]));
+            catG.GetComponent<Cat>().moveSpeed = catG.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
+            catG.GetComponent<Cat>().player = player;
+        }
+
+        if (itemCounts[22] > 0)
+        {
+            beatG = Instantiate(beats);
+            beatG.GetComponent<BeatsManager>().player = player;
+            beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
+        }
+
+        if (itemCounts[23] > 0) 
+        {
+            player.GetComponent<PlayerMovement>().coinOn = true;
+            player.GetComponent<PlayerMovement>().coinLvl = itemCounts[23];
+        }
+
+        if (itemCounts[25] > 0)
+        {
+            gun.GetComponent<Gun>().tridentOn = true;
+            gun.GetComponent<Gun>().tridentLvl = itemCounts[25];
+        }
+
+        if (itemCounts[26] > 0)
+        {
+            gun.GetComponent<Gun>().laserOn = true;
+            gun.GetComponent<Gun>().laserLvl = itemCounts[26];
+        }
+    }*/
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
     {
@@ -230,6 +311,7 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().damage = 1;
         }
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
+        gun.GetComponent<Gun>().boomScale = gunb.GetComponent<Gun>().boomScale * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
         gun.GetComponent<Gun>().reloadSpeed = gunb.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5])) * (1 - (glove * itemCounts[16]));
@@ -249,6 +331,7 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().maxAmmo = 1;
         }
         gun.GetComponent<Gun>().projectiles = gunb.GetComponent<Gun>().projectiles + itemCounts[5] + itemCounts[6];
+        gun.GetComponent<Gun>().knockBack = gunb.GetComponent<Gun>().knockBack * (1 + (bell * itemCounts[24]));
         if (itemCounts[14] > 0)
         {
             gun.GetComponent<Gun>().bleedOn = true;
@@ -260,6 +343,63 @@ public class gameManager : MonoBehaviour
             gun.GetComponent<Gun>().splinterOn = true;
             gun.GetComponent<Gun>().splintLvl = itemCounts[15];
         }
+
+        if (itemCounts[19] > 0)
+        {
+            gun.GetComponent<Gun>().burnOn = true;
+            gun.GetComponent<Gun>().burnLvl = itemCounts[19];
+        }
+
+        if (itemCounts[20] > 0)
+        {
+            gun.GetComponent<Gun>().freezeOn = true;
+            gun.GetComponent<Gun>().freezeLvl = itemCounts[20];
+        }
+
+        if (itemCounts[22] > 0)
+        {
+            if (beatG == null)
+            {
+                beatG = Instantiate(beats);
+
+            }
+            else
+            {
+                Destroy(beatG);
+                beatG = Instantiate(beats);
+            }
+            beatG.GetComponent<BeatsManager>().player = player;
+            beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
+        }
+
+        if (itemCounts[25] > 0)
+        {
+            gun.GetComponent<Gun>().tridentOn = true;
+            gun.GetComponent<Gun>().tridentLvl = itemCounts[25];
+        }
+
+        if (itemCounts[26] > 0)
+        {
+            gun.GetComponent<Gun>().laserOn = true;
+            gun.GetComponent<Gun>().laserLvl = itemCounts[26];
+        }
+
+        if (itemCounts[27] > 0)
+        {
+            if (matrixG == null)
+            {
+                matrixG = Instantiate(matrix);
+
+            }
+            else
+            {
+                Destroy(matrixG);
+                matrixG = Instantiate(matrix);
+            }
+            matrixG.GetComponent<Matrix>().player = player;
+            matrixG.GetComponent<Matrix>().matrixLvl = itemCounts[27];
+        }
+
     }
 
     public void itemUpgradePlayer() 
@@ -270,6 +410,7 @@ public class gameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().pickUpRadius = playerPref.GetComponent<PlayerMovement>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().pickUpRadius = sisPre.GetComponent<Sister>().pickUpRadius * (1 + (mag * itemCounts[8]));
         sis.GetComponent<Sister>().maxHealth = sisPre.GetComponent<Sister>().maxHealth - itemCounts[17];
+        player.GetComponent<PlayerMovement>().speedReduction = player.GetComponent<PlayerMovement>().speedReduction * (1 + (bell * itemCounts[24]));
         if (sis.GetComponent<Sister>().health > sis.GetComponent<Sister>().maxHealth) 
         {
             sis.GetComponent<Sister>().health = sis.GetComponent<Sister>().maxHealth;
@@ -283,18 +424,18 @@ public class gameManager : MonoBehaviour
             }
             float snowScale = snow.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
             snowG.transform.localScale = new Vector3(snowScale, snowScale, snowScale);
-            snowG.GetComponent<Snow>().speedMod = snow.GetComponent<Snow>().radius * (1 - (snowPower * itemCounts[9]));
+            snowG.GetComponent<Snow>().speedMod = snow.GetComponent<Snow>().speedMod * (1 - (snowPower * itemCounts[9]));
         }
 
         if (itemCounts[10] > 0)
         {
-            if (bubbleG == null) 
+            if (bubbleG == null)
             {
                 bubbleG = Instantiate(bubble, player.transform);
-                GameObject bubbleS = Instantiate(bubble, sis.transform);
-                bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
-                bubbleS.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
-            }  
+                bubbleS = Instantiate(bubble, sis.transform);
+            }
+            bubbleS.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
+            bubbleG.GetComponent<Bubble>().bubbleLvl = itemCounts[10];
         }
 
         if (itemCounts[11] > 0)
@@ -305,6 +446,70 @@ public class gameManager : MonoBehaviour
                 missileG.GetComponent<MissileLauncher>().player = player;
             }
             missileG.GetComponent<MissileLauncher>().missileLvl = itemCounts[11];
+        }
+
+        if (itemCounts[18] > 0)
+        {
+            if (lightG == null)
+            {
+                lightG = Instantiate(lightHouse, sis.transform);
+            }
+            else
+            {
+                Destroy(lightG);
+                lightG = Instantiate(lightHouse, sis.transform);
+            }
+            lightG.GetComponent<Lighthouse>().lightLvl = itemCounts[18];
+        }
+
+        if (itemCounts[21] > 0)
+        {
+            if (catG == null) 
+            {
+                catG = Instantiate(cat, player.transform.position, Quaternion.identity);
+            }
+            catG.GetComponent<Cat>().player = player;
+            catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21]-1));
+            catG.GetComponent<Cat>().attackCD = cat.GetComponent<Cat>().attackCD * (1 - (0.1f * itemCounts[21]));
+            catG.GetComponent<Cat>().moveSpeed = cat.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
+        }
+
+        if (itemCounts[22] > 0)
+        {
+            if (beatG == null)
+            {
+                beatG = Instantiate(beats);
+               
+            }
+            else 
+            {
+                Destroy(beatG);
+                beatG = Instantiate(beats);
+            } 
+            beatG.GetComponent<BeatsManager>().player = player;
+            beatG.GetComponent<BeatsManager>().beatsLvl = itemCounts[22];
+        }
+
+        if (itemCounts[23] > 0)
+        {
+            player.GetComponent<PlayerMovement>().coinOn = true;
+            player.GetComponent<PlayerMovement>().coinLvl = itemCounts[23];
+        }
+
+        if (itemCounts[27] > 0) 
+        {
+            if (matrixG == null)
+            {
+                matrixG = Instantiate(matrix);
+                
+            }
+            else 
+            {
+                Destroy(matrixG);
+                matrixG = Instantiate(matrix);
+            }
+            matrixG.GetComponent<Matrix>().player = player;
+            matrixG.GetComponent<Matrix>().matrixLvl = itemCounts[27];
         }
     }
 

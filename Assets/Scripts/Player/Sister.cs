@@ -6,6 +6,7 @@ public class Sister : MonoBehaviour
     public GameObject player;
     public float maxDist;
     public int health;
+    public int armor = 0;
     public int maxHealth;
     public bool isInv = false;
     public float invTimer = 1f;
@@ -80,6 +81,11 @@ public class Sister : MonoBehaviour
 
     public IEnumerator invincible()
     {
+        if (armor > 0 && health != prevHealth)
+        {
+            armor--;
+            health++;
+        }
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         isInv = true;
         prevHealth = health;

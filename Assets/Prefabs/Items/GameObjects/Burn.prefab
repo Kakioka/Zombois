@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36a7573a09ef4b27865642e57fc30c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 2.4
+  time: 2.5
   damage: 1
   DoT: 0.8
   radius: 0.5

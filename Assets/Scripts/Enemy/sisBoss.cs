@@ -21,7 +21,7 @@ public class sisBoss : MonoBehaviour
     private void shieldSpawn()
     {
         shield = Instantiate(shieldPref);
-        shield.GetComponent<SpitterShoot>().spit = gameObject;
+        shield.GetComponent<targetFollow>().target = gameObject;
         //shield.GetComponent<Enemy>().coinPref = coinPre;
         shield.GetComponent<Enemy>().player = player;
         shield.GetComponent<Enemy>().sister = player;

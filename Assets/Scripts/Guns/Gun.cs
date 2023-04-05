@@ -31,12 +31,30 @@ public class Gun : MonoBehaviour
     public int bleedLvl = 0;
     public bool splinterOn = false;
     public int splintLvl = 0;
+    public bool burnOn = false;
+    public int burnLvl = 0;
+    public bool freezeOn = false;
+    public int freezeLvl = 0;
+
+
+    public bool tridentOn = false;
+    public int tridentLvl;
+    [SerializeField]
+    private GameObject trident;
+    private bool tridentCoolDown;
+    public float tridentTimer;
+
+    public bool laserOn = false;
+    public int laserLvl;
+    [SerializeField]
+    private GameObject laser;
+    private bool laserCoolDown = false;
+    public float laserTimer;
 
     [SerializeField]
     private float spread;
 
-    [SerializeField]
-    private float boomScale;
+    public float boomScale;
 
     private List<GameObject> firePointList = new List<GameObject>();
 
@@ -48,9 +66,9 @@ public class Gun : MonoBehaviour
         if (projectiles % 2 == 0)
         {
             firePointList.Add(Instantiate(firePoint, transform));
-            firePointList[0].transform.Rotate(0f, 0f, (j * -2f));
+            firePointList[0].transform.Rotate(0f, 0f, (j * -5f));
             firePointList.Add(Instantiate(firePoint, transform));
-            firePointList[1].transform.Rotate(0f, 0f, (j * 2f));
+            firePointList[1].transform.Rotate(0f, 0f, (j * 5f));
             for (int i = 2; i < projectiles; i++)
             {
                 if (i % 2 == 0) 
@@ -60,11 +78,11 @@ public class Gun : MonoBehaviour
                 firePointList.Add(Instantiate(firePoint, transform));
                 if (i % 2 == 0)
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * -3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * -6.5f));
                 }
                 else 
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * 3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * 6.5f));
                 }
             }
         }
@@ -81,14 +99,32 @@ public class Gun : MonoBehaviour
                 firePointList.Add(Instantiate(firePoint, transform));
                 if (i % 2 == 0)
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * -3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * -7f));
                 }
                 else
                 {
-                    firePointList[i].transform.Rotate(0f, 0f, (j * 3f));
+                    firePointList[i].transform.Rotate(0f, 0f, (j * 7f));
                 }
             }
         }
+    }
+
+    IEnumerator laserShoot()
+    {
+        laserCoolDown = true;
+        GameObject temp = Instantiate(laser, firePoint.transform.position, firePoint.transform.rotation);
+        temp.GetComponent<Laser>().laserLvl = laserLvl;
+        yield return new WaitForSeconds(laserTimer);
+        laserCoolDown = false;
+    }
+
+    IEnumerator tridentShoot()
+    {
+        tridentCoolDown = true;
+        GameObject temp = Instantiate(trident, firePoint.transform.position, firePoint.transform.rotation);
+        temp.GetComponent<Bullet>().damage = 5 * tridentLvl;
+        yield return new WaitForSeconds(tridentTimer);
+        tridentCoolDown = false;
     }
 
     IEnumerator Reloading()
@@ -148,6 +184,16 @@ public class Gun : MonoBehaviour
         {
             Flip();
         }
+
+        if (tridentOn && !tridentCoolDown)
+        {
+            StartCoroutine(tridentShoot());
+        }
+
+        if (laserOn && !laserCoolDown)
+        {
+            StartCoroutine(laserShoot());
+        }
     }
 
     void FixedUpdate()
@@ -180,8 +226,10 @@ public class Gun : MonoBehaviour
         }
     }
 
-    void helperSpawn(GameObject obj)
+    public void helperSpawn(GameObject obj)
     {
+        float ran = Random.Range(-spread, spread);
+        obj.transform.Rotate(0f, 0f, ran);
         obj.GetComponent<Bullet>().damage = damage;
         obj.GetComponent<Bullet>().pierce = piecre;
         obj.GetComponent<Bullet>().knockBack = knockBack;
@@ -193,17 +241,12 @@ public class Gun : MonoBehaviour
         obj.GetComponent<Bullet>().explodeScale = boomScale;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(obj.transform.up * bulletForce, ForceMode2D.Impulse);
-
-        if (bleedOn)
-        {
-            obj.GetComponent<Bullet>().bleedOn = true;
-        }
-
-
-        if (splinterOn)
-        {
-            obj.GetComponent<Bullet>().splinterOn = true;
-        }
+        obj.GetComponent<Bullet>().bleedOn = bleedOn;
+        obj.GetComponent<Bullet>().splinterOn = splinterOn;
+        obj.GetComponent<Bullet>().burnLvl = burnLvl;
+        obj.GetComponent<Bullet>().burnOn = burnOn;
+        obj.GetComponent<Bullet>().freezeLvl = freezeLvl;
+        obj.GetComponent<Bullet>().freezeOn = freezeOn;
     }
 
     private void Flip()

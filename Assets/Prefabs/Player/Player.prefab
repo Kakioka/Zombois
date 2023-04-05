@@ -244,8 +244,8 @@ Transform:
   m_GameObject: {fileID: 8514121530740298771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8514121530946603364}
   - {fileID: 615078913}
@@ -294,7 +294,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 33345276, guid: 0a626ed0c9b3e4065a54a2d6ff1313a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbb56e0217c7e4c4ba4e23aa693a41a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -339,8 +339,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002249062, y: -0.15311983}
-  m_Size: {x: 0.32243508, y: 0.61045593}
+  m_Offset: {x: 0.002249062, y: -0.001417458}
+  m_Size: {x: 0.32243508, y: 0.56760216}
   m_Direction: 0
 --- !u!114 &3547142255276493378
 MonoBehaviour:
@@ -370,7 +370,11 @@ MonoBehaviour:
   pingPongSpeed: 0.05
   flashSpeed: 8
   speedReduction: 0.4
+  speedReduced: 0
   gun: {fileID: 0}
+  coinChance: 10
+  coinOn: 0
+  coinLvl: 0
 --- !u!95 &700162175254647332
 Animator:
   serializedVersion: 5

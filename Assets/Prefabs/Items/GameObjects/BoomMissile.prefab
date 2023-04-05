@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,6 +103,16 @@ MonoBehaviour:
   radius: 0.5
   boomRadius: 0.5
   knockBack: 0
+  bleedOn: 0
+  bleedLvl: 0
+  burnOn: 0
+  burnLvl: 0
+  freezeOn: 0
+  freezeLvl: 0
+  bleedPre: {fileID: 511964044582101384, guid: 019509008813e48c0b80b9e5568024a3, type: 3}
+  burnPre: {fileID: 511964044582101384, guid: beb95779772de7941ab92d2580f57124, type: 3}
+  freeze: {fileID: 1433825985532310193, guid: b7ca3d6510721844f87855f02b271a94, type: 3}
+  hitEffect: {fileID: 278193819304500194, guid: 16ba9a05a911c48309ec0c82fdb21a78, type: 3}
 --- !u!58 &-7977796126307526986
 CircleCollider2D:
   m_ObjectHideFlags: 0

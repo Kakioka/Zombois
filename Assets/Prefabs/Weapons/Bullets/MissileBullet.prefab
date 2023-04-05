@@ -4917,7 +4917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25dd4261865721a4ca085c20e2442974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 278193819304500194, guid: 411131198cdda864ea6127482ddf0efc, type: 3}
+  hitEffect: {fileID: 278193819304500194, guid: 16ba9a05a911c48309ec0c82fdb21a78, type: 3}
   damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
   radius: 0.5
   damage: 0
@@ -4931,10 +4931,15 @@ MonoBehaviour:
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
-  fire: {fileID: 0}
+  burnOn: 0
+  burnLvl: 0
+  freezeOn: 0
+  freezeLvl: 0
+  fire: {fileID: 511964044582101384, guid: beb95779772de7941ab92d2580f57124, type: 3}
   fireOn: 0
   trackingOn: 1
   explode: {fileID: 6304155242975271792, guid: 6b810c544766e42ffbfac0c209e6c46f, type: 3}
-  rotateSpeed: 250
+  freeze: {fileID: 1433825985532310193, guid: b7ca3d6510721844f87855f02b271a94, type: 3}
+  rotateSpeed: 100
   explodeOn: 1
   explodeScale: 0

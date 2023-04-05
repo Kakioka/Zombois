@@ -13,6 +13,8 @@ TagManager:
   - Shield
   - Bullet
   - Shopkeep
+  - Bar
+  - enemyBullet
   layers:
   - Default
   - TransparentFX
@@ -32,7 +34,7 @@ TagManager:
   - Shield
   - Bubble
   - Background
-  - 
+  - Lighthouse
   - 
   - 
   - 

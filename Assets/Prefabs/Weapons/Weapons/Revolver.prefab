@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -171,12 +171,24 @@ MonoBehaviour:
   projectiles: 1
   bulletSize: 1
   bulletLife: 5
-  offset: {x: 0, y: -0.2, z: 0}
+  offset: {x: 0, y: -0.1, z: 0}
   lookingRight: 1
   bleedOn: 0
   bleedLvl: 0
   splinterOn: 0
   splintLvl: 0
+  burnOn: 0
+  burnLvl: 0
+  freezeOn: 0
+  freezeLvl: 0
+  tridentOn: 0
+  tridentLvl: 0
+  trident: {fileID: 4440926475043643178, guid: 267f9f45df4bd4a8082c1305da722a4a, type: 3}
+  tridentTimer: 3
+  laserOn: 0
+  laserLvl: 0
+  laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
+  laserTimer: 5
   spread: 0
   boomScale: 0
 --- !u!82 &8611747866515176802
