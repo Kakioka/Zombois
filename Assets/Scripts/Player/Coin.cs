@@ -17,6 +17,9 @@ public class Coin : MonoBehaviour
     private bool armor;
     [SerializeField]
     private bool bomb;
+    [SerializeField]
+    private bool moon;
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +71,11 @@ public class Coin : MonoBehaviour
                 Color c = temp.GetComponent<SpriteRenderer>().color;
                 c.a = 0.5f;
                 temp.GetComponent<SpriteRenderer>().color = c;
+            }
+            if (moon)
+            {
+                GameObject temp = GameObject.FindGameObjectWithTag("GameController");
+                temp.GetComponent<PerkManager>().moonCoin++;
             }
             player.GetComponent<PlayerMovement>().bank += value;
             Destroy(gameObject);
