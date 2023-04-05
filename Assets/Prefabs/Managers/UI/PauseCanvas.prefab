@@ -338,7 +338,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
+  m_fontStyle: 33
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8597441832108714622}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: volume
         m_Mode: 1
@@ -2207,7 +2207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8597441832108714622}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ApplyGraphics
         m_Mode: 1
@@ -2902,6 +2902,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 7025688094159947266}
+  OptionsMenu: {fileID: 6575615569257726055}
+  OptionsB: {fileID: 8571118471181637880}
+  MenuB: {fileID: 7025688094759315151}
+  ExitB: {fileID: 7025688095212608729}
+  ResumeB: {fileID: 0}
 --- !u!114 &8597441832108714622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4119,6 +4124,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 7025688094606746038}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &8571118471181637880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4289,6 +4306,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7025688094606746038}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8769628019819382788
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,7 +4457,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8597441832108714622}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: setRes
         m_Mode: 0

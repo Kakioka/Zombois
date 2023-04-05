@@ -5,12 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SettingsManager : MonoBehaviour
 {
+    public static SettingsManager Instance;
+    [SerializeField]
     private float volume;
+
+    private void Awake()
+    {
+        if(Instance == null) 
+        {
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+           Instance = this; 
+            DontDestroyOnLoad(gameObject);
+        }
+       
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        
     }
 
     // Update is called once per frame
@@ -26,12 +39,16 @@ public class SettingsManager : MonoBehaviour
 
     private void OnDisable()
     {
-        volume = AudioListener.volume;
         SceneManager.sceneLoaded -= levelLoaded;
     }
 
     void levelLoaded(Scene scene, LoadSceneMode mode)
     {
         AudioListener.volume = volume;
+    }
+
+    void OnSceneUnloaded(Scene current) 
+    {
+        volume = AudioListener.volume;
     }
 }

@@ -159,8 +159,8 @@ MonoBehaviour:
   maxAmmo: 6
   isReload: 0
   bulletForce: 6
-  reloadSpeed: 1.4
-  fireRate: 0.5
+  reloadSpeed: 1.6
+  fireRate: 0.6
   fireDelay: 0
   damage: 4
   piecre: 0

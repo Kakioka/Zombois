@@ -355,8 +355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  armor: 0
   prevHealth: 0
-  moveSpeed: 2.3
+  moveSpeed: 2
   rb: {fileID: 8514121530740298774}
   isDead: 0
   ani: {fileID: 0}
