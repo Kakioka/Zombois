@@ -52,6 +52,7 @@ public class Coin : MonoBehaviour
                     g.GetComponent<Coin>().GetComponent<Coin>().pickedUp = true;
                 }
             }
+
             if (armor)
             {
                 if (player.GetComponent<PlayerMovement>().armor != 3)
@@ -63,6 +64,7 @@ public class Coin : MonoBehaviour
                     sister.GetComponent<Sister>().armor++;
                 }
             }
+
             if (bomb) 
             {
                 GameObject temp = Instantiate(explode, collision.transform.position + new Vector3(0f,1.5f,0f), Quaternion.identity);
@@ -72,11 +74,13 @@ public class Coin : MonoBehaviour
                 c.a = 0.5f;
                 temp.GetComponent<SpriteRenderer>().color = c;
             }
+
             if (moon)
             {
                 GameObject temp = GameObject.FindGameObjectWithTag("GameController");
                 temp.GetComponent<PerkManager>().moonCoin++;
             }
+
             player.GetComponent<PlayerMovement>().bank += value;
             Destroy(gameObject);
         }

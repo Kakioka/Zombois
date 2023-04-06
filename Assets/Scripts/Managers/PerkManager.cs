@@ -10,8 +10,9 @@ public class PerkManager : MonoBehaviour
 
     private GameObject gameM;
 
-    [SerializeField]
-    private List<bool> perkOwned = new List<bool>();
+    public List<bool> perkOwned = new List<bool>();
+
+    public List<bool> perkEquiped = new List<bool>();
 
     private void Awake()
     {

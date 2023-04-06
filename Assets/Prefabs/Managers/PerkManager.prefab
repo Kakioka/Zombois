@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moonCoin: 0
   perkOwned: 00000000
+  perkEquiped: 00000000
