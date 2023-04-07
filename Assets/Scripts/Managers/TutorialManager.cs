@@ -31,17 +31,17 @@ public class TutorialManager : MonoBehaviour
 
     public void Hard() 
     {
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(12);
     }
 
     public void Hell() 
     {
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene(13);
     }
 
     public void Normal()
     {
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(14);
     }
 
     public void Back()

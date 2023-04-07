@@ -80,16 +80,22 @@ public class gameManager : MonoBehaviour
 
     public GameObject currUI;
 
-    private GameObject perkM;
+    [SerializeField]
+    private PerkManager perkM;
+    private GameObject perkMG;
 
     // Start is called before the first frame update
     void Start()
     {
-        perkM = GameObject.FindGameObjectWithTag("GameController");
-        AudioListener.volume = AudioListener.volume;
         Vector2 hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
         DontDestroyOnLoad(this.gameObject);
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
+    }
+
+    private void Awake()
+    {
+        perkMG = GameObject.FindGameObjectWithTag("GameController");
+        perkM = perkMG.GetComponent<PerkManager>();
     }
 
     // Update is called once per frame
@@ -163,10 +169,17 @@ public class gameManager : MonoBehaviour
     {
         gun.GetComponent<Gun>().fireRate = gunb.GetComponent<Gun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
         gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gunb.GetComponent<Gun>().damage * Mathf.Pow(2,itemCounts[17]) * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+        
+        if (perkM.perkEquiped[0])
+        {
+            gun.GetComponent<Gun>().damage = Mathf.CeilToInt(gun.GetComponent<Gun>().damage * perkM.damageMod);
+        }
+
         if (gun.GetComponent<Gun>().damage <= 0)
         {
             gun.GetComponent<Gun>().damage = 1;
         }
+
         gun.GetComponent<Gun>().bulletSize = gunb.GetComponent<Gun>().bulletSize * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().boomScale = gunb.GetComponent<Gun>().boomScale * (1 + (bangSize * itemCounts[4]));
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
@@ -232,13 +245,21 @@ public class gameManager : MonoBehaviour
         if (itemCounts[25] > 0)
         {
             gun.GetComponent<Gun>().tridentOn = true;
-            gun.GetComponent<Gun>().tridentLvl = itemCounts[25];
+            gun.GetComponent<Gun>().tridentDamage = 5 * itemCounts[25];
+            if (perkM.perkEquiped[0])
+            {
+                gun.GetComponent<Gun>().tridentDamage = Mathf.CeilToInt(gun.GetComponent<Gun>().tridentDamage * perkM.damageMod);
+            }
         }
 
         if (itemCounts[26] > 0)
         {
             gun.GetComponent<Gun>().laserOn = true;
-            gun.GetComponent<Gun>().laserLvl = itemCounts[26];
+            gun.GetComponent<Gun>().laserDamage = 5 * itemCounts[26];
+            if (perkM.perkEquiped[0])
+            {
+                gun.GetComponent<Gun>().laserDamage = Mathf.CeilToInt(gun.GetComponent<Gun>().laserDamage * perkM.damageMod);
+            }
         }
 
         if (itemCounts[27] > 0)
@@ -246,7 +267,6 @@ public class gameManager : MonoBehaviour
             if (matrixG == null)
             {
                 matrixG = Instantiate(matrix);
-
             }
             else
             {
@@ -255,6 +275,10 @@ public class gameManager : MonoBehaviour
             }
             matrixG.GetComponent<Matrix>().player = player;
             matrixG.GetComponent<Matrix>().matrixDamage = 0.3f * (1 + (0.3f * itemCounts[27]));
+            if (perkM.perkEquiped[0]) 
+            {
+                matrixG.GetComponent<Matrix>().matrixDamage *= perkM.damageMod;
+            }
         }
 
     }
@@ -282,6 +306,10 @@ public class gameManager : MonoBehaviour
             float snowScale = snow.transform.localScale.x * (1 + (snowRadius * itemCounts[9]));
             snowG.transform.localScale = new Vector3(snowScale, snowScale, snowScale);
             snowG.GetComponent<Snow>().speedMod = snow.GetComponent<Snow>().speedMod * (1 - (snowPower * itemCounts[9]));
+            if (perkM.perkEquiped[0])
+            {
+                snowG.GetComponent<Snow>().damage = Mathf.CeilToInt(snowG.GetComponent<Snow>().damage * perkM.damageMod);
+            }
         }
 
         if (itemCounts[10] > 0)
@@ -301,7 +329,10 @@ public class gameManager : MonoBehaviour
             {
                 missileG = Instantiate(missile, player.transform);
                 missileG.GetComponent<MissileLauncher>().player = player;
-                missileG.GetComponent<MissileLauncher>().damage = missileG.GetComponent<MissileLauncher>().damage;
+                if (perkM.perkEquiped[0])
+                {
+                    missileG.GetComponent<MissileLauncher>().damage = Mathf.CeilToInt(missileG.GetComponent<MissileLauncher>().damage * perkM.damageMod);
+                }
             }
             missileG.GetComponent<MissileLauncher>().missileLvl = itemCounts[11];
         }
@@ -330,6 +361,10 @@ public class gameManager : MonoBehaviour
             catG.GetComponent<Cat>().damage = cat.GetComponent<Cat>().damage + (5 * (itemCounts[21]-1));
             catG.GetComponent<Cat>().attackCD = cat.GetComponent<Cat>().attackCD * (1 - (0.1f * itemCounts[21]));
             catG.GetComponent<Cat>().moveSpeed = cat.GetComponent<Cat>().moveSpeed * (1 + (0.2f * itemCounts[21]));
+            if (perkM.perkEquiped[0])
+            {
+                catG.GetComponent<Cat>().damage = Mathf.CeilToInt(catG.GetComponent<Cat>().damage * perkM.damageMod);
+            }
         }
 
         if (itemCounts[22] > 0)
@@ -368,6 +403,16 @@ public class gameManager : MonoBehaviour
             }
             matrixG.GetComponent<Matrix>().player = player;
             matrixG.GetComponent<Matrix>().matrixDamage = 0.3f * (1 + (0.3f * itemCounts[27]));
+            if (perkM.perkEquiped[0])
+            {
+                matrixG.GetComponent<Matrix>().matrixDamage *= perkM.damageMod;
+            }
+        }
+
+        if (perkM.perkEquiped[1]) 
+        {
+            player.GetComponent<PlayerMovement>().moveSpeed *= perkM.moveMod;
+            sis.GetComponent<Sister>().moveSpeed *= perkM.moveMod;
         }
     }
 

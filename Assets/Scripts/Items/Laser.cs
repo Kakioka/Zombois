@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    public int laserLvl;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -14,8 +13,7 @@ public class Laser : MonoBehaviour
     private GameObject damageNum;
     [SerializeField]
     private float radius = 0.5f;
-    [SerializeField]
-    private int damage;
+    public int damage;
     [SerializeField]
     private GameObject hitEffect;
 
@@ -25,7 +23,6 @@ public class Laser : MonoBehaviour
     {
         GameObject temp = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(temp,2f);
-        damage = 5 * laserLvl;
     }
 
     // Update is called once per frame

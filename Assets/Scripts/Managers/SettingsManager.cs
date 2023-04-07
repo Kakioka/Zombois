@@ -14,7 +14,7 @@ public class SettingsManager : MonoBehaviour
         if(Instance == null) 
         {
             SceneManager.sceneUnloaded += OnSceneUnloaded;
-           Instance = this; 
+            Instance = this; 
             DontDestroyOnLoad(gameObject);
         }
        
