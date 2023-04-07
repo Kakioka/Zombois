@@ -80,9 +80,12 @@ public class gameManager : MonoBehaviour
 
     public GameObject currUI;
 
+    private GameObject perkM;
+
     // Start is called before the first frame update
     void Start()
     {
+        perkM = GameObject.FindGameObjectWithTag("GameController");
         AudioListener.volume = AudioListener.volume;
         Vector2 hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
         DontDestroyOnLoad(this.gameObject);
@@ -93,7 +96,7 @@ public class gameManager : MonoBehaviour
     void Update()
     {
        
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        /*if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -108,7 +111,7 @@ public class gameManager : MonoBehaviour
         {
             levelNum++;
             spawnLevel(8);
-        }
+        }*/
     }
 
     void levelStart()
@@ -251,7 +254,7 @@ public class gameManager : MonoBehaviour
                 matrixG = Instantiate(matrix);
             }
             matrixG.GetComponent<Matrix>().player = player;
-            matrixG.GetComponent<Matrix>().matrixLvl = itemCounts[27];
+            matrixG.GetComponent<Matrix>().matrixDamage = 0.3f * (1 + (0.3f * itemCounts[27]));
         }
 
     }
@@ -298,6 +301,7 @@ public class gameManager : MonoBehaviour
             {
                 missileG = Instantiate(missile, player.transform);
                 missileG.GetComponent<MissileLauncher>().player = player;
+                missileG.GetComponent<MissileLauncher>().damage = missileG.GetComponent<MissileLauncher>().damage;
             }
             missileG.GetComponent<MissileLauncher>().missileLvl = itemCounts[11];
         }
@@ -363,7 +367,7 @@ public class gameManager : MonoBehaviour
                 matrixG = Instantiate(matrix);
             }
             matrixG.GetComponent<Matrix>().player = player;
-            matrixG.GetComponent<Matrix>().matrixLvl = itemCounts[27];
+            matrixG.GetComponent<Matrix>().matrixDamage = 0.3f * (1 + (0.3f * itemCounts[27]));
         }
     }
 

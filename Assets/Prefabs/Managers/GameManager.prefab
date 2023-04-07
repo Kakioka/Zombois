@@ -251,7 +251,7 @@ MonoBehaviour:
   bangDmg: 0.3
   bangSize: 0.3
   bangFire: 0.2
-  fullAmmo: 0.3
+  fullAmmo: 0.2
   fullReload: 0.2
   MultiDmg: 0.3
   leash: 0.3
@@ -263,7 +263,7 @@ MonoBehaviour:
   lowDmg: 0.2
   snow: {fileID: 611411238212071733, guid: 90ff5b312cc16dc4b89d44a7fb783286, type: 3}
   snowRadius: 0.2
-  snowPower: 0.1
+  snowPower: 0.2
   bubble: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
   missile: {fileID: 8827306215690556667, guid: 82af7ab7712214b4b834e606ead7eb69, type: 3}
   powerDmg: 0.3

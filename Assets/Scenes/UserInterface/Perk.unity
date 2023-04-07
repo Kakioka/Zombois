@@ -150,7 +150,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.50897115, g: 0.45167318, b: 0.5471698, a: 0}
+  m_BackGroundColor: {r: 0.15738942, g: 0.14021893, b: 0.21698111, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -416,7 +416,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 629600430}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391695571}
+        m_TargetAssemblyTypeName: PerkShopManager, Assembly-CSharp
+        m_MethodName: perkButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &629600430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1391695572}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: Easy
         m_Mode: 1
@@ -883,7 +895,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1385,7 +1397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1334495287}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391695571}
+        m_TargetAssemblyTypeName: PerkShopManager, Assembly-CSharp
+        m_MethodName: perkButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1334495287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,7 +1804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1366658612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391695571}
+        m_TargetAssemblyTypeName: PerkShopManager, Assembly-CSharp
+        m_MethodName: perkButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1366658612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,6 +1865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391695570}
   - component: {fileID: 1391695571}
+  - component: {fileID: 1391695572}
   m_Layer: 0
   m_Name: Perk
   m_TagString: Untagged
@@ -1870,6 +1907,20 @@ MonoBehaviour:
   - {fileID: 1886064552}
   - {fileID: 629600427}
   perkM: {fileID: 0}
+  coinCounter: {fileID: 1316891388}
+  perkCosts: 02000000020000000200000002000000
+--- !u!114 &1391695572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391695569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be96ca5f7b0cb144bbae51089f2738ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1470927699
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +2052,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2128,7 +2179,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1886064555}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391695571}
+        m_TargetAssemblyTypeName: PerkShopManager, Assembly-CSharp
+        m_MethodName: perkButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1886064555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2671,7 +2734,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

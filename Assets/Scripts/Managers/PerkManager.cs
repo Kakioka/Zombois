@@ -14,6 +14,8 @@ public class PerkManager : MonoBehaviour
 
     public List<bool> perkEquiped = new List<bool>();
 
+    public float damageMod, moveMod, reloadMod;
+
     private void Awake()
     {
         if (Instance == null)
