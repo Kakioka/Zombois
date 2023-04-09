@@ -185,6 +185,13 @@ public class gameManager : MonoBehaviour
         gun.GetComponent<Gun>().bulletForce = gunb.GetComponent<Gun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
         gun.GetComponent<Gun>().piecre = gunb.GetComponent<Gun>().piecre + itemCounts[2] + itemCounts[12];
         gun.GetComponent<Gun>().reloadSpeed = gunb.GetComponent<Gun>().reloadSpeed * (1 + (fullReload * itemCounts[5])) * (1 - (glove * itemCounts[16]));
+
+        if (perkM.perkEquiped[2]) 
+        {
+            gun.GetComponent<Gun>().reloadSpeed = gun.GetComponent<Gun>().reloadSpeed * perkM.reloadMod;
+            player.GetComponent<PlayerMovement>().reloadPulseOn = true;
+        }
+
         float temp = 1 - (fullAmmo * itemCounts[5]);
         if (temp < 0.3 && itemCounts[3] > 0) 
         {

@@ -33,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
     public bool coinOn;
     public int coinLvl;
 
+    public bool reloadPulseOn = false;
+    public bool reloadPulse = false;
+    private GameObject reloadRing;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
         ani = gameObject.GetComponent<Animator>();
         oldCoin = bank;
         coinChance += 5 * coinLvl;
+
+        if (reloadPulse) 
+        {
+            reloadRing = Instantiate(ring, transform);
+            reloadRing.SetActive(false);
+        }
     }
 
     private void coinUp() 
@@ -75,6 +84,14 @@ public class PlayerMovement : MonoBehaviour
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
+    private IEnumerator reloadKnockBack() 
+    {
+        reloadPulse = true;
+        reloadRing.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        reloadRing.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -87,8 +104,22 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
         }
+
+        if (reloadPulseOn) 
+        {
+            if (gun.GetComponent<Gun>().isReload && !reloadPulse) 
+            {
+                StartCoroutine(reloadKnockBack());
+            }
+            else if(!gun.GetComponent<Gun>().isReload && reloadPulse)
+            {
+                reloadPulse = false;
+            }
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
         if (movement.x == 0 && movement.y == 0)
         {
             ani.SetBool("move", false);
