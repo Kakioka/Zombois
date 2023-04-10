@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool reloadPulseOn = false;
     public bool reloadPulse = false;
+    [SerializeField]
     private GameObject reloadRing;
 
     // Start is called before the first frame update
@@ -46,11 +47,9 @@ public class PlayerMovement : MonoBehaviour
         ani = gameObject.GetComponent<Animator>();
         oldCoin = bank;
         coinChance += 5 * coinLvl;
-
-        if (reloadPulse) 
+        if (reloadPulseOn)
         {
-            reloadRing = Instantiate(ring, transform);
-            reloadRing.SetActive(false);
+            reloadRing = Instantiate(ring, this.transform);
         }
     }
 

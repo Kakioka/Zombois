@@ -160,7 +160,7 @@ MonoBehaviour:
   isReload: 0
   bulletForce: 6
   reloadSpeed: 1.6
-  fireRate: 0.6
+  fireRate: 0.5
   fireDelay: 0
   damage: 4
   piecre: 0
@@ -182,11 +182,11 @@ MonoBehaviour:
   freezeOn: 0
   freezeLvl: 0
   tridentOn: 0
-  tridentLvl: 0
+  tridentDamage: 0
   trident: {fileID: 4440926475043643178, guid: 267f9f45df4bd4a8082c1305da722a4a, type: 3}
   tridentTimer: 3
   laserOn: 0
-  laserLvl: 0
+  laserDamage: 0
   laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
   laserTimer: 5
   spread: 0

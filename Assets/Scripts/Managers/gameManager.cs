@@ -421,6 +421,11 @@ public class gameManager : MonoBehaviour
             player.GetComponent<PlayerMovement>().moveSpeed *= perkM.moveMod;
             sis.GetComponent<Sister>().moveSpeed *= perkM.moveMod;
         }
+
+        if (perkM.perkEquiped[2])
+        {
+            player.GetComponent<PlayerMovement>().reloadPulseOn = true;
+        }
     }
 
     public void spawnLevel(int level)
