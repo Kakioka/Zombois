@@ -225,7 +225,7 @@ public class UIManager : MonoBehaviour
                 temp.GetComponentInChildren<TextMeshPro>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
                 currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
                 lastItemPos.x +=  itemBuffer;
-                if (currItemIndex.Count % 10 == 0) 
+                if (currItemIndex.Count % 12 == 0) 
                 {
                     lastItemPos.x = itemPos.position.x;
                     lastItemPos.y -= itemBuffer;

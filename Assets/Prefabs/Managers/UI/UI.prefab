@@ -804,7 +804,7 @@ MonoBehaviour:
   aniGun: {fileID: 7978822152366045291}
   sisH: {fileID: 8398923414542305966}
   itemPos: {fileID: 4557002742224078042}
-  itemBuffer: 1.1
+  itemBuffer: 0.9
   items:
   - {fileID: 8890358436404006919, guid: 0a16a48a05592da4b86a6bcecf581ed3, type: 3}
   - {fileID: 4351849583245276711, guid: b4aee237c0bd6db4b95c81d133ded178, type: 3}
@@ -1571,7 +1571,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c289361815b292b4b9ae5602fabdd5cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1704,7 +1704,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c289361815b292b4b9ae5602fabdd5cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1788,7 +1788,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c289361815b292b4b9ae5602fabdd5cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

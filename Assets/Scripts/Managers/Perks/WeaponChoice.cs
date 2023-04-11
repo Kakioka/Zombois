@@ -19,6 +19,7 @@ public class WeaponChoice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0;
         choice = this.gameObject;
         for (int i = 0; i < 3; i++)
         {
@@ -26,6 +27,11 @@ public class WeaponChoice : MonoBehaviour
             temp.GetComponent<weaponCard>().wepCost = 0;
             temp.GetComponentInChildren<Button>().onClick.AddListener(skip);
         }
+    }
+
+    private void Awake()
+    {
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -36,6 +42,7 @@ public class WeaponChoice : MonoBehaviour
 
     public void skip()
     {
+        Time.timeScale = 1;
         Destroy(choice);
     }
 }
