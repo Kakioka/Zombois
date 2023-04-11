@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponChoice : MonoBehaviour
 {
@@ -10,16 +11,20 @@ public class WeaponChoice : MonoBehaviour
     [SerializeField]
     private List<GameObject> wepCards = new List<GameObject>();
 
+    private GameObject choice;
+
     [SerializeField]
     //private List<GameObject> wepChoices = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+        choice = this.gameObject;
         for (int i = 0; i < 3; i++)
         {
             GameObject temp = Instantiate(wepCards[Random.Range(0, wepCards.Count)], choices[i].transform);
             temp.GetComponent<weaponCard>().wepCost = 0;
+            temp.GetComponentInChildren<Button>().onClick.AddListener(skip);
         }
     }
 
@@ -31,6 +36,6 @@ public class WeaponChoice : MonoBehaviour
 
     public void skip()
     {
-        Destroy(gameObject);
+        Destroy(choice);
     }
 }

@@ -53,8 +53,8 @@ MonoBehaviour:
   levelDone: {fileID: 6041485348016349840}
   enemyLeftText: {fileID: 6041485348091658300}
   enemyLeftObj: {fileID: 6041485347703431968}
-  hpMod: 1.2
-  speedMod: 0.8
+  hpMod: 1.6
+  speedMod: 1.2
   stageCount: 6
   stageCountText: {fileID: 2732127278361898911}
   stageEnd: {fileID: 8293413620389666733}

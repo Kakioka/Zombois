@@ -53,8 +53,8 @@ MonoBehaviour:
   levelDone: {fileID: 2571045497745637692}
   enemyLeftText: {fileID: 2571045497686582160}
   enemyLeftObj: {fileID: 2571045497566773388}
-  hpMod: 1.2
-  speedMod: 0.8
+  hpMod: 1.4
+  speedMod: 1
   stageCount: 5
   stageCountText: {fileID: 6166533865116044339}
   stageEnd: {fileID: 243622190781873153}
@@ -194,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 4911619913488741795, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973769810224967495, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8226003565009155963, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_Pivot.x

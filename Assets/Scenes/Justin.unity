@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 1603731398}
   - component: {fileID: 1603731397}
   - component: {fileID: 1603731396}
+  - component: {fileID: 1603731400}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1938,6 +1939,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1603731400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603731395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06684f0f6fcf4a8299039990dc54bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choices:
+  - {fileID: 561346329}
+  - {fileID: 1904326982}
+  - {fileID: 687109070}
+  wepCards:
+  - {fileID: 2191274208974341576, guid: f4f406298a7184dd1896b9551a8bcb3f, type: 3}
+  - {fileID: 6854913540575278223, guid: b30386caaef1e4b8aacb46c09ed92e1c, type: 3}
+  - {fileID: 2361122916725125274, guid: c2bede14dfd214509a99874219c2dc73, type: 3}
+  - {fileID: 7391654423620294880, guid: cce6f8d3d087b42248ac4630514cdb67, type: 3}
+  - {fileID: 2361122916725125274, guid: e5a76ee17b8a14bbd98b366e81318a63, type: 3}
+  - {fileID: 2191274208974341576, guid: 0ce01d9f6ca20440ca16966b02421225, type: 3}
+  - {fileID: 2191274208974341576, guid: bb6209112b576ac4ab6f553447ab214b, type: 3}
+  - {fileID: 2191274208974341576, guid: 4b0e6ef3191753a42b1e21243e4cc413, type: 3}
 --- !u!1001 &1638168986
 PrefabInstance:
   m_ObjectHideFlags: 0
