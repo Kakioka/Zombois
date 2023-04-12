@@ -507,73 +507,73 @@ public class gameManager : MonoBehaviour
 
         if (scene.name == "Stage2")
         {
+            currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[1]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
-            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
         if (scene.name == "Stage3")
         {
+            currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[2]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
-            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
         if (scene.name == "Stage4")
         {
+            currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[3]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
-            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
         if (scene.name == "Stage5")
         {
+            currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[4]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
-            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
         if (scene.name == "Stage6")
         {
+            currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[5]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
-            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
         if (scene.name == "Stage7")
         {
+            currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[6]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
-            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 
