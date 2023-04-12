@@ -57,10 +57,10 @@ MonoBehaviour:
   time: 3
   coolDown: 0
   num: 1
-  radius: 1
+  radius: 1.5
   hpMod: 0
   nums: 01000000020000000300000004000000050000000600000007000000
-  speedMod: 0
+  speedMod: 0.8
   testN: 0
   testR: 0
 --- !u!1 &5504292816335067635
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -242962571, guid: b89aaee89951d424da8e8d05c4436b97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8ea6eee95c16c845a23003f0c287105, type: 3}
   m_Color: {r: 0.745283, g: 0.10060444, b: 0.0035154943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,8 +253,7 @@ MonoBehaviour:
   silver: {fileID: 9205036790924861423, guid: 6efdef7ae9ac248daa3da0253e291ab4, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
-  spawner: {fileID: 0}
-  moveSpeed: 0.25
+  moveSpeed: 5
   knock: 0
 --- !u!114 &-3017505946881025708
 MonoBehaviour:
