@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 7444943483134988115}
   - component: {fileID: -4930236018834177714}
   m_Layer: 0
-  m_Name: HotPotato
+  m_Name: HotFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,13 +446,12 @@ MonoBehaviour:
   player: {fileID: 0}
   gameM: {fileID: 0}
   upgradeShop: {fileID: 0}
-  itemName: Hot Potato
+  itemName: Hot Food
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
   cost: 25
   itemNum: 19
-  description: Blow until cool before eating. Nice.  Bullets have a chance to burn
-    enemies
+  description: Blow cool before eating. Bullets have a chance to burn enemies
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
   toolTip: {fileID: 0}
