@@ -38,14 +38,14 @@ public class BrotherBossGun : MonoBehaviour
 
 
     public bool tridentOn = false;
-    public int tridentLvl;
+    public int tridentDamage;
     [SerializeField]
     private GameObject trident;
     private bool tridentCoolDown;
     public float tridentTimer;
 
     public bool laserOn = false;
-    public int laserLvl;
+    public int laserDamage;
     [SerializeField]
     private GameObject laser;
     private bool laserCoolDown = false;
@@ -113,7 +113,7 @@ public class BrotherBossGun : MonoBehaviour
     {
         laserCoolDown = true;
         GameObject temp = Instantiate(laser, firePoint.transform.position, firePoint.transform.rotation);
-        temp.GetComponent<Laser>().laserLvl = laserLvl;
+        temp.GetComponent<Laser>().damage = laserDamage;
         yield return new WaitForSeconds(laserTimer);
         laserCoolDown = false;
     }
@@ -122,7 +122,7 @@ public class BrotherBossGun : MonoBehaviour
     {
         tridentCoolDown = true;
         GameObject temp = Instantiate(trident, firePoint.transform.position, firePoint.transform.rotation);
-        temp.GetComponent<Bullet>().damage = 5 * tridentLvl;
+        temp.GetComponent<Bullet>().damage = tridentDamage;
         yield return new WaitForSeconds(tridentTimer);
         tridentCoolDown = false;
     }
@@ -142,7 +142,20 @@ public class BrotherBossGun : MonoBehaviour
 
     void Update()
     {
-        transform.position = player.transform.position + offset;
+
+        if (shooting)
+        {
+            if (ammo != 0 && isReload == false && fireDelay == false)
+            {
+                Shoot();
+                gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            else if (ammo == 0 && isReload == false)
+            {
+                Reload();
+            }
+        }
 
         if (transform.rotation.eulerAngles.z > 180 && !lookingRight)
         {
@@ -166,7 +179,7 @@ public class BrotherBossGun : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 lookDir = (Vector2)player.transform.position - rb.position;
+        Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
@@ -225,3 +238,4 @@ public class BrotherBossGun : MonoBehaviour
         transform.localScale = theScale;
     }
 }
+

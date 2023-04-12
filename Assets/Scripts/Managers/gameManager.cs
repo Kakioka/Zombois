@@ -14,16 +14,28 @@ public class gameManager : MonoBehaviour
     //player prefab
     public GameObject playerPref;
 
+    //BrotherBoss prefab
+    public GameObject brotherBossPref;
+
     //player obj
     public GameObject player;
 
+    //brotherBoss object
+    public GameObject brotherBoss;
+
     //gun prefabs
     public List<GameObject> guns = new List<GameObject>();
+
+    //evil gun prefabs
+    public List<GameObject> bGuns = new List<GameObject>();
 
     //gun obj
     public GameObject gun;
 
     public int playerH = 3;
+
+    //brotherboss gun
+    public GameObject bGun;
 
     //sister
     public GameObject sisPre, sis;
@@ -101,7 +113,16 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+        //testing spawning of brother boss in scene w/ player
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            spawnBrotherBoss();
+            bSpawnWep(wepNum);
+            bbUpgradeGun(bGun, bGuns[wepNum]);
+            Debug.Log("Boss spawned.");
+        }
+
         /*if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -149,6 +170,12 @@ public class gameManager : MonoBehaviour
         sis.GetComponent<Sister>().player = player;
     }
 
+    //instantiates the brotherboss
+    void spawnBrotherBoss()
+    {
+        brotherBoss = Instantiate(brotherBossPref, brotherBossPref.transform.position, Quaternion.identity);
+    }
+
     public void levelEnd()
     {
         bank = player.GetComponent<PlayerMovement>().bank;
@@ -163,6 +190,14 @@ public class gameManager : MonoBehaviour
         gun = Instantiate(guns[num], player.transform.position, player.transform.rotation);   
         gun.GetComponent<Gun>().player = player;
         player.GetComponent<PlayerMovement>().gun = gun;
+    }
+
+    //spawns weaopn for brother
+    public void bSpawnWep(int num)
+    {
+        bGun = Instantiate(bGuns[num], brotherBoss.transform.position, brotherBoss.transform.rotation);
+        bGun.GetComponent<BrotherBossGun>().player = player;
+        brotherBoss.GetComponent<BrotherBoss>().gun = bGun;
     }
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
@@ -289,6 +324,93 @@ public class gameManager : MonoBehaviour
         }
         currUI.GetComponent<UIManager>().gun = gun;
         currUI.GetComponent<UIManager>().aniGun.speed = 1 / gun.GetComponent<Gun>().reloadSpeed;
+    }
+
+    //This one upgrades the gun of the brother boss to match the player, with some exceptions
+    public void bbUpgradeGun(GameObject gun, GameObject gunb)
+    {
+        gun.GetComponent<BrotherBossGun>().fireRate = gunb.GetComponent<BrotherBossGun>().fireRate * ((1 - (stim * itemCounts[0])) * (1 + (bangFire * itemCounts[4])));
+        gun.GetComponent<BrotherBossGun>().damage = Mathf.CeilToInt(gunb.GetComponent<BrotherBossGun>().damage * Mathf.Pow(2, itemCounts[17]) * (1 + (bangDmg * itemCounts[4]) + (highDmg * itemCounts[3]) + (powerDmg * itemCounts[12])) * (1 - (MultiDmg * itemCounts[6]) - (lowDmg * itemCounts[13])));
+
+        if (perkM.perkEquiped[0])
+        {
+            gun.GetComponent<BrotherBossGun>().damage = Mathf.CeilToInt(gun.GetComponent<BrotherBossGun>().damage * perkM.damageMod);
+        }
+
+        if (gun.GetComponent<BrotherBossGun>().damage <= 0)
+        {
+            gun.GetComponent<BrotherBossGun>().damage = 1;
+        }
+
+        gun.GetComponent<BrotherBossGun>().bulletSize = gunb.GetComponent<BrotherBossGun>().bulletSize * (1 + (bangSize * itemCounts[4]));
+        gun.GetComponent<BrotherBossGun>().boomScale = gunb.GetComponent<BrotherBossGun>().boomScale * (1 + (bangSize * itemCounts[4]));
+        gun.GetComponent<BrotherBossGun>().bulletForce = gunb.GetComponent<BrotherBossGun>().bulletForce * (1 + (gunpowder * itemCounts[2])) * (1 + (highSpeed * itemCounts[3])) * (1 - (powerSpeed * itemCounts[12]));
+        gun.GetComponent<BrotherBossGun>().piecre = gunb.GetComponent<BrotherBossGun>().piecre + itemCounts[2] + itemCounts[12];
+        gun.GetComponent<BrotherBossGun>().reloadSpeed = gunb.GetComponent<BrotherBossGun>().reloadSpeed * (1 + (fullReload * itemCounts[5])) * (1 - (glove * itemCounts[16]));
+
+        float temp = 1 - (fullAmmo * itemCounts[5]);
+        if (temp < 0.3 && itemCounts[3] > 0)
+        {
+            temp = 0.3f;
+        }
+        float temp2 = 1 - (highAmmo * itemCounts[3]);
+        if (temp < 0.3 && itemCounts[5] > 0)
+        {
+            temp2 = 0.3f;
+        }
+        gun.GetComponent<BrotherBossGun>().maxAmmo = Mathf.CeilToInt(gunb.GetComponent<BrotherBossGun>().ammo * (1 + (lowAmmo * itemCounts[13])) * (temp * temp2));
+        if (gun.GetComponent<BrotherBossGun>().maxAmmo < 1)
+        {
+            gun.GetComponent<BrotherBossGun>().maxAmmo = 1;
+        }
+        gun.GetComponent<BrotherBossGun>().projectiles = gunb.GetComponent<BrotherBossGun>().projectiles + itemCounts[5] + itemCounts[6];
+        gun.GetComponent<BrotherBossGun>().knockBack = gunb.GetComponent<BrotherBossGun>().knockBack * (1 + (bell * itemCounts[24]));
+        if (itemCounts[14] > 0)
+        {
+            gun.GetComponent<BrotherBossGun>().bleedOn = true;
+            gun.GetComponent<BrotherBossGun>().bleedLvl = itemCounts[14];
+        }
+
+        if (itemCounts[15] > 0)
+        {
+            gun.GetComponent<BrotherBossGun>().splinterOn = true;
+            gun.GetComponent<BrotherBossGun>().splintLvl = itemCounts[15];
+        }
+
+        if (itemCounts[19] > 0)
+        {
+            gun.GetComponent<BrotherBossGun>().burnOn = true;
+            gun.GetComponent<BrotherBossGun>().burnLvl = itemCounts[19];
+        }
+
+        if (itemCounts[20] > 0)
+        {
+            gun.GetComponent<BrotherBossGun>().freezeOn = true;
+            gun.GetComponent<BrotherBossGun>().freezeLvl = itemCounts[20];
+        }
+
+        
+
+        if (itemCounts[25] > 0)
+        {
+            gun.GetComponent<BrotherBossGun>().tridentOn = true;
+            gun.GetComponent<BrotherBossGun>().tridentDamage = 5 * itemCounts[25];
+            if (perkM.perkEquiped[0])
+            {
+                gun.GetComponent<BrotherBossGun>().tridentDamage = Mathf.CeilToInt(gun.GetComponent<BrotherBossGun>().tridentDamage * perkM.damageMod);
+            }
+        }
+
+        if (itemCounts[26] > 0)
+        {
+            gun.GetComponent<BrotherBossGun>().laserOn = true;
+            gun.GetComponent<BrotherBossGun>().laserDamage = 5 * itemCounts[26];
+            if (perkM.perkEquiped[0])
+            {
+                gun.GetComponent<BrotherBossGun>().laserDamage = Mathf.CeilToInt(gun.GetComponent<BrotherBossGun>().laserDamage * perkM.damageMod);
+            }
+        }
+
     }
 
     public void itemUpgradePlayer() 

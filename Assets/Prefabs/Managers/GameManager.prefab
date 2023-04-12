@@ -94,7 +94,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947471584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -4.87, y: 1.3, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -228,7 +228,9 @@ MonoBehaviour:
   bank: 0
   wepNum: 0
   playerPref: {fileID: 8514121530740298771, guid: 0131d602152f14b1ca642b99903c1d79, type: 3}
+  brotherBossPref: {fileID: 8514121530740298771, guid: 96fe489f21d4be94faa7c8ea1495a0ad, type: 3}
   player: {fileID: 0}
+  brotherBoss: {fileID: 0}
   guns:
   - {fileID: 816795137638649300, guid: cd741d3fb8e804b25991c81d106bbdf1, type: 3}
   - {fileID: 4229727540086970750, guid: f971621ba99693c4fa4eae0f0d5479ec, type: 3}
@@ -238,8 +240,18 @@ MonoBehaviour:
   - {fileID: 816795137638649300, guid: d0fb9a94f4614450a93c5f30544890cc, type: 3}
   - {fileID: 8252517987037821156, guid: 99cce375281b74201bf4aea749d76f45, type: 3}
   - {fileID: 8252517987037821156, guid: ca6d9c07ff37a4e668cd579a82be736d, type: 3}
+  bGuns:
+  - {fileID: 816795137638649300, guid: 087af925c24e8b54e94f35a7c2fae099, type: 3}
+  - {fileID: 4229727540086970750, guid: 9be7864505bbcfa4fb7ad019081df87a, type: 3}
+  - {fileID: 8252517987037821156, guid: 6b9c00482a672a647869c3efa0daaa50, type: 3}
+  - {fileID: 3758488845514612959, guid: 51df9095112a49449ace582d56b8fef9, type: 3}
+  - {fileID: 3383940849777442907, guid: 60d9d86c1ea25d84d91aba532e6e7b1d, type: 3}
+  - {fileID: 816795137638649300, guid: c257e72233ddb8247a820ba5e41c7864, type: 3}
+  - {fileID: 8252517987037821156, guid: da074b8fa19dc2c4fb936e29af27e2e9, type: 3}
+  - {fileID: 8252517987037821156, guid: 2262588468b831044ad516c78a5c8f98, type: 3}
   gun: {fileID: 0}
   playerH: 3
+  bGun: {fileID: 0}
   sisPre: {fileID: 8741561835794063889, guid: af116f6cefa54c048bbb593ccbe2cc6f, type: 3}
   sis: {fileID: 0}
   sisH: 3
@@ -289,6 +301,7 @@ MonoBehaviour:
   cursorTexture: {fileID: 2800000, guid: 291e299a3ad8fd74195d99a787a7df52, type: 3}
   cursorMode: 0
   currUI: {fileID: 0}
+  perkM: {fileID: 0}
 --- !u!82 &317871882217373571
 AudioSource:
   m_ObjectHideFlags: 0

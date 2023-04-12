@@ -26,7 +26,7 @@ public class BrotherBoss : MonoBehaviour
         rbLocal = GetComponent<Rigidbody2D>();
         ani = gameObject.GetComponent<Animator>();
         player = this.gameObject.GetComponent<Enemy>().player;
-        sister = this.gameObject.GetComponent<Enemy>().sister;
+        sister = this.gameObject.GetComponent<Enemy>().player;
     }
 
     private IEnumerator knockBack()
