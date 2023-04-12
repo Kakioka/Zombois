@@ -48,6 +48,7 @@ public class upgradeShopWepButtons : MonoBehaviour
 
     public void refreshWep()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         Destroy(weapCard);
         weapCard = Instantiate(weaponCards[Random.Range(0, weaponCards.Count)], wepPos);
         weapCard.GetComponent<weaponCard>().player = player;

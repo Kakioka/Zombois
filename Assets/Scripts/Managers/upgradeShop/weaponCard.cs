@@ -14,6 +14,8 @@ public class weaponCard : MonoBehaviour
     public int wepCost;
     public Tooltip toolTip;
 
+    [SerializeField]
+    private AudioSource ding;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,7 @@ public class weaponCard : MonoBehaviour
                 buttonText.text = "Bought";
                 player.GetComponent<PlayerMovement>().bank -= wepCost;
                 gameM.GetComponent<gameManager>().wepNum = wepNum;
+                ding.Play();
                 if (upgradeShopWepButtons != null) 
                 {
                     upgradeShopWepButtons.setWeapon();

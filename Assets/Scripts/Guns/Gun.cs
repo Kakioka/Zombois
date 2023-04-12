@@ -56,6 +56,12 @@ public class Gun : MonoBehaviour
 
     public float boomScale;
 
+    [SerializeField]
+    private AudioSource shoot;
+
+    [SerializeField]
+    private AudioSource reload;
+
     private List<GameObject> firePointList = new List<GameObject>();
 
     // Update is called once per frame
@@ -129,6 +135,8 @@ public class Gun : MonoBehaviour
 
     IEnumerator Reloading()
     {
+        reload.pitch = Random.Range(.6f, 1.4f);
+        reload.Play();
         yield return new WaitForSeconds(reloadSpeed);
         ammo = maxAmmo;
         isReload = false;
@@ -167,8 +175,8 @@ public class Gun : MonoBehaviour
             if (ammo != 0 && isReload == false && fireDelay == false)
             {
                 Shoot();
-                gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
-                gameObject.GetComponent<AudioSource>().Play();
+                shoot.pitch = Random.Range(.6f, 1.4f);
+                shoot.Play();
             }
             else if (ammo == 0 && isReload == false)
             {
