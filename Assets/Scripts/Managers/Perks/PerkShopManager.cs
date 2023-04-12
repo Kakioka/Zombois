@@ -59,7 +59,7 @@ public class PerkShopManager : MonoBehaviour
     {
         if (!perkM.GetComponent<PerkManager>().perkOwned[i])
         {
-            if (perkM.GetComponent<PerkManager>().moonCoin > perkCosts[i])
+            if (perkM.GetComponent<PerkManager>().moonCoin >= perkCosts[i])
             {
                 perkM.GetComponent<PerkManager>().moonCoin -= perkCosts[i];
                 perkM.GetComponent<PerkManager>().perkOwned[i] = true;

@@ -39,7 +39,11 @@ public class Boomer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {       
+        if (gameObject.GetComponent<Enemy>().health <= 0)
+        {
+            GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
+        }
         if (inRange) 
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.clear, flashSpeed * Mathf.PingPong(Time.time, pingPongSpeed));
@@ -48,10 +52,7 @@ public class Boomer : MonoBehaviour
         {
             StartCoroutine(knockBack());
         }
-        if (gameObject.GetComponent<Enemy>().health <= 0)
-        {
-            GameObject boom = Instantiate(explosion, transform.position, transform.rotation);
-        }
+ 
 
         float distP = Vector3.Distance(player.transform.position, transform.position);
         float distS = Vector3.Distance(sister.transform.position, transform.position);
