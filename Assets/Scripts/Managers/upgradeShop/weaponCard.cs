@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class weaponCard : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class weaponCard : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        GetComponentInChildren<Button>().onClick.AddListener(wepButton);
+    }
+
     private void OnMouseOver()
     {
         toolTip.ShowTooltip();
@@ -48,8 +54,11 @@ public class weaponCard : MonoBehaviour
                 buttonText.text = "Bought";
                 player.GetComponent<PlayerMovement>().bank -= wepCost;
                 gameM.GetComponent<gameManager>().wepNum = wepNum;
-                upgradeShopWepButtons.setWeapon();
+                if (upgradeShopWepButtons != null) 
+                {
+                    upgradeShopWepButtons.setWeapon();
+                }
             }
         }
     }
-}
+ }

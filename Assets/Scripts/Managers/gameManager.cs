@@ -282,12 +282,13 @@ public class gameManager : MonoBehaviour
             }
             matrixG.GetComponent<Matrix>().player = player;
             matrixG.GetComponent<Matrix>().matrixDamage = 0.3f * (1 + (0.3f * itemCounts[27]));
-            if (perkM.perkEquiped[0]) 
+            if (perkM.perkEquiped[0])
             {
                 matrixG.GetComponent<Matrix>().matrixDamage *= perkM.damageMod;
             }
         }
-
+        currUI.GetComponent<UIManager>().gun = gun;
+        currUI.GetComponent<UIManager>().aniGun.speed = 1 / gun.GetComponent<Gun>().reloadSpeed;
     }
 
     public void itemUpgradePlayer() 
@@ -494,13 +495,13 @@ public class gameManager : MonoBehaviour
 
         if (scene.name == "Stage1" || scene.name == "Stage1Hard" || scene.name == "Stage1Hell" || scene.name == "Stage1Normal")
         {
+            currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[0]);
             currManager.GetComponent<stageManager>().gameM = this.gameObject;
             currManager.GetComponent<stageManager>().player = player;
             currManager.GetComponent<stageManager>().sister = sis;
             currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
-            currUI = Instantiate(UI);
             uiStart(currUI);
         }
 

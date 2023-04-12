@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,9 @@ public class PerkManager : MonoBehaviour
     public List<bool> perkEquiped = new List<bool>();
 
     public float damageMod, moveMod, reloadMod;
+
+    [SerializeField]
+    private GameObject wepChoice;
 
     private void Awake()
     {
@@ -53,6 +57,12 @@ public class PerkManager : MonoBehaviour
         if (scene.name == "Stage1" || scene.name == "Stage1Hard" || scene.name == "Stage1Hell" || scene.name == "Stage1Normal")
         {
             gameM = GameObject.FindGameObjectWithTag("gameM");
+            if (perkEquiped[3]) 
+            {
+                Time.timeScale = 0;
+                GameObject temp = Instantiate(wepChoice);
+                temp.GetComponent<WeaponChoice>().gameM = gameM;
+            }
         }
 
         if (gameM != null)
