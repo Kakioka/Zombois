@@ -189,8 +189,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -242962571, guid: b89aaee89951d424da8e8d05c4436b97, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: f8ea6eee95c16c845a23003f0c287105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   player: {fileID: 0}
   maxDist: 0.8
   health: 3
+  armor: 0
   maxHealth: 3
   isInv: 0
   invTimer: 1
@@ -240,8 +241,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005951345, y: -0.07588034}
-  m_Size: {x: 0.4604448, y: 0.5467402}
+  m_Offset: {x: -0.01480633, y: -0.0131575465}
+  m_Size: {x: 0.4073149, y: 0.5364094}
   m_Direction: 0
 --- !u!95 &4368384314986977267
 Animator:

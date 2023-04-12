@@ -42,6 +42,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Sprite heart;
 
+    [SerializeField]
+    private TextMeshProUGUI moonText;
+
+    private GameObject perkM;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +58,17 @@ public class UIManager : MonoBehaviour
         spawnItemList();
     }
 
+    private void Awake()
+    {
+        perkM = GameObject.FindGameObjectWithTag("GameController");
+    }
+
     // Update is called once per frame
     void Update()
     {
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
+        moonText.text = ":  " + perkM.GetComponent<PerkManager>().moonCoin;
 
         if (gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>() != null)
         {
@@ -225,7 +236,7 @@ public class UIManager : MonoBehaviour
                 temp.GetComponentInChildren<TextMeshPro>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
                 currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
                 lastItemPos.x +=  itemBuffer;
-                if (currItemIndex.Count % 10 == 0) 
+                if (currItemIndex.Count % 12 == 0) 
                 {
                     lastItemPos.x = itemPos.position.x;
                     lastItemPos.y -= itemBuffer;

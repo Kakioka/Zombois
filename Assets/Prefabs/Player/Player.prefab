@@ -293,7 +293,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bbb56e0217c7e4c4ba4e23aa693a41a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -355,8 +355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  armor: 0
   prevHealth: 0
-  moveSpeed: 2.3
+  moveSpeed: 2
   rb: {fileID: 8514121530740298774}
   isDead: 0
   ani: {fileID: 0}
@@ -375,6 +376,9 @@ MonoBehaviour:
   coinChance: 10
   coinOn: 0
   coinLvl: 0
+  reloadPulseOn: 0
+  reloadPulse: 0
+  reloadRing: {fileID: 0}
 --- !u!95 &700162175254647332
 Animator:
   serializedVersion: 5

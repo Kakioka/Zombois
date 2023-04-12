@@ -53,12 +53,12 @@ MonoBehaviour:
   levelDone: {fileID: 2571045497745637692}
   enemyLeftText: {fileID: 2571045497686582160}
   enemyLeftObj: {fileID: 2571045497566773388}
-  hpMod: 1.2
-  speedMod: 0.8
+  hpMod: 1.4
+  speedMod: 1
   stageCount: 5
   stageCountText: {fileID: 6166533865116044339}
   stageEnd: {fileID: 243622190781873153}
-  spawnSpeed: 0.9
+  spawnSpeed: 0.8
   spawnSpeedMod: 0.6
   spawnMulti: 0
   sisDied: {fileID: 5451122274892025379}
@@ -76,6 +76,7 @@ MonoBehaviour:
   - {fileID: 9205036790924861423, guid: 01261337c1e3645dd9349652b8902121, type: 3}
   - {fileID: 9205036790924861423, guid: 884e73724c358104e868ae163f65ec70, type: 3}
   - {fileID: 9205036790924861423, guid: da28186c9b1ea574c823babcda632af8, type: 3}
+  - {fileID: 9205036790924861423, guid: 79cb7f7a1b724446493afbc29662ff39, type: 3}
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 4911619913488741795, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973769810224967495, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8226003565009155963, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_Pivot.x

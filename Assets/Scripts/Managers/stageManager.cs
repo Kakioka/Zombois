@@ -118,6 +118,11 @@ public class stageManager : MonoBehaviour
                 {
                     e.GetComponent<Enemy>().health = 0;
                 }
+
+                foreach (GameObject b in GameObject.FindGameObjectsWithTag("enemyBullet"))
+                {
+                    Destroy(b);
+                }
             }
             if (stageCount == 7 && bossSpawned == false)
             {

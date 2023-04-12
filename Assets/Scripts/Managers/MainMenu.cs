@@ -17,10 +17,10 @@ public class MainMenu : MonoBehaviour
     private int currentResolutionIndex;
 
     private Resolution resolution;
+    private float currVol;
 
     public void Start()
     {
-        volumeSlider.GetComponent<Slider>().value = AudioListener.volume;
         Time.timeScale = 1;
 
         resolutions = Screen.resolutions;
@@ -66,6 +66,7 @@ public class MainMenu : MonoBehaviour
         {
             volumeSlider.GetComponent<Slider>().value = 1f;
         }
+        volumeSlider.GetComponent<Slider>().value = AudioListener.volume;
     }
 
 
@@ -91,7 +92,7 @@ public class MainMenu : MonoBehaviour
     {
         Screen.SetResolution(resolution.width, resolution.height, true);
         Screen.fullScreen = fullscreenTog.isOn;
-
+        AudioListener.volume = currVol;
         if (vsyncTog.isOn)
         {
             QualitySettings.vSyncCount = 1;
@@ -104,7 +105,7 @@ public class MainMenu : MonoBehaviour
 
     public void volume()
     {
-        AudioListener.volume = volumeSlider.GetComponent<Slider>().value;
+       currVol = volumeSlider.GetComponent<Slider>().value;
     }
 
     public void QuitGame()

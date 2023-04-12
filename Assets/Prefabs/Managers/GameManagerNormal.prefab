@@ -78,7 +78,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1947471613}
   - component: {fileID: 1947471614}
-  - component: {fileID: 1947471615}
   - component: {fileID: 1947471616}
   m_Layer: 0
   m_Name: Main Camera
@@ -145,14 +144,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1947471615
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947471584}
-  m_Enabled: 1
 --- !u!114 &1947471616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +251,7 @@ MonoBehaviour:
   bangDmg: 0.3
   bangSize: 0.3
   bangFire: 0.2
-  fullAmmo: 0.3
+  fullAmmo: 0.2
   fullReload: 0.2
   MultiDmg: 0.3
   leash: 0.3
@@ -272,7 +263,7 @@ MonoBehaviour:
   lowDmg: 0.2
   snow: {fileID: 611411238212071733, guid: 90ff5b312cc16dc4b89d44a7fb783286, type: 3}
   snowRadius: 0.2
-  snowPower: 0.1
+  snowPower: 0.2
   bubble: {fileID: 1433825985532310193, guid: 09a2366ffbdc96142be74676da3ffd89, type: 3}
   missile: {fileID: 8827306215690556667, guid: 82af7ab7712214b4b834e606ead7eb69, type: 3}
   powerDmg: 0.3

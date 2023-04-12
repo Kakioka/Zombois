@@ -58,7 +58,7 @@ MonoBehaviour:
   stageCount: 4
   stageCountText: {fileID: 6352382587101464252}
   stageEnd: {fileID: 1070267616042645134}
-  spawnSpeed: 0.9
+  spawnSpeed: 0.8
   spawnSpeedMod: 0.8
   spawnMulti: 0
   sisDied: {fileID: 5052363121110238380}
@@ -76,6 +76,7 @@ MonoBehaviour:
   - {fileID: 9205036790924861423, guid: 01261337c1e3645dd9349652b8902121, type: 3}
   - {fileID: 9205036790924861423, guid: 884e73724c358104e868ae163f65ec70, type: 3}
   - {fileID: 9205036790924861423, guid: da28186c9b1ea574c823babcda632af8, type: 3}
+  - {fileID: 9205036790924861423, guid: 79cb7f7a1b724446493afbc29662ff39, type: 3}
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0

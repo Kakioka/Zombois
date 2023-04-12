@@ -38,14 +38,14 @@ public class Gun : MonoBehaviour
 
 
     public bool tridentOn = false;
-    public int tridentLvl;
+    public int tridentDamage;
     [SerializeField]
     private GameObject trident;
     private bool tridentCoolDown;
     public float tridentTimer;
 
     public bool laserOn = false;
-    public int laserLvl;
+    public int laserDamage;
     [SerializeField]
     private GameObject laser;
     private bool laserCoolDown = false;
@@ -113,7 +113,7 @@ public class Gun : MonoBehaviour
     {
         laserCoolDown = true;
         GameObject temp = Instantiate(laser, firePoint.transform.position, firePoint.transform.rotation);
-        temp.GetComponent<Laser>().laserLvl = laserLvl;
+        temp.GetComponent<Laser>().damage = laserDamage;
         yield return new WaitForSeconds(laserTimer);
         laserCoolDown = false;
     }
@@ -122,7 +122,7 @@ public class Gun : MonoBehaviour
     {
         tridentCoolDown = true;
         GameObject temp = Instantiate(trident, firePoint.transform.position, firePoint.transform.rotation);
-        temp.GetComponent<Bullet>().damage = 5 * tridentLvl;
+        temp.GetComponent<Bullet>().damage = tridentDamage;
         yield return new WaitForSeconds(tridentTimer);
         tridentCoolDown = false;
     }
