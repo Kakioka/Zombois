@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
