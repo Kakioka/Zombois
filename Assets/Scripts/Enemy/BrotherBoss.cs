@@ -9,17 +9,13 @@ public class BrotherBoss : MonoBehaviour
     public int damage;
     public Rigidbody2D rb;
     private Rigidbody2D rbLocal;
-    public Transform firePoint;
-    public GameObject bulletPre;
-    public float bulletForce;
-    public float fireRate;
-    public bool fireDelay = false;
     public float maxDist;
     private Vector2 targetPos;
     private float distP;
     private float distS;
     public bool lookingRight = true;
     private Animator ani;
+    public GameObject gun;
 
     //circle shit
     public float RotateSpeed;
@@ -37,12 +33,6 @@ public class BrotherBoss : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<Enemy>().knock = false;
-    }
-
-    IEnumerator Shooting()
-    {
-        yield return new WaitForSeconds(fireRate);
-        fireDelay = false;
     }
 
     // Update is called once per frame
@@ -99,10 +89,9 @@ public class BrotherBoss : MonoBehaviour
             else if (distP <= maxDist || distS <= maxDist)
             {
                 Circle();
-                if (fireDelay == false)
+                if (gun.GetComponent<BrotherBossGun>().fireDelay == false)
                 {
-                    ani.SetBool("move", false);
-                    Shoot();
+                    gun.GetComponent<BrotherBossGun>().Shoot();
                 }
             }
         }
@@ -142,16 +131,6 @@ public class BrotherBoss : MonoBehaviour
         {
             collision.gameObject.GetComponent<Sister>().health = collision.gameObject.GetComponent<Sister>().health - damage;
         }
-    }
-
-    void Shoot()
-    {
-        fireDelay = true;
-        GameObject bullet = Instantiate(bulletPre, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<EnemyBullet>().damage = damage;
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        StartCoroutine("Shooting");
     }
 
     private void Flip()

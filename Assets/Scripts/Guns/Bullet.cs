@@ -46,6 +46,10 @@ public class Bullet : MonoBehaviour
     
     public float explodeScale;
 
+    //if on then target player instead of enemy
+    [SerializeField]
+    private bool amBad;
+
 
     private void Start()
     {
@@ -92,7 +96,15 @@ public class Bullet : MonoBehaviour
 
     void findTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies;
+        if (!amBad)
+        {
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        }
+        else
+        {
+            enemies = GameObject.FindGameObjectsWithTag("Player");
+        }
         foreach (GameObject g in enemies)
         {
             float gDist = Vector2.Distance(transform.position, g.transform.position);
@@ -102,6 +114,7 @@ public class Bullet : MonoBehaviour
                 target = g;
             }
         }
+
     }
 
     private void bleedEffect(Collider2D collision)
@@ -164,82 +177,104 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep")
+        if (!amBad)
         {
-            if (fireOn)
+            if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep")
             {
-                fireEffect(collision);
-            }
-           
-            if (pierce <= 0)
-            {
-                if (splinterOn && collision.gameObject.tag != "Shield")
-                {
-                    splinter(collision);
-                }
+                CollideFunc(collision);
 
-                if (explodeOn)
-                {
-                    GameObject boomObj = Instantiate(explode, transform.position, Quaternion.identity);
-                    boomObj.GetComponent<BoomMissile>().damage = damage;
-                    boomObj.GetComponent<BoomMissile>().boomRadius = explodeScale;
-                    boomObj.GetComponent<BoomMissile>().knockBack = knockBack;
-                    boomObj.GetComponent<BoomMissile>().bleedOn = bleedOn;
-                    boomObj.GetComponent<BoomMissile>().bleedLvl = bleedLvl;
-                    boomObj.GetComponent<BoomMissile>().burnOn = burnOn;
-                    boomObj.GetComponent<BoomMissile>().burnLvl = burnLvl;
-                    Destroy(gameObject);
-                    return;
-                }
-                Destroy(gameObject);
             }
             else
             {
-                if (collision.gameObject.tag == "Shield")
-                {
-                    Destroy(gameObject);
-                    return;
-                }
-                pierce--;
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 1f);
+                Destroy(gameObject);
             }
-
-            if (bleedOn)
-            {
-                bleedEffect(collision);
-            }
-
-            if (burnOn)
-            {
-                burnEffect(collision);
-            }
-
-            if (freezeOn)
-            {
-                freezeEffect(collision);
-            }
-
-            GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
-            Destroy(effect, 1f);
-
-            collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
-            collision.gameObject.GetComponent<Enemy>().knock = true;
-            Rigidbody2D rbE = collision.gameObject.GetComponent<Rigidbody2D>();
-            rbE.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
-
-            //spawn damage text
-            Vector3 temp = (Random.insideUnitCircle.normalized * radius) + (Vector2)collision.transform.position;
-            temp.z = 10;
-            GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
-            num.transform.position += new Vector3(0.25f, 0f);
-            num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
-            Destroy(num, 1f);
-
         }
         else
         {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 1f);
+            if (collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep" || collision.gameObject.tag == "Player")
+            {
+                CollideFunc(collision);
+            }
+            else
+            {
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 1f);
+                Destroy(gameObject);
+            }
+        }
+
+    }
+
+    private void CollideFunc(Collider2D collision)
+    {
+        if (fireOn)
+        {
+            fireEffect(collision);
+        }
+
+        if (pierce <= 0)
+        {
+            if (splinterOn && collision.gameObject.tag != "Shield")
+            {
+                splinter(collision);
+            }
+
+            if (explodeOn)
+            {
+                GameObject boomObj = Instantiate(explode, transform.position, Quaternion.identity);
+                boomObj.GetComponent<BoomMissile>().damage = damage;
+                boomObj.GetComponent<BoomMissile>().boomRadius = explodeScale;
+                boomObj.GetComponent<BoomMissile>().knockBack = knockBack;
+                boomObj.GetComponent<BoomMissile>().bleedOn = bleedOn;
+                boomObj.GetComponent<BoomMissile>().bleedLvl = bleedLvl;
+                boomObj.GetComponent<BoomMissile>().burnOn = burnOn;
+                boomObj.GetComponent<BoomMissile>().burnLvl = burnLvl;
+                Destroy(gameObject);
+                return;
+            }
             Destroy(gameObject);
         }
+        else
+        {
+            if (collision.gameObject.tag == "Shield")
+            {
+                Destroy(gameObject);
+                return;
+            }
+            pierce--;
+        }
+
+        if (bleedOn)
+        {
+            bleedEffect(collision);
+        }
+
+        if (burnOn)
+        {
+            burnEffect(collision);
+        }
+
+        if (freezeOn)
+        {
+            freezeEffect(collision);
+        }
+
+        GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
+
+        collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
+        collision.gameObject.GetComponent<Enemy>().knock = true;
+        Rigidbody2D rbE = collision.gameObject.GetComponent<Rigidbody2D>();
+        rbE.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
+
+        //spawn damage text
+        Vector3 temp = (Random.insideUnitCircle.normalized * radius) + (Vector2)collision.transform.position;
+        temp.z = 10;
+        GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+        num.transform.position += new Vector3(0.25f, 0f);
+        num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
+        Destroy(num, 1f);
     }
 }
