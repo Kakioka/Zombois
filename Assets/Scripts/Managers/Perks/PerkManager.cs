@@ -26,6 +26,10 @@ public class PerkManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        else if (Instance != this && Instance != null)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
