@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -135,21 +134,13 @@ public class stageManager : MonoBehaviour
                 }
                 else // if timer for 5 seocnds is over spawn boss
                 {
-                    gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
-                    stageEnd.SetActive(false); //removing the timer ui element
+                    boss = GetComponent<BossManager>().SpawnBoss();
                     bossSpawned = true; // boss is spawned 
-                    spawner.SetActive(false); //turn off the spawner again
-                    boss = Instantiate(bossPre, sister.transform.position, Quaternion.identity); // spawning the boss
-                    sister.SetActive(false); //set sister (good) off
-                    boss.GetComponent<sisBoss>().player = player; //set the refernece
-                    boss.GetComponent<Enemy>().player = player; //set reference
-                    boss.GetComponent<Enemy>().sister = player; //set refernece
-                    boss.GetComponent<Enemy>().health *= hpMod; //increase health mod
-                    enemyLeftObj.SetActive(false); //old
-                    enemyLeftText.gameObject.SetActive(false); //old
+
                     bossBar.SetActive(true); //health bar on
                     bossBar.GetComponent<BossHpBar>().boss = boss; //refernece for health bar
                     bossBar.GetComponent<BossHpBar>().enabled = true; //turn on the script on
+                    
                 }
             }
             else if (stageCount != 7) //not spawn boss != 7
@@ -213,4 +204,5 @@ public class stageManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }

@@ -143,20 +143,6 @@ public class BrotherBossGun : MonoBehaviour
     void Update()
     {
 
-        if (shooting)
-        {
-            if (ammo != 0 && isReload == false && fireDelay == false)
-            {
-                Shoot();
-                gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
-                gameObject.GetComponent<AudioSource>().Play();
-            }
-            else if (ammo == 0 && isReload == false)
-            {
-                Reload();
-            }
-        }
-
         if (transform.rotation.eulerAngles.z > 180 && !lookingRight)
         {
             Flip();
@@ -182,6 +168,23 @@ public class BrotherBossGun : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+
+    public void CheckShoot()
+    {
+        if (shooting)
+        {
+            if (ammo != 0 && isReload == false && fireDelay == false)
+            {
+                Shoot();
+                gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            else if (ammo == 0 && isReload == false)
+            {
+                Reload();
+            }
+        }
     }
 
     public void Shoot()

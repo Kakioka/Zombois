@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8514121530740298771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 8514121530946603364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &8514121530740298772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -163,10 +163,15 @@ MonoBehaviour:
   sister: {fileID: 0}
   damage: 0
   rb: {fileID: 0}
-  maxDist: 0
+  firePoint: {fileID: 0}
+  bulletPre: {fileID: 0}
+  bulletForce: 0
+  fireRate: 0
+  fireDelay: 0
+  maxDist: 3
   lookingRight: 1
   gun: {fileID: 0}
-  RotateSpeed: 0
+  RotateSpeed: 0.75
 --- !u!114 &7964415510418464537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +190,7 @@ MonoBehaviour:
   silver: {fileID: 0}
   player: {fileID: 0}
   sister: {fileID: 0}
-  moveSpeed: 0
+  moveSpeed: 2
   knock: 0
 --- !u!1 &8514121530946603363
 GameObject:

@@ -113,15 +113,15 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*
         //testing spawning of brother boss in scene w/ player
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             spawnBrotherBoss();
-            bSpawnWep(wepNum);
             bbUpgradeGun(bGun, bGuns[wepNum]);
             Debug.Log("Boss spawned.");
         }
+        */
 
         /*if (Input.GetKeyDown(KeyCode.Alpha8))
         {
@@ -174,6 +174,7 @@ public class gameManager : MonoBehaviour
     void spawnBrotherBoss()
     {
         brotherBoss = Instantiate(brotherBossPref, brotherBossPref.transform.position, Quaternion.identity);
+        brotherBoss.GetComponent<BrotherBoss>().player = player;
     }
 
     public void levelEnd()
@@ -193,12 +194,7 @@ public class gameManager : MonoBehaviour
     }
 
     //spawns weaopn for brother
-    public void bSpawnWep(int num)
-    {
-        bGun = Instantiate(bGuns[num], brotherBoss.transform.position, brotherBoss.transform.rotation);
-        bGun.GetComponent<BrotherBossGun>().player = player;
-        brotherBoss.GetComponent<BrotherBoss>().gun = bGun;
-    }
+
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
     {

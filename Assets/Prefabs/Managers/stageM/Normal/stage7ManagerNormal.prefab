@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468025485690917260}
   - component: {fileID: 6012591791773139508}
+  - component: {fileID: 1902512181867295059}
   m_Layer: 0
   m_Name: stage7ManagerNormal
   m_TagString: Untagged
@@ -77,6 +78,32 @@ MonoBehaviour:
   - {fileID: 9205036790924861423, guid: 884e73724c358104e868ae163f65ec70, type: 3}
   - {fileID: 9205036790924861423, guid: da28186c9b1ea574c823babcda632af8, type: 3}
   - {fileID: 9205036790924861423, guid: 79cb7f7a1b724446493afbc29662ff39, type: 3}
+--- !u!114 &1902512181867295059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468025485690917258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715ef8a8984896e4aa877c230014f19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sisterBossPref: {fileID: 5504292816335067635, guid: 7d8c6f1238ea48c4483717267d961d5b, type: 3}
+  brotherBossPref: {fileID: 8514121530740298771, guid: 96fe489f21d4be94faa7c8ea1495a0ad, type: 3}
+  spawnSis: 0
+  spawnBro: 0
+  bossBar: {fileID: 8604823626909752753, guid: 28127316f3152644aa60778bfc431560, type: 3}
+  bGuns:
+  - {fileID: 816795137638649300, guid: 087af925c24e8b54e94f35a7c2fae099, type: 3}
+  - {fileID: 4229727540086970750, guid: 9be7864505bbcfa4fb7ad019081df87a, type: 3}
+  - {fileID: 8252517987037821156, guid: 6b9c00482a672a647869c3efa0daaa50, type: 3}
+  - {fileID: 3758488845514612959, guid: 51df9095112a49449ace582d56b8fef9, type: 3}
+  - {fileID: 3383940849777442907, guid: 60d9d86c1ea25d84d91aba532e6e7b1d, type: 3}
+  - {fileID: 816795137638649300, guid: c257e72233ddb8247a820ba5e41c7864, type: 3}
+  - {fileID: 8252517987037821156, guid: da074b8fa19dc2c4fb936e29af27e2e9, type: 3}
+  - {fileID: 8252517987037821156, guid: 2262588468b831044ad516c78a5c8f98, type: 3}
 --- !u!1001 &2297483680030115214
 PrefabInstance:
   m_ObjectHideFlags: 0
