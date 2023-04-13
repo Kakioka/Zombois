@@ -93,7 +93,7 @@ public class stageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stageTimer >= 0) 
+        if (stageTimer >= 0)//if stage is not over 
         {
             stageTimer -= Time.deltaTime;
             float temp = 0.1f * stageTimer;
@@ -103,55 +103,56 @@ public class stageManager : MonoBehaviour
             enemyLeftText.text = Mathf.RoundToInt(stageTimer).ToString();
         }
 
-        if (!dropCheck)
+        if (!dropCheck) //mid stage pick ups
         {
             StartCoroutine(spawnDrop());
         }
        
         if(stageTimer <= 0)
         {
-            spawner.SetActive(false);
-            if (!stageEnded) 
+            spawner.SetActive(false); //turn spawner off
+            if (!stageEnded) //exceute once
             {
-                stageEnded = true;
-                foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+                stageEnded = true; //check if does once
+                foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy")) //nuke enemies
                 {
                     e.GetComponent<Enemy>().health = 0;
                 }
 
-                foreach (GameObject b in GameObject.FindGameObjectsWithTag("enemyBullet"))
+                foreach (GameObject b in GameObject.FindGameObjectsWithTag("enemyBullet")) //nuke spitter bullets
                 {
                     Destroy(b);
                 }
             }
-            if (stageCount == 7 && bossSpawned == false)
+
+            if (stageCount == 7 && bossSpawned == false) // if stage 7 && if we have not spawned boss
             {
-                stageEnd.SetActive(true);
-                if (timer > 0)
+                stageEnd.SetActive(true); // false ending
+                if (timer > 0) //timer for 5 seconds
                 {
                     timer -= Time.deltaTime;
                     stageEnd.GetComponent<TextMeshProUGUI>().text = "Stage ends in: " + Mathf.Round(timer * 100f) / 100f;
                 }
-                else
+                else // if timer for 5 seocnds is over spawn boss
                 {
-                    gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false);
-                    stageEnd.SetActive(false);
-                    bossSpawned = true;
-                    spawner.SetActive(false);
-                    boss = Instantiate(bossPre, sister.transform.position, Quaternion.identity);
-                    sister.SetActive(false);
-                    boss.GetComponent<sisBoss>().player = player;
-                    boss.GetComponent<Enemy>().player = player;
-                    boss.GetComponent<Enemy>().sister = player;
-                    boss.GetComponent<Enemy>().health *= hpMod;
-                    enemyLeftObj.SetActive(false);
-                    enemyLeftText.gameObject.SetActive(false);
-                    bossBar.SetActive(true);
-                    bossBar.GetComponent<BossHpBar>().boss = boss;
-                    bossBar.GetComponent<BossHpBar>().enabled = true;
+                    gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
+                    stageEnd.SetActive(false); //removing the timer ui element
+                    bossSpawned = true; // boss is spawned 
+                    spawner.SetActive(false); //turn off the spawner again
+                    boss = Instantiate(bossPre, sister.transform.position, Quaternion.identity); // spawning the boss
+                    sister.SetActive(false); //set sister (good) off
+                    boss.GetComponent<sisBoss>().player = player; //set the refernece
+                    boss.GetComponent<Enemy>().player = player; //set reference
+                    boss.GetComponent<Enemy>().sister = player; //set refernece
+                    boss.GetComponent<Enemy>().health *= hpMod; //increase health mod
+                    enemyLeftObj.SetActive(false); //old
+                    enemyLeftText.gameObject.SetActive(false); //old
+                    bossBar.SetActive(true); //health bar on
+                    bossBar.GetComponent<BossHpBar>().boss = boss; //refernece for health bar
+                    bossBar.GetComponent<BossHpBar>().enabled = true; //turn on the script on
                 }
             }
-            else if (stageCount != 7)
+            else if (stageCount != 7) //not spawn boss != 7
             {
                 stageEnd.SetActive(true);
                 if (timer > 0)
@@ -167,12 +168,12 @@ public class stageManager : MonoBehaviour
                 }
             }
         }
-        else if (spawner.GetComponent<Spawner>().coolDown == false)
+        else if (spawner.GetComponent<Spawner>().coolDown == false) //spawning enmies with spawner 
         {
             StartCoroutine(spawner.GetComponent<Spawner>().spawnRandom());
         }
 
-        if (player.GetComponent<PlayerMovement>().health <= 0 || sister.GetComponent<Sister>().health <= 0)
+        if (player.GetComponent<PlayerMovement>().health <= 0 || sister.GetComponent<Sister>().health <= 0) //death player
         {
             Time.timeScale = 0;
             death.SetActive(true);
@@ -187,7 +188,7 @@ public class stageManager : MonoBehaviour
             }
         }
 
-        if (bossSpawned == true)
+        if (bossSpawned == true) //turns off the boss bar
         {
             if (boss == null)
             {
@@ -197,7 +198,7 @@ public class stageManager : MonoBehaviour
         }
     }
 
-    public void next()
+    public void next() //button
     {
         Time.timeScale = 1;
         gameM.GetComponent<gameManager>().levelEnd();
