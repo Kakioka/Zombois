@@ -46,6 +46,6 @@ public class TutorialManager : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

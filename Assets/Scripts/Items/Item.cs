@@ -65,6 +65,7 @@ public class Item : MonoBehaviour
                 des.GetComponent<ItemDescription>().description = description;
                 des.GetComponent<Canvas>().worldCamera = Camera.main;
                 upgradeShop.GetComponent<upgradeShopWepButtons>().updateInShop();
+                gameObject.GetComponent<AudioSource>().Play();
             }
         }
     }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +25,10 @@ public class PerkManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this && Instance != null)
+        {
+            Destroy(gameObject);
         }
 
     }

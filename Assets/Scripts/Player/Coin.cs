@@ -80,9 +80,10 @@ public class Coin : MonoBehaviour
                 GameObject temp = GameObject.FindGameObjectWithTag("GameController");
                 temp.GetComponent<PerkManager>().moonCoin++;
             }
-
+            //gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
+            gameObject.GetComponent<AudioSource>().Play();
             player.GetComponent<PlayerMovement>().bank += value;
-            Destroy(gameObject);
+            Destroy(gameObject,0.2f);
         }
         if (collision.gameObject.tag == "PickUp")
         {

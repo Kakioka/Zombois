@@ -17,7 +17,11 @@ public class SettingsManager : MonoBehaviour
             Instance = this; 
             DontDestroyOnLoad(gameObject);
         }
-       
+        else if (Instance != this && Instance != null)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     // Start is called before the first frame update

@@ -66,6 +66,7 @@ public class upgradeShopManager : MonoBehaviour
         {
             if (player.GetComponent<PlayerMovement>().bank >= vaccineCost)
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 player.GetComponent<PlayerMovement>().bank -= vaccineCost;
                 gameManager.GetComponent<gameManager>().sisH++;
                 sister.GetComponent<Sister>().health++;
@@ -79,6 +80,7 @@ public class upgradeShopManager : MonoBehaviour
         {
             if (player.GetComponent<PlayerMovement>().bank >= vaccineCost)
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 player.GetComponent<PlayerMovement>().bank -= vaccineCost;
                 gameManager.GetComponent<gameManager>().playerH++;
                 player.GetComponent<PlayerMovement>().health++;
