@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
     {
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
-        moonText.text = ":  " + perkM.GetComponent<PerkManager>().moonCoin;
+        moonText.text = ": " + perkM.GetComponent<PerkManager>().moonCoin;
 
         if (gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>() != null)
         {
