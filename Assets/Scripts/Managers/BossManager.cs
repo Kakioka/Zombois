@@ -72,7 +72,6 @@ public class BossManager : MonoBehaviour
     public void bSpawnWep(int num, GameObject bro)
     {
         GameObject bGun = Instantiate(bGuns[num], bro.transform.position, Quaternion.identity);
-        bGun.GetComponent<BrotherBossGun>().player = sm.player;
-        bro.GetComponent<BrotherBoss>().gun = bGun;
+        bGun.GetComponent<BrotherBossGun>().player = sm.boss;
     }
 }

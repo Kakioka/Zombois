@@ -17,7 +17,6 @@ public class BrotherBossGun : MonoBehaviour
     public int piecre;
     public float knockBack;
     public Rigidbody2D rb;
-    Vector2 mousePos;
     public GameObject player;
     public bool shooting = false;
     public int projectiles;
@@ -61,6 +60,7 @@ public class BrotherBossGun : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
+        transform.position = player.transform.position + offset;
         ammo = maxAmmo;
         int j = 1;
         if (projectiles % 2 == 0)
@@ -165,7 +165,7 @@ public class BrotherBossGun : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 lookDir = mousePos - rb.position;
+        Vector2 lookDir = rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
