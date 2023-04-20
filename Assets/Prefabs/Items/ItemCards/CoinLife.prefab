@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Coin Life
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
-  cost: 25
+  cost: 30
   itemNum: 23
   description: Money makes the world go round. Chance to get an extra coin when picking
     up a coin.

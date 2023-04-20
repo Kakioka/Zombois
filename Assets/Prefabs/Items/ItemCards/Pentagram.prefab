@@ -621,7 +621,7 @@ MonoBehaviour:
   itemName: Pentagram
   textItemName: {fileID: 0}
   textItemCost: {fileID: 5077479702765639763}
-  cost: 25
+  cost: 50
   itemNum: 17
   description: Is it worth it? Decreases your sisters max health. Double your damage.
   itemSprite: {fileID: 0}

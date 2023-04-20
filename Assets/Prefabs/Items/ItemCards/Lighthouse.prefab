@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Lighthouse
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
-  cost: 25
+  cost: 30
   itemNum: 18
   description: Let the light guide you. Increases damage while near your sister
   itemSprite: {fileID: 0}

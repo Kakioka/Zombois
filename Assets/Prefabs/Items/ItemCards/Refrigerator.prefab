@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Refrigerator
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
-  cost: 25
+  cost: 30
   itemNum: 20
   description: One week old takeout? Yum! Bullets have a chance to freeze enemies
   itemSprite: {fileID: 0}

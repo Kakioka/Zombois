@@ -55,7 +55,7 @@ MonoBehaviour:
   itemName: Big Bang
   textItemName: {fileID: 0}
   textItemCost: {fileID: 2751152298371424642}
-  cost: 25
+  cost: 30
   itemNum: 4
   description: Bigger IS better! Increases bullet damage and size at the cost of
     fire rate

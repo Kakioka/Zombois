@@ -59,7 +59,7 @@ MonoBehaviour:
   stageCountText: {fileID: 2232351126613933400}
   stageEnd: {fileID: 5190556291316583786}
   spawnSpeed: 0.8
-  spawnSpeedMod: 1
+  spawnSpeedMod: 0.7
   spawnMulti: 0
   sisDied: {fileID: 58349667435691848}
   playerDied: {fileID: 12339618799722816}

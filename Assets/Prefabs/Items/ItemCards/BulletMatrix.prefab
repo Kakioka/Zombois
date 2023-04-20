@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Bullet Matrix
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
-  cost: 25
+  cost: 40
   itemNum: 27
   description: Dodge this. Shoot bullets around you when you reload.
   itemSprite: {fileID: 0}

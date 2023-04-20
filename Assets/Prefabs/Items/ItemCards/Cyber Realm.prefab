@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Cyber Realm
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
-  cost: 25
+  cost: 30
   itemNum: 26
   description: The net is vast and infinte. Periodically shoot a piercing laser.
   itemSprite: {fileID: 0}

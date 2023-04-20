@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Atlantis
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
-  cost: 25
+  cost: 30
   itemNum: 25
   description: Invoke Poseidon's wrath. Periodically throw a trident.
   itemSprite: {fileID: 0}

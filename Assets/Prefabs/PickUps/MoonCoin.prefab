@@ -127,6 +127,7 @@ MonoBehaviour:
   armor: 0
   bomb: 0
   moon: 1
+  clip: {fileID: 8300000, guid: c6ab51b893adcb5438922c09a77814e0, type: 3}
 --- !u!82 &-3734439266855042703
 AudioSource:
   m_ObjectHideFlags: 0

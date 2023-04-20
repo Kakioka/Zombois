@@ -55,7 +55,7 @@ MonoBehaviour:
   itemName: Leash
   textItemName: {fileID: 0}
   textItemCost: {fileID: 1199820001487946446}
-  cost: 25
+  cost: 40
   itemNum: 7
   description: Get over here! Increases your sister's move speed
   itemSprite: {fileID: 0}

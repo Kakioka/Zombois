@@ -77,7 +77,7 @@ MonoBehaviour:
   isReload: 0
   bulletForce: 2.8
   reloadSpeed: 1.8
-  fireRate: 0.1
+  fireRate: 0.12
   fireDelay: 0
   damage: 1
   piecre: 3

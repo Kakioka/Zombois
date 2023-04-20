@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Hot Food
   textItemName: {fileID: 0}
   textItemCost: {fileID: 7444943483019648516}
-  cost: 25
+  cost: 30
   itemNum: 19
   description: Blow cool before eating. Bullets have a chance to burn enemies
   itemSprite: {fileID: 0}

@@ -449,7 +449,7 @@ MonoBehaviour:
   itemName: Running Shoes
   textItemName: {fileID: 0}
   textItemCost: {fileID: 3126690072587585142}
-  cost: 25
+  cost: 30
   itemNum: 1
   description: What are those! Increases player move speed
   itemSprite: {fileID: 0}

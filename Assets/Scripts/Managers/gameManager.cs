@@ -580,7 +580,6 @@ public class gameManager : MonoBehaviour
         if (scene.name == "UpgradeShop")
         {
             Time.timeScale = 1;
-            
             currManager = Instantiate(stageManager[7]);
             currUI = Instantiate(UI);
             upgradeStart();
@@ -592,6 +591,7 @@ public class gameManager : MonoBehaviour
             currManager.GetComponentInChildren<upgradeShopManager>().UI = currUI;
             currManager.GetComponent<upgradeShopManager>().player = player;
             currManager.GetComponent<upgradeShopManager>().sister = sis;
+            currManager.GetComponent<ItemManager>().refreshCount += itemCounts[28];
         }
 
         if (scene.name == "UpgradeShopTest")
@@ -609,6 +609,20 @@ public class gameManager : MonoBehaviour
             currManager.GetComponentInChildren<upgradeShopManager>().UI = currUI;
             currManager.GetComponent<upgradeShopManager>().player = player;
             currManager.GetComponent<upgradeShopManager>().sister = sis;
+            currManager.GetComponent<ItemManager>().refreshCount += itemCounts[28];
+        }
+
+        if (scene.name == "Endless")
+        {
+            Time.timeScale = 1;
+            currUI = Instantiate(UI);
+            levelStart();
+            currManager = Instantiate(stageManager[8]);
+            currManager.GetComponent<EndlessManager>().gameM = this.gameObject;
+            currManager.GetComponent<EndlessManager>().player = player;
+            currManager.GetComponent<EndlessManager>().sister = sis;
+            currManager.GetComponentInChildren<Canvas>().worldCamera = Camera.main;
+            uiStart(currUI);
         }
     }
 
