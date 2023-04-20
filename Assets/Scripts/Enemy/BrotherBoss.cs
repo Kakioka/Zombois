@@ -5,22 +5,17 @@ using UnityEngine;
 public class BrotherBoss : MonoBehaviour
 {
     public GameObject player;
-    public GameObject sister;
+    public GameObject sister; 
     public int damage;
     public Rigidbody2D rb;
     private Rigidbody2D rbLocal;
-    public Transform firePoint;
-    public GameObject bulletPre;
-    public float bulletForce;
-    public float fireRate;
-    public bool fireDelay = false;
     public float maxDist;
     private Vector2 targetPos;
     private float distP;
     private float distS;
     public bool lookingRight = true;
     private Animator ani;
-
+    
     //gun
     public GameObject gun;
 
@@ -54,6 +49,7 @@ public class BrotherBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (gameObject.GetComponent<Enemy>().knock == true)
         {
             StartCoroutine(knockBack());
@@ -105,7 +101,7 @@ public class BrotherBoss : MonoBehaviour
             else if (distP <= maxDist || distS <= maxDist)
             {
                 Circle();
-                if (fireDelay == false)
+                if (gun.GetComponent<BrotherBossGun>().fireDelay == false)
                 {
                     ani.SetBool("move", false);
                     gun.GetComponent<BrotherBossGun>().Shoot();
@@ -113,29 +109,6 @@ public class BrotherBoss : MonoBehaviour
             }
         }
 
-    }
-
-    void FixedUpdate()
-    {
-        if (distP < distS)
-        {
-            targetPos = player.transform.position;
-        }
-        else if (distP >= distS)
-        {
-            targetPos = sister.transform.position;
-        }
-        Vector2 lookDir = targetPos - rb.position;
-        if (lookDir.x > 0 && !lookingRight)
-        {
-            Flip();
-        }
-        else if (lookDir.x < 0 && lookingRight)
-        {
-            Flip();
-        }
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

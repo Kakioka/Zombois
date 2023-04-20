@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8252517987037821160}
   - component: {fileID: 8252517987037821162}
-  - component: {fileID: 518697862318952363}
   - component: {fileID: 7104343852018072323}
+  - component: {fileID: -5905804006467304113}
   m_Layer: 0
   m_Name: EnemyRocketLauncher
   m_TagString: Untagged
@@ -141,56 +141,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &518697862318952363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8252517987037821156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25cb787c98815504a85d1241aa8c9854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 8252517988091119168}
-  bulletPre: {fileID: 4863663162033751002, guid: 0386103808a2bdd40a3e97a6623f5580, type: 3}
-  ammo: 1
-  maxAmmo: 1
-  isReload: 0
-  bulletForce: 4
-  reloadSpeed: 1.8
-  fireRate: 1
-  fireDelay: 0
-  damage: 15
-  piecre: 0
-  knockBack: 1.2
-  rb: {fileID: 8252517987037821162}
-  player: {fileID: 0}
-  shooting: 0
-  projectiles: 1
-  bulletSize: 1.5
-  bulletLife: 2.5
-  offset: {x: 0, y: 0, z: 0}
-  lookingRight: 1
-  bleedOn: 0
-  bleedLvl: 0
-  splinterOn: 0
-  splintLvl: 0
-  burnOn: 0
-  burnLvl: 0
-  freezeOn: 0
-  freezeLvl: 0
-  tridentOn: 0
-  tridentLvl: 0
-  trident: {fileID: 4440926475043643178, guid: 267f9f45df4bd4a8082c1305da722a4a, type: 3}
-  tridentTimer: 3
-  laserOn: 0
-  laserLvl: 0
-  laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
-  laserTimer: 5
-  spread: 1
-  boomScale: 1.3
 --- !u!82 &7104343852018072323
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,6 +237,56 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5905804006467304113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252517987037821156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7b93f291b7aef449491cd1ca9a1349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  bulletPre: {fileID: 0}
+  isReload: 0
+  bulletForce: 1
+  reloadSpeed: 0
+  fireRate: 0
+  fireDelay: 0
+  damage: 1
+  piecre: 0
+  knockBack: 0
+  rb: {fileID: 0}
+  player: {fileID: 0}
+  shooting: 0
+  projectiles: 0
+  bulletSize: 1
+  bulletLife: 5
+  offset: {x: 0, y: 0, z: 0}
+  lookingRight: 1
+  sister: {fileID: 0}
+  bleedOn: 0
+  bleedLvl: 0
+  splinterOn: 0
+  splintLvl: 0
+  burnOn: 0
+  burnLvl: 0
+  freezeOn: 0
+  freezeLvl: 0
+  target: {fileID: 0}
+  tridentOn: 0
+  tridentDamage: 0
+  trident: {fileID: 0}
+  tridentTimer: 0
+  laserOn: 0
+  laserDamage: 0
+  laser: {fileID: 0}
+  laserTimer: 0
+  spread: 0
+  boomScale: 0
 --- !u!1 &8252517988091119168
 GameObject:
   m_ObjectHideFlags: 0

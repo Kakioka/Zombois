@@ -47,12 +47,12 @@ public class BossManager : MonoBehaviour
     {
         if (spawnBro){
             GameObject temp = Instantiate(brotherBossPref);
+            sm.boss = temp;
             temp.GetComponent<Enemy>().player = sm.player;
             temp.GetComponent<Enemy>().health *= sm.hpMod;
             temp.GetComponent<Enemy>().sister = sm.player;
 
             bSpawnWep(gm.wepNum, temp);
-
 
             return temp;
         }
@@ -73,5 +73,8 @@ public class BossManager : MonoBehaviour
     {
         GameObject bGun = Instantiate(bGuns[num], bro.transform.position, Quaternion.identity);
         bGun.GetComponent<BrotherBossGun>().player = sm.boss;
+        bGun.GetComponent<BrotherBossGun>().sister = sm.sister;
+        bGun.GetComponent<BrotherBossGun>().target = sm.player;
+        bro.GetComponent<BrotherBoss>().gun = bGun;
     }
 }

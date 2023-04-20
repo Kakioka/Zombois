@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 700162175254647332}
   - component: {fileID: 3593423834069936546}
   - component: {fileID: 7964415510418464537}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BroBoss
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8514121530740298771}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 8514121530946603364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8514121530740298772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -185,9 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  gold: {fileID: 0}
-  copper: {fileID: 0}
-  silver: {fileID: 0}
+  gold: {fileID: 9205036790924861423, guid: 67daf60d5194b7547aebdece35cbedd6, type: 3}
+  copper: {fileID: 9205036790924861423, guid: 8c9e1eb32619d4b64a3025ad87fb9d65, type: 3}
+  silver: {fileID: 9205036790924861423, guid: 6efdef7ae9ac248daa3da0253e291ab4, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
   moveSpeed: 2

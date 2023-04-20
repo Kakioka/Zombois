@@ -140,7 +140,7 @@ public class stageManager : MonoBehaviour
                     bossBar.SetActive(true); //health bar on
                     bossBar.GetComponent<BossHpBar>().boss = boss; //refernece for health bar
                     bossBar.GetComponent<BossHpBar>().enabled = true; //turn on the script on
-                    
+                    stageEnd.SetActive(false);
                 }
             }
             else if (stageCount != 7) //not spawn boss != 7

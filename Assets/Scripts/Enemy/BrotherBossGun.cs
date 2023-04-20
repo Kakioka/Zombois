@@ -6,8 +6,6 @@ public class BrotherBossGun : MonoBehaviour
 {
     public GameObject firePoint;
     public GameObject bulletPre;
-    public int ammo;
-    public int maxAmmo;
     public bool isReload = false;
     public float bulletForce;
     public float reloadSpeed;
@@ -24,8 +22,8 @@ public class BrotherBossGun : MonoBehaviour
     public float bulletLife;
     public Vector3 offset;
     public bool lookingRight = true;
-
-
+    public GameObject sister;
+    private Vector2 targetPos;
     public bool bleedOn = false;
     public int bleedLvl = 0;
     public bool splinterOn = false;
@@ -34,8 +32,9 @@ public class BrotherBossGun : MonoBehaviour
     public int burnLvl = 0;
     public bool freezeOn = false;
     public int freezeLvl = 0;
-
-
+    private float distP;
+    private float distS;
+    public GameObject target;
     public bool tridentOn = false;
     public int tridentDamage;
     [SerializeField]
@@ -57,11 +56,8 @@ public class BrotherBossGun : MonoBehaviour
 
     private List<GameObject> firePointList = new List<GameObject>();
 
-    // Update is called once per frame
     private void Start()
     {
-        transform.position = player.transform.position + offset;
-        ammo = maxAmmo;
         int j = 1;
         if (projectiles % 2 == 0)
         {
@@ -127,13 +123,6 @@ public class BrotherBossGun : MonoBehaviour
         tridentCoolDown = false;
     }
 
-    IEnumerator Reloading()
-    {
-        yield return new WaitForSeconds(reloadSpeed);
-        ammo = maxAmmo;
-        isReload = false;
-    }
-
     IEnumerator Shooting()
     {
         yield return new WaitForSeconds(fireRate);
@@ -142,8 +131,8 @@ public class BrotherBossGun : MonoBehaviour
 
     void Update()
     {
-
-        if (transform.rotation.eulerAngles.z > 180 && !lookingRight)
+        transform.position = player.transform.position + offset;
+       if (transform.rotation.eulerAngles.z > 180 && !lookingRight)
         {
             Flip();
         }
@@ -165,40 +154,28 @@ public class BrotherBossGun : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 lookDir = rb.position;
+        /*distP = Vector2.Distance(player.transform.position, gameObject.transform.position);
+        distS = Vector2.Distance(sister.transform.position, gameObject.transform.position);
+        if (distP < distS)
+        {
+            targetPos = player.transform.position;
+        }
+        else if (distP >= distS)
+        {
+            targetPos = player.transform.position;
+        }*/
+        targetPos = target.transform.position;
+        Vector2 lookDir = targetPos - rb.position;
+
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
-    }
-
-    public void CheckShoot()
-    {
-        if (shooting)
-        {
-            if (ammo != 0 && isReload == false && fireDelay == false)
-            {
-                Shoot();
-                gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
-                gameObject.GetComponent<AudioSource>().Play();
-            }
-            else if (ammo == 0 && isReload == false)
-            {
-                Reload();
-            }
-        }
     }
 
     public void Shoot()
     {
         fireDelay = true;
         Spawn();
-        ammo--;
         StartCoroutine("Shooting");
-    }
-
-    void Reload()
-    {
-        isReload = true;
-        StartCoroutine("Reloading");
     }
 
     void Spawn()
