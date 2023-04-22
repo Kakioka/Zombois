@@ -8,7 +8,6 @@ public class BrotherBossGun : MonoBehaviour
     public GameObject bulletPre;
     public bool isReload = false;
     public float bulletForce;
-    public float reloadSpeed;
     public float fireRate;
     public bool fireDelay = false;
     public int damage;

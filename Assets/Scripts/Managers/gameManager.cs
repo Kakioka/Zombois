@@ -26,9 +26,6 @@ public class gameManager : MonoBehaviour
     //gun prefabs
     public List<GameObject> guns = new List<GameObject>();
 
-    //evil gun prefabs
-    public List<GameObject> bGuns = new List<GameObject>();
-
     //gun obj
     public GameObject gun;
 
