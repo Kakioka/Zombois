@@ -338,7 +338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: wepNum
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: highDmg

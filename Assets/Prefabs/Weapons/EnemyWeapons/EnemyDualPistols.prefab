@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 816795137638649303}
   - component: {fileID: 816795137638649296}
   - component: {fileID: 8611747866515176802}
-  - component: {fileID: 4211046336836048047}
   - component: {fileID: 9118836993813000665}
+  - component: {fileID: 6338297638514610572}
   m_Layer: 0
   m_Name: EnemyDualPistols
   m_TagString: Untagged
@@ -238,20 +238,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4211046336836048047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816795137638649300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4798c7fd29c5a4ae19e99b36f1108276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  check: 0
 --- !u!114 &9118836993813000665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +254,6 @@ MonoBehaviour:
   bulletPre: {fileID: 2201232264264790160, guid: e3018a67560e42444acb2c5ddf1644ca, type: 3}
   isReload: 0
   bulletForce: 1
-  reloadSpeed: 0
   fireRate: 0
   fireDelay: 0
   damage: 1
@@ -302,6 +287,20 @@ MonoBehaviour:
   laserTimer: 0
   spread: 0
   boomScale: 0
+--- !u!114 &6338297638514610572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816795137638649300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a105d44959fb345b4d137e8bdd529f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  check: 0
 --- !u!1 &6481643930231755870
 GameObject:
   m_ObjectHideFlags: 0

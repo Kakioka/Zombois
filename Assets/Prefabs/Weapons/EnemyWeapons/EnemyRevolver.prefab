@@ -253,7 +253,6 @@ MonoBehaviour:
   bulletPre: {fileID: 2201232264264790160, guid: e3018a67560e42444acb2c5ddf1644ca, type: 3}
   isReload: 0
   bulletForce: 1
-  reloadSpeed: 0
   fireRate: 2
   fireDelay: 0
   damage: 1
@@ -264,7 +263,7 @@ MonoBehaviour:
   shooting: 0
   projectiles: 1
   bulletSize: 1
-  bulletLife: 5
+  bulletLife: 3
   offset: {x: 0, y: 0, z: 0}
   lookingRight: 1
   sister: {fileID: 0}

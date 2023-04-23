@@ -249,22 +249,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7b93f291b7aef449491cd1ca9a1349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  bulletPre: {fileID: 0}
+  firePoint: {fileID: 8252517988091119168}
+  bulletPre: {fileID: 4863663162033751002, guid: 689d3642125579f47a43b554a397e558, type: 3}
   isReload: 0
   bulletForce: 1
-  reloadSpeed: 0
   fireRate: 0
   fireDelay: 0
   damage: 1
   piecre: 0
   knockBack: 0
-  rb: {fileID: 0}
+  rb: {fileID: 8252517987037821162}
   player: {fileID: 0}
   shooting: 0
-  projectiles: 0
-  bulletSize: 1
-  bulletLife: 5
+  projectiles: 1
+  bulletSize: 2
+  bulletLife: 7
   offset: {x: 0, y: 0, z: 0}
   lookingRight: 1
   sister: {fileID: 0}
