@@ -338,11 +338,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: wepNum
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: highDmg
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
+      propertyPath: playerH
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 3359532807097216071, guid: b8d0145f6280343b4b06362051bf9b7a, type: 3}
       propertyPath: itemEquiped.Array.size

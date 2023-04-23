@@ -264,7 +264,15 @@ public class Bullet : MonoBehaviour
         GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
         Destroy(effect, 1f);
 
-        collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
+        if (!amBad)
+        {
+            collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
+        }
+        else
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - 1;
+        }
+        
         collision.gameObject.GetComponent<Enemy>().knock = true;
         Rigidbody2D rbE = collision.gameObject.GetComponent<Rigidbody2D>();
         rbE.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);

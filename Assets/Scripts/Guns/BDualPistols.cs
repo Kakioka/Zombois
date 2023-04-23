@@ -8,6 +8,10 @@ public class BDualPistols : MonoBehaviour
     public GameObject parent;
     public bool check = false;
 
+    //reference to brotherboss script
+    [SerializeField]
+    public BrotherBoss bb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +26,7 @@ public class BDualPistols : MonoBehaviour
             temp.GetComponent<BrotherBossGun>().offset = new Vector3(-0.1f, -0.1f, 0f);
             temp.GetComponent<BDualPistols>().parent = gameObject;
             temp.GetComponent<BDualPistols>().check = true;
+            bb.dGun = temp;
         }
     }
 
@@ -35,7 +40,7 @@ public class BDualPistols : MonoBehaviour
                 Destroy(gameObject);
             }
             else
-            {
+            {   
                 GetComponent<BrotherBossGun>().damage = parent.GetComponent<BrotherBossGun>().damage;
             }
         }

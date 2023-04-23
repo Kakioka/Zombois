@@ -18,6 +18,8 @@ public class BrotherBoss : MonoBehaviour
     
     //gun
     public GameObject gun;
+    //only for the dual pistol
+    public GameObject dGun;
 
     //circle shit
     public float RotateSpeed;
@@ -104,6 +106,10 @@ public class BrotherBoss : MonoBehaviour
                 if (gun.GetComponent<BrotherBossGun>().fireDelay == false)
                 {
                     ani.SetBool("move", false);
+                    if (dGun)
+                    {
+                        dGun.GetComponent<BrotherBossGun>().Shoot();
+                    }
                     gun.GetComponent<BrotherBossGun>().Shoot();
                 }
             }

@@ -81,6 +81,11 @@ public class BossManager : MonoBehaviour
         bItemUpgradeGun(bGun, gm.gun);
         //set the boss's gun to be the newly spawned gun
         bro.GetComponent<BrotherBoss>().gun = bGun;
+        //if the dual pistols were spawned, set the main dual pistol's bb reference to brother boss attatched to the main dude
+        if (num == 5)
+        {
+            bGun.GetComponent<BDualPistols>().bb = bro.GetComponent<BrotherBoss>();
+        }
     }
 
     //pass in the spawned weapon as gun, then pass in the player's current weapon as gunb. gun will then match gunb aside from reload speed, ammo, and beats item
