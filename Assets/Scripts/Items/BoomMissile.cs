@@ -25,6 +25,8 @@ public class BoomMissile : MonoBehaviour
     [SerializeField]
     private GameObject hitEffect;
 
+    public bool amBad;
+
     private void bleedEffect(Collider2D collision)
     {
         float chanceBleed = Random.Range(0, 100);
@@ -70,34 +72,66 @@ public class BoomMissile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.tag == "Enemy" || collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep")
+        if (!amBad)
         {
-            if (bleedOn)
+            if (collision.tag == "Enemy" || collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep")
             {
-                bleedEffect(collision);
+                if (bleedOn)
+                {
+                    bleedEffect(collision);
+                }
+
+                if (burnOn)
+                {
+                    burnEffect(collision);
+                }
+
+                collision.GetComponent<Enemy>().knock = true;
+                Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                rb.AddForce((collision.transform.position - gameObject.transform.position) * knockBack, ForceMode2D.Impulse);
+
+                Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
+                temp.z = 10;
+                GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+                num.transform.position += new Vector3(0.25f, 0f);
+                num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
+                Destroy(num, 1f);
+                collision.GetComponent<Enemy>().health -= damage;
+
+                GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+                Destroy(effect, 1f);
             }
-
-            if (burnOn)
-            {
-                burnEffect(collision);
-            }
-
-            collision.GetComponent<Enemy>().knock = true;
-            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            rb.AddForce((collision.transform.position - gameObject.transform.position) * knockBack, ForceMode2D.Impulse);
-
-            Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
-            temp.z = 10;
-            GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
-            num.transform.position += new Vector3(0.25f, 0f);
-            num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
-            Destroy(num, 1f);
-            collision.GetComponent<Enemy>().health -= damage;
-
-            GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
-            Destroy(effect, 1f);
         }
+        else
+        {
+            if (collision.tag == "Player" || collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Shopkeep")
+            {
+                if (bleedOn)
+                {
+                    bleedEffect(collision);
+                }
+
+                if (burnOn)
+                {
+                    burnEffect(collision);
+                }
+
+                Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                rb.AddForce((collision.transform.position - gameObject.transform.position) * knockBack, ForceMode2D.Impulse);
+
+                Vector3 temp = (Random.insideUnitCircle.normalized * radius) + new Vector2(collision.transform.position.x, collision.transform.position.y);
+                temp.z = 10;
+                GameObject num = Instantiate(damageNum, temp, damageNum.transform.rotation);
+                num.transform.position += new Vector3(0.25f, 0f);
+                num.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
+                Destroy(num, 1f);
+                collision.GetComponent<Enemy>().health -= damage;
+
+                GameObject effect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+                Destroy(effect, 1f);
+            }
+        }
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
