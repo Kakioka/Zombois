@@ -25,6 +25,9 @@ public class BossManager : MonoBehaviour
     //evil gun prefabs
     public List<GameObject> bGuns = new List<GameObject>();
 
+    //shotty exception
+    private bool shotty = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,15 +80,20 @@ public class BossManager : MonoBehaviour
         bGun.GetComponent<BrotherBossGun>().player = sm.boss;
         bGun.GetComponent<BrotherBossGun>().sister = sm.sister;
         bGun.GetComponent<BrotherBossGun>().target = sm.player;
+        if (num == 5)
+        {
+            bGun.GetComponent<BDualPistols>().bb = bro.GetComponent<BrotherBoss>();
+        }
+        if (num == 1)
+        {
+            shotty = true;
+        }
         //upgrade the gun to match the player's
         bItemUpgradeGun(bGun, gm.gun);
         //set the boss's gun to be the newly spawned gun
         bro.GetComponent<BrotherBoss>().gun = bGun;
         //if the dual pistols were spawned, set the main dual pistol's bb reference to brother boss attatched to the main dude
-        if (num == 5)
-        {
-            bGun.GetComponent<BDualPistols>().bb = bro.GetComponent<BrotherBoss>();
-        }
+
     }
 
     //pass in the spawned weapon as gun, then pass in the player's current weapon as gunb. gun will then match gunb aside from reload speed, ammo, and beats item
@@ -94,7 +102,15 @@ public class BossManager : MonoBehaviour
     //no bell cus it's protected
     public void bItemUpgradeGun(GameObject gun, GameObject gunb)
     {
-        gun.GetComponent<BrotherBossGun>().fireRate = gunb.GetComponent<Gun>().fireRate * ((1 - (gm.stim * gm.itemCounts[0])) * (1 + (gm.bangFire * gm.itemCounts[4])));
+        //exception firerate change for shotgun
+        if (!shotty)
+        {
+            gun.GetComponent<BrotherBossGun>().fireRate = gunb.GetComponent<Gun>().fireRate * ((1 - (gm.stim * gm.itemCounts[0])) * (1 + (gm.bangFire * gm.itemCounts[4])));
+        }
+        else
+        {
+            gun.GetComponent<BrotherBossGun>().fireRate = 3;
+        }
         gun.GetComponent<BrotherBossGun>().damage = Mathf.CeilToInt(gunb.GetComponent<Gun>().damage * Mathf.Pow(2, gm.itemCounts[17]) * (1 + (gm.bangDmg * gm.itemCounts[4]) + (gm.highDmg * gm.itemCounts[3]) + (gm.powerDmg * gm.itemCounts[12])) * (1 - (gm.MultiDmg * gm.itemCounts[6]) - (gm.lowDmg * gm.itemCounts[13])));
 
         if (gun.GetComponent<BrotherBossGun>().damage <= 0)
