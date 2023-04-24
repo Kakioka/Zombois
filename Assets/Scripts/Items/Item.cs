@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -17,8 +18,7 @@ public class Item : MonoBehaviour
     private TextMeshPro textItemName;
     [SerializeField]
     private TextMeshProUGUI textItemCost;
-    [SerializeField]
-    private int cost;
+    public int cost;
     [SerializeField]
     private int itemNum;
     [SerializeField]
@@ -41,6 +41,11 @@ public class Item : MonoBehaviour
         textItemName.text = itemName;
         textItemCost.text = "Cost: " + cost;
         toolTip.manager = gameM.GetComponent<gameManager>();
+    }
+
+    private void Awake()
+    {
+        GetComponentInChildren<Button>().onClick.AddListener(buy);
     }
 
     // Update is called once per frame

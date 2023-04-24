@@ -88,7 +88,7 @@ public class Spawner : MonoBehaviour
     public IEnumerator spawnRandomRange(int lower, int upper)
     {
         coolDown = true;
-        helperSpawn(nums[Random.Range(lower, upper)]);
+        helperSpawn(nums[Random.Range(lower, upper+1)]);
         yield return new WaitForSeconds(time);
         coolDown = false;
     }

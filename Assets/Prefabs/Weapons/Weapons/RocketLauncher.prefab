@@ -160,7 +160,7 @@ MonoBehaviour:
   maxAmmo: 1
   isReload: 0
   bulletForce: 4
-  reloadSpeed: 2.5
+  reloadSpeed: 2.2
   fireRate: 1
   fireDelay: 0
   damage: 12
@@ -191,7 +191,7 @@ MonoBehaviour:
   laser: {fileID: 6568972117659340223, guid: 0abaaf8b447584769bfbf534fa1a4248, type: 3}
   laserTimer: 5
   spread: 1
-  boomScale: 1.3
+  boomScale: 1.5
   shoot: {fileID: 7104343852018072323}
   reload: {fileID: -5220720993758609308}
 --- !u!82 &7104343852018072323

@@ -30,7 +30,8 @@ public class Laser : MonoBehaviour
     {
         if (transform.localScale.y >= maxLength)
         {
-            Destroy(gameObject);
+            
+            Destroy(gameObject,5);
         }
         else
         {
