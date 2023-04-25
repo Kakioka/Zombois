@@ -216,5 +216,6 @@ public class BrotherBossGun : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
 }
 

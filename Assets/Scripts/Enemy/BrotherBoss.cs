@@ -51,7 +51,18 @@ public class BrotherBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (gameObject.GetComponent<Enemy>().health <= 0)
+        {
+            if (dGun)
+            {
+                Destroy(dGun);
+                Destroy(gun);
+            }
+            else
+            {
+                Destroy(gun);
+            }
+        }
         if (gameObject.GetComponent<Enemy>().knock == true)
         {
             StartCoroutine(knockBack());

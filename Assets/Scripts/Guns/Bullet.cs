@@ -267,13 +267,13 @@ public class Bullet : MonoBehaviour
         if (!amBad)
         {
             collision.gameObject.GetComponent<Enemy>().health = collision.gameObject.GetComponent<Enemy>().health - damage;
+            collision.gameObject.GetComponent<Enemy>().knock = true;
         }
         else
         {
             collision.gameObject.GetComponent<PlayerMovement>().health = collision.gameObject.GetComponent<PlayerMovement>().health - 1;
         }
         
-        collision.gameObject.GetComponent<Enemy>().knock = true;
         Rigidbody2D rbE = collision.gameObject.GetComponent<Rigidbody2D>();
         rbE.AddForce(gameObject.transform.up * knockBack, ForceMode2D.Impulse);
 
