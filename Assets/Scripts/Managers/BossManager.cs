@@ -16,7 +16,7 @@ public class BossManager : MonoBehaviour
 
     //bools controlling which boss is spawned
     [SerializeField]
-    private bool spawnSis, spawnBro;
+    private int whichBoss;
 
     //boss bar
     [SerializeField]
@@ -40,26 +40,27 @@ public class BossManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            spawnBro = true;
             SpawnBoss();
-            spawnBro = false;
         }
     }
 
     public GameObject SpawnBoss()
     {
-        if (spawnBro){
+        //min is inclusive, max is exclusive. This will be a range between 0 and 1 but ints so either 0 or 1.
+        whichBoss = Random.Range(0, 2);
+        if (whichBoss == 1){
             GameObject temp = Instantiate(brotherBossPref);
             sm.boss = temp;
             temp.GetComponent<Enemy>().player = sm.player;
             temp.GetComponent<Enemy>().health *= sm.hpMod;
             temp.GetComponent<Enemy>().sister = sm.player;
-
+            gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
+            sm.sister.SetActive(false); //set sister (good) off
             bSpawnWep(gm.wepNum, temp);
 
             return temp;
         }
-        else
+        else if (whichBoss == 0)
         {
             GameObject boss = Instantiate(sisterBossPref, sm.transform.position, Quaternion.identity);
             gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
@@ -69,6 +70,10 @@ public class BossManager : MonoBehaviour
             boss.GetComponent<Enemy>().sister = sm.player; //set refernece
             boss.GetComponent<Enemy>().health *= sm.hpMod; //increase health mod
             return boss;
+        }
+        else
+        {
+            return null;
         }
     }
 
