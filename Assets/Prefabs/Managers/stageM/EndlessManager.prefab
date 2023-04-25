@@ -409,7 +409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3896395984594315488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400, y: 0, z: 0}
+  m_LocalPosition: {x: 400, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -516,7 +516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3896395984753765431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -400, y: 0, z: 0}
+  m_LocalPosition: {x: -400, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skip
+  m_text: 'Refresh: 99'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: db4f880d0a5674b689c3dd084e9a53b6, type: 2}
   m_sharedMaterial: {fileID: -8462219932058132798, guid: db4f880d0a5674b689c3dd084e9a53b6, type: 2}
@@ -1119,6 +1119,11 @@ MonoBehaviour:
   - {fileID: 4581698822119928488, guid: e90b8d5f146e8c6448739ddcfc761173, type: 3}
   - {fileID: 7444943483134988125, guid: 4b73fd8f2befcec44a0821b78295e523, type: 3}
   gameM: {fileID: 0}
+  itemChoices:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemNums: 000000000000000000000000
   skipButton: {fileID: 3896395986470782136}
 --- !u!1 &3896395986470782136
 GameObject:
@@ -1133,7 +1138,7 @@ GameObject:
   - component: {fileID: 3896395986470782135}
   - component: {fileID: 3896395986470782134}
   m_Layer: 5
-  m_Name: Skip
+  m_Name: Refresh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1242,9 +1247,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WeaponChoice, Assembly-CSharp
-        m_MethodName: skip
+      - m_Target: {fileID: 7558828867446808305}
+        m_TargetAssemblyTypeName: LevelUpChoice, Assembly-CSharp
+        m_MethodName: Refresh
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

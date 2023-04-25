@@ -614,7 +614,6 @@ public class gameManager : MonoBehaviour
 
         if (scene.name == "Endless")
         {
-            Time.timeScale = 1;
             currUI = Instantiate(UI);
             levelStart();
             currManager = Instantiate(stageManager[8]);

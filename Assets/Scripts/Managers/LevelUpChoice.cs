@@ -16,7 +16,9 @@ public class LevelUpChoice : MonoBehaviour
 
     public GameObject gameM;
 
+    [SerializeField]
     private List<GameObject> itemChoices = new List<GameObject>();
+    [SerializeField]
     private List<int> itemNums = new List<int>();
 
     [SerializeField]
@@ -29,6 +31,7 @@ public class LevelUpChoice : MonoBehaviour
         GetComponent<Canvas>().worldCamera = Camera.main;
         choice = gameObject;
         gameObject.SetActive(false);
+        skipButton.SetActive(false);
         /*if (gameM.GetComponent<gameManager>().itemCounts[28] <= 1)
         {
             skipButton.SetActive(false);
@@ -81,9 +84,10 @@ public class LevelUpChoice : MonoBehaviour
     {
         choice.SetActive(true);
         Time.timeScale = 0;
-        if (gameM.GetComponent<gameManager>().itemCounts[28] <= 1)
+        if (gameM.GetComponent<gameManager>().itemCounts[28] > 0)
         {
-            skipButton.SetActive(false);
+            skipButton.SetActive(true);
+            skipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Refresh: " + gameM.GetComponent<gameManager>().itemCounts[28];
         }
         for (int i = 0; i < 3; i++)
         {
@@ -93,11 +97,12 @@ public class LevelUpChoice : MonoBehaviour
                 int ran = Random.Range(1, itemCards.Count);
                 if (!itemNums.Contains(ran))
                 {
-                    itemChoices.Add(Instantiate(itemCards[ran], choices[i].transform));
-                    itemNums.Add(ran);
+                    itemChoices[i] = (Instantiate(itemCards[ran], choices[i].transform));
+                    itemNums[i] = ran;
                     temp = true;
                 }
             }
+
             if (itemChoices[i].GetComponent<weaponCard>() != null)
             {
                 itemChoices[i].GetComponent<weaponCard>().gameM = gameM;
@@ -109,9 +114,11 @@ public class LevelUpChoice : MonoBehaviour
                 itemChoices[i].GetComponent<Item>().gameM = gameM;
                 itemChoices[i].GetComponent<Item>().cost = 0;
                 itemChoices[i].GetComponent<Item>().player = gameM.GetComponent<gameManager>().player;
+                itemChoices[i].transform.localScale = new Vector3(120, 120, 120);
+                itemChoices[i].transform.position = new Vector3(itemChoices[i].transform.position.x, itemChoices[i].transform.position.y, itemChoices[i].transform.position.z + 1f);
             }
-            itemChoices[i].GetComponentInChildren<Button>().onClick.AddListener(closeLevelUp);
             itemChoices[i].GetComponentInChildren<Button>().onClick.AddListener(wepSet);
+            itemChoices[i].GetComponentInChildren<Button>().onClick.AddListener(closeLevelUp);
             GameObject b = itemChoices[i].GetComponentInChildren<Button>().gameObject;
             b.GetComponentInChildren<TextMeshProUGUI>().text = "Select";
             //for (int j = 0; j < 3; j++)
@@ -125,16 +132,62 @@ public class LevelUpChoice : MonoBehaviour
     public void closeLevelUp()
     {
         Time.timeScale = 1;
-        foreach (GameObject g in itemChoices)
+        for(int i = 0; i < itemChoices.Count; i++)
         {
-            Destroy(g);
-            itemChoices.Remove(g);
-        }
-        foreach (int i in itemNums)
-        {
-            itemNums.Remove(i);
+            Destroy(itemChoices[i]);
         }
         choice.SetActive(false);
+    }
+
+    public void Refresh()
+    {
+        for (int i = 0; i < itemChoices.Count; i++)
+        {
+            Destroy(itemChoices[i]);
+        }
+        if (gameM.GetComponent<gameManager>().itemCounts[28] > 0)
+        {
+            skipButton.SetActive(true);
+            skipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Refresh: " + gameM.GetComponent<gameManager>().itemCounts[28];
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            bool temp = false;
+            while (!temp)
+            {
+                int ran = Random.Range(1, itemCards.Count);
+                if (!itemNums.Contains(ran))
+                {
+                    itemChoices[i] = (Instantiate(itemCards[ran], choices[i].transform));
+                    itemNums[i] = ran;
+                    temp = true;
+                }
+            }
+
+            if (itemChoices[i].GetComponent<weaponCard>() != null)
+            {
+                itemChoices[i].GetComponent<weaponCard>().gameM = gameM;
+                itemChoices[i].GetComponent<weaponCard>().wepCost = 0;
+                itemChoices[i].GetComponent<weaponCard>().player = gameM.GetComponent<gameManager>().player;
+            }
+            else
+            {
+                itemChoices[i].GetComponent<Item>().gameM = gameM;
+                itemChoices[i].GetComponent<Item>().cost = 0;
+                itemChoices[i].GetComponent<Item>().player = gameM.GetComponent<gameManager>().player;
+                itemChoices[i].transform.localScale = new Vector3(120, 120, 120);
+                itemChoices[i].transform.position = new Vector3(itemChoices[i].transform.position.x, itemChoices[i].transform.position.y, itemChoices[i].transform.position.z + 1f);
+            }
+            itemChoices[i].GetComponentInChildren<Button>().onClick.AddListener(wepSet);
+            itemChoices[i].GetComponentInChildren<Button>().onClick.AddListener(closeLevelUp);
+            GameObject b = itemChoices[i].GetComponentInChildren<Button>().gameObject;
+            b.GetComponentInChildren<TextMeshProUGUI>().text = "Select";
+            //for (int j = 0; j < 3; j++)
+            //{
+            //GameObject g = itemChoices[i].GetComponentInChildren<Button>().gameObject;
+            //g.GetComponentInChildren<TextMeshProUGUI>().text = "Select";
+            //}
+        }
     }
 
     public void wepSet()
