@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &688273232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -864,18 +864,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29746f3cf08faf04cab9af7df8b01957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawns: 0
-  currSpawns: 0
   gameM: {fileID: 0}
   player: {fileID: 0}
   sister: {fileID: 0}
   spawner: {fileID: 1548769295969412283}
   levelDone: {fileID: 688273231}
-  enemyLeft: 0
   enemyLeftText: {fileID: 629200355}
+  enemyLeftObj: {fileID: 0}
   hpMod: 1
+  speedMod: 0
   stageCount: 0
   stageCountText: {fileID: 8520209761647573568}
+  stageEnd: {fileID: 0}
+  spawnSpeed: 3
+  spawnSpeedMod: 1
+  spawnMulti: 0
+  sisDied: {fileID: 0}
+  playerDied: {fileID: 0}
+  death: {fileID: 0}
+  survived: {fileID: 0}
+  bossPre: {fileID: 0}
+  bossBar: {fileID: 0}
+  bossSpawned: 0
+  boss: {fileID: 0}
+  timer: 0
+  stageTimer: 0
+  drops: []
 --- !u!1 &6409158490362931203
 GameObject:
   m_ObjectHideFlags: 0
