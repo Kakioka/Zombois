@@ -421,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3351793307401283672, guid: 29ed20c6657518c46aa0cf192de5b129, type: 3}
       propertyPath: m_text
-      value: Recycle.
+      value: Recycle. Grants an extra chance to refresh the shop.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ed20c6657518c46aa0cf192de5b129, type: 3}

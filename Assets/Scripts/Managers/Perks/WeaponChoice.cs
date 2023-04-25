@@ -48,11 +48,11 @@ public class WeaponChoice : MonoBehaviour
         } 
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
+    {
+        for (int i = 0; i < 3; i++)
         {
-            for (int i = 0; i < 3; i++)
-            {
                 GameObject b = wepChoices[i].GetComponentInChildren<Button>().gameObject;
                 b.GetComponentInChildren<TextMeshProUGUI>().text = "Select";
             }
@@ -64,6 +64,9 @@ public class WeaponChoice : MonoBehaviour
             Destroy(choice);
         }
 
+
+        
+    
     public void wepSet() 
     {
         Destroy(gameM.GetComponent<gameManager>().gun);

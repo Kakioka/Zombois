@@ -442,7 +442,7 @@ MonoBehaviour:
   description: Invoke Poseidon's wrath. Periodically throw a trident.
   itemSprite: {fileID: 0}
   itemDescription: {fileID: 6259328988572502269, guid: 3ca815fe105b648f39f619b88dec9b34, type: 3}
-  toolTip: {fileID: 0}
+  toolTip: {fileID: 1743982255238667153}
 --- !u!82 &3977331643630633418
 AudioSource:
   m_ObjectHideFlags: 0

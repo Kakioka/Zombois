@@ -64,6 +64,8 @@ public class EndlessManager : MonoBehaviour
     private TextMeshProUGUI experienceCount;
     [SerializeField]
     private Slider experienceFill;
+    [SerializeField]
+    private GameObject levelUp;
 
     private IEnumerator spawnDrop()
     {
@@ -79,6 +81,7 @@ public class EndlessManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelUp.GetComponent<LevelUpChoice>().gameM = gameM;
         spawner.GetComponent<Spawner>().player = player;
         spawner.GetComponent<Spawner>().sister = sister;
         spawner.GetComponent<Spawner>().target = player;
@@ -94,6 +97,7 @@ public class EndlessManager : MonoBehaviour
         {
             player.GetComponent<PlayerMovement>().bank -= experienceCap;
             experienceCap = Mathf.CeilToInt(experienceCap * 1.5f);
+            levelUp.GetComponent<LevelUpChoice>().levelUp();
         }
 
         experienceCount.text = "Exp: " + player.GetComponent<PlayerMovement>().bank + "/" + experienceCap;
