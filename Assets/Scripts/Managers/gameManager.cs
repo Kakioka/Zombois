@@ -167,13 +167,6 @@ public class gameManager : MonoBehaviour
         sis.GetComponent<Sister>().player = player;
     }
 
-    //instantiates the brotherboss
-    void spawnBrotherBoss()
-    {
-        brotherBoss = Instantiate(brotherBossPref, brotherBossPref.transform.position, Quaternion.identity);
-        brotherBoss.GetComponent<BrotherBoss>().player = player;
-    }
-
     public void levelEnd()
     {
         bank = player.GetComponent<PlayerMovement>().bank;
@@ -189,9 +182,6 @@ public class gameManager : MonoBehaviour
         gun.GetComponent<Gun>().player = player;
         player.GetComponent<PlayerMovement>().gun = gun;
     }
-
-    //spawns weaopn for brother
-
 
     public void itemUpgradeGun(GameObject gun, GameObject gunb)
     {
@@ -318,8 +308,6 @@ public class gameManager : MonoBehaviour
         currUI.GetComponent<UIManager>().gun = gun;
         currUI.GetComponent<UIManager>().aniGun.speed = 1 / gun.GetComponent<Gun>().reloadSpeed;
     }
-
-    //This one upgrades the gun of the brother boss to match the player, with some exceptions
 
     public void itemUpgradePlayer() 
     {

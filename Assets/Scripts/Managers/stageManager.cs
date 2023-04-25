@@ -43,6 +43,9 @@ public class stageManager : MonoBehaviour
     public GameObject boss;
 
     [SerializeField]
+    private bool bossDead = false;
+
+    [SerializeField]
     private float timer;
 
     [SerializeField]
@@ -62,6 +65,10 @@ public class stageManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         Time.timeScale = 0;
+        if (bossDead)
+        {
+            SceneManager.LoadScene(15);
+        }
         levelDone.SetActive(true);
 
     }
@@ -184,6 +191,7 @@ public class stageManager : MonoBehaviour
             if (boss == null)
             {
                 bossBar.SetActive(false);
+                bossDead = true;
                 StartCoroutine(end());
             }
         }
