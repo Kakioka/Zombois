@@ -47,6 +47,9 @@ public class UIManager : MonoBehaviour
 
     private GameObject perkM;
 
+    private EndlessManager end;
+    private bool boss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,7 @@ public class UIManager : MonoBehaviour
         h3.color = Color.white;
         //aniGun.speed /= gun.GetComponent<Gun>().reloadSpeed;
         spawnItemList();
+        end = gameManager.GetComponent<gameManager>().currManager.GetComponent<EndlessManager>();
     }
 
     private void Awake()
@@ -68,11 +72,15 @@ public class UIManager : MonoBehaviour
     {
         cash.text = "Cash: " + player.GetComponent<PlayerMovement>().bank.ToString();
         ammo.text = gun.GetComponent<Gun>().ammo.ToString() + "/" + gun.GetComponent<Gun>().maxAmmo.ToString();
-        moonText.text = ":  " + perkM.GetComponent<PerkManager>().moonCoin;
+        moonText.text = ": " + perkM.GetComponent<PerkManager>().moonCoin;
 
-        if (gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>() != null)
+        if ((gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>() != null) || (end != null))
         {
-            if (!sister.GetComponent<SpriteRenderer>().isVisible && !gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>().bossSpawned)
+            if (gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>() != null)
+            {
+                boss = gameManager.GetComponent<gameManager>().currManager.GetComponent<stageManager>().bossSpawned;
+            }
+            if ((!sister.GetComponent<SpriteRenderer>().isVisible && !boss) || (end != null && !sister.GetComponent<SpriteRenderer>().isVisible))
             {
                 arrow.SetActive(true);
             }
@@ -226,21 +234,25 @@ public class UIManager : MonoBehaviour
 
     public void updateItemList() 
     {
-        for(int i = 0; i < gameManager.GetComponent<gameManager>().itemEquiped.Count; i++) 
+        for (int i = 0; i < gameManager.GetComponent<gameManager>().itemEquiped.Count; i++) 
         {
             if (!currItemIndex.Contains(gameManager.GetComponent<gameManager>().itemEquiped[i]))
             {
+                lastItemPos = itemPos.position;
+                if (Mathf.FloorToInt(currItemIndex.Count / 12) != 0)
+                {
+                    lastItemPos.y -= itemBuffer * (Mathf.FloorToInt(currItemIndex.Count / 12));
+                    lastItemPos.x += itemBuffer * (currItemIndex.Count % 12);
+                }
+                else 
+                {
+                    lastItemPos.x += itemBuffer * i;
+                }
                 GameObject temp = Instantiate(items[gameManager.GetComponent<gameManager>().itemEquiped[i]], itemPos);
                 temp.transform.position = lastItemPos;
                 currItems.Add(temp);
                 temp.GetComponentInChildren<TextMeshPro>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();
                 currItemIndex.Add(gameManager.GetComponent<gameManager>().itemEquiped[i]);
-                lastItemPos.x +=  itemBuffer;
-                if (currItemIndex.Count % 12 == 0) 
-                {
-                    lastItemPos.x = itemPos.position.x;
-                    lastItemPos.y -= itemBuffer;
-                }
             }
             else 
             {
@@ -254,7 +266,6 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < gameManager.GetComponent<gameManager>().itemEquiped.Count; i++)
         {    
             GameObject temp = Instantiate(items[gameManager.GetComponent<gameManager>().itemEquiped[i]], itemPos);
-            //lastItemPos.z = 0;
             temp.transform.position = lastItemPos;
             currItems.Add(temp);
             temp.GetComponentInChildren<TextMeshPro>().text = gameManager.GetComponent<gameManager>().itemCounts[gameManager.GetComponent<gameManager>().itemEquiped[i]].ToString();

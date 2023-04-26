@@ -101,7 +101,7 @@ MonoBehaviour:
   damage: 0
   damageNum: {fileID: 8144040177230684675, guid: c826233c348751544804641dbe116395, type: 3}
   radius: 0.5
-  boomRadius: 0.5
+  boomRadius: 1
   knockBack: 0
   bleedOn: 0
   bleedLvl: 0

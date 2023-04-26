@@ -4940,6 +4940,6 @@ MonoBehaviour:
   trackingOn: 1
   explode: {fileID: 6304155242975271792, guid: 6b810c544766e42ffbfac0c209e6c46f, type: 3}
   freeze: {fileID: 1433825985532310193, guid: b7ca3d6510721844f87855f02b271a94, type: 3}
-  rotateSpeed: 100
+  rotateSpeed: 150
   explodeOn: 1
   explodeScale: 0

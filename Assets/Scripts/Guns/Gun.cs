@@ -118,18 +118,18 @@ public class Gun : MonoBehaviour
     IEnumerator laserShoot()
     {
         laserCoolDown = true;
+        yield return new WaitForSeconds(laserTimer);
         GameObject temp = Instantiate(laser, firePoint.transform.position, firePoint.transform.rotation);
         temp.GetComponent<Laser>().damage = laserDamage;
-        yield return new WaitForSeconds(laserTimer);
         laserCoolDown = false;
     }
 
     IEnumerator tridentShoot()
     {
         tridentCoolDown = true;
+        yield return new WaitForSeconds(tridentTimer);
         GameObject temp = Instantiate(trident, firePoint.transform.position, firePoint.transform.rotation);
         temp.GetComponent<Bullet>().damage = tridentDamage;
-        yield return new WaitForSeconds(tridentTimer);
         tridentCoolDown = false;
     }
 

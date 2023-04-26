@@ -57,7 +57,7 @@ public class PerkManager : MonoBehaviour
 
     void levelLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Stage1" || scene.name == "Stage1Hard" || scene.name == "Stage1Hell" || scene.name == "Stage1Normal")
+        if (scene.name == "Stage1" || scene.name == "Stage1Hard" || scene.name == "Stage1Hell" || scene.name == "Stage1Normal"|| scene.name == "Endless")
         {
             gameM = GameObject.FindGameObjectWithTag("gameM");
             if (perkEquiped[3]) 

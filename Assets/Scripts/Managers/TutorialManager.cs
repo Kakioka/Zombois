@@ -44,6 +44,11 @@ public class TutorialManager : MonoBehaviour
         SceneManager.LoadScene(14);
     }
 
+    public void Endless()
+    {
+        SceneManager.LoadScene(15);
+    }
+
     public void Back()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

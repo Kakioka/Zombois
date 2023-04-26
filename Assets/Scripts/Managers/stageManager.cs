@@ -102,7 +102,6 @@ public class stageManager : MonoBehaviour
         if (stageTimer >= 0)//if stage is not over 
         {
             stageTimer -= Time.deltaTime;
-            float temp = 0.1f * stageTimer;
             spawner.GetComponent<Spawner>().time = endSpeed * (1 + (0.001f * stageTimer * 3f));
             spawner.GetComponent<Spawner>().hpMod = endHpMod * (1 - (0.001f * stageTimer * 3f));
             spawner.GetComponent<Spawner>().speedMod = endSpeedMod * (1 - (0.001f * stageTimer * 3f));

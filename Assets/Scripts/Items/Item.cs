@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -17,8 +18,7 @@ public class Item : MonoBehaviour
     private TextMeshPro textItemName;
     [SerializeField]
     private TextMeshProUGUI textItemCost;
-    [SerializeField]
-    private int cost;
+    public int cost;
     [SerializeField]
     private int itemNum;
     [SerializeField]
@@ -43,6 +43,11 @@ public class Item : MonoBehaviour
         toolTip.manager = gameM.GetComponent<gameManager>();
     }
 
+    private void Awake()
+    {
+        GetComponentInChildren<Button>().onClick.AddListener(buy);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -64,7 +69,10 @@ public class Item : MonoBehaviour
                 des.GetComponent<ItemDescription>().item = itemSprite;
                 des.GetComponent<ItemDescription>().description = description;
                 des.GetComponent<Canvas>().worldCamera = Camera.main;
-                upgradeShop.GetComponent<upgradeShopWepButtons>().updateInShop();
+                if (upgradeShop != null) 
+                {
+                    upgradeShop.GetComponent<upgradeShopWepButtons>().updateInShop();
+                }
                 gameObject.GetComponent<AudioSource>().Play();
             }
         }

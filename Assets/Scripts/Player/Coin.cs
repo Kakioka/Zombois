@@ -20,6 +20,9 @@ public class Coin : MonoBehaviour
     [SerializeField]
     private bool moon;
 
+    [SerializeField]
+    private AudioClip clip;
+
 
     // Start is called before the first frame update
     void Start()
@@ -81,15 +84,16 @@ public class Coin : MonoBehaviour
                 temp.GetComponent<PerkManager>().moonCoin++;
             }
             //gameObject.GetComponent<AudioSource>().pitch = Random.Range(.6f, 1.4f);
-            gameObject.GetComponent<AudioSource>().Play();
+            AudioSource.PlayClipAtPoint(clip, gameObject.transform.position);
             player.GetComponent<PlayerMovement>().bank += value;
-            Destroy(gameObject,0.2f);
+            Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "PickUp")
+
+        if (collision.gameObject.tag == "PickUp" && !pickedUpS)
         {
             pickedUp = true;
         }
-        if (collision.gameObject.tag == "PickUpS")
+        if (collision.gameObject.tag == "PickUpS" && !pickedUp)
         {
             pickedUpS = true;
         }
