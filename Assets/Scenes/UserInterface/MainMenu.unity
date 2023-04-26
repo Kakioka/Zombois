@@ -1505,19 +1505,31 @@ MonoBehaviour:
   m_text: 'CREDITS
 
 
+    Designer
+
     Justin Yip
 
-    Kaiwi Akioka
+    Programming
 
-    Cris Javier
+    Kaiwi Akioka,
+    Cris Javier, Justin Yip
 
-    16x16
-    DungeonTileset II
+    Artist
+
+    16x16 DungeonTileset II by GrafxKid,
+    Justin Yip
+
+    Sound Effects
 
     freesound.org
 
+    Music
 
-    Special thanks to
+    Justin Yip
+
+
+    Special
+    thanks to
 
     Jazmine Urehara'
   m_isRightToLeft: 0
@@ -1546,8 +1558,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1582,7 +1594,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 1.3800963, y: -2.550476, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1612,10 +1624,10 @@ RectTransform:
   m_Father: {fileID: 6920080007952145773}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -22.659607}
-  m_SizeDelta: {x: -1365.1501, y: -1037.73}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 46, y: -70}
+  m_SizeDelta: {x: 772.48, y: 586.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &551250819
 PrefabInstance:
@@ -6357,7 +6369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -337}
+  m_AnchoredPosition: {x: -2, y: -322}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2134657717
