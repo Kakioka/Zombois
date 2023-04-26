@@ -70,6 +70,7 @@ MonoBehaviour:
   bossBar: {fileID: 2795069762492584755}
   bossSpawned: 0
   boss: {fileID: 0}
+  bossDead: 0
   timer: 5
   stageTimer: 120
   drops:
@@ -92,8 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sisterBossPref: {fileID: 5504292816335067635, guid: 7d8c6f1238ea48c4483717267d961d5b, type: 3}
   brotherBossPref: {fileID: 8514121530740298771, guid: 96fe489f21d4be94faa7c8ea1495a0ad, type: 3}
-  spawnSis: 0
-  spawnBro: 0
+  whichBoss: 0
   bossBar: {fileID: 8604823626909752753, guid: 28127316f3152644aa60778bfc431560, type: 3}
   bGuns:
   - {fileID: 816795137638649300, guid: 087af925c24e8b54e94f35a7c2fae099, type: 3}
@@ -246,13 +246,17 @@ PrefabInstance:
       propertyPath: m_text
       value: You survived all 7 days
       objectReference: {fileID: 0}
+    - target: {fileID: 8226003564044311534, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
+      propertyPath: m_margin.z
+      value: -90.478516
+      objectReference: {fileID: 0}
     - target: {fileID: 8226003564044311535, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_SizeDelta.x
       value: 407.3602
       objectReference: {fileID: 0}
     - target: {fileID: 8226003564044311535, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.000015
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8226003564294754938, guid: 32dcfaefb8794bf479aef56a53493675, type: 3}
       propertyPath: m_IsActive

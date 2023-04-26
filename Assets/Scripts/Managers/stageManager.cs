@@ -65,12 +65,7 @@ public class stageManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         Time.timeScale = 0;
-        if (bossDead)
-        {
-            SceneManager.LoadScene(15);
-        }
         levelDone.SetActive(true);
-
     }
 
     private IEnumerator spawnDrop()

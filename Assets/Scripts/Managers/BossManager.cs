@@ -38,10 +38,10 @@ public class BossManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        /*if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             SpawnBoss();
-        }
+        }*/
     }
 
     public GameObject SpawnBoss()

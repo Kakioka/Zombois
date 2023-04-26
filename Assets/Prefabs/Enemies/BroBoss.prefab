@@ -163,11 +163,11 @@ MonoBehaviour:
   sister: {fileID: 0}
   damage: 0
   rb: {fileID: 0}
-  maxDist: 5
+  maxDist: 4
   lookingRight: 1
   gun: {fileID: 0}
   dGun: {fileID: 0}
-  RotateSpeed: 0.75
+  RotateSpeed: 0.3
 --- !u!114 &7964415510418464537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,13 +180,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e283203ed438f4d9b1583b471f4417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 50
   gold: {fileID: 9205036790924861423, guid: 67daf60d5194b7547aebdece35cbedd6, type: 3}
   copper: {fileID: 9205036790924861423, guid: 8c9e1eb32619d4b64a3025ad87fb9d65, type: 3}
   silver: {fileID: 9205036790924861423, guid: 6efdef7ae9ac248daa3da0253e291ab4, type: 3}
   player: {fileID: 0}
   sister: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 1
   knock: 0
 --- !u!1 &8514121530946603363
 GameObject:
