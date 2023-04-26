@@ -8086,6 +8086,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8177461362331787392, guid: 465b787b44d91d445a7082e4c42ba613, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8177461362331787398, guid: 465b787b44d91d445a7082e4c42ba613, type: 3}
       propertyPath: m_RootOrder
       value: 4
