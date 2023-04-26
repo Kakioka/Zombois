@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Lobbies.Models;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -55,7 +56,7 @@ public class BossManager : MonoBehaviour
             temp.GetComponent<Enemy>().health *= sm.hpMod;
             temp.GetComponent<Enemy>().sister = sm.player;
             gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
-            sm.sister.SetActive(false); //set sister (good) off
+            //sm.sister.SetActive(false); //set sister (good) off
             bSpawnWep(gm.wepNum, temp);
 
             return temp;
@@ -65,6 +66,42 @@ public class BossManager : MonoBehaviour
             GameObject boss = Instantiate(sisterBossPref, sm.transform.position, Quaternion.identity);
             gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
             sm.sister.SetActive(false); //set sister (good) off
+            boss.GetComponent<sisBoss>().player = sm.player; //set the refernece
+            boss.GetComponent<Enemy>().player = sm.player; //set reference
+            boss.GetComponent<Enemy>().sister = sm.player; //set refernece
+            boss.GetComponent<Enemy>().health *= sm.hpMod; //increase health mod
+            return boss;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public GameObject SpawnBossEndless()
+    {
+        //min is inclusive, max is exclusive. This will be a range between 0 and 1 but ints so either 0 or 1.
+        whichBoss = Random.Range(0, 2);
+        if (whichBoss == 1)
+        {
+            Vector3 temp2 = (Random.insideUnitCircle.normalized * 10) + new Vector2(gm.player.transform.position.x, gm.player.transform.position.y);
+            GameObject temp = Instantiate(brotherBossPref,temp2, Quaternion.identity);
+            sm.boss = temp;
+            temp.GetComponent<Enemy>().player = sm.player;
+            temp.GetComponent<Enemy>().health *= sm.hpMod;
+            temp.GetComponent<Enemy>().sister = sm.player;
+            //gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
+            //sm.sister.SetActive(false); //set sister (good) off
+            bSpawnWep(gm.wepNum, temp);
+
+            return temp;
+        }
+        else if (whichBoss == 0)
+        {
+            Vector3 temp2 = (Random.insideUnitCircle.normalized * 10) + new Vector2(gm.player.transform.position.x, gm.player.transform.position.y);
+            GameObject boss = Instantiate(sisterBossPref, temp2, Quaternion.identity);
+            //gameM.GetComponent<gameManager>().currUI.GetComponent<UIManager>().sisH.SetActive(false); //turns off the sister health
+            //sm.sister.SetActive(false); //set sister (good) off
             boss.GetComponent<sisBoss>().player = sm.player; //set the refernece
             boss.GetComponent<Enemy>().player = sm.player; //set reference
             boss.GetComponent<Enemy>().sister = sm.player; //set refernece

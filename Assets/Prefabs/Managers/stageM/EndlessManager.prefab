@@ -221,6 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468025485690917260}
   - component: {fileID: 4984456495638784858}
+  - component: {fileID: 7834552148291720672}
   m_Layer: 0
   m_Name: EndlessManager
   m_TagString: Untagged
@@ -294,6 +295,31 @@ MonoBehaviour:
   experienceCount: {fileID: 5651062543948007358}
   experienceFill: {fileID: 5426524839159591520}
   levelUp: {fileID: 3896395986395866349}
+--- !u!114 &7834552148291720672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468025485690917258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715ef8a8984896e4aa877c230014f19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sisterBossPref: {fileID: 5504292816335067635, guid: 7d8c6f1238ea48c4483717267d961d5b, type: 3}
+  brotherBossPref: {fileID: 8514121530740298771, guid: 96fe489f21d4be94faa7c8ea1495a0ad, type: 3}
+  whichBoss: 0
+  bossBar: {fileID: 7524624615614555760}
+  bGuns:
+  - {fileID: 816795137638649300, guid: 087af925c24e8b54e94f35a7c2fae099, type: 3}
+  - {fileID: 4229727540086970750, guid: 9be7864505bbcfa4fb7ad019081df87a, type: 3}
+  - {fileID: 8252517987037821156, guid: 6b9c00482a672a647869c3efa0daaa50, type: 3}
+  - {fileID: 3758488845514612959, guid: 51df9095112a49449ace582d56b8fef9, type: 3}
+  - {fileID: 3383940849777442907, guid: 60d9d86c1ea25d84d91aba532e6e7b1d, type: 3}
+  - {fileID: 816795137638649300, guid: c257e72233ddb8247a820ba5e41c7864, type: 3}
+  - {fileID: 8252517987037821156, guid: da074b8fa19dc2c4fb936e29af27e2e9, type: 3}
+  - {fileID: 8252517987037821156, guid: 2262588468b831044ad516c78a5c8f98, type: 3}
 --- !u!1 &2879342789388451689
 GameObject:
   m_ObjectHideFlags: 0

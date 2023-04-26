@@ -142,11 +142,7 @@ public class EndlessManager : MonoBehaviour
         if (stageTimer % 500 == 0)
         {
             Vector3 temp2 = (Random.insideUnitCircle.normalized * 10) + new Vector2(player.transform.position.x, player.transform.position.y);
-            boss = Instantiate(bossPre, temp2, Quaternion.identity);
-            boss.GetComponent<sisBoss>().player = player;
-            boss.GetComponent<Enemy>().player = player;
-            boss.GetComponent<Enemy>().sister = player;
-            boss.GetComponent<Enemy>().health *= hpMod;
+            boss = GetComponent<BossManager>().SpawnBoss();
             bossBar.SetActive(true);
             bossBar.GetComponent<BossHpBar>().boss = boss;
             bossBar.GetComponent<BossHpBar>().enabled = true;
