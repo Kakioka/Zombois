@@ -167,7 +167,7 @@ MonoBehaviour:
   lookingRight: 1
   gun: {fileID: 0}
   dGun: {fileID: 0}
-  RotateSpeed: 0.3
+  RotateSpeed: 0.5
 --- !u!114 &7964415510418464537
 MonoBehaviour:
   m_ObjectHideFlags: 0

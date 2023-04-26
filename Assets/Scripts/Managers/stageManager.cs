@@ -36,14 +36,9 @@ public class stageManager : MonoBehaviour
     private GameObject bossPre;
     public GameObject bossBar;
 
-    private int tempCurr;
-
     public bool bossSpawned = false;
 
     public GameObject boss;
-
-    [SerializeField]
-    private bool bossDead = false;
 
     [SerializeField]
     private float timer;
@@ -185,7 +180,6 @@ public class stageManager : MonoBehaviour
             if (boss == null)
             {
                 bossBar.SetActive(false);
-                bossDead = true;
                 StartCoroutine(end());
             }
         }
