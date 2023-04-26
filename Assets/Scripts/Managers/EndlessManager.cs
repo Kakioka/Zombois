@@ -36,8 +36,6 @@ public class EndlessManager : MonoBehaviour
     private GameObject bossPre;
     public GameObject bossBar;
 
-    private int tempCurr;
-
     public bool bossSpawned = false;
 
     public GameObject boss;
@@ -142,15 +140,20 @@ public class EndlessManager : MonoBehaviour
         if (stageTimer % 500 == 0)
         {
             Vector3 temp2 = (Random.insideUnitCircle.normalized * 10) + new Vector2(player.transform.position.x, player.transform.position.y);
+            bossSpawned = true;
             boss = GetComponent<BossManager>().SpawnBoss();
             bossBar.SetActive(true);
             bossBar.GetComponent<BossHpBar>().boss = boss;
             bossBar.GetComponent<BossHpBar>().enabled = true;
         }
 
-        if (boss == null)
+        if (bossSpawned == true) //turns off the boss bar
         {
-            bossBar.GetComponent<BossHpBar>().enabled = false;
+            if (boss == null)
+            {
+                bossSpawned = false;
+                bossBar.SetActive(false);
+            }
         }
 
         if (stageTimer < 60f)
